@@ -3,43 +3,39 @@
 
 {% load static %}
 
-<div class="row justify-content-center">
-  <div class="col-md-12 text-center" style="padding: 0px;">
+<div class="row justify-content-center" style="background-image: ">
+  <div class="col-md-12 text-center row" style="padding: 0px;">
     <div class="col-md-12 bg-light mb-5" style="padding: 5px;">
       <h1 class="display-3">Welcome to Movie Directory</h1>
     </div>
-    <div class="col-md-12 bg-dark m-auto row w-50">
-      <div class="col-md-4">
-        <p class="lead text-white m-auto"> Share your favorite movies with the people that matters. </p>
-      </div>
-      <div class="col-md-4"></div>
-      <div class="col-md-4"></div>
-    </div>
-    <div class="col-md-12 bg-dark pt-3 m-auto row w-50">
-      <div class="col-md-4"></div>
-      <div class="col-md-4">
-        <p class="lead text-white m-auto"> Always up to date movie database. </p>
-      </div>
-      <div class="col-md-4"></div>
-    </div>
-    <div class="col-md-12 bg-dark pt-3 m-auto row w-50">
-      <div class="col-md-4"></div>
-      <div class="col-md-4"></div>
-      <div class="col-md-4">
-        <p class="lead text-white m-auto"> Start now end enjoy yourself. </p>
+    <div class="col-md-3">
+      <div class="col-md-12 mt-3 pb-3">
+        <div class="index_logo shadow bg-secondary">
+          <img src="{% static 'img/logo.png' %}" alt="Logo" style="max-width: 100%; height: auto;">
+        </div>
       </div>
     </div>
-  </div>
-  <div class="col-md-12 mt-3 mb-5">
-    <div class="index_logo">
-      <img src="{% static 'img/logo.png' %}" alt="Logo" style="max-width: 100%; height: auto;">
+    <div class="col-md-9">
+      <table height=100% class="col-md-12">
+        <tr>
+            <td class="lead text-white align-middle">
+              Share your favorite movies with people who matters.
+            </td>
+            <td class="lead text-white align-middle">
+              Always up to date movie database. 
+            </td>
+            <td class="lead text-white align-middle">
+              Start now and enjoy yourself.
+            </td>
+        </tr>
+      </table>
     </div>
   </div>
-  <div class="col-md-3">
-    <a href="" class="btn btn-lg btn-block btn-outline-light mb-2">This is where the fun begins <br><small class="muted">Sign in</small></a>
+  <div class="col-md-3 mt-3">
+    <a href="" class="btn btn-lg btn-block btn-outline-light mb-2 shadow">This is where the fun begins <br><small class="muted">Sign in</small></a>
   </div>
-  <div class="col-md-3">
-    <a href="" class="btn btn-lg btn-block btn-outline-light mb-2">Don't worry I've got this <br><small class="muted">Log in</small></a>
+  <div class="col-md-3 mt-3">
+    <a href="" class="btn btn-lg btn-block btn-outline-light mb-2 shadow">Don't worry I've got this <br><small class="muted">Log in</small></a>
   </div>
 </div>
 
