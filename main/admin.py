@@ -8,7 +8,7 @@ class MovieAdmin(admin.ModelAdmin):
 	ordering = ('released',)
 
 admin.site.register(Movie, MovieAdmin)
-admin.site.register(ViewedMovie)
+admin.site.register(WatchedMovie)
 
 
 # Register your models here.
