@@ -2,7 +2,8 @@
 {% block content %}
 
 {% load static %}
-
+{% if user.is_authenticated %}
+{% else %}
 <div class="row justify-content-center" style="background-image: ">
   <div class="col-md-12 text-center row" style="padding: 0px;">
     <div class="col-md-12 bg-light mb-5" style="padding: 5px;">
@@ -32,11 +33,12 @@
     </div>
   </div>
   <div class="col-md-3 mt-3">
-    <a href="" class="btn btn-lg btn-block btn-outline-light mb-2 shadow">This is where the fun begins <br><small class="muted">Sign in</small></a>
+    <a href="{% url 'register' %}" class="btn btn-lg btn-block btn-outline-light mb-2 shadow">This is where the fun begins <br><small class="muted">Sign in</small></a>
   </div>
   <div class="col-md-3 mt-3">
     <a href="" class="btn btn-lg btn-block btn-outline-light mb-2 shadow">Don't worry I've got this <br><small class="muted">Log in</small></a>
   </div>
 </div>
+{% endif %}
 
 {% endblock %}
