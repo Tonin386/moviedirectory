@@ -1,7 +1,9 @@
 import datetime
 from django import forms
 from django_registration.forms import RegistrationForm
+from django.forms import ModelForm
 from moviedirectory.models import User
+from .models import WatchedMovie
 
 class LoginForm(forms.Form):
     username = forms.CharField(label="Username", max_length=16)
@@ -33,3 +35,9 @@ class SignInForm(RegistrationForm):
 
     def save(self, commit=True):
         return super(SignInForm, self).save(commit=commit)
+
+class WatchedMovieForm(ModelForm):
+    class Meta:
+        model = WatchedMovie
+        fields = ['movie', 'view_date', 'note', 'new', 'theater', 'comment']
+

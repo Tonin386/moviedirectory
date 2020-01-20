@@ -56,7 +56,7 @@ class User(AbstractUser):
     email = models.EmailField(unique=True, verbose_name="Email")
     first_name = models.CharField(max_length=50, null=True, blank=True, verbose_name="First name")
     last_name = models.CharField(max_length=50, null=True, blank=True, verbose_name="Last name")
-    watched_movies = models.ManyToManyField('main.WatchedMovie', verbose_name="Watched movies", blank=True)
+    watchlist = models.ManyToManyField('main.WatchedMovie', verbose_name="Watched movies", blank=True)
     followed = models.ManyToManyField('self', verbose_name="Followed persons", blank=True)
     followers = models.ManyToManyField('self', verbose_name="Followers", blank=True)
 

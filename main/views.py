@@ -1,4 +1,5 @@
 from django.contrib.auth import authenticate, login as dj_login, logout as dj_logout
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.http import HttpResponseNotFound
 from django.template import RequestContext
@@ -36,6 +37,18 @@ def register(request):
 		addedUser = True
 
 	return render(request, 'auth/register.html', locals())
+
+@login_required
+def add_movie_to_watchlist(request):
+	form = WatchedMovieForm(request.POST or None)
+	user = request.user
+	if form.is_valid():
+		form.viewer = user
+		form.save()
+		return redirect('home')
+	else:
+		return render(request, 'pages/add_movie_to_watchlist.html', locals())
+
 			
 def profile(request, username):
 	user = User.objects.get(username=username)
