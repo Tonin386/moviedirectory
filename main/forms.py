@@ -1,7 +1,8 @@
 import datetime
 from django import forms
 from django_registration.forms import RegistrationForm
-from django.forms import ModelForm
+from django.forms import ModelForm, IntegerField
+from django.core.validators import MinValueValidator, MaxValueValidator
 from moviedirectory.models import User
 from .models import WatchedMovie
 

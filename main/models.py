@@ -2,7 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.utils.translation import ugettext_lazy as _
-from django.core.validators import int_list_validator
+from django.core.validators import int_list_validator, MinValueValidator, MaxValueValidator
 from main.api import make_request_by_id as fetch_movie
 
 class Movie(models.Model):
@@ -85,7 +85,7 @@ class Movie(models.Model):
 class WatchedMovie(models.Model):
 	movie = models.ForeignKey('main.Movie', verbose_name="Movie", on_delete=models.CASCADE)
 	view_date = models.DateTimeField(verbose_name="Watched on")
-	note = models.IntegerField(null=True, blank=True, verbose_name="Personal note")
+	note = models.IntegerField(null=True, blank=True, verbose_name="Personal note", validators=[MinValueValidator(0), MaxValueValidator(10)], default=10)
 	new = models.BooleanField(verbose_name="Never seen before")
 	theater = models.BooleanField(verbose_name="I saw it at theater!")
 	viewer = models.ForeignKey('moviedirectory.User', verbose_name="Viewer", on_delete=models.CASCADE)

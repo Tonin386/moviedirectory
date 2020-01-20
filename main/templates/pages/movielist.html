@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% include "nav.html" %}
+
+<h1 class="text-center text-light mt-5">Search for a movie in the database</h1>
+<form method="post" action="">
+    {% csrf_token %}
+	<div class="input-group mb-3 col-lg-3 m-auto">
+	  <div class="input-group-prepend">
+	    <span class="input-group-text" id="basic-addon1">imDB</span>
+	  </div>
+	  <input type="text" class="form-control" placeholder="Title" aria-label="Title" aria-describedby="basic-addon1" value="{{ title }}" name="title">
+	</div>
+	<div class="text-center">
+		<button type="submit" class="btn btn-light mt-3">Search</button>
+	</div>
+</form>
+{% if title and success %}
+	<div class="row col-lg-12 align-items-center m-auto justify-content-lg-center">
+		{% for movie in movies %}
+			{% if movie.Type == "movie" or movie.Type == "series" or movie.Type == "episode" %}
+				<div class="col-lg-3 mt-3">
+					<div class="card m-auto" style="width: 20rem;">
+					  <img class="card-img-top" src="{{ movie.Poster }}" width="180" alt="{{ movie.Title }} poster">
+					  <div class="card-body">
+					    <h5 class="card-title"> {{ movie.Title }} <span class="text-muted ">- {{ movie.Year }}</span></h5>
+					    <a href="" class="btn btn-dark">Add to watchlist </a>
+					    <a href="https://www.imdb.com/title/{{movie.imdbID}}" class="btn btn-warning" target="_blank">See on imDB</a>
+					  </div>
+					</div>
+				</div>
+			{% endif %}
+		{% endfor %}
+	<div>
+{% elif error %}
+	<p> Error </p>	
+{% endif %}
+{% endblock %}

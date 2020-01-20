@@ -42,7 +42,7 @@ def make_request_search(md_title, md_type="none", page=1, year=-1):
 	url = "http://www.omdbapi.com/?apikey="
 	key = config.get('imdb_api', 'key')
 	url += key + "&"
-	url += "s=" + md_title
+	url += "s=" + urllib.parse.quote(md_title)
 	url += "&page=" + str(page)
 	if md_type != "none":
 		url += "&type=" + md_type 
@@ -51,5 +51,6 @@ def make_request_search(md_title, md_type="none", page=1, year=-1):
 
 	f = urllib.request.urlopen(url)
 	response = json.loads(f.read())
+	pprint(response)
 
 	return response

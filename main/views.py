@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponseNotFound
 from django.template import RequestContext
 from moviedirectory.models import User
+from .api import *
 from .forms import *
 
 
@@ -39,15 +40,26 @@ def register(request):
 	return render(request, 'auth/register.html', locals())
 
 @login_required
-def add_movie_to_watchlist(request):
-	form = WatchedMovieForm(request.POST or None)
-	user = request.user
-	if form.is_valid():
-		form.viewer = user
-		form.save()
-		return redirect('home')
-	else:
-		return render(request, 'pages/add_movie_to_watchlist.html', locals())
+def watchlist(request):
+		
+	return render(request, 'pages/watchlist.html', locals())
+
+def movielist(request):
+
+	title = ""
+
+	if request.POST:
+		title = request.POST["title"]
+
+	if title:
+		movies = make_request_search(title)
+		success = True
+		if movies['Response'] == 'True':
+			movies = movies['Search']
+		else:
+			success = False
+
+	return render(request, 'pages/movielist.html', locals())
 
 			
 def profile(request, username):
