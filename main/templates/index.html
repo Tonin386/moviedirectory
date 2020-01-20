@@ -3,6 +3,7 @@
 
 {% load static %}
 {% if user.is_authenticated %}
+  {% include "nav.html" %}
 {% else %}
 <div class="row justify-content-center" style="background-image: ">
   <div class="col-md-12 text-center row" style="padding: 0px;">
@@ -36,7 +37,7 @@
     <a href="{% url 'register' %}" class="btn btn-lg btn-block btn-outline-light mb-2 shadow">This is where the fun begins <br><small class="muted">Sign in</small></a>
   </div>
   <div class="col-md-3 mt-3">
-    <a href="" class="btn btn-lg btn-block btn-outline-light mb-2 shadow">Don't worry I've got this <br><small class="muted">Log in</small></a>
+    <a href="{% url 'login' %}" class="btn btn-lg btn-block btn-outline-light mb-2 shadow">Don't worry I've got this <br><small class="muted">Log in</small></a>
   </div>
 </div>
 {% endif %}

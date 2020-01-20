@@ -89,10 +89,11 @@ class WatchedMovie(models.Model):
 	new = models.BooleanField(verbose_name="Never seen before")
 	theater = models.BooleanField(verbose_name="I saw it at theater!")
 	viewer = models.ForeignKey('moviedirectory.User', verbose_name="Viewer", on_delete=models.CASCADE)
+	comment = models.TextField(verbose_name="Comment", null=True, blank=True)
 
 	class Meta:
 		verbose_name = "Watched movie"
-		ordering=['note']
+		ordering=['view_date', 'note']
 
 	def __str__(self):
 		return self.movie.title
