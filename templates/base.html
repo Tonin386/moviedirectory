@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <link rel="icon" href="{% static 'img/favicon.ico' %}">
 
-    <title>{% block title %}Movie Directory{% endblock %}</title>
+    <title>{% block title %}Movie Directory{% endblock %} {% if user.is_authenticated %} - {{user.username}} {% endif %}</title>
   </head>
   <body class="bg-gradient-dark container mw-100">
       {% block content %}

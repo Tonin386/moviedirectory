@@ -5,15 +5,12 @@
   </button>
   <a class="navbar-brand" href="#">
     <img src="{% static 'img/logo.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
-    Movie Directory
+    Movie Directory {% if user.is_authenticated %} <span class="text-muted"> - {{user.username}} </span> {% endif %}
   </a>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item inactive">
-        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+      <li class="nav-item border-left border-dark">
+        <a class="nav-link active" href="{% url 'logout' %}">Logout</a>
       </li>
     </ul>
   </div>

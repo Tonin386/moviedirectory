@@ -19,6 +19,7 @@ def login(request):
 		user = authenticate(username=usr, password=pwd)
 		if user:
 			dj_login(request, user)
+			return redirect('home')
 		else:
 			error = True
 	return render(request, 'auth/login.html', locals())
