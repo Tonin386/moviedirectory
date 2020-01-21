@@ -25,7 +25,7 @@
 					  <img class="card-img-top" src="{{ movie.Poster }}" width="180" alt="{{ movie.Title }} poster">
 					  <div class="card-body">
 					    <h5 class="card-title"> {{ movie.Title }} <span class="text-muted ">- {{ movie.Year }}</span></h5>
-					    <a href="" class="btn btn-dark">Add to watchlist </a>
+					    <a href="{% url 'add' imdbid=movie.imdbID %}" class="btn btn-dark">Add to watchlist </a>
 					    <a href="https://www.imdb.com/title/{{movie.imdbID}}" class="btn btn-warning" target="_blank">See on imDB</a>
 					  </div>
 					</div>

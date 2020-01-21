@@ -1,10 +1,10 @@
-import datetime
+from datetime import datetime
 from django import forms
 from django_registration.forms import RegistrationForm
 from django.forms import ModelForm, IntegerField
 from django.core.validators import MinValueValidator, MaxValueValidator
 from moviedirectory.models import User
-from .models import WatchedMovie
+from .models import *
 
 class LoginForm(forms.Form):
     username = forms.CharField(label="Username", max_length=16)
@@ -37,8 +37,14 @@ class SignInForm(RegistrationForm):
     def save(self, commit=True):
         return super(SignInForm, self).save(commit=commit)
 
-class WatchedMovieForm(ModelForm):
-    class Meta:
-        model = WatchedMovie
-        fields = ['movie', 'view_date', 'note', 'new', 'theater', 'comment']
+class WatchedMovieForm(forms.Form):
+    user = User()
+    movie = Movie()
+    view_date = forms.DateField(label="Watched on")
+    note = forms.IntegerField(label="Note", initial=10, validators=[MinValueValidator(0), MaxValueValidator(10)])
+    new = forms.BooleanField(label="New", required=False)
+    theater = forms.BooleanField(label="I saw it at theater", required=False)
+    comment = forms.CharField(label="Personal comment", required=False)
 
+    def save(self, commit=True):
+        return WatchedMovie.objects.create(movie=self.movie, view_date=self.cleaned_data['view_date'], note=self.cleaned_data['note'], new=self.cleaned_data['new'], theater=self.cleaned_data['theater'], viewer=self.user, comment=self.cleaned_data['comment'])

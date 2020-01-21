@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponseNotFound
 from django.template import RequestContext
 from moviedirectory.models import User
+from datetime import datetime
 from .api import *
 from .forms import *
 
@@ -60,6 +61,27 @@ def movielist(request):
 			success = False
 
 	return render(request, 'pages/movielist.html', locals())
+
+@login_required
+def add(request, imdbid):
+	movie, created = Movie.objects.get_or_create(imdbid=imdbid)
+
+	if created:
+		movie.fetch()
+
+	now = datetime.today().strftime('%Y-%m-%d')
+
+	form = WatchedMovieForm(request.POST or None, movie)
+	if form.is_valid():
+		form.movie = movie
+		form.user = request.user
+		form.save()
+		return redirect('watchlist')
+	else:
+		print("Something went wrong")
+		print(form.errors)
+
+	return render(request, 'pages/add.html', locals())
 
 			
 def profile(request, username):

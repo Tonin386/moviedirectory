@@ -84,7 +84,7 @@ class Movie(models.Model):
 
 class WatchedMovie(models.Model):
 	movie = models.ForeignKey('main.Movie', verbose_name="Movie", on_delete=models.CASCADE)
-	view_date = models.DateTimeField(verbose_name="Watched on")
+	view_date = models.DateField(verbose_name="Watched on")
 	note = models.IntegerField(null=True, blank=True, verbose_name="Personal note", validators=[MinValueValidator(0), MaxValueValidator(10)], default=10)
 	new = models.BooleanField(verbose_name="Never seen before")
 	theater = models.BooleanField(verbose_name="I saw it at theater!")
