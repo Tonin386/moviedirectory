@@ -91,8 +91,12 @@ WSGI_APPLICATION = 'moviedirectory.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': config.get('database', 'engine'),
+        'NAME': config.get('database', 'name'),  # Nom de la base de données
+        'USER': config.get('database', 'user'),  # User ici
+        'PASSWORD': config.get('database', 'password'),  # Mdp ici
+        'HOST': config.get('database', 'host'),  # Utile si votre base de données est sur une autre machine
+        'PORT': config.get('database', 'port'),  # ... et si elle utilise un autre port que celui par défaut
     }
 }
 
