@@ -1,5 +1,6 @@
 from django.contrib.auth import authenticate, login as dj_login, logout as dj_logout
 from django.contrib.auth.decorators import login_required
+from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, redirect
 from django.http import HttpResponseNotFound
 from django.template import RequestContext
@@ -43,7 +44,7 @@ def register(request):
 @login_required
 def watchlist(request):
 		
-	movies = WatchedMovie.objects.filter(viewer=request.user).order_by('view_date').reverse()
+	movies = WatchedMovie.objects.filter(viewer=request.user).order_by('-view_date')
 
 	return render(request, 'pages/watchlist.html', locals())
 
@@ -74,6 +75,10 @@ def add(request, imdbid):
 	now = datetime.today().strftime('%Y-%m-%d')
 
 	form = WatchedMovieForm(request.POST or None, movie)
+
+	if not movie.title:
+		return redirect('movielist')
+
 	if form.is_valid():
 		form.movie = movie
 		form.user = request.user
@@ -84,6 +89,18 @@ def add(request, imdbid):
 		print(form.errors)
 
 	return render(request, 'pages/add.html', locals())
+
+@login_required
+def delete(request, ownid):
+	try:
+		toDel = WatchedMovie.objects.get(id=ownid)
+		if request.user == toDel.viewer:
+			toDel.delete()
+		return redirect('watchlist')
+	except ObjectDoesNotExist:
+		print("Object doesn't exist.")
+		return redirect('watchlist')
+
 
 			
 def profile(request, username):
@@ -97,6 +114,9 @@ def profile(request, username):
 		return HttpResponseNotFound()
 
 def home(request):
+
+	community = WatchedMovie.objects.order_by('-view_date')[:10]
+
 	return render(request, 'index.html', locals())
 
 # Create your views here.

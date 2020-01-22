@@ -9,6 +9,7 @@ urlpatterns = [
     path('', views.home, name="home"),
     path('register', views.register, name="register"),
     path('watchlist', views.watchlist, name="watchlist"),
+    path('watchlist/delete/<str:ownid>', views.delete, name="delete"),
     path('movielist', views.movielist, name="movielist"),
     path('movielist/add/<str:imdbid>', views.add, name="add"),
     url(r'^logout/', views.logout, name='logout'),

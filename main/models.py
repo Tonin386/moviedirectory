@@ -90,6 +90,7 @@ class WatchedMovie(models.Model):
 	theater = models.BooleanField(verbose_name="I saw it at theater!")
 	viewer = models.ForeignKey('moviedirectory.User', verbose_name="Viewer", on_delete=models.CASCADE)
 	comment = models.TextField(verbose_name="Comment", null=True, blank=True)
+	created = models.DateTimeField(auto_now_add=True)
 
 	class Meta:
 		verbose_name = "Watched movie"
