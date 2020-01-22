@@ -21,12 +21,12 @@
 		{% for movie in movies %}
 			{% if movie.Type == "movie" or movie.Type == "series" or movie.Type == "episode" %}
 				<div class="col-lg-3 mt-3">
-					<div class="card m-auto" style="width: 20rem;">
+					<div class="card m-auto bg-dark text-light" style="width: 20rem;">
 					  <img class="card-img-top" src="{{ movie.Poster }}" width="180" alt="{{ movie.Title }} poster">
 					  <div class="card-body">
 					    <h5 class="card-title"> {{ movie.Title }} <span class="text-muted ">- {{ movie.Year }}</span></h5>
-					    <a href="{% url 'add' imdbid=movie.imdbID %}" class="btn btn-dark">Add to watchlist </a>
-					    <a href="https://www.imdb.com/title/{{movie.imdbID}}" class="btn btn-warning" target="_blank">See on imDB</a>
+					    <a href="{% url 'add' imdbid=movie.imdbID %}" class="btn btn-light">Add to watchlist </a>
+					    <a href="https://www.imdb.com/title/{{movie.imdbID}}" class="btn btn-warning" target="_blank">See on IMDb</a>
 					  </div>
 					</div>
 				</div>

@@ -43,6 +43,8 @@ def register(request):
 @login_required
 def watchlist(request):
 		
+	movies = WatchedMovie.objects.filter(viewer=request.user).order_by('view_date').reverse()
+
 	return render(request, 'pages/watchlist.html', locals())
 
 def movielist(request):

@@ -2,5 +2,25 @@
 
 {% block content %}
 {% include "nav.html" %}
-{{ form.as_table }}
+
+{% for movie in movies %}
+	<div class="row justify-content-center mt-5 mw-100">
+		<div class="card bg-dark text-light w-75">
+			<h4 class="card-header">I watched... {% if movie.new %} <span class=""> new {% endif %} {% if movie.theater %} cinema {% endif %} </span></h5>
+			<div class="row no-gutters">
+				<div class="col-auto">
+					<img src="{{movie.movie.poster}}" alt="{{movie.movie.title}}" class="img-fluid" width="200">
+				</div>
+			  	<div class="col mt-3 mr-3 ml-3 text-right">
+				    <h3 class="card-title text-center">{{movie.movie.title}}<span class="text-muted"> - {{ movie.movie.director }}, {{movie.movie.year}}</span></h5>
+				    <p class="card-text text-justify">{{movie.movie.plot}}</p>
+				    <p class="card-text text-justify">With: {{movie.movie.actors}}</p>
+				    <p class="card-text text-justify">Awards: {{movie.movie.awards}}</p>
+					<a href="https://www.imdb.com/title/{{movie.movie.imdbid}}" class="btn btn-warning text-right" target="_blank">See on IMDb</a>
+			  	</div>
+			</div>
+		</div>
+	</div>
+{% endfor %}
+
 {% endblock %}

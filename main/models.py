@@ -96,7 +96,7 @@ class WatchedMovie(models.Model):
 		ordering=['view_date', 'note']
 
 	def __str__(self):
-		return self.movie.title
+		return self.viewer.username + " - " + self.movie.title 
 
 
 # Create your models here.
