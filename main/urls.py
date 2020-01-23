@@ -8,6 +8,8 @@ from . import views
 urlpatterns = [
     path('', views.home, name="home"),
     path('register', views.register, name="register"),
+    url(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
+        views.activate, name='activate'),
     path('watchlist', views.watchlist, name="watchlist"),
     path('watchlist/delete/<str:ownid>', views.delete, name="delete"),
     path('watchlist/browse/<int:user_id>', views.user_watchlist, name="user_watchlist"),
