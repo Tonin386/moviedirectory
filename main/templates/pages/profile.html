@@ -8,51 +8,51 @@
 	</div>
 	{% endif %}
 	<h1 class="ruban text-center text-light mt-5 mb-5" style="padding: 5px;">Edit your profile</h1>
-	<form action="" method="post" class="row m-auto" style="max-width: 50%;">
+	<form action="" method="post" class="row m-auto col-lg-6">
 		{% csrf_token %}
-		<div class="col-lg-12">
+		<div class="col-lg-12 mb-2">
 			<label class="sr-only" for="inlineFormInputGroup">First name</label>
-			<div class="input-group mb-2">
-				<div class="input-group-prepend w-25">
+			<div class="row m-auto input-group">
+				<div class="input-group-prepend col-xs-3">
 					<div class="input-group-text w-100">First name</div>
 				</div>
-				<input type="text" class="form-control" id="inlineFormInputGroup" placeholder="First name" value="{{user.first_name}}" name="first_name">
-		  </div>
+				<input type="text" class="form-control col-xs-9" id="inlineFormInputGroup" placeholder="First name" value="{{user.first_name}}" name="first_name">
+		  	</div>
 		</div>
-		<div class="col-lg-12">
+		<div class="col-lg-12 mb-2">
 			<label class="sr-only" for="inlineFormInputGroup">Last name</label>
-			<div class="input-group mb-2">
-				<div class="input-group-prepend w-25">
+			<div class="row m-auto input-group">
+				<div class="input-group-prepend col-xs-3">
 					<div class="input-group-text w-100">Last name</div>
 				</div>
 				<input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Last name" value="{{user.last_name}}" name="last_name">
 		  </div>
 		</div>
-		<div class="col-lg-12">
+		<div class="col-lg-12 mb-2">
 			<label class="sr-only" for="inlineFormInputGroup">Birthday</label>
-			<div class="input-group mb-2">
-				<div class="input-group-prepend w-25">
+			<div class="row m-auto input-group">
+				<div class="input-group-prepend col-xs-3">
 					<div class="input-group-text w-100">Birthday</div>
 				</div>
 				<input type="date" class="form-control" id="inlineFormInputGroup" value="{{birthday}}" name="birth_date">
 		  </div>
 		</div>
-		<div class="col-lg-12">
+		<div class="col-lg-12 mb-2">
 			<label class="sr-only" for="inlineFormInputGroup">Private watchlist</label>
-			<div class="input-group mb-2">
-				<div class="input-group-prepend w-25">
+			<div class="row m-auto input-group">
+				<div class="input-group-prepend col-xs-3">
 					<div class="input-group-text w-100">Private watchlist</div>
 				</div>
 				<select class="form-control" id="exampleFormControlSelect1" name="private">
 				  <option value="True" {% if user.private %} selected {% endif %}>Yes</option>
-				  <option value="False" {% if not user.private %} selected {% endif %}>No</option>
+				  <option value="False" {% if not user.private %} selected {% endif %}>No</optrow m-auto input-groupion>
 				</select>
 		  </div>
 		</div>
-		<div class="col-lg-12">
+		<div class="col-lg-12 mb-2">
 			<label class="sr-only" for="inlineFormInputGroup">Email notifications</label>
-			<div class="input-group mb-2">
-				<div class="input-group-prepend w-25">
+			<div class="row m-auto input-group">
+				<div class="input-group-prepend col-xs-3">
 					<div class="input-group-text w-100">Email notifications</div>
 				</div>
 				<select class="form-control" id="exampleFormControlSelect1" name="email_notifications">
