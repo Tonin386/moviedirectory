@@ -30,7 +30,7 @@ html {
 }
 
 .btn-card-right {
-  text-align: center!important;
+  text-align: right!important;
 }
 
 @media screen and (max-width: 1200px) {
