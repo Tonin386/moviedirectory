@@ -10,6 +10,7 @@ urlpatterns = [
     path('register', views.register, name="register"),
     path('watchlist', views.watchlist, name="watchlist"),
     path('watchlist/delete/<str:ownid>', views.delete, name="delete"),
+    path('watchlist/browse/<int:user_id>', views.user_watchlist, name="user_watchlist"),
     path('movielist', views.movielist, name="movielist"),
     path('movielist/add/<str:imdbid>', views.add, name="add"),
     url(r'^logout/', views.logout, name='logout'),
