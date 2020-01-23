@@ -48,6 +48,20 @@ def watchlist(request):
 
 	return render(request, 'pages/watchlist.html', locals())
 
+def user_watchlist(request, user_id):
+	error = False
+
+	try:
+		t_user = User.objects.get(id=user_id)
+		if t_user == request.user:
+			return redirect('watchlist')
+	except ObjectDoesNotExist:
+		error = True
+		return render(request, 'pages/user_watchlist.html', locals())
+
+	movies = WatchedMovie.objects.filter(viewer=t_user).order_by('-view_date')
+	return render(request, 'pages/user_watchlist.html', locals())
+
 def movielist(request):
 
 	title = ""

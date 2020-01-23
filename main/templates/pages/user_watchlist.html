@@ -4,11 +4,17 @@
 {% include "nav.html" %}
 {% load static %}
 
-<h1 class="text-center text-light mt-5">My watchlist </h1>
+
+{% if error %}
+<div class="alert alert-warning w-75 mt-5" role="alert" style="margin: auto;">
+	It seems like this user doesn't exist, or that his watchlist is private.
+</div>
+{% else %}
+<h1 class="text-center text-light mt-5">{{ t_user.username }}'s watchlist</h1>
 {% for movie in movies %}
 	<div class="row justify-content-center mt-5 mw-100">
 		<div class="card bg-dark text-light w-75">
-			<h4 class="card-header w-100">I watched... <span style="float: right;">  {% if movie.new %} <img src="{% static 'img/icons/new.png' %}" alt="New" title="New" width="40"> {% endif %} {% if movie.theater %} <img src="{% static 'img/icons/cinema.png' %}" alt="Cinema" title="Cinema" width="40"> {% endif %} </span></h5>
+			<h4 class="card-header w-100">{{ t_user.username }} watched <span style="float: right;">  {% if movie.new %} <img src="{% static 'img/icons/new.png' %}" alt="New" title="New" width="40"> {% endif %} {% if movie.theater %} <img src="{% static 'img/icons/cinema.png' %}" alt="Cinema" title="Cinema" width="40"> {% endif %} </span></h5>
 			<div class="row no-gutters">
 				<div class="col-auto">
 					<img src="{{movie.movie.poster}}" alt="{{movie.movie.title}}" class="img-fluid" width="200">
@@ -18,8 +24,7 @@
 				    <p class="card-text text-justify">{{movie.movie.plot}}</p>
 				    <p class="card-text text-justify">With: {{movie.movie.actors}}</p>
 				    <p class="card-text text-justify">Awards: {{movie.movie.awards}}</p>
-					<a href="https://www.imdb.com/title/{{movie.movie.imdbid}}" class="btn btn-warning text-right" target="_blank"><i class="fa fa-external-link"></i> See on IMDb</a>
-					<a href="{% url 'delete' ownid=movie.id %}" class="btn btn-danger text-right"><i class="fa fa-remove"></i> Delete entry</a>
+					<a href="https://www.imdb.com/title/{{movie.movie.imdbid}}" class="btn btn-warning text-right" target="_blank">See on IMDb</a>
 			  	</div>
 			</div>
 			<div class="card-footer">
@@ -28,7 +33,6 @@
 		</div>
 	</div>
 {% endfor %}
-<div class="col text-center mt-3">
-<a href="{% url 'movielist' %}" class="btn btn-success"><i class="fa fa-plus"></i> Add a movie to my watchlist</a>
-</div>
+{% endif %}
+
 {% endblock %}
