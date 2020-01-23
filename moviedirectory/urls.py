@@ -25,6 +25,6 @@ admin.site.site_title = "Movie Directory"
 admin.site.index_title = "Administration"
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls, name="admin_site"),
     path('', include('main.urls')),
 ]

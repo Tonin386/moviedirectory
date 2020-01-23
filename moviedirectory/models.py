@@ -56,9 +56,8 @@ class User(AbstractUser):
     email = models.EmailField(unique=True, verbose_name="Email")
     first_name = models.CharField(max_length=50, null=True, blank=True, verbose_name="First name")
     last_name = models.CharField(max_length=50, null=True, blank=True, verbose_name="Last name")
-    # watchlist = models.ManyToManyField('main.WatchedMovie', verbose_name="Watched movies", blank=True)
-    # followed = models.ManyToManyField('self', verbose_name="Followed persons", blank=True)
-    # followers = models.ManyToManyField('self', verbose_name="Followers", blank=True)
+    private = models.BooleanField(default=False, verbose_name="Private profile")
+    email_notifications = models.BooleanField(default=True, verbose_name="Email notification")
 
     REQUIRED_FIELDS = []
 

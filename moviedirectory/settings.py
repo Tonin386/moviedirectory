@@ -146,10 +146,11 @@ USE_TZ = True
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
-    '/static/',
+    'static/',
 ]
 
 STATIC_URL = "/static/"
+STATIC_ROOT = "media/"
 
 try:
     from local_settings import *
