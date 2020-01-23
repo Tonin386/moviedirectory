@@ -33,6 +33,11 @@
         <a class="nav-link active" href="{% url 'register' %}"><i class="fa fa-user"></i> Sign in</a>
       </li>
       {% endif %}
+      {% if user.is_staff %}
+      <li class="nav-item">
+        <a class="nav-link active" href="/admin"><i class="fa fa-wrench"></i> Administration</a>
+      </li>
+      {% endif %}
     </ul>
   </div>
 </nav>

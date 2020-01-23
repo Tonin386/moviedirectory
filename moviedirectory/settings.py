@@ -40,6 +40,7 @@ EMAIL_HOST = str(config.get('mail', 'host'))
 EMAIL_HOST_USER = str(config.get('mail', 'user'))
 EMAIL_HOST_PASSWORD = str(config.get('mail', 'password'))
 EMAIL_PORT = int(config.get('mail', 'port'))
+DEFAULT_FROM_EMAIL = "\"Movie Directory\" <moviedirectory@fiddlecomputers.fr>"
 
 
 # Application definition
@@ -145,10 +146,11 @@ USE_TZ = True
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
-    '/static/',
+    'static/',
 ]
 
 STATIC_URL = "/static/"
+STATIC_ROOT = "media/"
 
 try:
     from local_settings import *

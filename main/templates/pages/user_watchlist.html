@@ -5,7 +5,7 @@
 {% load static %}
 
 
-{% if error %}
+{% if error or t_user.private %}
 <div class="alert alert-warning w-75 mt-5" role="alert" style="margin: auto;">
 	It seems like this user doesn't exist, or that his watchlist is private.
 </div>
