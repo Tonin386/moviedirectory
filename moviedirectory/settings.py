@@ -36,10 +36,10 @@ LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = "login"
 
 EMAIL_USE_TLS = True
-EMAIL_HOST = config.get('mail', 'host')
-EMAIL_HOST_USER = config.get('mail', 'user')
-EMAIL_HOST_PASSWORD = config.get('mail', 'password')
-EMAIL_PORT = config.get('mail', 'port')
+EMAIL_HOST = str(config.get('mail', 'host'))
+EMAIL_HOST_USER = str(config.get('mail', 'user'))
+EMAIL_HOST_PASSWORD = str(config.get('mail', 'password'))
+EMAIL_PORT = int(config.get('mail', 'port'))
 
 
 # Application definition
