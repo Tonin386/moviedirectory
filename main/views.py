@@ -57,6 +57,7 @@ def register(request):
 			mail_subject, message, to=[to_email]
 		)
 		email.send()
+		print("Email sent to "+ to_email)
 		errorThrowed = False
 		addedUser = True
 
@@ -65,17 +66,17 @@ def register(request):
 def activate(request, uidb64, token):
     try:
         uid = force_text(urlsafe_base64_decode(uidb64))
-        user = User.objects.get(pk=uid)
+        user = User.objects.get(pk=int(uid))
     except(TypeError, ValueError, OverflowError, User.DoesNotExist):
         user = None
     if user is not None and account_activation_token.check_token(user, token):
         user.is_active = True
         user.save()
-        login(request, user)
+        dj_login(request, user)
         return redirect('home')
         # return HttpResponse('Thank you for your email confirmation. Now you can login your account.')
     else:
-        return HttpResponse('Activation link is invalid!')
+        return HttpResponse('Activation link is invalid!' + uid)
 
 @login_required
 def watchlist(request):

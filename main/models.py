@@ -20,7 +20,7 @@ class Movie(models.Model):
 	country = models.TextField(verbose_name="Country", null=True, blank=True)
 	awards = models.TextField(verbose_name="Awards", null=True, blank=True)
 	poster = models.CharField(verbose_name="Poster URL", max_length=255, null=True, blank=True)
-	imdbid = models.CharField(verbose_name="imDB ID", max_length=255, null=True, blank=True)
+	imdbid = models.CharField(verbose_name="IMDb ID", max_length=255, null=True, blank=True)
 	m_type = models.CharField(verbose_name="Type", max_length=255, null=True, blank=True)
 	production = models.CharField(verbose_name="Production", max_length=255, null=True, blank=True)
 
