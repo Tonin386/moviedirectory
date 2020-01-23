@@ -14,6 +14,7 @@ urlpatterns = [
     path('watchlist/browse/<int:user_id>', views.user_watchlist, name="user_watchlist"),
     path('movielist', views.movielist, name="movielist"),
     path('movielist/add/<str:imdbid>', views.add, name="add"),
+    path('profile', views.profile, name="profile"),
     url(r'^logout/', views.logout, name='logout'),
     url(r'^login/', views.login, name="login"),
 ]
