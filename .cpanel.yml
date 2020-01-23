@@ -1,0 +1,12 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/fiddleco/moviedirectory/
+    - export STATIC=/home/fiddleco/moviedirectory.fiddlecomputers.fr/
+    - /bin/cp -R main $DEPLOYPATH
+    - /bin/cp -R moviedirectory $DEPLOYPATH
+    - /bin/cp -R templates $DEPLOYPATH
+    - /bin/cp manage.py $DEPLOYPATH
+    - /bin/cp passenger_wsgi.py $DEPLOYPATH
+    - /bin/cp requirements.txt $DEPLOYPATH
+    - /bin/cp -R static $STATIC

@@ -62,8 +62,6 @@ local_settings.py
 *.sqlite3-journal
 /*/migrations/*
 !/*/migrations/__init__.py
-static/
-/static/*
 
 
 # Flask stuff:
