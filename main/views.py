@@ -153,16 +153,24 @@ def delete(request, ownid):
 		return redirect('watchlist')
 
 
-			
-def profile(request, username):
-	user = User.objects.get(username=username)
+@login_required
+def profile(request):
+	form = EditProfileForm(request.POST or None)
+	birthday = request.user.birth_date.strftime('%Y-%m-%d')
 
-	player = user.getPlayer()
+	if form.is_valid():
+		user = request.user
+		data = form.cleaned_data
+		user.first_name = data['first_name']
+		user.last_name = data['last_name']
+		user.birth_date = data['birth_date']
+		user.private = data['private']
+		user.email_notifications = data['email_notifications']
+		user.save()
+		success = True
 
-	if not player == "error":
-		return render(request, 'profile.html', locals())
-	else:
-		return HttpResponseNotFound()
+	return render(request, 'pages/profile.html', locals())
+
 
 def home(request):
 

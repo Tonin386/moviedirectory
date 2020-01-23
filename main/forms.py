@@ -52,3 +52,10 @@ class WatchedMovieForm(forms.Form):
             self.cleaned_data["comment"] = "No comment."
 
         return WatchedMovie.objects.create(movie=self.movie, view_date=self.cleaned_data['view_date'], note=self.cleaned_data['note'], new=self.cleaned_data['new'], theater=self.cleaned_data['theater'], viewer=self.user, comment=self.cleaned_data['comment'])
+
+class EditProfileForm(forms.Form):
+    first_name = forms.CharField(label="First name")
+    last_name = forms.CharField(label="Last name")
+    birth_date = forms.DateField(label="Birthday")
+    email_notifications = forms.BooleanField(label="Receive notifications when one of your friends (coming soon) posts something.", required=False)
+    private = forms.BooleanField(label="Make your watchlist private. Only your friends can see your profile. If not checked, anyone can see your profile.", required=False)

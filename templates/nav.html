@@ -23,6 +23,9 @@
       </li> -->
       {% if user.is_authenticated %}
       <li class="nav-item">
+        <a class="nav-link active" href="{% url 'profile' %}"><i class="fa fa-user"></i> Profile</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link active" href="{% url 'logout' %}"><i class="fa fa-minus"></i> Logout</a>
       </li>
       {% else %}
