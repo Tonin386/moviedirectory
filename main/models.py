@@ -7,7 +7,7 @@ from main.api import make_request_by_id as fetch_movie
 
 class Movie(models.Model):
 	title = models.CharField(max_length=50, verbose_name="Title", null=True, blank=True)
-	year = models.IntegerField(verbose_name="Release year", null=True, blank=True)
+	year = models.CharField(verbose_name="Release year", null=True, blank=True, max_length=12)
 	rated = models.CharField(max_length=3, verbose_name="Rated", null=True, blank=True)
 	released = models.DateField(verbose_name="Release date", null=True, blank=True)
 	runtime = models.CharField(verbose_name="Runtime", max_length=255, null=True, blank=True)
@@ -71,6 +71,10 @@ class Movie(models.Model):
 			self.awards = r['Awards']
 			self.poster = r['Poster']
 			self.m_type = r['Type']
+
+			if not "Production" in r:
+				r['Production'] = "Unknown"
+
 			self.production = r['Production']
 			self.save()
 
