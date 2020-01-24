@@ -3,84 +3,81 @@
 {% block content %}
 {% include "nav.html" %}
 
-<h1 class="text-center text-light mt-5 mb-5">Add a movie to your watchlist</h1>
-<form method="post" action="" class="container ">
-    {% csrf_token %}
-    <div class="container">
-	    <div class="row justify-content-center">
-	    	<div class="col-6">
-	    		<div class="card text-justify" style="width: 25rem;">
-				  <img class="card-img-top" src="{{movie.poster}}" alt="{{movie.title}} poster" width="300">
-				  <div class="card-body">
-				    <h5 class="card-title">{{movie.title}}</h5>
-				    <p class="card-text">{{movie.plot}}</p>
-				  </div>
-				  <ul class="list-group list-group-flush">
-				    <li class="list-group-item">{{movie.released}}</li>
-				    <li class="list-group-item">{{movie.director}}</li>
-				    <li class="list-group-item">{{movie.genre}}</li>
-				  </ul>
-				  <div class="card-body">
-						<a href="https://www.imdb.com/title/{{movie.imdbID}}" class="btn btn-warning" target="_blank">See on imDB</a>
-				  </div>
+<div class="row no-gutters justify-content-center">
+	<div class="row justify-content-center mt-5 no-gutters">
+		<div class="card bg-dark text-light w-75">
+			<h4 class="card-header w-100"> Add to my watchlist </h5>
+			<div class="row no-gutters">
+				<div class="col-xl-2 img-card-poster">
+					<img src="{{movie.poster}}" alt="{{movie.title}}" class="img-fluid" width="200">
 				</div>
-	    	</div>
-	    	<div class="col_6">
-		    	<div class="row justify-content-center mt-3">
-		    		<div class="col-xs-3">
-		    			<h5 class="text-light">
-		    				{{ form.view_date.label }}:
-		    			</h5>
-		    		</div>
-		    		<div class="col-xs-9  ml-3">
-		    			<input type="date" name="{{form.view_date.html_name}}" value="{{ now }}">
-		    		</div>
-		    	</div>
-		    	<div class="row justify-content-center mt-3">
-		    		<div class="col-xs-3">
-		    			<h5 class="text-light">
-		    				{{ form.new.label }}:
-		    			</h5>
-		    		</div>
-		    		<div class="col-xs-9 ml-3">
-		    			{{ form.new }}
-		    		</div>
-		    	</div>
-		    	<div class="row justify-content-center mt-3">
-		    		<div class="col-xs-3">
-		    			<h5 class="text-light">
-		    				{{ form.theater.label }}:
-		    			</h5>
-		    		</div>
-		    		<div class="col-xs-9 ml-3">
-		    			{{ form.theater }}
-		    		</div>
-		    	</div>
-		    	<div class="row justify-content-center mt-3">
-		    		<div class="col-xs-3">
-		    			<h5 class="text-light">
-		    				{{ form.note.label }}:
-		    			</h5>
-		    		</div>
-		    		<div class="col-xs-9 ml-3">
-		    			<input type="number" name="{{ form.note.html_name }}" min=0 max=10 value="10" class="text-center input-group bg-dark border-dark text-light">
-		    		</div>
-		    	</div>
-		    	<div class="row justify-content-center mt-3">
-		    		<div class="col-xs-3">
-		    			<h5 class="text-light">
-		    				{{ form.comment.label }}:
-		    			</h5>
-		    		</div>
-		    		<div class="col-xs-9 ml-3">
-		    			<textarea  name="{{ form.comment.html_name }}" placeholder="Your thoughts about this movie..." cols="45" rows="5"></textarea>
-		    		</div>
-		    	</div>
-				<div class="text-center">
-					<button type="submit" class="btn btn-light mt-3">Add "{{movie.title}}" to my watchlist</button>
-				</div>
-		    </div>
-	    </div>
+			  	<div class="col m-3 btn-card-right">
+				    <h3 class="card-title text-center">{{movie.title}}<span class="text-muted"> - {{ movie.director }}, {{movie.year}}</span></h5>
+				    <p class="card-text text-justify">{{movie.plot}}</p>
+				    <p class="card-text text-justify">With: {{movie.actors}}</p>
+				    <p class="card-text text-justify">Awards: {{movie.awards}}</p>
+					<a href="https://www.imdb.com/title/{{movie.movie.imdbid}}" class="btn btn-warning mb-2" target="_blank"><i class="fa fa-external-link"></i> See on IMDb</a>
+			  	</div>
+			</div>	
+		</div>
 	</div>
-</form>
+	<form action="" method="post" class="row m-5 no-gutters">
+		{% csrf_token %}
+		<div class="col-lg-12 mb-2">
+			<label class="sr-only" for="inlineFormInputGroup">Watched on</label>
+			<div class="row m-auto input-group">
+				<div class="input-group-prepend col-xs-3">
+					<div class="input-group-text w-100">Watched on</div>
+				</div>
+				<input type="date" class="form-control col-xs-9" id="inlineFormInputGroup" placeholder="Watched on" value="{{ now }}" name="{{form.view_date.html_name}}">
+		  	</div>
+		</div>
+		<div class="col-lg-12 mb-2">
+			<label class="sr-only" for="inlineFormInputGroup">Never seen before</label>
+			<div class="row m-auto input-group">
+				<div class="input-group-prepend col-xs-3">
+					<div class="input-group-text w-100">Never seen before</div>
+				</div>
+				<select class="form-control" id="exampleFormControlSelect1" name="new">
+				  <option value="True" selected>Yes</option>
+				  <option value="False">No</option>
+				</select>
+		  	</div>
+		</div>
+		<div class="col-lg-12 mb-2">
+			<label class="sr-only" for="inlineFormInputGroup">I saw it at theater!</label>
+			<div class="row m-auto input-group">
+				<div class="input-group-prepend col-xs-3">
+					<div class="input-group-text w-100">I saw it at theater!</div>
+				</div>
+				<select class="form-control" id="exampleFormControlSelect1" name="theater">
+				  <option value="True">Yes</option>
+				  <option value="False" selected>No</option>
+				</select>
+		  	</div>
+		</div>
+		<div class="col-lg-12 mb-2">
+			<label class="sr-only" for="inlineFormInputGroup">Note</label>
+			<div class="row m-auto input-group">
+				<div class="input-group-prepend col-xs-3">
+					<div class="input-group-text w-100">Note</div>
+				</div>
+				<input type="number" name="note" min=0 max=10 value="10" class="form-control col-xs-9">
+		  </div>
+		</div>
+		<div class="col-lg-12 mb-2">
+			<label class="sr-only" for="inlineFormInputGroup">Comment</label>
+			<div class="row m-auto input-group">
+				<div class="input-group-prepend col-xs-3">
+					<div class="input-group-text w-100">Comment</div>
+				</div>
+				<input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Short comment on this movie..." name="comment">
+		 	</div>
+		</div>
+		<div class="text-center m-auto">
+			<button type="submit" class="btn btn-success mt-3"><i class="fa fa-plus"></i> Add {{movie.title}} to my watchlist</button>
+		</div>
+	</form>
+</div>
+
 {% endblock %}
