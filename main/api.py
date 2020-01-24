@@ -7,6 +7,7 @@ config = configparser.ConfigParser()
 config.read('config.ini')
 
 def make_request_by_id(md_id, plot, md_type="none"): #Returns array with request answer
+	print("make_request_by_id called")
 	url = "http://www.omdbapi.com/?apikey="
 	key = config.get('imdb_api', 'key')
 	url += key + "&"
@@ -18,10 +19,12 @@ def make_request_by_id(md_id, plot, md_type="none"): #Returns array with request
 
 	f = urllib.request.urlopen(url)
 	response = json.loads(f.read())
+	pprint(response)
 
 	return response
 
 def make_request_by_title(md_title, plot, md_type="none", year=-1): #Returns array with request answer
+	print("make_request_by_title called")
 	url = "http://www.omdbapi.com/?apikey="
 	key = config.get('imdb_api', 'key')
 	url += key + "&"
@@ -35,10 +38,12 @@ def make_request_by_title(md_title, plot, md_type="none", year=-1): #Returns arr
 
 	f = urllib.request.urlopen(url)
 	response = json.loads(f.read())
+	pprint(response)
 
 	return response
 
 def make_request_search(md_title, md_type="none", page=1, year=-1):
+	print("make_request_search called")
 	url = "http://www.omdbapi.com/?apikey="
 	key = config.get('imdb_api', 'key')
 	url += key + "&"
