@@ -1,5 +1,16 @@
 html {
   min-height: 100%;
+  position: relative;
+}
+
+#content {
+}
+
+#footer_wrap {
+  /*position: absolute;*/
+  width: 100%;
+  bottom: 0;
+  left: 0;
 }
 
 .index_logo {
@@ -20,7 +31,6 @@ html {
 }
 
 .bg-gradient-dark {
-  background: rgb(0,0,0);
   background: linear-gradient(347deg, rgba(0,0,0,1) 0%, rgba(136,136,136,1) 100%);
   background-repeat: no-repeat;
 }
@@ -31,6 +41,11 @@ html {
 
 .btn-card-right {
   text-align: right!important;
+}
+
+.fill {
+  min-height: 100%;
+  height: 100%;
 }
 
 @media screen and (max-width: 1200px) {

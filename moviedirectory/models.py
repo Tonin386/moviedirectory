@@ -58,6 +58,7 @@ class User(AbstractUser):
     last_name = models.CharField(max_length=50, null=True, blank=True, verbose_name="Last name")
     private = models.BooleanField(default=False, verbose_name="Private profile")
     email_notifications = models.BooleanField(default=True, verbose_name="Email notification")
+    name_display = models.BooleanField(default=False, verbose_name="Name display")
 
     REQUIRED_FIELDS = []
 

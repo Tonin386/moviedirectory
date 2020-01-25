@@ -166,7 +166,10 @@ def profile(request):
 		user.birth_date = data['birth_date']
 		user.private = data['private']
 		user.email_notifications = data['email_notifications']
+		user.name_display = data['name_display']
 		user.save()
+		print(user.name_display)
+		print(data['name_display'])
 		success = True
 
 	return render(request, 'pages/profile.html', locals())
