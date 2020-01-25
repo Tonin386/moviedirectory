@@ -26,7 +26,7 @@
 					<div class="input-group-text w-100">Last name</div>
 				</div>
 				<input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Last name" value="{{user.last_name}}" name="last_name">
-		  </div>
+		  	</div>
 		</div>
 		<div class="col-lg-12 mb-2">
 			<label class="sr-only" for="inlineFormInputGroup">Birthday</label>
@@ -35,7 +35,7 @@
 					<div class="input-group-text w-100">Birthday</div>
 				</div>
 				<input type="date" class="form-control" id="inlineFormInputGroup" value="{{birthday}}" name="birth_date">
-		  </div>
+		  	</div>
 		</div>
 		<div class="col-lg-12 mb-2">
 			<label class="sr-only" for="inlineFormInputGroup">Private watchlist</label>
@@ -47,7 +47,7 @@
 				  <option value="True" {% if user.private %} selected {% endif %}>Yes</option>
 				  <option value="False" {% if not user.private %} selected {% endif %}>No</option>
 				</select>
-		  </div>
+		  	</div>
 		</div>
 		<div class="col-lg-12 mb-2">
 			<label class="sr-only" for="inlineFormInputGroup">Email notifications</label>
@@ -59,7 +59,19 @@
 				  <option value="True" {% if user.email_notifications %} selected {% endif %}>Yes</option>
 				  <option value="False" {% if not user.email_notifications %} selected {% endif %}>No</option>
 				</select>
-		  </div>
+		  	</div>
+		</div>
+		<div class="col-lg-12 mb-2">
+			<label class="sr-only" for="inlineFormInputGroup">Name display</label>
+			<div class="row m-auto input-group">
+				<div class="input-group-prepend col-xs-3">
+					<div class="input-group-text w-100">Name display</div>
+				</div>
+				<select class="form-control" id="exampleFormControlSelect1" name="name_display">
+				  <option value="True" {% if user.name_display %} selected {% endif %}>{{user.first_name}} {{user.last_name}}</option>
+				  <option value="False" {% if not user.name_display %} selected {% endif %}>{{user.username}}</option>
+				</select>
+		  	</div>
 		</div>
 		<div class="text-center m-auto">
 			<button type="submit" class="btn btn-light mt-3">Edit my profile</button>

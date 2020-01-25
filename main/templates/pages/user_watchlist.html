@@ -10,11 +10,11 @@
 	It seems like this user doesn't exist, or that his watchlist is private.
 </div>
 {% else %}
-<h1 class="text-center text-light mt-5">{{ t_user.username }}'s watchlist</h1>
+<h1 class="text-center text-light mt-5">{% if t_user.name_display %} {{t_user.first_name}} {{t_user.last_name}} {% else %} {{t_user.username}} {% endif %}'s watchlist</h1>
 {% for movie in movies %}
 	<div class="row justify-content-center mt-5 no-gutters">
 		<div class="card bg-dark text-light w-75">
-			<h4 class="card-header w-100">{{ t_user.username }} watched <span style="float: right;">  {% if movie.new %} <img src="{% static 'img/icons/new.png' %}" alt="New" title="New" width="40"> {% endif %} {% if movie.theater %} <img src="{% static 'img/icons/cinema.png' %}" alt="Cinema" title="Cinema" width="40"> {% endif %} </span></h5>
+			<h4 class="card-header w-100">{% if t_user.name_display %} {{t_user.first_name}} {{t_user.last_name}} {% else %} {{t_user.username}} {% endif %} watched <span style="float: right;">  {% if movie.new %} <img src="{% static 'img/icons/new.png' %}" alt="New" title="New" width="40"> {% endif %} {% if movie.theater %} <img src="{% static 'img/icons/cinema.png' %}" alt="Cinema" title="Cinema" width="40"> {% endif %} </span></h5>
 			<div class="row no-gutters">
 				<div class="col-xl-2 img-card-poster">
 					<img src="{{movie.movie.poster}}" alt="{{movie.movie.title}}" class="img-fluid" width="200">

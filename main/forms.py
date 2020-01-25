@@ -57,5 +57,6 @@ class EditProfileForm(forms.Form):
     first_name = forms.CharField(label="First name")
     last_name = forms.CharField(label="Last name")
     birth_date = forms.DateField(label="Birthday")
-    email_notifications = forms.BooleanField(label="Receive notifications when one of your friends (coming soon) posts something.", required=False)
-    private = forms.BooleanField(label="Make your watchlist private. Only your friends can see your profile. If not checked, anyone can see your profile.", required=False)
+    email_notifications = forms.BooleanField(label="Email notifications", required=False)
+    private = forms.BooleanField(label="Private", required=False)
+    name_display = forms.BooleanField(label="Name display", required=False)
