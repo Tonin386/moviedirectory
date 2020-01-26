@@ -1,12 +1,12 @@
 from django.contrib.auth import authenticate, login as dj_login, logout as dj_logout
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.utils.translation import ugettext as _, get_language
 from django.contrib.sites.shortcuts import get_current_site
 from django.http import HttpResponseNotFound, HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.utils.encoding import force_bytes, force_text
 from django.core.exceptions import ObjectDoesNotExist
 from django.template.loader import render_to_string
-from django.utils.translation import ugettext as _
 from django.shortcuts import render, redirect
 from .tokens import account_activation_token
 from django.template import RequestContext
@@ -155,6 +155,8 @@ def delete(request, ownid):
 def profile(request):
 	form = EditProfileForm(request.POST or None)
 	birthday = request.user.birth_date.strftime('%Y-%m-%d')
+	current_language = get_language()
+	print(current_language)
 
 	if form.is_valid():
 		user = request.user

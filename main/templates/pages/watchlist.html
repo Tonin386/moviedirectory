@@ -17,14 +17,14 @@
 			  	<div class="col m-3 btn-card-right">
 				    <h3 class="card-title text-center">{{movie.movie.title}}<span class="text-muted"> - {{ movie.movie.director }}, {{movie.movie.year}}</span></h5>
 				    <p class="card-text text-justify">{% trans movie.movie.plot %}</p>
-				    <p class="card-text text-justify">With: {{movie.movie.actors}}</p>
+				    <p class="card-text text-justify">{% trans "With:" %} {{movie.movie.actors}}</p>
 				    <p class="card-text text-justify">{% trans "Awards:" %} {% trans movie.movie.awards %}</p>
 					<a href="https://www.imdb.com/title/{{movie.movie.imdbid}}" class="btn btn-warning mb-2" target="_blank"><i class="fa fa-external-link"></i> {% trans "See on IMDb" %}</a>
-					<a href="{% url 'delete' ownid=movie.id %}" class="btn btn-danger mb-2"><i class="fa fa-remove"></i> Delete entry</a>
+					<a href="{% url 'delete' ownid=movie.id %}" class="btn btn-danger mb-2"><i class="fa fa-remove"></i> {% trans "Delete entry" %}</a>
 			  	</div>
 			</div>
 			<div class="card-footer">
-				<p class="card-text">{% trans "Watched on" %} {% trans movie.view_date %} - {{movie.note}}/10 - {{movie.comment}}</p>
+				<p class="card-text">{% trans "Watched on" %} {{movie.view_date}} - {{movie.note}}/10 - {{movie.comment}}</p>
 			</div>
 		</div>
 	</div>

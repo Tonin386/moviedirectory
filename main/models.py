@@ -1,7 +1,7 @@
 from django.core.validators import int_list_validator, MinValueValidator, MaxValueValidator
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 from main.api import make_request_by_id as fetch_movie
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 from django.utils import timezone
 from django.db import models
 

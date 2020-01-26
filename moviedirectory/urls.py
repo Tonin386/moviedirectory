@@ -11,5 +11,5 @@ admin.site.index_title = "Administration"
 urlpatterns = [
     path('admin/', admin.site.urls, name="admin_site"),
     path('', include('main.urls')),
-    # url(r'^i18n/', include('django.conf.urls.i18n')),
+    url(r'^i18n/', include('django.conf.urls.i18n')),
 ]

@@ -141,11 +141,11 @@ USE_L10N = True
 
 USE_TZ = True
 
-gettext = lambda x: x
+ugettext = lambda x: x
 
 LANGUAGES = (
-    ('fr', gettext('french')),
-    ('en', gettext('english')),
+    ('fr', ugettext('French')),
+    ('en', ugettext('English')),
 )
 
 
