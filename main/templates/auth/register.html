@@ -1,11 +1,12 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% block content %}
 {% include "nav.html" %}
   <div class="ruban_widget">
-    <h1 class="ruban text-center text-light mt-5" style="padding: 5px;">User registration</h1>
+    <h1 class="ruban text-center text-light mt-5" style="padding: 5px;">{% trans "User registration" %}</h1>
     {% if addedUser %}
       <div class="alert alert-warning w-75 m-auto">
-        Sign in successfull. Please check your mails to activate your account.
+        {% trans "Sign in successfull. Please check your mails to activate your account." %}
       </div>
     {% else %}
       <form action="" method="post" class="container col-12">
@@ -21,7 +22,7 @@
               {% if f.errors %}
                 <style>ul{list-style: none;padding-left: 0;}</style>
                 <small class="font-weight-bold text-danger">
-                  {{ f.errors }}
+                  {% trans f.errors %}
                 </small>
               {% endif %}
               <div class="col-sm-6" style="margin: auto;">{{ f }}</div>
@@ -31,7 +32,7 @@
             {% endif %}
           {% endfor %}
           <div style="text-align: center; padding: 10px;">
-            <input type="submit" id="connect" value="Register" class="btn btn-light" style="cursor: pointer; margin-top: 1em;">
+            <input type="submit" id="connect" value="{% trans 'Register'%}" class="btn btn-light" style="cursor: pointer; margin-top: 1em;">
           </div>
         </form>
       {% endif %}

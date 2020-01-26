@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block content %}
 {% include "nav.html" %}
@@ -7,28 +8,28 @@
 
 {% if error or t_user.private %}
 <div class="alert alert-warning w-75 mt-5" role="alert" style="margin: auto;">
-	It seems like this user doesn't exist, or that his watchlist is private.
+	{% trans "It seems like this user doesn't exist, or that his watchlist is private." %}
 </div>
 {% else %}
-<h1 class="text-center text-light mt-5">{% if t_user.name_display %} {{t_user.first_name}} {{t_user.last_name}} {% else %} {{t_user.username}} {% endif %}'s watchlist</h1>
+<h1 class="text-center text-light mt-5">{% if t_user.name_display %} {{t_user.first_name}} {{t_user.last_name}} {% else %} {{t_user.username}} {% endif %}{% trans "'s watchlist" %}</h1>
 {% for movie in movies %}
 	<div class="row justify-content-center mt-5 no-gutters">
 		<div class="card bg-dark text-light w-75">
-			<h4 class="card-header w-100">{% if t_user.name_display %} {{t_user.first_name}} {{t_user.last_name}} {% else %} {{t_user.username}} {% endif %} watched <span style="float: right;">  {% if movie.new %} <img src="{% static 'img/icons/new.png' %}" alt="New" title="New" width="40"> {% endif %} {% if movie.theater %} <img src="{% static 'img/icons/cinema.png' %}" alt="Cinema" title="Cinema" width="40"> {% endif %} </span></h5>
+			<h4 class="card-header w-100">{% if t_user.name_display %} {{t_user.first_name}} {{t_user.last_name}} {% else %} {{t_user.username}} {% endif %} {% trans "watched" %} <span style="float: right;">  {% if movie.new %} <img src="{% static 'img/icons/new.png' %}" alt="New" title="New" width="40"> {% endif %} {% if movie.theater %} <img src="{% static 'img/icons/cinema.png' %}" alt="Cinema" title="Cinema" width="40"> {% endif %} </span></h5>
 			<div class="row no-gutters">
 				<div class="col-xl-2 img-card-poster">
 					<img src="{{movie.movie.poster}}" alt="{{movie.movie.title}}" class="img-fluid" width="200">
 				</div>
 			  	<div class="col m-3 btn-card-right">
 				    <h3 class="card-title text-center">{{movie.movie.title}}<span class="text-muted"> - {{ movie.movie.director }}, {{movie.movie.year}}</span></h5>
-				    <p class="card-text text-justify">{{movie.movie.plot}}</p>
-				    <p class="card-text text-justify">With: {{movie.movie.actors}}</p>
-				    <p class="card-text text-justify">Awards: {{movie.movie.awards}}</p>
-					<a href="https://www.imdb.com/title/{{movie.movie.imdbid}}" class="btn btn-warning mb-2" target="_blank">See on IMDb</a>
+				    <p class="card-text text-justify">{% trans movie.movie.plot %}</p>
+				    <p class="card-text text-justify">{% trans "With:" %} {{movie.movie.actors}}</p>
+				    <p class="card-text text-justify">{% trans "Awards:" %} {% trans movie.movie.awards %}</p>
+					<a href="https://www.imdb.com/title/{{movie.movie.imdbid}}" class="btn btn-warning mb-2" target="_blank">{% trans "See on IMDb" %}</a>
 			  	</div>
 			</div>
 			<div class="card-footer">
-				<p class="card-text">Watched on {{movie.view_date}} - {{movie.note}}/10 - {{movie.comment}}</p>
+				<p class="card-text">{% trans "Watched on" %} {% trans movie.view_date %} - {{movie.note}}/10 - {{movie.comment}}</p>
 			</div>
 		</div>
 	</div>

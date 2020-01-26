@@ -1,10 +1,11 @@
-import datetime
-from django import forms
+from django.utils.translation import ugettext_lazy as _
 from django_registration.forms import RegistrationForm
 from .models import User
+from django import forms
+import datetime
 
 class LoginForm(forms.Form):
-    username = forms.CharField(label="Username", max_length=16)
+    username = forms.CharField(label=_("Username"), max_length=16)
     password = forms.CharField(label="Password", widget=forms.PasswordInput)
 
 class SignInForm(RegistrationForm):

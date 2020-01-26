@@ -67,6 +67,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'moviedirectory.urls'
@@ -140,6 +141,13 @@ USE_L10N = True
 
 USE_TZ = True
 
+ugettext = lambda x: x
+
+LANGUAGES = (
+    ('fr', ugettext('French')),
+    ('en', ugettext('English')),
+)
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
@@ -151,6 +159,10 @@ STATICFILES_DIRS = [
 
 STATIC_URL = "/static/"
 STATIC_ROOT = "media/"
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, '/locale/'),
+)
 
 try:
     from local_settings import *

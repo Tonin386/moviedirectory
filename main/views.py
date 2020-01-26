@@ -1,13 +1,14 @@
 from django.contrib.auth import authenticate, login as dj_login, logout as dj_logout
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.utils.translation import ugettext as _, get_language
 from django.contrib.sites.shortcuts import get_current_site
+from django.http import HttpResponseNotFound, HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.utils.encoding import force_bytes, force_text
 from django.core.exceptions import ObjectDoesNotExist
 from django.template.loader import render_to_string
 from django.shortcuts import render, redirect
 from .tokens import account_activation_token
-from django.http import HttpResponseNotFound, HttpResponse
 from django.template import RequestContext
 from django.core.mail import EmailMessage
 from moviedirectory.models import User
@@ -45,7 +46,7 @@ def register(request):
 		user.is_active = False
 		user.save()
 		current_site = get_current_site(request)
-		mail_subject = "Activate your MovieDirectory account"
+		mail_subject = _("Activate your MovieDirectory account")
 		message = render_to_string('mail/acc_active_email.html', {
 			'user': user,
 			'domain': current_site.domain,
@@ -76,7 +77,7 @@ def activate(request, uidb64, token):
         return redirect('home')
         # return HttpResponse('Thank you for your email confirmation. Now you can login your account.')
     else:
-        return HttpResponse('Activation link is invalid!' + uid)
+        return HttpResponse(_('Activation link is invalid!' + uid))
 
 @login_required
 def watchlist(request):
@@ -135,9 +136,7 @@ def add(request, imdbid):
 		form.user = request.user
 		form.save()
 		return redirect('watchlist')
-	else:
-		print("Something went wrong")
-		print(form.errors)
+
 
 	return render(request, 'pages/add.html', locals())
 
@@ -149,7 +148,6 @@ def delete(request, ownid):
 			toDel.delete()
 		return redirect('watchlist')
 	except ObjectDoesNotExist:
-		print("Object doesn't exist.")
 		return redirect('watchlist')
 
 
@@ -157,6 +155,8 @@ def delete(request, ownid):
 def profile(request):
 	form = EditProfileForm(request.POST or None)
 	birthday = request.user.birth_date.strftime('%Y-%m-%d')
+	current_language = get_language()
+	print(current_language)
 
 	if form.is_valid():
 		user = request.user
@@ -180,5 +180,3 @@ def home(request):
 	community = WatchedMovie.objects.order_by('-view_date')[:10]
 
 	return render(request, 'index.html', locals())
-
-# Create your views here.
