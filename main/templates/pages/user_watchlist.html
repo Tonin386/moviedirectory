@@ -6,12 +6,16 @@
 {% load static %}
 
 
-{% if error or t_user.private %}
+{% if error %}
 <div class="alert alert-warning w-75 mt-5" role="alert" style="margin: auto;">
-	{% trans "It seems like this user doesn't exist, or that his watchlist is private." %}
+	{% trans "It seems like this user doesn't exist." %}
 </div>
+{% elif t_user.private and not user in t_friends %}
+	<div class="alert alert-warning w-75 mt-5" role="alert" style="margin: auto;">
+		{% trans "You must be friend with this user to see his watchlist." %}
+	</div>
 {% else %}
-<h1 class="text-center text-light mt-5">{% if t_user.name_display %} {{t_user.first_name}} {{t_user.last_name}} {% else %} {{t_user.username}} {% endif %}{% trans "'s watchlist" %}</h1>
+<h1 class="text-center text-light mt-5">{% if t_user.name_display %} {{t_user.first_name}} {{t_user.last_name}} {% else %} {{t_user.username}}{% endif %}{% trans "'s watchlist" %}</h1>
 {% for movie in movies %}
 	<div class="row justify-content-center mt-5 no-gutters">
 		<div class="card bg-dark text-light w-75">
@@ -25,11 +29,11 @@
 				    <p class="card-text text-justify">{% trans movie.movie.plot %}</p>
 				    <p class="card-text text-justify">{% trans "With:" %} {{movie.movie.actors}}</p>
 				    <p class="card-text text-justify">{% trans "Awards:" %} {% trans movie.movie.awards %}</p>
-					<a href="https://www.imdb.com/title/{{movie.movie.imdbid}}" class="btn btn-warning mb-2" target="_blank">{% trans "See on IMDb" %}</a>
+					<a href="https://www.imdb.com/title/{{movie.movie.imdbid}}" class="btn btn-warning mb-2" target="_blank"><i class="fa fa-external-link"></i> {% trans "See on IMDb" %}</a>
 			  	</div>
 			</div>
 			<div class="card-footer">
-				<p class="card-text">{% trans "Watched on" %} {% trans movie.view_date %} - {{movie.note}}/10 - {{movie.comment}}</p>
+				<p class="card-text">{% trans "Watched on" %} {{ movie.view_date }} - {{movie.note}}/10 - {{movie.comment}}</p>
 			</div>
 		</div>
 	</div>

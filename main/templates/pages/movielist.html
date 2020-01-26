@@ -11,7 +11,7 @@
 	  <div class="input-group-prepend">
 	    <span class="input-group-text" id="basic-addon1">IMDb</span>
 	  </div>
-	  <input type="text" class="form-control" placeholder="Title" aria-label="Title" aria-describedby="basic-addon1" value="{{ title }}" name="title">
+	  <input type="text" class="form-control" placeholder="{% trans 'Title' %}" aria-label="Title" aria-describedby="basic-addon1" value="{{ title }}" name="title">
 	</div>
 	<div class="text-center">
 		<button type="submit" class="btn btn-light mt-3"><i class="fa fa-search"></i> {% trans "Search" %}</button>
@@ -26,8 +26,8 @@
 					  <img class="card-img-top" src="{{ movie.Poster }}" width="180" alt="{{ movie.Title }} poster">
 					  <div class="card-body text-center">
 					    <h5 class="card-title"> {{ movie.Title }} <span class="text-muted ">- {{ movie.Year }}</span></h5>
-					    <a href="{% url 'add' imdbid=movie.imdbID %}" class="btn btn-success"><i class="fa fa-plus"></i> {% trans "Add to my watchlist" %} </a>
-					    <a href="https://www.imdb.com/title/{{movie.imdbID}}" class="btn btn-warning" target="_blank"><i class="fa fa-external-link"></i> {% trans "See on IMDb" %}</a>
+					    <a href="{% url 'add' imdbid=movie.imdbID %}" class="btn btn-success mt-3"><i class="fa fa-plus"></i> {% trans "Add to my watchlist" %} </a>
+					    <a href="https://www.imdb.com/title/{{movie.imdbID}}" class="btn btn-warning mt-3" target="_blank"><i class="fa fa-external-link"></i> {% trans "See on IMDb" %}</a>
 					  </div>
 					</div>
 				</div>

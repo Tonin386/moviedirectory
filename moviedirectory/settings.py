@@ -42,6 +42,11 @@ EMAIL_HOST_PASSWORD = str(config.get('mail', 'password'))
 EMAIL_PORT = int(config.get('mail', 'port'))
 DEFAULT_FROM_EMAIL = "\"Movie Directory\" <moviedirectory@fiddlecomputers.fr>"
 
+INTERNAL_IPS = [
+    'localhost',
+    '127.0.0.1',
+]
+
 
 # Application definition
 
@@ -57,9 +62,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_registration',
     'django_extensions',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -152,13 +159,8 @@ LANGUAGES = (
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-    'static/',
-]
-
 STATIC_URL = "/static/"
-STATIC_ROOT = "media/"
+STATIC_ROOT = "/home/fiddleco/moviedirectory.fiddlecomputers.fr/static/"
 
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, '/locale/'),
