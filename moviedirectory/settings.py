@@ -160,6 +160,10 @@ STATICFILES_DIRS = [
 STATIC_URL = "/static/"
 STATIC_ROOT = "media/"
 
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, '/locale/'),
+)
+
 try:
     from local_settings import *
 except ImportError:
