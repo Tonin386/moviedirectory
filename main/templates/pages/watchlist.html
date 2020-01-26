@@ -6,6 +6,9 @@
 {% load static %}
 
 <h1 class="text-center text-light mt-5">{% trans "My watchlist" %} </h1>
+<div class="col text-center mt-3">
+	<a href="{% url 'movielist' %}" class="btn btn-success"><i class="fa fa-plus"></i> {% trans "Add a movie to my watchlist" %}</a>
+</div>
 {% for movie in movies %}
 	<div class="row justify-content-center mt-5 no-gutters">
 		<div class="card bg-dark text-light w-75">
@@ -29,7 +32,4 @@
 		</div>
 	</div>
 {% endfor %}
-<div class="col text-center mt-3">
-<a href="{% url 'movielist' %}" class="btn btn-success"><i class="fa fa-plus"></i> {% trans "Add a movie to my watchlist" %}</a>
-</div>
 {% endblock %}
