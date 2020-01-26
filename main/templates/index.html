@@ -9,7 +9,7 @@
   {% for movie in community %}
   <div class="row justify-content-center mt-5 no-gutters">
     <div class="card bg-dark text-light w-75">
-      <h4 class="card-header w-100"> <a class="stretched-link text-light" href="{% url 'user_watchlist' user_id=movie.viewer.id %}"> {% if movie.viewer.name_display %}{{movie.viewer.first_name}} {{movie.viewer.last_name}}{% else %}{{movie.viewer.username}}{% endif %}</a> {% trans "watched" %} <span style="float: right;">  {% if movie.new %} <img src="{% static 'img/icons/new.png' %}" alt="New" title="New" width="40"> {% endif %} {% if movie.theater %} <img src="{% static 'img/icons/cinema.png' %}" alt="Cinema" title="Cinema" width="40"> {% endif %} </span></h5>
+      <h4 class="card-header w-100"> <a class="text-light" href="{% url 'user_watchlist' username=movie.viewer.username %}"> {% if movie.viewer.name_display %}{{movie.viewer.first_name}} {{movie.viewer.last_name}}{% else %}{{movie.viewer.username}}{% endif %}</a> {% trans "watched" %} <span style="float: right;">  {% if movie.new %} <img src="{% static 'img/icons/new.png' %}" alt="New" title="New" width="40"> {% endif %} {% if movie.theater %} <img src="{% static 'img/icons/cinema.png' %}" alt="Cinema" title="Cinema" width="40"> {% endif %} </span></h5>
       <div class="row no-gutters">
         <div class="col-xl-2 img-card-poster">
           <img src="{{movie.movie.poster}}" alt="{{movie.movie.title}}" class="img-fluid" width="200">
@@ -62,7 +62,7 @@
     <a href="{% url 'register' %}" class="btn btn-lg btn-block btn-outline-light mb-2 shadow">{% trans "This is where the fun begins" %}<br><small class="muted">{% trans "Sign in" %}</small></a>
   </div>
   <div class="col-md-3 mt-3">
-    <a href="{% url 'login' %}" class="btn btn-lg btn-block btn-outline-light mb-2 shadow">{% trans "Don't worry I've got this" %} <br><small class="muted">{% trans "Login" %}</small></a>
+    <a href="{% url 'login' %}" class="btn btn-lg btn-block btn-outline-light mb-2 shadow ml-4">{% trans "Don't worry I've got this" %} <br><small class="muted">{% trans "Login" %}</small></a>
   </div>
 </div>
 {% endif %}

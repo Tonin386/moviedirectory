@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-26 14:10+0100\n"
+"POT-Creation-Date: 2020-01-26 21:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -12,7 +12,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: main/forms.py:11 moviedirectory/forms.py:8 moviedirectory/models.py:53
+#: main/forms.py:11 main/templates/pages/profile.html:37
+#: moviedirectory/forms.py:8 moviedirectory/models.py:53
 msgid "Username"
 msgstr "Nom d'utilisateur"
 
@@ -22,7 +23,7 @@ msgstr "Mot de passe"
 
 #: main/forms.py:44 main/models.py:91 main/templates/index.html:27
 #: main/templates/pages/add.html:28 main/templates/pages/add.html:31
-#: main/templates/pages/user_watchlist.html:32
+#: main/templates/pages/user_watchlist.html:36
 #: main/templates/pages/watchlist.html:27
 msgid "Watched on"
 msgstr "Regardé le"
@@ -48,25 +49,25 @@ msgstr "Commentaire personnel"
 msgid "No comment."
 msgstr "Pas de commentaire."
 
-#: main/forms.py:58 main/templates/pages/profile.html:15
-#: main/templates/pages/profile.html:18 main/templates/pages/profile.html:20
+#: main/forms.py:58 main/templates/pages/profile.html:76
+#: main/templates/pages/profile.html:79 main/templates/pages/profile.html:81
 #: moviedirectory/models.py:57
 msgid "First name"
-msgstr "Préonm"
+msgstr "Prénom"
 
-#: main/forms.py:59 main/templates/pages/profile.html:24
-#: main/templates/pages/profile.html:27 main/templates/pages/profile.html:29
+#: main/forms.py:59 main/templates/pages/profile.html:85
+#: main/templates/pages/profile.html:88 main/templates/pages/profile.html:90
 #: moviedirectory/models.py:58
 msgid "Last name"
 msgstr "Nom"
 
-#: main/forms.py:60 main/templates/pages/profile.html:33
-#: main/templates/pages/profile.html:36
+#: main/forms.py:60 main/templates/pages/profile.html:94
+#: main/templates/pages/profile.html:97
 msgid "Birthday"
 msgstr "Date de naissance"
 
-#: main/forms.py:61 main/templates/pages/profile.html:54
-#: main/templates/pages/profile.html:57
+#: main/forms.py:61 main/templates/pages/profile.html:115
+#: main/templates/pages/profile.html:118
 msgid "Email notifications"
 msgstr "Notifications par email"
 
@@ -74,12 +75,12 @@ msgstr "Notifications par email"
 msgid "Private"
 msgstr "Privé"
 
-#: main/forms.py:63 main/templates/pages/profile.html:66
-#: main/templates/pages/profile.html:69 moviedirectory/models.py:61
+#: main/forms.py:63 main/templates/pages/profile.html:127
+#: main/templates/pages/profile.html:130
 msgid "Name display"
 msgstr "Nom affiché"
 
-#: main/models.py:9
+#: main/models.py:9 main/templates/pages/movielist.html:14
 msgid "Title"
 msgstr "Titre"
 
@@ -119,8 +120,8 @@ msgstr "Acteurs"
 msgid "Plot"
 msgstr "Sysnopsis"
 
-#: main/models.py:19 main/templates/pages/profile.html:88
-#: main/templates/pages/profile.html:91
+#: main/models.py:19 main/templates/pages/profile.html:153
+#: main/templates/pages/profile.html:156
 msgid "Language"
 msgstr "Langue"
 
@@ -213,25 +214,25 @@ msgstr "Inscription"
 msgid "What the community has recently watched"
 msgstr "Ce que la communauté a regardé récemment"
 
-#: main/templates/index.html:12 main/templates/pages/user_watchlist.html:18
+#: main/templates/index.html:12 main/templates/pages/user_watchlist.html:22
 msgid "watched"
 msgstr "a regardé"
 
 #: main/templates/index.html:20 main/templates/pages/add.html:18
-#: main/templates/pages/user_watchlist.html:26
+#: main/templates/pages/user_watchlist.html:30
 #: main/templates/pages/watchlist.html:20
 msgid "With:"
 msgstr "Avec :"
 
 #: main/templates/index.html:21 main/templates/pages/add.html:19
-#: main/templates/pages/user_watchlist.html:27
+#: main/templates/pages/user_watchlist.html:31
 #: main/templates/pages/watchlist.html:21
 msgid "Awards:"
 msgstr "Récompenses :"
 
 #: main/templates/index.html:22 main/templates/pages/add.html:20
 #: main/templates/pages/movielist.html:30
-#: main/templates/pages/user_watchlist.html:28
+#: main/templates/pages/user_watchlist.html:32
 #: main/templates/pages/watchlist.html:22
 msgid "See on IMDb"
 msgstr "Voir sur IMDb"
@@ -273,12 +274,12 @@ msgid "Add to my watchlist"
 msgstr "Ajouter à ma watchlist"
 
 #: main/templates/pages/add.html:43 main/templates/pages/add.html:55
-#: main/templates/pages/profile.html:48 main/templates/pages/profile.html:60
+#: main/templates/pages/profile.html:109 main/templates/pages/profile.html:121
 msgid "Yes"
 msgstr "Oui"
 
 #: main/templates/pages/add.html:44 main/templates/pages/add.html:56
-#: main/templates/pages/profile.html:49 main/templates/pages/profile.html:61
+#: main/templates/pages/profile.html:110 main/templates/pages/profile.html:122
 msgid "No"
 msgstr "Non"
 
@@ -306,38 +307,83 @@ msgstr "Rechercher"
 msgid "Error"
 msgstr "Erreur"
 
-#: main/templates/pages/profile.html:8
+#: main/templates/pages/profile.html:10
 msgid "Your profile was updated."
 msgstr "Votre profil a été mis à jour"
 
-#: main/templates/pages/profile.html:11
+#: main/templates/pages/profile.html:15
+msgid "Friendlist"
+msgstr "Liste d'amis"
+
+#: main/templates/pages/profile.html:20
+msgid "aka"
+msgstr "alias"
+
+#: main/templates/pages/profile.html:21
+msgid "See watchlist"
+msgstr "Voir sa watchlist"
+
+#: main/templates/pages/profile.html:22
+msgid "Delete friend"
+msgstr "Supprimer ami"
+
+#: main/templates/pages/profile.html:30
+msgid "Friend requests sent"
+msgstr "Demandes d'ami envoyées"
+
+#: main/templates/pages/profile.html:35
+msgid "Send a friend request"
+msgstr "Envoyer une demande d'ami"
+
+#: main/templates/pages/profile.html:41
+msgid "Send"
+msgstr "Envoyer"
+
+#: main/templates/pages/profile.html:49
+msgid "Cancel"
+msgstr "Annuler"
+
+#: main/templates/pages/profile.html:57
+msgid "Friend requests received"
+msgstr "Demande d'ami reçues"
+
+#: main/templates/pages/profile.html:63
+msgid "Accept"
+msgstr "Accepter"
+
+#: main/templates/pages/profile.html:64
+msgid "Refuse"
+msgstr "Refuser"
+
+#: main/templates/pages/profile.html:72
 msgid "Edit your profile"
 msgstr "Editer votre profil"
 
-#: main/templates/pages/profile.html:42 main/templates/pages/profile.html:45
+#: main/templates/pages/profile.html:103 main/templates/pages/profile.html:106
 msgid "Private watchlist"
 msgstr "Watchlist privée"
 
-#: main/templates/pages/profile.html:78
+#: main/templates/pages/profile.html:140
 msgid "Edit my profile"
 msgstr "Editer mon profil"
 
-#: main/templates/pages/profile.html:82
+#: main/templates/pages/profile.html:147
 msgid "Language settings"
 msgstr "Paramètres de langue"
 
-#: main/templates/pages/profile.html:101
+#: main/templates/pages/profile.html:166
 msgid "Change language"
 msgstr "Changer la langue"
 
 #: main/templates/pages/user_watchlist.html:11
-msgid ""
-"It seems like this user doesn't exist, or that his watchlist is private."
-msgstr ""
-"Il semblerait que cet utilisateur n'existe pas, ou que sa watchlist est "
-"privée."
+msgid "It seems like this user doesn't exist."
+msgstr "Il semblerait que cet utilisateur n'existe pas."
 
-#: main/templates/pages/user_watchlist.html:14
+#: main/templates/pages/user_watchlist.html:15
+msgid "You must be friend with this user to see his watchlist."
+msgstr "Vous devez être ami avec cet utilisateur pour voir sa watchlist."
+
+#: main/templates/pages/user_watchlist.html:18
 msgid "'s watchlist"
 msgstr " et ses films"
 
@@ -393,15 +439,31 @@ msgstr "Profil privé"
 msgid "Email notification"
 msgstr "Notification par email"
 
-#: moviedirectory/models.py:68
+#: moviedirectory/models.py:61
+msgid "Name displayed"
+msgstr "Nom affiché"
+
+#: moviedirectory/models.py:62
+msgid "Friends"
+msgstr "Amis"
+
+#: moviedirectory/models.py:63
+msgid "Sent friend requests ID"
+msgstr "ID des demandes d'ami envoyées"
+
+#: moviedirectory/models.py:64
+msgid "Received friend invites ID"
+msgstr "ID des demandes d'ami reçues"
+
+#: moviedirectory/models.py:84
 msgid "User"
 msgstr "Utilisateur"
 
-#: moviedirectory/settings.py:147
+#: moviedirectory/settings.py:154
 msgid "French"
 msgstr "Français"
 
-#: moviedirectory/settings.py:148
+#: moviedirectory/settings.py:155
 msgid "English"
 msgstr "Anglais"
 
@@ -432,6 +494,12 @@ msgstr "Profil"
 #: templates/nav.html:27
 msgid "Logout"
 msgstr "Déconnexion"
+
+#~ msgid "Followers id"
+#~ msgstr "ID des followers"
+
+#~ msgid "Following id"
+#~ msgstr "ID des abonnements"
 
 #~ msgid "french"
 #~ msgstr "français"

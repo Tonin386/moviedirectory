@@ -86,11 +86,12 @@ def watchlist(request):
 
 	return render(request, 'pages/watchlist.html', locals())
 
-def user_watchlist(request, user_id):
+def user_watchlist(request, username):
 	error = False
 
 	try:
-		t_user = User.objects.get(id=user_id)
+		t_user = User.objects.get(username=username)
+		t_friends = t_user.friends.all()
 		if t_user == request.user:
 			return redirect('watchlist')
 	except ObjectDoesNotExist:
@@ -153,26 +154,157 @@ def delete(request, ownid):
 
 @login_required
 def profile(request):
-	form = EditProfileForm(request.POST or None)
-	birthday = request.user.birth_date.strftime('%Y-%m-%d')
-	current_language = get_language()
-	print(current_language)
+	edit_form = EditProfileForm(request.POST or None)
 
-	if form.is_valid():
-		user = request.user
-		data = form.cleaned_data
-		user.first_name = data['first_name']
-		user.last_name = data['last_name']
-		user.birth_date = data['birth_date']
-		user.private = data['private']
-		user.email_notifications = data['email_notifications']
-		user.name_display = data['name_display']
-		user.save()
-		print(user.name_display)
-		print(data['name_display'])
-		success = True
+	birthday = request.user.birth_date.strftime('%Y-%m-%d')
+
+	current_language = get_language()
+
+	user_friends = request.user.friends.all()
+
+	user_sent_id = request.user.get_sent_friend_requests_id()
+	user_sent = []
+	for user_id in user_sent_id:
+		user_sent.append(User.objects.get(id=user_id))
+
+	user_received_id = request.user.get_received_friend_requests_id()
+	user_received = []
+	for user_id in user_received_id:
+		user_received.append(User.objects.get(id=user_id))
+
+	if request.POST: #If request is a form
+		if edit_form.is_valid() and request.POST.get('from_edit_profile', False): #Is it the edit profile form?
+			user = request.user
+			data = edit_form.cleaned_data
+			user.first_name = data['first_name']
+			user.last_name = data['last_name']
+			user.birth_date = data['birth_date']
+			user.private = data['private']
+			user.email_notifications = data['email_notifications']
+			user.name_display = data['name_display']
+			user.save()
+			success = True
+		elif request.POST.get('from_send_invite', False): #If it isn't, it has to be the send request form.
+			username = request.POST['username']
+			try:
+				asked_user = User.objects.get(username=username) #Can we find this user?
+			except ObjectDoesNotExist: #No? Alright. Abort.
+				return redirect("profile")
+
+			if not asked_user in request.user.friends.all() and asked_user != request.user: #We check if we aren't already friend with him.
+				asked_user_received_id = asked_user.get_received_friend_requests_id() #We found him. Let's see if he already is somewhere
+
+				if not request.user.id in asked_user_received_id and not asked_user.id in user_sent_id: #Checking we haven't already sent an invite to this user
+					asked_user_sent_id = asked_user.get_sent_friend_requests_id()
+
+					if request.user.id in asked_user_sent_id: #He also sent us an invite! I think we want to be friend
+						request.user.friends.add(asked_user)
+						asked_user.friends.add(request.user)
+						asked_user_sent_id.remove(request.user.id)
+						user_received_id.remove(asked_user.id)
+						asked_user.sent_friend_requests = " ".join(asked_user_sent_id)
+						request.user.received_friend_requests = " ".join(user_received_id)
+						asked_user.save()
+						request.user.save()
+						#Send a mail to both users
+					else: #Alright, we don't know yet if he wants to be friend with us.
+						if asked_user.received_friend_requests != "":
+							asked_user.received_friend_requests += " " + str(request.user.id)
+						else:
+							asked_user.received_friend_requests = str(request.user.id)
+
+						if request.user.sent_friend_requests != "":
+							request.user.sent_friend_requests += " " + str(asked_user.id)
+						else:
+							request.user.sent_friend_requests = str(asked_user.id)
+
+						asked_user.save()
+						request.user.save()
+						#Send a mail to the user
+
+			return redirect('profile')
+
+
 
 	return render(request, 'pages/profile.html', locals())
+
+@login_required
+def delete_friend(request, friend_id):
+	try:
+		old_friend = User.objects.get(id=friend_id)
+	except ObjectDoesNotExist:
+		return HttpResponse("You shouldn't be here!")
+
+	request.user.friends.remove(old_friend)
+	old_friend.friends.remove(request.user)
+
+	return redirect('profile')
+
+@login_required
+def accept_friend(request, friend_id):
+	try:
+		friend = User.objects.get(id=friend_id)
+	except ObjectDoesNotExist:
+		return HttpResponse("You shouldn't be here!")
+
+	user_received_id = request.user.get_received_friend_requests_id()
+	user_received_id.remove(friend.id)
+	request.user.received_friend_requests = " ".join(user_received_id)
+
+	friend_sent_id = friend.get_sent_friend_requests_id()
+	friend_sent_id.remove(request.user.id)
+	friend.sent_friend_requests = " ".join(friend_sent_id)
+
+	friend.friends.add(request.user)
+	request.user.friends.add(friend)
+
+	request.user.save()
+	friend.save()
+
+	return redirect('profile')
+
+@login_required
+def refuse_friend(request, friend_id):
+	try:
+		friend = User.objects.get(id=friend_id)
+	except ObjectDoesNotExist:
+		return HttpResponse("You shouldn't be here!")
+
+	user_received_id = request.user.get_received_friend_requests_id()
+	user_received_id.remove(friend.id)
+	request.user.received_friend_requests = " ".join(user_received_id)
+
+	friend_sent_id = friend.get_sent_friend_requests_id()
+	friend_sent_id.remove(request.user.id)
+	friend.sent_friend_requests = " ".join(friend_sent_id)
+
+	request.user.save()
+	friend.save()
+
+	return redirect('profile')
+
+@login_required
+def cancel_friend(request, friend_id):
+	try:
+		friend = User.objects.get(id=friend_id)
+	except ObjectDoesNotExist:
+		return HttpResponse("You shouldn't be here!")
+
+	user_sent_id = request.user.get_sent_friend_requests_id()
+	user_sent_id.remove(friend.id)
+	request.user.sent_friend_requests = " ".join(user_sent_id)
+
+	friend_received_id = friend.get_received_friend_requests_id()
+	friend_received_id.remove(request.user.id)
+	friend.received_friend_requests = " ".join(friend_received_id)
+
+	request.user.save()
+	friend.save()
+
+	request.user.save()
+	friend.save()
+
+	return redirect('profile')
 
 
 def home(request):

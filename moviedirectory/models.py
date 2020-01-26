@@ -58,7 +58,23 @@ class User(AbstractUser):
     last_name = models.CharField(max_length=50, null=True, blank=True, verbose_name=_("Last name"))
     private = models.BooleanField(default=False, verbose_name=_("Private profile"))
     email_notifications = models.BooleanField(default=True, verbose_name=_("Email notification"))
-    name_display = models.BooleanField(default=False, verbose_name=_("Name display"))
+    name_display = models.BooleanField(default=False, verbose_name=_("Name displayed"))
+    friends = models.ManyToManyField(verbose_name=_("Friends"), blank=True, to="moviedirectory.User")
+    sent_friend_requests = models.TextField(verbose_name=_("Sent friend requests ID"), blank=True, default="")
+    received_friend_requests = models.TextField(verbose_name=_("Received friend invites ID"), blank=True, default="")
+
+    def get_sent_friend_requests_id(self):
+        if self.sent_friend_requests is not None:
+            return [int(x) for x in self.sent_friend_requests.split()]
+        else:
+            return []
+
+    def get_received_friend_requests_id(self):
+        if self.received_friend_requests is not None:
+            return [int(x) for x in self.received_friend_requests.split()]
+        else:
+            return []
+
 
     REQUIRED_FIELDS = []
 
