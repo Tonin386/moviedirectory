@@ -1,28 +1,28 @@
-from django.db import models
-from django.utils import timezone
-from django.contrib.auth.models import AbstractUser, BaseUserManager
-from django.utils.translation import ugettext_lazy as _
 from django.core.validators import int_list_validator, MinValueValidator, MaxValueValidator
+from django.contrib.auth.models import AbstractUser, BaseUserManager
 from main.api import make_request_by_id as fetch_movie
+from django.utils.translation import ugettext as _
+from django.utils import timezone
+from django.db import models
 
 class Movie(models.Model):
-	title = models.CharField(max_length=50, verbose_name="Title", null=True, blank=True)
-	year = models.CharField(verbose_name="Release year", null=True, blank=True, max_length=12)
-	rated = models.CharField(max_length=3, verbose_name="Rated", null=True, blank=True)
-	released = models.DateField(verbose_name="Release date", null=True, blank=True)
-	runtime = models.CharField(verbose_name="Runtime", max_length=255, null=True, blank=True)
-	genre = models.CharField(verbose_name="Genre", max_length=255, null=True, blank=True)
-	director = models.CharField(verbose_name="Director", max_length=255, null=True, blank=True)
-	writer = models.TextField(verbose_name="Writer", null=True, blank=True)
-	actors = models.TextField(verbose_name="Actors", null=True, blank=True)
-	plot = models.TextField(verbose_name="Plot", null=True, blank=True)
-	language = models.TextField(verbose_name="Language", null=True, blank=True)
-	country = models.TextField(verbose_name="Country", null=True, blank=True)
-	awards = models.TextField(verbose_name="Awards", null=True, blank=True)
-	poster = models.CharField(verbose_name="Poster URL", max_length=255, null=True, blank=True)
-	imdbid = models.CharField(verbose_name="IMDb ID", max_length=255, null=True, blank=True)
-	m_type = models.CharField(verbose_name="Type", max_length=255, null=True, blank=True)
-	production = models.CharField(verbose_name="Production", max_length=255, null=True, blank=True)
+	title = models.CharField(max_length=50, verbose_name=_("Title"), null=True, blank=True)
+	year = models.CharField(verbose_name=_("Release year"), null=True, blank=True, max_length=12)
+	rated = models.CharField(max_length=3, verbose_name=_("Rated"), null=True, blank=True)
+	released = models.DateField(verbose_name=_("Release date"), null=True, blank=True)
+	runtime = models.CharField(verbose_name=_("Runtime"), max_length=255, null=True, blank=True)
+	genre = models.CharField(verbose_name=_("Genre"), max_length=255, null=True, blank=True)
+	director = models.CharField(verbose_name=_("Director"), max_length=255, null=True, blank=True)
+	writer = models.TextField(verbose_name=_("Writer"), null=True, blank=True)
+	actors = models.TextField(verbose_name=_("Actors"), null=True, blank=True)
+	plot = models.TextField(verbose_name=_("Plot"), null=True, blank=True)
+	language = models.TextField(verbose_name=_("Language"), null=True, blank=True)
+	country = models.TextField(verbose_name=_("Country"), null=True, blank=True)
+	awards = models.TextField(verbose_name=_("Awards"), null=True, blank=True)
+	poster = models.CharField(verbose_name=_("Poster URL"), max_length=255, null=True, blank=True)
+	imdbid = models.CharField(verbose_name=_("IMDb ID"), max_length=255, null=True, blank=True)
+	m_type = models.CharField(verbose_name=_("Type"), max_length=255, null=True, blank=True)
+	production = models.CharField(verbose_name=_("Production"), max_length=255, null=True, blank=True)
 
 	def fetch(self):
 		r = fetch_movie(self.imdbid, True)
@@ -79,7 +79,7 @@ class Movie(models.Model):
 			self.save()
 
 	class Meta:
-		verbose_name = 'Movie'
+		verbose_name = _('Movie')
 		ordering = ['title', 'year', 'released']
 
 	def __str__(self):
@@ -87,17 +87,17 @@ class Movie(models.Model):
 
 
 class WatchedMovie(models.Model):
-	movie = models.ForeignKey('main.Movie', verbose_name="Movie", on_delete=models.CASCADE)
-	view_date = models.DateField(verbose_name="Watched on")
-	note = models.IntegerField(null=True, blank=True, verbose_name="Personal note", validators=[MinValueValidator(0), MaxValueValidator(10)], default=10)
-	new = models.BooleanField(verbose_name="Never seen before")
-	theater = models.BooleanField(verbose_name="I saw it at theater!")
-	viewer = models.ForeignKey('moviedirectory.User', verbose_name="Viewer", on_delete=models.CASCADE)
-	comment = models.TextField(verbose_name="Comment", null=True, blank=True)
+	movie = models.ForeignKey('main.Movie', verbose_name=_("Movie"), on_delete=models.CASCADE)
+	view_date = models.DateField(verbose_name=_("Watched on"))
+	note = models.IntegerField(null=True, blank=True, verbose_name=_("Personal note"), validators=[MinValueValidator(0), MaxValueValidator(10)], default=10)
+	new = models.BooleanField(verbose_name=_("Never seen before"))
+	theater = models.BooleanField(verbose_name=_("I saw it at theater!"))
+	viewer = models.ForeignKey('moviedirectory.User', verbose_name=_("Viewer"), on_delete=models.CASCADE)
+	comment = models.TextField(verbose_name=_("Comment"), null=True, blank=True)
 	created = models.DateTimeField(auto_now_add=True)
 
 	class Meta:
-		verbose_name = "Watched movie"
+		verbose_name = _("Watched movie")
 		ordering=['view_date', 'note']
 
 	def __str__(self):

@@ -1,8 +1,8 @@
-from django.db import models
-from django.utils import timezone
 from django.contrib.auth.models import AbstractUser, BaseUserManager
-from django.utils.translation import ugettext_lazy as _
 from django.core.validators import int_list_validator
+from django.utils.translation import ugettext as _
+from django.utils import timezone
+from django.db import models
 
 class UserManager(BaseUserManager):
     use_in_migrations = True
@@ -46,26 +46,26 @@ class UserManager(BaseUserManager):
 
 class User(AbstractUser):
     GENDER_CHOICES = [
-        ('M', 'Male'),
-        ('F', 'Female'),
+        ('M', _('Male')),
+        ('F', _('Female')),
     ]
 
-    username = models.CharField(max_length=16, unique=True, verbose_name="Username")
-    birth_date = models.DateField(blank=True, null=True, verbose_name="Birthdate")
-    gender = models.CharField(choices=GENDER_CHOICES, max_length=1, verbose_name="Gender", null=True, blank=True)
-    email = models.EmailField(unique=True, verbose_name="Email")
-    first_name = models.CharField(max_length=50, null=True, blank=True, verbose_name="First name")
-    last_name = models.CharField(max_length=50, null=True, blank=True, verbose_name="Last name")
-    private = models.BooleanField(default=False, verbose_name="Private profile")
-    email_notifications = models.BooleanField(default=True, verbose_name="Email notification")
-    name_display = models.BooleanField(default=False, verbose_name="Name display")
+    username = models.CharField(max_length=16, unique=True, verbose_name=_("Username"))
+    birth_date = models.DateField(blank=True, null=True, verbose_name=_("Birthdate"))
+    gender = models.CharField(choices=GENDER_CHOICES, max_length=1, verbose_name=_("Gender"), null=True, blank=True)
+    email = models.EmailField(unique=True, verbose_name=_("Email"))
+    first_name = models.CharField(max_length=50, null=True, blank=True, verbose_name=_("First name"))
+    last_name = models.CharField(max_length=50, null=True, blank=True, verbose_name=_("Last name"))
+    private = models.BooleanField(default=False, verbose_name=_("Private profile"))
+    email_notifications = models.BooleanField(default=True, verbose_name=_("Email notification"))
+    name_display = models.BooleanField(default=False, verbose_name=_("Name display"))
 
     REQUIRED_FIELDS = []
 
     objects = UserManager()
 
     class Meta:
-        verbose_name = "User"
+        verbose_name = _("User")
         ordering = ['username']
 
     def __str__(self):

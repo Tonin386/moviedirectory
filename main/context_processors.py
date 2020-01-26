@@ -1,6 +1,6 @@
 from django.contrib.auth import authenticate, login as dj_login, logout as dj_logout
-from main.forms import LoginForm
 from moviedirectory.models import User
+from main.forms import LoginForm
 
 def login_form(request):
 	if request.method == 'POST':

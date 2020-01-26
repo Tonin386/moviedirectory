@@ -10,30 +10,27 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link active" href="{% url 'home' %}"><i class="fa fa-home"></i> Home</a>
+        <a class="nav-link active" href="{% url 'home' %}"><i class="fa fa-home"></i> {% trans "Home" %}</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" href="{% url 'watchlist' %}"><i class="fa fa-list"></i> My watchlist</a>
+        <a class="nav-link active" href="{% url 'watchlist' %}"><i class="fa fa-list"></i> {% trans "My watchlist" %}</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" href="{% url 'movielist' %}"><i class="fa fa-folder"></i> Movie list</a>
+        <a class="nav-link active" href="{% url 'movielist' %}"><i class="fa fa-folder"></i> {% trans "Movie list" %}</a>
       </li>
-     <!--  <li class="nav-item">
-        <a class="nav-link active" href="">Profile</a>
-      </li> -->
       {% if user.is_authenticated %}
       <li class="nav-item">
-        <a class="nav-link active" href="{% url 'profile' %}"><i class="fa fa-user"></i> Profile</a>
+        <a class="nav-link active" href="{% url 'profile' %}"><i class="fa fa-user"></i> {% trans "Profile" %}</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" href="{% url 'logout' %}"><i class="fa fa-minus"></i> Logout</a>
+        <a class="nav-link active" href="{% url 'logout' %}"><i class="fa fa-minus"></i> {% trans "Logout" %}</a>
       </li>
       {% else %}
       <li class="nav-item">
-        <a class="nav-link active" href="{% url 'login' %}"><i class="fa fa-plus"></i> Login</a>
+        <a class="nav-link active" href="{% url 'login' %}"><i class="fa fa-plus"></i> {% trans "Login" %}</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" href="{% url 'register' %}"><i class="fa fa-user"></i> Sign in</a>
+        <a class="nav-link active" href="{% url 'register' %}"><i class="fa fa-user"></i> {% trans "Sign in" %}</a>
       </li>
       {% endif %}
       {% if user.is_staff %}

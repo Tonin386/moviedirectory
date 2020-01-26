@@ -6,17 +6,17 @@
 <div class="row no-gutters justify-content-center">
 	<div class="row justify-content-center mt-5 no-gutters">
 		<div class="card bg-dark text-light w-75">
-			<h4 class="card-header w-100"> Add to my watchlist </h5>
+			<h4 class="card-header w-100"> {% trans "Add to my watchlist" %} </h5>
 			<div class="row no-gutters">
 				<div class="col-xl-2 img-card-poster">
 					<img src="{{movie.poster}}" alt="{{movie.title}}" class="img-fluid" width="200">
 				</div>
 			  	<div class="col m-3 btn-card-right">
 				    <h3 class="card-title text-center">{{movie.title}}<span class="text-muted"> - {{ movie.director }}, {{movie.year}}</span></h5>
-				    <p class="card-text text-justify">{{movie.plot}}</p>
-				    <p class="card-text text-justify">With: {{movie.actors}}</p>
-				    <p class="card-text text-justify">Awards: {{movie.awards}}</p>
-					<a href="https://www.imdb.com/title/{{movie.movie.imdbid}}" class="btn btn-warning mb-2" target="_blank"><i class="fa fa-external-link"></i> See on IMDb</a>
+				    <p class="card-text text-justify">{% trans movie.plot %}</p>
+				    <p class="card-text text-justify">{% trans "With:" %} {{movie.actors}}</p>
+				    <p class="card-text text-justify">{% trans "Awards:" %} {% trans movie.awards %}</p>
+					<a href="https://www.imdb.com/title/{{movie.movie.imdbid}}" class="btn btn-warning mb-2" target="_blank"><i class="fa fa-external-link"></i> {% trans "See on IMDb" %}</a>
 			  	</div>
 			</div>	
 		</div>
@@ -24,58 +24,58 @@
 	<form action="" method="post" class="row m-5 no-gutters">
 		{% csrf_token %}
 		<div class="col-lg-12 mb-2">
-			<label class="sr-only" for="inlineFormInputGroup">Watched on</label>
+			<label class="sr-only" for="inlineFormInputGroup">{% trans "Watched on" %}</label>
 			<div class="row m-auto input-group">
 				<div class="input-group-prepend col-xs-3">
-					<div class="input-group-text w-100">Watched on</div>
+					<div class="input-group-text w-100">{% trans "Watched on" %}</div>
 				</div>
-				<input type="date" class="form-control col-xs-9" id="inlineFormInputGroup" placeholder="Watched on" value="{{ now }}" name="{{form.view_date.html_name}}">
+				<input type="date" class="form-control col-xs-9" id="inlineFormInputGroup" value="{{ now }}" name="{{form.view_date.html_name}}">
 		  	</div>
 		</div>
 		<div class="col-lg-12 mb-2">
-			<label class="sr-only" for="inlineFormInputGroup">Never seen before</label>
+			<label class="sr-only" for="inlineFormInputGroup">{% trans "Never seen before" %}</label>
 			<div class="row m-auto input-group">
 				<div class="input-group-prepend col-xs-3">
-					<div class="input-group-text w-100">Never seen before</div>
+					<div class="input-group-text w-100">{% trans "Never seen before" %}</div>
 				</div>
 				<select class="form-control" id="exampleFormControlSelect1" name="new">
-				  <option value="True" selected>Yes</option>
-				  <option value="False">No</option>
+				  <option value="True" selected>{% trans "Yes" %}</option>
+				  <option value="False">{% trans "No" %}</option>
 				</select>
 		  	</div>
 		</div>
 		<div class="col-lg-12 mb-2">
-			<label class="sr-only" for="inlineFormInputGroup">I saw it at theater!</label>
+			<label class="sr-only" for="inlineFormInputGroup">{% trans "I saw it at theater!" %}</label>
 			<div class="row m-auto input-group">
 				<div class="input-group-prepend col-xs-3">
-					<div class="input-group-text w-100">I saw it at theater!</div>
+					<div class="input-group-text w-100">{% trans "I saw it at theater!" %}</div>
 				</div>
 				<select class="form-control" id="exampleFormControlSelect1" name="theater">
-				  <option value="True">Yes</option>
-				  <option value="False" selected>No</option>
+				  <option value="True">{% trans "Yes" %}</option>
+				  <option value="False" selected>{% trans "No" %}</option>
 				</select>
 		  	</div>
 		</div>
 		<div class="col-lg-12 mb-2">
-			<label class="sr-only" for="inlineFormInputGroup">Note</label>
+			<label class="sr-only" for="inlineFormInputGroup">{% trans "Note" %}</label>
 			<div class="row m-auto input-group">
 				<div class="input-group-prepend col-xs-3">
-					<div class="input-group-text w-100">Note</div>
+					<div class="input-group-text w-100">{% trans "Note" %}</div>
 				</div>
 				<input type="number" name="note" min=0 max=10 value="10" class="form-control col-xs-9">
 		  </div>
 		</div>
 		<div class="col-lg-12 mb-2">
-			<label class="sr-only" for="inlineFormInputGroup">Comment</label>
+			<label class="sr-only" for="inlineFormInputGroup">{% trans "Comment" %}</label>
 			<div class="row m-auto input-group">
 				<div class="input-group-prepend col-xs-3">
-					<div class="input-group-text w-100">Comment</div>
+					<div class="input-group-text w-100">{% trans "Comment" %}</div>
 				</div>
-				<input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Short comment on this movie..." name="comment">
+				<input type="text" class="form-control" id="inlineFormInputGroup" placeholder="{% trans 'Short comment on this movie...' %}" name="comment">
 		 	</div>
 		</div>
 		<div class="text-center m-auto">
-			<button type="submit" class="btn btn-success mt-3"><i class="fa fa-plus"></i> Add {{movie.title}} to my watchlist</button>
+			<button type="submit" class="btn btn-success mt-3"><i class="fa fa-plus"></i> {% trans "Add" %} {{movie.title}} {% trans "to my watchlist" %}</button>
 		</div>
 	</form>
 </div>
