@@ -22,7 +22,7 @@
               {% if f.errors %}
                 <style>ul{list-style: none;padding-left: 0;}</style>
                 <small class="font-weight-bold text-danger">
-                  {% trans f.errors %}
+                   {{ f.errors }}
                 </small>
               {% endif %}
               <div class="col-sm-6" style="margin: auto;">{{ f }}</div>
