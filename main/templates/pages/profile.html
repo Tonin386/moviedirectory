@@ -18,8 +18,8 @@
 		<div class="card col-lg-3 m-3 bg-dark text-light">
 		  <div class="card-body text-center">
 		    <h5 class="card-title">{{ friend.first_name }} {{ friend.last_name }} {% trans "aka" %} {{ friend.username }}</h5>
-		    <a href="{% url 'user_watchlist' username=friend.username %}" class="btn btn-primary m-auto"><i class="fa fa-list"></i> {% trans "See watchlist" %}</a>
-		    <a href="{% url 'delete_friend' friend_id=friend.id %}" class="btn btn-danger mr-2 m-auto"><i class="fa fa-remove"></i> {% trans "Delete friend" %}</a>
+		    <a href="{% url 'user_watchlist' username=friend.username %}" class="btn btn-primary m-2"><i class="fa fa-list"></i> {% trans "See watchlist" %}</a>
+		    <a href="{% url 'delete_friend' friend_id=friend.id %}" class="btn btn-danger m-2"><i class="fa fa-remove"></i> {% trans "Delete friend" %}</a>
 		  </div>
 		</div>
 		{% endfor %}
