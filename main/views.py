@@ -272,8 +272,8 @@ def profile(request):
 						asked_user.friends.add(request.user)
 						asked_user_sent_id.remove(request.user.id)
 						user_received_id.remove(asked_user.id)
-						asked_user.sent_friend_requests = " ".join(asked_user_sent_id)
-						request.user.received_friend_requests = " ".join(user_received_id)
+						asked_user.sent_friend_requests = " ".join(str(v) for v in asked_user_sent_id)
+						request.user.received_friend_requests = " ".join(str(v) for v in user_received_id)
 						asked_user.save()
 						request.user.save()
 						#Send a mail to both users
@@ -319,11 +319,11 @@ def accept_friend(request, friend_id):
 
 	user_received_id = request.user.get_received_friend_requests_id()
 	user_received_id.remove(friend.id)
-	request.user.received_friend_requests = " ".join(user_received_id)
+	request.user.received_friend_requests = " ".join(str(v) for v in user_received_id)
 
 	friend_sent_id = friend.get_sent_friend_requests_id()
 	friend_sent_id.remove(request.user.id)
-	friend.sent_friend_requests = " ".join(friend_sent_id)
+	friend.sent_friend_requests = " ".join(str(v) for v in friend_sent_id)
 
 	friend.friends.add(request.user)
 	request.user.friends.add(friend)
