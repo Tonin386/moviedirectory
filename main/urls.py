@@ -7,9 +7,11 @@ from . import views
 
 urlpatterns = [
     path('', views.home, name="home"),
+    path('<int:page>', views.home_page, name="home_page"),
     path('register', views.register, name="register"),
     url(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$', views.activate, name='activate'),
     path('watchlist', views.watchlist, name="watchlist"),
+    path('watchlist/<int:page>', views.watchlist_page, name="watchlist_page"),
     path('watchlist/delete/<str:ownid>', views.delete, name="delete"),
     path('watchlist/browse/<str:username>', views.user_watchlist, name="user_watchlist"),
     path('movielist', views.movielist, name="movielist"),
