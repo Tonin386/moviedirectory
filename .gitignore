@@ -134,3 +134,7 @@ dmypy.json
 
 #My config
 config.ini
+
+#Git languages
+*.css linguist-detectable=false
+*.html linguist-detectable=false
