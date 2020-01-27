@@ -166,6 +166,8 @@ LOCALE_PATHS = (
     os.path.join(BASE_DIR, '/locale/'),
 )
 
+LOCALE_ROOT = "/home/fiddleco/moviedirectory.fiddlecomputers.fr/locale/"
+
 try:
     from local_settings import *
 except ImportError:

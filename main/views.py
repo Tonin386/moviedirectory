@@ -82,7 +82,18 @@ def activate(request, uidb64, token):
 @login_required
 def watchlist(request):
 		
-	movies = WatchedMovie.objects.filter(viewer=request.user).order_by('-view_date')
+	movies = WatchedMovie.objects.filter(viewer=request.user).order_by('-view_date')[:3]
+
+	return render(request, 'pages/watchlist.html', locals())
+
+@login_required
+def watchlist_page(request, page):
+	if page < 2:
+		return redirect('watchlist')
+
+	start = (page-1) * 3
+	end = page*3
+	movies = WatchedMovie.objects.filter(viewer=request.user).order_by('-view_date')[start:end]
 
 	return render(request, 'pages/watchlist.html', locals())
 
@@ -310,5 +321,15 @@ def cancel_friend(request, friend_id):
 def home(request):
 
 	community = WatchedMovie.objects.order_by('-view_date')[:10]
+
+	return render(request, 'index.html', locals())
+
+def home_page(request, page):
+	if page < 2:
+		return redirect('home')
+
+	start = (page-1) * 10
+	end = page*10
+	community = WatchedMovie.objects.order_by('-view_date')[start:end]
 
 	return render(request, 'index.html', locals())
