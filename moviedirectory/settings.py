@@ -45,6 +45,7 @@ DEFAULT_FROM_EMAIL = "\"Movie Directory\" <moviedirectory@fiddlecomputers.fr>"
 INTERNAL_IPS = [
     'localhost',
     '127.0.0.1',
+    '86.120.142.122',
 ]
 
 
@@ -163,10 +164,8 @@ STATIC_URL = "/static/"
 STATIC_ROOT = "/home/fiddleco/moviedirectory.fiddlecomputers.fr/static/"
 
 LOCALE_PATHS = (
-    os.path.join(BASE_DIR, '/locale/'),
+    os.path.join(BASE_DIR, 'locale/'),
 )
-
-LOCALE_ROOT = "/home/fiddleco/moviedirectory.fiddlecomputers.fr/locale/"
 
 try:
     from local_settings import *
