@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-26 21:29+0000\n"
+"POT-Creation-Date: 2020-01-27 13:49+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,7 +30,7 @@ msgstr ""
 #: main/forms.py:44 main/models.py:91 main/templates/index.html:27
 #: main/templates/pages/add.html:28 main/templates/pages/add.html:31
 #: main/templates/pages/user_watchlist.html:36
-#: main/templates/pages/watchlist.html:27
+#: main/templates/pages/watchlist.html:30
 msgid "Watched on"
 msgstr ""
 
@@ -195,7 +195,7 @@ msgid "Log out"
 msgstr ""
 
 #: main/templates/auth/login.html:11 main/templates/auth/login.html:29
-#: main/templates/index.html:65 templates/nav.html:31
+#: main/templates/index.html:74 templates/nav.html:31
 msgid "Login"
 msgstr ""
 
@@ -225,20 +225,20 @@ msgstr ""
 
 #: main/templates/index.html:20 main/templates/pages/add.html:18
 #: main/templates/pages/user_watchlist.html:30
-#: main/templates/pages/watchlist.html:20
+#: main/templates/pages/watchlist.html:23
 msgid "With:"
 msgstr ""
 
 #: main/templates/index.html:21 main/templates/pages/add.html:19
 #: main/templates/pages/user_watchlist.html:31
-#: main/templates/pages/watchlist.html:21
+#: main/templates/pages/watchlist.html:24
 msgid "Awards:"
 msgstr ""
 
 #: main/templates/index.html:22 main/templates/pages/add.html:20
 #: main/templates/pages/movielist.html:30
 #: main/templates/pages/user_watchlist.html:32
-#: main/templates/pages/watchlist.html:22
+#: main/templates/pages/watchlist.html:25
 msgid "See on IMDb"
 msgstr ""
 
@@ -246,31 +246,41 @@ msgstr ""
 msgid "Delete from your watchlist"
 msgstr ""
 
-#: main/templates/index.html:36
+#: main/templates/index.html:34 main/templates/pages/user_watchlist.html:43
+#: main/templates/pages/watchlist.html:37
+msgid "Previous page"
+msgstr ""
+
+#: main/templates/index.html:37 main/templates/pages/user_watchlist.html:46
+#: main/templates/pages/watchlist.html:40
+msgid "Next page"
+msgstr ""
+
+#: main/templates/index.html:45
 msgid "Welcome to Movie Directory"
 msgstr ""
 
-#: main/templates/index.html:49
+#: main/templates/index.html:58
 msgid "Share your favorite movies with people who matters."
 msgstr ""
 
-#: main/templates/index.html:52
+#: main/templates/index.html:61
 msgid "Always up to date movie database."
 msgstr ""
 
-#: main/templates/index.html:55
+#: main/templates/index.html:64
 msgid "Start now and enjoy yourself."
 msgstr ""
 
-#: main/templates/index.html:62
+#: main/templates/index.html:71
 msgid "This is where the fun begins"
 msgstr ""
 
-#: main/templates/index.html:62 templates/nav.html:34
+#: main/templates/index.html:71 templates/nav.html:34
 msgid "Sign in"
 msgstr ""
 
-#: main/templates/index.html:65
+#: main/templates/index.html:74
 msgid "Don't worry I've got this"
 msgstr ""
 
@@ -396,16 +406,16 @@ msgstr ""
 msgid "My watchlist"
 msgstr ""
 
-#: main/templates/pages/watchlist.html:12
+#: main/templates/pages/watchlist.html:10
+msgid "Add a movie to my watchlist"
+msgstr ""
+
+#: main/templates/pages/watchlist.html:15
 msgid "I watched..."
 msgstr ""
 
-#: main/templates/pages/watchlist.html:23
+#: main/templates/pages/watchlist.html:26
 msgid "Delete entry"
-msgstr ""
-
-#: main/templates/pages/watchlist.html:33
-msgid "Add a movie to my watchlist"
 msgstr ""
 
 #: main/views.py:49
@@ -464,11 +474,11 @@ msgstr ""
 msgid "User"
 msgstr ""
 
-#: moviedirectory/settings.py:154
+#: moviedirectory/settings.py:155
 msgid "French"
 msgstr ""
 
-#: moviedirectory/settings.py:155
+#: moviedirectory/settings.py:156
 msgid "English"
 msgstr ""
 

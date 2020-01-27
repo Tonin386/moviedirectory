@@ -82,7 +82,16 @@ def activate(request, uidb64, token):
 @login_required
 def watchlist(request):
 		
-	movies = WatchedMovie.objects.filter(viewer=request.user).order_by('-view_date')[:3]
+	movies = WatchedMovie.objects.filter(viewer=request.user).order_by('-view_date', '-id')[:3]
+	page = 1
+	nb_elements = len(WatchedMovie.objects.filter(viewer=request.user))
+	next_page = 2
+	previous_page = 1 
+	
+	if page*3 < nb_elements:
+		last_page = False
+	else:
+		last_page = True
 
 	return render(request, 'pages/watchlist.html', locals())
 
@@ -93,7 +102,15 @@ def watchlist_page(request, page):
 
 	start = (page-1) * 3
 	end = page*3
-	movies = WatchedMovie.objects.filter(viewer=request.user).order_by('-view_date')[start:end]
+	movies = WatchedMovie.objects.filter(viewer=request.user).order_by('-view_date', '-id')[start:end]
+	nb_elements = len(WatchedMovie.objects.filter(viewer=request.user))
+	next_page = page+1
+	previous_page = page-1
+	
+	if page*3 < nb_elements:
+		last_page = False
+	else:
+		last_page = True
 
 	return render(request, 'pages/watchlist.html', locals())
 
@@ -109,8 +126,50 @@ def user_watchlist(request, username):
 		error = True
 		return render(request, 'pages/user_watchlist.html', locals())
 
-	movies = WatchedMovie.objects.filter(viewer=t_user).order_by('-view_date')
+	movies = WatchedMovie.objects.filter(viewer=t_user).order_by('-view_date', '-id')[:3]
+	page = 1
+	nb_elements = len(WatchedMovie.objects.filter(viewer=t_user))
+	next_page = 2
+	previous_page = 1 
+	
+	if page*3 < nb_elements:
+		last_page = False
+	else:
+		last_page = True
+
+
 	return render(request, 'pages/user_watchlist.html', locals())
+
+def user_watchlist_page(request, username, page):
+	if page < 2:
+		return redirect('user_watchlist', username=username)
+
+	error = False
+
+	try:
+		t_user = User.objects.get(username=username)
+		t_friends = t_user.friends.all()
+		if t_user == request.user:
+			return redirect('watchlist')
+	except ObjectDoesNotExist:
+		error = True
+		return render(request, 'pages/user_watchlist.html', locals())
+
+	start = (page-1) * 3
+	end = page*3
+	movies = WatchedMovie.objects.filter(viewer=t_user).order_by('-view_date', '-id')[start:end]
+	nb_elements = len(WatchedMovie.objects.filter(viewer=t_user))
+	next_page = page+1
+	previous_page = page-1
+	
+	if page*3 < nb_elements:
+		last_page = False
+	else:
+		last_page = True
+
+
+	return render(request, 'pages/user_watchlist.html', locals())
+
 
 def movielist(request):
 
@@ -320,7 +379,16 @@ def cancel_friend(request, friend_id):
 
 def home(request):
 
-	community = WatchedMovie.objects.order_by('-view_date')[:10]
+	community = WatchedMovie.objects.order_by('-view_date', '-id')[:10]
+	nb_movies = len(WatchedMovie.objects.all())
+	page = 1
+	next_page = 2
+	previous_page = 1 
+
+	if page*10 < nb_movies:
+		last_page = False
+	else:
+		last_page = True
 
 	return render(request, 'index.html', locals())
 
@@ -330,6 +398,14 @@ def home_page(request, page):
 
 	start = (page-1) * 10
 	end = page*10
-	community = WatchedMovie.objects.order_by('-view_date')[start:end]
+	community = WatchedMovie.objects.order_by('-view_date', '-id')[start:end]
+	nb_movies = len(WatchedMovie.objects.all())
+	next_page = page+1
+	previous_page = page-1
+
+	if page*10 < nb_movies:
+		last_page = False
+	else:
+		last_page = True
 
 	return render(request, 'index.html', locals())

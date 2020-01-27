@@ -14,6 +14,7 @@ urlpatterns = [
     path('watchlist/<int:page>', views.watchlist_page, name="watchlist_page"),
     path('watchlist/delete/<str:ownid>', views.delete, name="delete"),
     path('watchlist/browse/<str:username>', views.user_watchlist, name="user_watchlist"),
+    path('watchlist/browse/<str:username>/<int:page>', views.user_watchlist_page, name="user_watchlist_page"),
     path('movielist', views.movielist, name="movielist"),
     path('movielist/add/<str:imdbid>', views.add, name="add"),
     path('profile', views.profile, name="profile"),
