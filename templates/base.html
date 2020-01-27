@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     {% load static %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,9 +15,9 @@
     <link rel="icon" href="{% static 'img/favicon.ico' %}">
 
     <title>{% block title %}Movie Directory{% endblock %} {% if user.is_authenticated %} - {{user.username}} {% endif %}</title>
-  </head>
+</head>
 
-  <body class="bg-gradient-dark container mw-100 p-0 fill">
+<body class="bg-gradient-dark container mw-100 p-0 fill">
 
     {% block content %}
     {% endblock %}
@@ -34,6 +34,6 @@
 
     <script src="{% static 'js/my_js.js' %}"> </script>
 
-  </body>
+</body>
 
 </html>

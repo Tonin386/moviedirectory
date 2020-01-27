@@ -2,39 +2,39 @@
 {% load i18n %}
 {% block content %}
 {% include "nav.html" %}
-  <div class="ruban_widget">
-    <h1 class="ruban text-center text-light mt-5" style="padding: 5px;">{% trans "User registration" %}</h1>
-    {% if addedUser %}
-      <div class="alert alert-warning w-75 m-auto">
-        {% trans "Sign in successfull. Please check your emails to activate your account. If you can't find the email, please check your spam folder." %}
-      </div>
-    {% else %}
-      <form action="" method="post" class="container col-12">
-          {% csrf_token %}
-          {% for f in form %}
-          {% if not forloop.counter|divisibleby:2 %}
-          <div class="row col-12">
-          {% endif %}
-            <div class="col-sm-6">
-              <div class="col-sm-6" style="margin: auto;">
-                <label for="{{ f.label }}" style="color: white;">{{ f.label }} : </label>
-              </div>
-              {% if f.errors %}
-                <style>ul{list-style: none;padding-left: 0;}</style>
-                <small class="font-weight-bold text-danger">
-                   {{ f.errors }}
-                </small>
-              {% endif %}
-              <div class="col-sm-6" style="margin: auto;">{{ f }}</div>
-              </div>
-            {% if forloop.counter|divisibleby:2 %}
-            </div>
-            {% endif %}
-          {% endfor %}
-          <div style="text-align: center; padding: 10px;">
-            <input type="submit" id="connect" value="{% trans 'Register'%}" class="btn btn-light" style="cursor: pointer; margin-top: 1em;">
-          </div>
-        </form>
+<div class="ruban_widget">
+  <h1 class="ruban text-center text-light mt-5" style="padding: 5px;">{% trans "User registration" %}</h1>
+  {% if addedUser %}
+  <div class="alert alert-warning w-75 m-auto">
+    {% trans "Sign in successfull. Please check your emails to activate your account. If you can't find the email, please check your spam folder." %}
+  </div>
+  {% else %}
+  <form action="" method="post" class="container col-12">
+    {% csrf_token %}
+    {% for f in form %}
+    {% if not forloop.counter|divisibleby:2 %}
+    <div class="row col-12">
       {% endif %}
-    </div>
+      <div class="col-sm-6">
+        <div class="col-sm-6" style="margin: auto;">
+          <label for="{{ f.label }}" style="color: white;">{{ f.label }} : </label>
+        </div>
+        {% if f.errors %}
+        <style>ul{list-style: none;padding-left: 0;}</style>
+        <small class="font-weight-bold text-danger">
+         {{ f.errors }}
+       </small>
+       {% endif %}
+       <div class="col-sm-6" style="margin: auto;">{{ f }}</div>
+     </div>
+     {% if forloop.counter|divisibleby:2 %}
+   </div>
+   {% endif %}
+   {% endfor %}
+   <div style="text-align: center; padding: 10px;">
+    <input type="submit" id="connect" value="{% trans 'Register'%}" class="btn btn-light" style="cursor: pointer; margin-top: 1em;">
+  </div>
+</form>
+{% endif %}
+</div>
 {% endblock %}
