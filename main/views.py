@@ -10,8 +10,9 @@ from django.template.loader import render_to_string
 from django.shortcuts import render, redirect
 from .tokens import account_activation_token
 from django.template import RequestContext
-from django.core.mail import EmailMessage
+from django.core.mail import send_mail
 from moviedirectory.models import User
+from django.db.models import Q
 from datetime import datetime
 from .api import *
 from .forms import *
@@ -54,15 +55,13 @@ def register(request):
 			'token':account_activation_token.make_token(user),
 		})
 		to_email = form.cleaned_data.get('email')
-		email = EmailMessage(
-			mail_subject, message, to=[to_email]
-		)
-		email.send()
+		send_mail(mail_subject,message,"MovieDirectory@fiddlecomputers.fr",[to_email],html_message=message)
 		print("Email sent to "+ to_email)
 		errorThrowed = False
 		addedUser = True
 
 	return render(request, 'auth/register.html', locals())
+
 
 def activate(request, uidb64, token):
     try:
@@ -226,7 +225,8 @@ def delete(request, ownid):
 def profile(request):
 	edit_form = EditProfileForm(request.POST or None)
 
-	birthday = request.user.birth_date.strftime('%Y-%m-%d')
+	if request.user.birth_date:
+		birthday = request.user.birth_date.strftime('%Y-%m-%d')
 
 	current_language = get_language()
 
@@ -379,8 +379,17 @@ def cancel_friend(request, friend_id):
 
 def home(request):
 
-	community = WatchedMovie.objects.order_by('-view_date', '-id')[:10]
-	nb_movies = len(WatchedMovie.objects.all())
+	all_movies = WatchedMovie.objects.all().order_by('-view_date', '-id')
+	movies = []
+	for movie in all_movies:
+		if movie.viewer.private:
+			if movie.viewer == request.user or request.user in movie.viewer.friends.all():
+				movies.append(movie)
+		else:
+			movies.append(movie)
+
+	community = movies[:10]
+	nb_movies = len(movies)
 	page = 1
 	next_page = 2
 	previous_page = 1 
@@ -396,10 +405,19 @@ def home_page(request, page):
 	if page < 2:
 		return redirect('home')
 
+	all_movies = WatchedMovie.objects.all().order_by('-view_date', '-id')
+	movies = []
+	for movie in all_movies:
+		if movie.viewer.private:
+			if movie.viewer == request.user or request.user in movie.viewer.friends.all():
+				movies.append(movie)
+		else:
+			movies.append(movie)
+
 	start = (page-1) * 10
 	end = page*10
-	community = WatchedMovie.objects.order_by('-view_date', '-id')[start:end]
-	nb_movies = len(WatchedMovie.objects.all())
+	community =  movies[start:end]
+	nb_movies = len(movies)
 	next_page = page+1
 	previous_page = page-1
 

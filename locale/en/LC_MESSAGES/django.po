@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-27 13:49+0000\n"
+"POT-Creation-Date: 2020-01-27 18:26+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -208,7 +208,9 @@ msgid "User registration"
 msgstr ""
 
 #: main/templates/auth/register.html:9
-msgid "Sign in successfull. Please check your mails to activate your account."
+msgid ""
+"Sign in successfull. Please check your emails to activate your account. If "
+"you can't find the email, please check your spam folder."
 msgstr ""
 
 #: main/templates/auth/register.html:35
@@ -282,6 +284,29 @@ msgstr ""
 
 #: main/templates/index.html:74
 msgid "Don't worry I've got this"
+msgstr ""
+
+#: main/templates/mail/acc_active_email.html:135
+#: main/templates/mail/acc_active_email.html:207
+msgid "Activate your account"
+msgstr ""
+
+#: main/templates/mail/acc_active_email.html:162
+msgid "Hey"
+msgstr ""
+
+#: main/templates/mail/acc_active_email.html:172
+msgid ""
+"Thank you for using MovieDirectory. You need to verify your email address to "
+"connect to your MovieDirectory account."
+msgstr ""
+
+#: main/templates/mail/acc_active_email.html:177
+msgid "To verify your email, please click on the button below :"
+msgstr ""
+
+#: main/templates/mail/acc_active_email.html:219
+msgid "If it doesn't work, please copy and paste this link to your browser:"
 msgstr ""
 
 #: main/templates/pages/add.html:10 main/templates/pages/movielist.html:29
@@ -418,11 +443,11 @@ msgstr ""
 msgid "Delete entry"
 msgstr ""
 
-#: main/views.py:49
+#: main/views.py:50
 msgid "Activate your MovieDirectory account"
 msgstr ""
 
-#: main/views.py:80
+#: main/views.py:79
 msgid "Activation link is invalid!"
 msgstr ""
 
