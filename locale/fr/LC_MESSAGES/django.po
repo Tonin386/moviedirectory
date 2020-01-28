@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-28 10:28+0000\n"
+"POT-Creation-Date: 2020-01-28 14:58+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -11,6 +11,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: main/apps.py:6
+msgid "Movies management"
+msgstr "Gestion des films"
 
 #: main/forms.py:11 main/templates/pages/profile.html:37
 #: moviedirectory/forms.py:8 moviedirectory/models.py:53
@@ -21,7 +25,7 @@ msgstr "Nom d'utilisateur"
 msgid "Password"
 msgstr "Mot de passe"
 
-#: main/forms.py:44 main/models.py:91 main/templates/index.html:27
+#: main/forms.py:44 main/models.py:93 main/templates/index.html:27
 #: main/templates/pages/add.html:28 main/templates/pages/add.html:31
 #: main/templates/pages/user_watchlist.html:36
 #: main/templates/pages/watchlist.html:37
@@ -80,103 +84,107 @@ msgstr "Privé"
 msgid "Name display"
 msgstr "Nom affiché"
 
-#: main/models.py:9 main/templates/pages/movielist.html:14
+#: main/models.py:10 main/templates/pages/movielist.html:14
 msgid "Title"
 msgstr "Titre"
 
-#: main/models.py:10
+#: main/models.py:11
 msgid "Release year"
 msgstr "Année de sortie"
 
-#: main/models.py:11
+#: main/models.py:12
 msgid "Rated"
 msgstr "Classification"
 
-#: main/models.py:12
+#: main/models.py:13
 msgid "Release date"
 msgstr "Date de sortie"
 
-#: main/models.py:13
+#: main/models.py:14
 msgid "Runtime"
 msgstr "Durée"
 
-#: main/models.py:14
+#: main/models.py:15
 msgid "Genre"
 msgstr ""
 
-#: main/models.py:15
+#: main/models.py:16
 msgid "Director"
 msgstr "Réalisateur"
 
-#: main/models.py:16
+#: main/models.py:17
 msgid "Writer"
 msgstr "Scénariste"
 
-#: main/models.py:17
+#: main/models.py:18
 msgid "Actors"
 msgstr "Acteurs"
 
-#: main/models.py:18
+#: main/models.py:19
 msgid "Plot"
 msgstr "Sysnopsis"
 
-#: main/models.py:19 main/templates/pages/profile.html:153
+#: main/models.py:20 main/templates/pages/profile.html:153
 #: main/templates/pages/profile.html:156
 msgid "Language"
 msgstr "Langue"
 
-#: main/models.py:20
+#: main/models.py:21
 msgid "Country"
 msgstr "Pays"
 
-#: main/models.py:21
+#: main/models.py:22
 msgid "Awards"
 msgstr "Récompenses"
 
-#: main/models.py:22
+#: main/models.py:23
 msgid "Poster URL"
 msgstr "URL du poster"
 
-#: main/models.py:23
+#: main/models.py:24
 msgid "IMDb ID"
 msgstr "ID IMDb"
 
-#: main/models.py:24
+#: main/models.py:25
 msgid "Type"
 msgstr ""
 
-#: main/models.py:25
+#: main/models.py:26
 msgid "Production"
 msgstr ""
 
-#: main/models.py:82 main/models.py:90
+#: main/models.py:27
+msgid "Added on"
+msgstr ""
+
+#: main/models.py:84 main/models.py:92
 msgid "Movie"
 msgstr "Film"
 
-#: main/models.py:92
+#: main/models.py:94
 msgid "Personal note"
 msgstr "Note personnelle"
 
-#: main/models.py:93 main/templates/pages/add.html:37
+#: main/models.py:95 main/templates/pages/add.html:37
 #: main/templates/pages/add.html:40
 msgid "Never seen before"
 msgstr "Jamais vu auparavant"
 
-#: main/models.py:94 main/templates/pages/add.html:49
+#: main/models.py:96 main/templates/pages/add.html:49
 #: main/templates/pages/add.html:52
 msgid "I saw it at theater!"
 msgstr "Je l'ai vu au cinéma !"
 
-#: main/models.py:95
+#: main/models.py:97
 msgid "Viewer"
 msgstr "Spectateur"
 
-#: main/models.py:96 main/templates/pages/add.html:70
+#: main/models.py:98 main/templates/pages/add.html:70
 #: main/templates/pages/add.html:73
 msgid "Comment"
 msgstr "Commentaire"
 
-#: main/models.py:100
+#: main/models.py:102
 msgid "Watched movie"
 msgstr "Film regardé"
 
@@ -447,6 +455,10 @@ msgstr "Activer votre compte MovieDirectory"
 msgid "Activation link is invalid!"
 msgstr "Le lien d'activation n'est pas valide !"
 
+#: moviedirectory/apps.py:6
+msgid "Members management"
+msgstr "Gestion des membres"
+
 #: moviedirectory/models.py:49
 msgid "Male"
 msgstr "Homme"
@@ -502,6 +514,18 @@ msgstr "Français"
 #: moviedirectory/settings.py:175
 msgid "English"
 msgstr "Anglais"
+
+#: moviedirectory/urls.py:8
+msgid "Movie Directory Administration"
+msgstr "Administration de Movie Directory"
+
+#: moviedirectory/urls.py:9
+msgid "Movie Directory"
+msgstr ""
+
+#: moviedirectory/urls.py:10
+msgid "Administration"
+msgstr ""
 
 #: templates/footer.html:11
 msgid "Copyright:"

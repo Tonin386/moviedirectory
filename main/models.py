@@ -3,6 +3,7 @@ from django.contrib.auth.models import AbstractUser, BaseUserManager
 from main.api import make_request_by_id as fetch_movie
 from django.utils.translation import ugettext_lazy as _
 from django.utils import timezone
+from datetime import datetime
 from django.db import models
 
 class Movie(models.Model):
@@ -23,6 +24,7 @@ class Movie(models.Model):
 	imdbid = models.CharField(verbose_name=_("IMDb ID"), max_length=255, null=True, blank=True)
 	m_type = models.CharField(verbose_name=_("Type"), max_length=255, null=True, blank=True)
 	production = models.CharField(verbose_name=_("Production"), max_length=255, null=True, blank=True)
+	created = models.DateTimeField(verbose_name=_("Added on"), auto_now_add=True)
 
 	def fetch(self):
 		r = fetch_movie(self.imdbid, True)
