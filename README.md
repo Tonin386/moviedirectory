@@ -1,5 +1,4 @@
 ---
-
 <h1 id="movie-directory">Movie Directory</h1>
 <p>Movie Directory is a small social network designed to share with our friends the last movies we watched.</p>
 <p>Based on an original idea of my father who listed every movie he watched in a text file, I, Antonin Mathubert, developed the first versions of this platform in order to make my father’s life a bit easier.</p>
@@ -80,5 +79,5 @@ You will need to have GNU gettext-tools &gt;= 0.15 installed for this command to
 <p>If you desire to add new translations to this project, please contact me because I haven’t figured out yet how I’ll manage supplementary translations.</p>
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ0ODAxNzc2NSw4NzA0ODkxMV19
+eyJoaXN0b3J5IjpbMTM5MTU3OTk3Nyw4NzA0ODkxMV19
 -->
