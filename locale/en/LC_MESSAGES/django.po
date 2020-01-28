@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-27 18:26+0000\n"
+"POT-Creation-Date: 2020-01-28 10:28+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,14 +23,14 @@ msgstr ""
 msgid "Username"
 msgstr ""
 
-#: main/forms.py:12
+#: main/forms.py:12 moviedirectory/forms.py:9
 msgid "Password"
 msgstr ""
 
 #: main/forms.py:44 main/models.py:91 main/templates/index.html:27
 #: main/templates/pages/add.html:28 main/templates/pages/add.html:31
 #: main/templates/pages/user_watchlist.html:36
-#: main/templates/pages/watchlist.html:30
+#: main/templates/pages/watchlist.html:37
 msgid "Watched on"
 msgstr ""
 
@@ -190,16 +190,12 @@ msgstr ""
 msgid "Hi"
 msgstr ""
 
-#: main/templates/auth/login.html:8
-msgid "Log out"
-msgstr ""
-
-#: main/templates/auth/login.html:11 main/templates/auth/login.html:29
+#: main/templates/auth/login.html:9 main/templates/auth/login.html:29
 #: main/templates/index.html:74 templates/nav.html:31
 msgid "Login"
 msgstr ""
 
-#: main/templates/auth/login.html:17
+#: main/templates/auth/login.html:23
 msgid "Required"
 msgstr ""
 
@@ -213,7 +209,7 @@ msgid ""
 "you can't find the email, please check your spam folder."
 msgstr ""
 
-#: main/templates/auth/register.html:35
+#: main/templates/auth/register.html:31
 msgid "Register"
 msgstr ""
 
@@ -227,20 +223,20 @@ msgstr ""
 
 #: main/templates/index.html:20 main/templates/pages/add.html:18
 #: main/templates/pages/user_watchlist.html:30
-#: main/templates/pages/watchlist.html:23
+#: main/templates/pages/watchlist.html:30
 msgid "With:"
 msgstr ""
 
 #: main/templates/index.html:21 main/templates/pages/add.html:19
 #: main/templates/pages/user_watchlist.html:31
-#: main/templates/pages/watchlist.html:24
+#: main/templates/pages/watchlist.html:31
 msgid "Awards:"
 msgstr ""
 
 #: main/templates/index.html:22 main/templates/pages/add.html:20
 #: main/templates/pages/movielist.html:30
 #: main/templates/pages/user_watchlist.html:32
-#: main/templates/pages/watchlist.html:25
+#: main/templates/pages/watchlist.html:32
 msgid "See on IMDb"
 msgstr ""
 
@@ -249,12 +245,12 @@ msgid "Delete from your watchlist"
 msgstr ""
 
 #: main/templates/index.html:34 main/templates/pages/user_watchlist.html:43
-#: main/templates/pages/watchlist.html:37
+#: main/templates/pages/watchlist.html:44
 msgid "Previous page"
 msgstr ""
 
 #: main/templates/index.html:37 main/templates/pages/user_watchlist.html:46
-#: main/templates/pages/watchlist.html:40
+#: main/templates/pages/watchlist.html:47
 msgid "Next page"
 msgstr ""
 
@@ -435,19 +431,19 @@ msgstr ""
 msgid "Add a movie to my watchlist"
 msgstr ""
 
-#: main/templates/pages/watchlist.html:15
+#: main/templates/pages/watchlist.html:16
 msgid "I watched..."
 msgstr ""
 
-#: main/templates/pages/watchlist.html:26
+#: main/templates/pages/watchlist.html:33
 msgid "Delete entry"
 msgstr ""
 
-#: main/views.py:50
+#: main/views.py:57
 msgid "Activate your MovieDirectory account"
 msgstr ""
 
-#: main/views.py:79
+#: main/views.py:89
 msgid "Activation link is invalid!"
 msgstr ""
 
@@ -499,11 +495,11 @@ msgstr ""
 msgid "User"
 msgstr ""
 
-#: moviedirectory/settings.py:155
+#: moviedirectory/settings.py:174
 msgid "French"
 msgstr ""
 
-#: moviedirectory/settings.py:156
+#: moviedirectory/settings.py:175
 msgid "English"
 msgstr ""
 
