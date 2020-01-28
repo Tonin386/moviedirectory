@@ -43,7 +43,6 @@ Create a  `config.ini`  file at the root of the project and paste this :
 [imdb_api]
 key: yourapikey
 
-```
 
 [django]  
 secret_key: yoursecretkey
@@ -61,6 +60,7 @@ host:  [smtp.gmail.com](http://smtp.gmail.com/)
 user:  [youraccount@gmail.com](mailto:youraccount@gmail.com)  
 password: Y0urP4ssW0rdGoesHere123  
 port: 587  
+```
 
 For the  `key`  field in the  `imdb_api`  section, you’ll need to retrieve it from  [https://rapidapi.com/imdb/api/movie-database-imdb-alternative](https://rapidapi.com/imdb/api/movie-database-imdb-alternative). Create an account and claim a free access to this api.
 
@@ -71,7 +71,6 @@ Finally, you at the root of the project you need to create a  `local_settings.py
 ```
 import os
 
-```
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(**file**)))  
 SITE_ROOT = os.path.dirname(os.path.realpath(**name**))
@@ -88,6 +87,7 @@ STATIC_URL = “/static/”
 STATIC_ROOT = “”
 
 LOCALE_PATHS = ( os.path.join(SITE_ROOT, ‘locale’), )  
+```
 
 You can now create the database using:  
 `python manage.py makemigrations`  or  `python3 manage.py makemigrations`  
@@ -108,5 +108,6 @@ You will need to have GNU gettext-tools >= 0.15 installed for this command to wo
 
 If you desire to add new translations to this project, please contact me because I haven’t figured out yet how I’ll manage supplementary translations.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc1MjU5Mzg4MCw4NzA0ODkxMV19
+eyJoaXN0b3J5IjpbLTE4NjY2NDg0ODgsLTc1MjU5Mzg4MCw4Nz
+A0ODkxMV19
 -->
