@@ -79,3 +79,6 @@ You will need to have GNU gettext-tools &gt;= 0.15 installed for this command to
 <h2 id="additionnal-translation">Additionnal translation</h2>
 <p>If you desire to add new translations to this project, please contact me because I haven’t figured out yet how I’ll manage supplementary translations.</p>
 
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbODcwNDg5MTFdfQ==
+-->
