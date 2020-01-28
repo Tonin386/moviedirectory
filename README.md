@@ -74,7 +74,7 @@ and<br>
 or<br>
 <code>python3 manage.py runserver</code></p>
 <p>The website can be accessed at <a href="http://localhost:8000/">http://localhost:8000/</a></p>
-<p><strong>Optional:</strong> To enable translations, perform <code>python manage.py migrate</code><br>
+<p><strong>Optional:</strong> To enable translations, perform <code>python manage.py compilemessages</code><br>
 You will need to have GNU gettext-tools &gt;= 0.15 installed for this command to work.</p>
 <h2 id="additionnal-translation">Additionnal translation</h2>
 <p>If you desire to add new translations to this project, please contact me because I haven’t figured out yet how I’ll manage supplementary translations.</p>
