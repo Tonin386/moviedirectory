@@ -2,7 +2,7 @@
 
 <h1 id="movie-directory">Movie Directory</h1>
 <p>Movie Directory is a small social network designed to share with our friends the last movies we watched.</p>
-<p>Based on an original of my father who listed every movie he watched in a text file, I, Antonin Mathubert, developped the first versions of this platform in order to make my father’s life a bit easier.</p>
+<p>Based on an original idea of my father who listed every movie he watched in a text file, I, Antonin Mathubert, developped the first versions of this platform in order to make my father’s life a bit easier.</p>
 <p>The platform allows its users to perform some classic actions :</p>
 <ul>
 <li>Add and delete a movie to his watchlist</li>
