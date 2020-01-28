@@ -2,7 +2,7 @@
 
 <h1 id="movie-directory">Movie Directory</h1>
 <p>Movie Directory is a small social network designed to share with our friends the last movies we watched.</p>
-<p>Based on an original idea of my father who listed every movie he watched in a text file, I, Antonin Mathubert, developped the first versions of this platform in order to make my father’s life a bit easier.</p>
+<p>Based on an original idea of my father who listed every movie he watched in a text file, I, Antonin Mathubert, developed the first versions of this platform in order to make my father’s life a bit easier.</p>
 <p>The platform allows its users to perform some classic actions :</p>
 <ul>
 <li>Add and delete a movie to his watchlist</li>
@@ -12,11 +12,11 @@
 <li>Note movies</li>
 <li>Comment movies</li>
 </ul>
-<p>More functionnalities are to be expected.</p>
+<p>More functionalities are to be expected.</p>
 <h2 id="documentation">Documentation</h2>
 <p>Unfortunately, there is no documentation yet. If you’d like to help, feel free to contact me.</p>
 <h2 id="setup-development-environment">Setup development environment</h2>
-<p>The project uses the Django framework, so you need Python 3+ installed on your machine to start developping.</p>
+<p>The project uses the Django framework, so you need Python 3+ installed on your machine to start developing.</p>
 <p><strong>Install Python 3+ for Windows :</strong> <a href="https://docs.python.org/3/using/windows.html">https://docs.python.org/3/using/windows.html</a> <em>You may need to add python/pip to PATH in order to perform the next steps</em></p>
 <p><strong>Install Python 3+ for Linux:</strong> <code>sudo apt install python3.X</code></p>
 <p>Once you are sure to have a Python version &gt;= Python3, you need to clone the repository locally :</p>
@@ -76,9 +76,9 @@ or<br>
 <p>The website can be accessed at <a href="http://localhost:8000/">http://localhost:8000/</a></p>
 <p><strong>Optional:</strong> To enable translations, perform <code>python manage.py compilemessages</code><br>
 You will need to have GNU gettext-tools &gt;= 0.15 installed for this command to work.</p>
-<h2 id="additionnal-translation">Additionnal translation</h2>
+<h2 id="additional-translation">Additional translation</h2>
 <p>If you desire to add new translations to this project, please contact me because I haven’t figured out yet how I’ll manage supplementary translations.</p>
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODcwNDg5MTFdfQ==
+eyJoaXN0b3J5IjpbLTQ0ODAxNzc2NSw4NzA0ODkxMV19
 -->
