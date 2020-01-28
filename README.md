@@ -71,24 +71,21 @@ Finally, you at the root of the project you need to create a  `local_settings.py
 ```
 import os
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SITE_ROOT = os.path.dirname(os.path.realpath(__name__))
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(**file**)))  
-SITE_ROOT = os.path.dirname(os.path.realpath(**name**))
-
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']  
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 DEBUG = True
 
-STATICFILES_DIRS = [  
-os.path.join(SITE_ROOT, "static"),  
-	'static/'  
+STATICFILES_DIRS = [
+    os.path.join(SITE_ROOT, "static"),
+    'static/'
 ]
 
 STATIC_URL = "/static/"
 STATIC_ROOT = ""
 
-LOCALE_PATHS = ( 
-	os.path.join(SITE_ROOT, ‘locale’), 
-)  
+LOCALE_PATHS = ( os.path.join(SITE_ROOT, 'locale'), )
 ```
 
 You can now create the database using:  
@@ -110,6 +107,6 @@ You will need to have GNU gettext-tools >= 0.15 installed for this command to wo
 
 If you desire to add new translations to this project, please contact me because I haven’t figured out yet how I’ll manage supplementary translations.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NDI0NTcwNzcsLTc1MjU5Mzg4MCw4Nz
+eyJoaXN0b3J5IjpbLTE4MjU5MjU1NTYsLTc1MjU5Mzg4MCw4Nz
 A0ODkxMV19
 -->
