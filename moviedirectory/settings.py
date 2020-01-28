@@ -101,6 +101,25 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'moviedirectory.wsgi.application'
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'logs.log',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
+
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases

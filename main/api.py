@@ -1,7 +1,10 @@
 import urllib, urllib.parse, urllib.request
 from pprint import pprint
 import configparser
+import logging
 import json
+
+logger = logging.getLogger('movie_api')
 
 config = configparser.ConfigParser()
 config.read('config.ini')
@@ -19,8 +22,7 @@ def make_request_by_id(md_id, plot, md_type="none"): #Returns array with request
 
 	f = urllib.request.urlopen(url)
 	response = json.loads(f.read())
-	pprint(response)
-
+	logger.info(response)
 	return response
 
 def make_request_by_title(md_title, plot, md_type="none", year=-1): #Returns array with request answer
@@ -38,7 +40,7 @@ def make_request_by_title(md_title, plot, md_type="none", year=-1): #Returns arr
 
 	f = urllib.request.urlopen(url)
 	response = json.loads(f.read())
-	pprint(response)
+	logger.info(response)
 
 	return response
 
@@ -56,6 +58,6 @@ def make_request_search(md_title, md_type="none", page=1, year=-1):
 
 	f = urllib.request.urlopen(url)
 	response = json.loads(f.read())
-	pprint(response)
+	logger.info(response)
 
 	return response
