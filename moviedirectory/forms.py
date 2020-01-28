@@ -6,16 +6,16 @@ import datetime
 
 class LoginForm(forms.Form):
     username = forms.CharField(label=_("Username"), max_length=16)
-    password = forms.CharField(label="Password", widget=forms.PasswordInput)
+    password = forms.CharField(label=_("Password"), widget=forms.PasswordInput)
 
 class SignInForm(RegistrationForm):
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        for field in self.fields:
-            self.fields[field].widget.attrs.update({
-                'class': 'form-control'
-            })
+    # def __init__(self, *args, **kwargs):
+    #     super().__init__(*args, **kwargs)
+    #     for field in self.fields:
+    #         self.fields[field].widget.attrs.update({
+    #             'class': 'form-control'
+    #         })
 
     class Meta:
         model = User

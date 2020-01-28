@@ -9,32 +9,28 @@
     {% trans "Sign in successfull. Please check your emails to activate your account. If you can't find the email, please check your spam folder." %}
   </div>
   {% else %}
-  <form action="" method="post" class="container col-12">
+  {% for f in form %}
+  {% if f.errors %}
+  <div class="alert alert-danger col-lg-6 m-auto" style="margin-bottom: 1.5em!important; ">
+    {{f.label}} : {{ f.errors }}
+  </div>
+  {% endif %}
+  {% endfor %}
+  <form action="" method="post" class="container col-lg-lg-12 justify-content-center">
     {% csrf_token %}
     {% for f in form %}
-    {% if not forloop.counter|divisibleby:2 %}
-    <div class="row col-12">
+    <div class="input-group mb-3 col-lg-12">
+      {% if f.html_name != "gender" %}
+      <input type="{{ f.field.widget.input_type }}" class="form-control" placeholder="{{ f.label }}" aria-label="{{ f.id_for_label }}" aria-describedby="basic-addon1" required_id="{{ f.id_for_label }}" name="{{f.html_name}}">
+      {% else %}
+      {{ f }}
       {% endif %}
-      <div class="col-sm-6">
-        <div class="col-sm-6" style="margin: auto;">
-          <label for="{{ f.label }}" style="color: white;">{{ f.label }} : </label>
-        </div>
-        {% if f.errors %}
-        <style>ul{list-style: none;padding-left: 0;}</style>
-        <small class="font-weight-bold text-danger">
-         {{ f.errors }}
-       </small>
-       {% endif %}
-       <div class="col-sm-6" style="margin: auto;">{{ f }}</div>
-     </div>
-     {% if forloop.counter|divisibleby:2 %}
-   </div>
-   {% endif %}
-   {% endfor %}
-   <div style="text-align: center; padding: 10px;">
-    <input type="submit" id="connect" value="{% trans 'Register'%}" class="btn btn-light" style="cursor: pointer; margin-top: 1em;">
-  </div>
-</form>
-{% endif %}
+    </div>
+    {% endfor %}
+    <div class="col-lg-12 text-center">
+      <input type="submit" id="connect" value="{% trans 'Register' %}" class="btn btn-light" style="cursor: pointer;">
+    </div>
+  </form>
+  {% endif %}
 </div>
 {% endblock %}
