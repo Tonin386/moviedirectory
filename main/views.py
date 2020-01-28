@@ -14,8 +14,8 @@ from django.core.mail import send_mail
 from moviedirectory.models import User
 from django.db.models import Q
 from datetime import datetime
-from .api import *
 from .forms import *
+from .api import *
 
 
 def logout(request):
