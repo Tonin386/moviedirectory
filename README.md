@@ -1,7 +1,7 @@
 
 # Movie Directory
 
-Movie Directory is a small social network designed to share with our friends the last movies we watched.
+[Movie Directory](http://moviedirectory.fiddlecomputers.fr/) is a small social network designed to share with our friends the last movies we watched.
 
 Based on an original idea of my father who listed every movie he watched in a text file, I, Antonin Mathubert, developed the first versions of this platform in order to make my father’s life a bit easier.
 
@@ -15,6 +15,7 @@ The platform allows its users to perform some classic actions :
 -   Comment movies
 
 More functionalities are to be expected.
+Link : [http://moviedirectory.fiddlecomputers.fr/](http://moviedirectory.fiddlecomputers.fr/)
 
 ## Documentation
 
@@ -107,5 +108,5 @@ You will need to have GNU gettext-tools >= 0.15 installed for this command to wo
 
 If you desire to add new translations to this project, please contact me because I haven’t figured out yet how I’ll manage supplementary translations.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM4NzE3MDU4LDg3MDQ4OTExXX0=
+eyJoaXN0b3J5IjpbLTc1MjU5Mzg4MCw4NzA0ODkxMV19
 -->
