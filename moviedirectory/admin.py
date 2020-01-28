@@ -8,5 +8,3 @@ class UserAdmin(admin.ModelAdmin):
 	search_fields = ('username', 'email')
 
 admin.site.register(User, UserAdmin)
-
-# Register your models here.
