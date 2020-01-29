@@ -1,7 +1,7 @@
 
 # Movie Directory
 
-[Movie Directory](http://moviedirectory.fiddlecomputers.fr/) is a small social network designed to share with our friends the last movies we watched.
+[Movie Directory](http://movie-directory.com) is a small social network designed to share with our friends the last movies we watched.
 
 Based on an original idea of my father who listed every movie he watched in a text file, I, Antonin Mathubert, developed the first versions of this platform in order to make my father’s life a bit easier.
 
@@ -15,7 +15,7 @@ The platform allows its users to perform some classic actions :
 -   Comment movies
 
 More functionalities are to be expected.
-Link : [http://moviedirectory.fiddlecomputers.fr/](http://moviedirectory.fiddlecomputers.fr/)
+Link : [http://movie-directory.com/](http://movie-directory.com/)
 
 ## Documentation
 
@@ -98,7 +98,7 @@ You should be ready to run the Django debug server locally by performing :
 or  
 `python3 manage.py runserver`
 
-The website can be accessed at  [http://localhost:8000/](http://localhost:8000/)
+The website can be then be accessed at  [http://localhost:8000/](http://localhost:8000/) while the development server is running.
 
 **Optional:**  To enable translations, perform  `python manage.py compilemessages`  
 You will need to have GNU gettext-tools >= 0.15 installed for this command to work.
@@ -107,6 +107,6 @@ You will need to have GNU gettext-tools >= 0.15 installed for this command to wo
 
 If you desire to add new translations to this project, please contact me because I haven’t figured out yet how I’ll manage supplementary translations.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MjU5MjU1NTYsLTc1MjU5Mzg4MCw4Nz
-A0ODkxMV19
+eyJoaXN0b3J5IjpbMjAwMjQ4OTM2OCwtMTgyNTkyNTU1NiwtNz
+UyNTkzODgwLDg3MDQ4OTExXX0=
 -->
