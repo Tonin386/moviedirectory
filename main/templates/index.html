@@ -9,7 +9,7 @@
   {% for movie in community %}
   <div class="row justify-content-center mt-5 no-gutters">
     <div class="card bg-dark text-light w-75">
-      <h4 class="card-header w-100"> <a class="text-light" href="{% url 'user_watchlist' username=movie.viewer.username %}"> {% if movie.viewer.name_display %}{{movie.viewer.first_name}} {{movie.viewer.last_name}}{% else %}{{movie.viewer.username}}{% endif %}</a> {% trans "watched" %} <span style="float: right;">  {% if movie.new %} <img src="{% static 'img/icons/new.png' %}" alt="New" title="New" width="40"> {% endif %} {% if movie.theater %} <img src="{% static 'img/icons/cinema.png' %}" alt="Cinema" title="Cinema" width="40"> {% endif %} </span></h5>
+      <h4 class="card-header w-100 card-header-link"> <a class="stretched-link" href="{% url 'user_watchlist' username=movie.viewer.username %}"> {% if movie.viewer.name_display %}{{movie.viewer.first_name}} {{movie.viewer.last_name}}{% else %}{{movie.viewer.username}}{% endif %}</a> {% trans "watched" %} <span style="float: right;">  {% if movie.new %} <img src="{% static 'img/icons/new.png' %}" alt="New" title="New" width="40"> {% endif %} {% if movie.theater %} <img src="{% static 'img/icons/cinema.png' %}" alt="Cinema" title="Cinema" width="40"> {% endif %} </span></h5>
       <div class="row no-gutters">
         <div class="col-xl-2 img-card-poster">
           <img src="{{movie.movie.poster}}" alt="{{movie.movie.title}}" class="img-fluid" width="200">
@@ -31,10 +31,10 @@
   {% endfor %}
   <div class="row justify-content-center">
     {% if page > 1 %}
-    <a href="{% url 'home_page' page=previous_page %}" class="btn btn-dark m-2 col-xs-2">{% trans "Previous page" %}<br><i class="fa fa-arrow-left"></i></a>
+    <a href="{% url 'home_page' page=previous_page %}" class="btn btn-light m-2 col-xs-2">{% trans "Previous page" %}<br><i class="fa fa-arrow-left"></i></a>
     {% endif %}
     {% if not last_page %}
-    <a href="{% url 'home_page' page=next_page %}" class="btn btn-dark m-2 col-xs-2"> {% trans "Next page" %}<br><i class="fa fa-arrow-right"></i> </a>
+    <a href="{% url 'home_page' page=next_page %}" class="btn btn-light m-2 col-xs-2"> {% trans "Next page" %}<br><i class="fa fa-arrow-right"></i> </a>
     {% endif %}
   </div>
 
