@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-28 14:58+0000\n"
+"POT-Creation-Date: 2020-01-29 08:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,7 +33,7 @@ msgstr ""
 
 #: main/forms.py:44 main/models.py:93 main/templates/index.html:27
 #: main/templates/pages/add.html:28 main/templates/pages/add.html:31
-#: main/templates/pages/user_watchlist.html:36
+#: main/templates/pages/user_watchlist.html:77
 #: main/templates/pages/watchlist.html:37
 msgid "Watched on"
 msgstr ""
@@ -159,8 +159,8 @@ msgstr ""
 msgid "Production"
 msgstr ""
 
-#: main/models.py:27
-msgid "Added on"
+#: main/models.py:27 main/models.py:99
+msgid "Created on"
 msgstr ""
 
 #: main/models.py:84 main/models.py:92
@@ -225,25 +225,25 @@ msgstr ""
 msgid "What the community has recently watched"
 msgstr ""
 
-#: main/templates/index.html:12 main/templates/pages/user_watchlist.html:22
+#: main/templates/index.html:12 main/templates/pages/user_watchlist.html:63
 msgid "watched"
 msgstr ""
 
 #: main/templates/index.html:20 main/templates/pages/add.html:18
-#: main/templates/pages/user_watchlist.html:30
+#: main/templates/pages/user_watchlist.html:71
 #: main/templates/pages/watchlist.html:30
 msgid "With:"
 msgstr ""
 
 #: main/templates/index.html:21 main/templates/pages/add.html:19
-#: main/templates/pages/user_watchlist.html:31
+#: main/templates/pages/user_watchlist.html:72
 #: main/templates/pages/watchlist.html:31
 msgid "Awards:"
 msgstr ""
 
 #: main/templates/index.html:22 main/templates/pages/add.html:20
 #: main/templates/pages/movielist.html:30
-#: main/templates/pages/user_watchlist.html:32
+#: main/templates/pages/user_watchlist.html:73
 #: main/templates/pages/watchlist.html:32
 msgid "See on IMDb"
 msgstr ""
@@ -252,12 +252,12 @@ msgstr ""
 msgid "Delete from your watchlist"
 msgstr ""
 
-#: main/templates/index.html:34 main/templates/pages/user_watchlist.html:43
+#: main/templates/index.html:34 main/templates/pages/user_watchlist.html:84
 #: main/templates/pages/watchlist.html:44
 msgid "Previous page"
 msgstr ""
 
-#: main/templates/index.html:37 main/templates/pages/user_watchlist.html:46
+#: main/templates/index.html:37 main/templates/pages/user_watchlist.html:87
 #: main/templates/pages/watchlist.html:47
 msgid "Next page"
 msgstr ""
@@ -427,8 +427,21 @@ msgstr ""
 msgid "You must be friend with this user to see his watchlist."
 msgstr ""
 
-#: main/templates/pages/user_watchlist.html:18
+#: main/templates/pages/user_watchlist.html:26
+#: main/templates/pages/user_watchlist.html:42
+msgid "Send a friend request to"
+msgstr ""
+
+#: main/templates/pages/user_watchlist.html:31
 msgid "'s watchlist"
+msgstr ""
+
+#: main/templates/pages/user_watchlist.html:49
+msgid "You already sent a friend invite to"
+msgstr ""
+
+#: main/templates/pages/user_watchlist.html:56
+msgid "You are already friend with"
 msgstr ""
 
 #: main/templates/pages/watchlist.html:8 templates/nav.html:17
@@ -447,11 +460,11 @@ msgstr ""
 msgid "Delete entry"
 msgstr ""
 
-#: main/views.py:57
+#: main/views.py:59
 msgid "Activate your MovieDirectory account"
 msgstr ""
 
-#: main/views.py:89
+#: main/views.py:91
 msgid "Activation link is invalid!"
 msgstr ""
 
