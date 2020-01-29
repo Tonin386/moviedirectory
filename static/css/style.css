@@ -3,8 +3,12 @@ html {
   position: relative;
 }
 
+a.stretched-link {
+  color: white!important;
+  text-decoration: none;
+}
+
 #footer_wrap {
-  /*position: absolute;*/
   width: 100%;
   bottom: 0;
   left: 0;
@@ -27,9 +31,24 @@ html {
   max-width: 200px;
 }
 
+.navbar {
+  padding: 0;
+}
+
+.navbar-brand, .nav-item {
+  padding: .5rem .5rem;
+  -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+  -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+  -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+  transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+}
+
 .bg-gradient-dark {
-  background: linear-gradient(347deg, rgba(0,0,0,1) 0%, rgba(136,136,136,1) 100%);
+  background-image: url('../img/backgrounds/background.jpg');
+  background-attachment: fixed;
+  background-position: center;
   background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .img-card-poster {
@@ -45,11 +64,81 @@ html {
   height: 100%;
 }
 
+.bg-dark, .btn-dark {
+  background-color: rgb(20,20,20)!important;
+  border-color: rgb(20,20,20)!important;
+}
+
+.btn-dark:hover {
+  background-color: rgb(10, 10, 10)!important;
+  border-color: rgb(10, 10, 10)!important;
+}
+
+.btn-danger {
+  background-color: rgb(160, 17, 0)!important;
+  border-color: rgb(160, 17, 0)!important;
+  color: rgb(210, 210, 210)!important;
+}
+
+.btn-danger:hover {
+  background-color: #7B0D00!important;
+  border-color: #7B0D00!important;
+  color: white!important;
+}
+
+.btn-success {
+  background-color: rgb(200,200,200)!important;
+  border-color: rgb(200,200,200)!important;
+  color: black!important;
+}
+
+.btn-success:hover {
+  background-color: rgb(6, 120, 4)!important;
+  border-color: rgb(6, 120, 4)!important;
+  color: rgb(210, 210, 210)!important;
+}
+
+.btn-light:hover, .nav-item:hover {
+  background-color: rgb(10, 136, 163)!important;
+  border-color: rgb(10, 136, 163)!important;
+  color:white!important;
+}
+
+.text-light, .nav-link, .navbar-brand {
+  color: rgb(210, 210, 210)!important;
+}
+
+h1.text-light {
+  color: white!important;
+}
+
+.card-header {
+  transform: rotate(0);
+  -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+  -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+  -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+  transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+}
+
+.card-header-link:hover {
+  background-color: rgb(10, 136, 163)!important;
+  border-color: rgb(10, 136, 163)!important;
+  color: white!important;
+}
+
+.text-muted {
+  color: rgb(125, 125, 125)!important;
+}
+
+
 @media screen and (max-width: 1200px) {
   .img-card-poster {
     text-align: center!important;
   }
   .btn-card-right {
     text-align: center!important;
+  }
+  .navbar {
+    padding: .5rem 0 .5rem 0;
   }
 }
