@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-29 08:15+0000\n"
+"POT-Creation-Date: 2020-01-29 09:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,7 +27,7 @@ msgstr "Mot de passe"
 
 #: main/forms.py:44 main/models.py:93 main/templates/index.html:27
 #: main/templates/pages/add.html:28 main/templates/pages/add.html:31
-#: main/templates/pages/user_watchlist.html:77
+#: main/templates/pages/user_watchlist.html:84
 #: main/templates/pages/watchlist.html:37
 msgid "Watched on"
 msgstr "Regardé le"
@@ -221,25 +221,25 @@ msgstr "Inscription"
 msgid "What the community has recently watched"
 msgstr "Ce que la communauté a regardé récemment"
 
-#: main/templates/index.html:12 main/templates/pages/user_watchlist.html:63
+#: main/templates/index.html:12 main/templates/pages/user_watchlist.html:70
 msgid "watched"
 msgstr "a regardé"
 
 #: main/templates/index.html:20 main/templates/pages/add.html:18
-#: main/templates/pages/user_watchlist.html:71
+#: main/templates/pages/user_watchlist.html:78
 #: main/templates/pages/watchlist.html:30
 msgid "With:"
 msgstr "Avec :"
 
 #: main/templates/index.html:21 main/templates/pages/add.html:19
-#: main/templates/pages/user_watchlist.html:72
+#: main/templates/pages/user_watchlist.html:79
 #: main/templates/pages/watchlist.html:31
 msgid "Awards:"
 msgstr "Récompenses :"
 
 #: main/templates/index.html:22 main/templates/pages/add.html:20
 #: main/templates/pages/movielist.html:30
-#: main/templates/pages/user_watchlist.html:73
+#: main/templates/pages/user_watchlist.html:80
 #: main/templates/pages/watchlist.html:32
 msgid "See on IMDb"
 msgstr "Voir sur IMDb"
@@ -248,12 +248,12 @@ msgstr "Voir sur IMDb"
 msgid "Delete from your watchlist"
 msgstr "Supprimer de votre watchlist"
 
-#: main/templates/index.html:34 main/templates/pages/user_watchlist.html:84
+#: main/templates/index.html:34 main/templates/pages/user_watchlist.html:91
 #: main/templates/pages/watchlist.html:44
 msgid "Previous page"
 msgstr "Page précédente"
 
-#: main/templates/index.html:37 main/templates/pages/user_watchlist.html:87
+#: main/templates/index.html:37 main/templates/pages/user_watchlist.html:94
 #: main/templates/pages/watchlist.html:47
 msgid "Next page"
 msgstr "Page suivante"
@@ -428,19 +428,20 @@ msgid "You must be friend with this user to see his watchlist."
 msgstr "Vous devez être ami avec cet utilisateur pour voir sa watchlist."
 
 #: main/templates/pages/user_watchlist.html:26
-#: main/templates/pages/user_watchlist.html:42
+#: main/templates/pages/user_watchlist.html:49
 msgid "Send a friend request to"
 msgstr "Envoyer une demande d'ami à"
 
-#: main/templates/pages/user_watchlist.html:31
-msgid "'s watchlist"
-msgstr " et ses films"
-
-#: main/templates/pages/user_watchlist.html:49
+#: main/templates/pages/user_watchlist.html:33
+#: main/templates/pages/user_watchlist.html:56
 msgid "You already sent a friend invite to"
 msgstr "Vous avez déjà envoyé une demande d'ami à"
 
-#: main/templates/pages/user_watchlist.html:56
+#: main/templates/pages/user_watchlist.html:38
+msgid "'s watchlist"
+msgstr " et ses films"
+
+#: main/templates/pages/user_watchlist.html:63
 msgid "You are already friend with"
 msgstr "You êtes déjà ami avec"
 
@@ -460,11 +461,54 @@ msgstr "J'ai regardé..."
 msgid "Delete entry"
 msgstr "Supprimer"
 
-#: main/views.py:59
+#: main/utilities.py:41 main/utilities.py:54 main/views.py:354
+#: main/views.py:367
+msgid "You have a new friend!"
+msgstr "Vous avez un nouvel ami !"
+
+#: main/utilities.py:42 main/utilities.py:55 main/views.py:355
+#: main/views.py:368
+msgid "You are now friend with "
+msgstr "You êtes désormais ami avec "
+
+#: main/utilities.py:42 main/utilities.py:55 main/views.py:355
+#: main/views.py:368
+msgid ""
+"!\n"
+"You can now see this user's watchlist.\n"
+"\n"
+"\n"
+"You can turn off email notifications on your profile."
+msgstr ""
+" !\n"
+"Vous pouvez désormais voir la watchlist de cet utilisateur.\n"
+"\n"
+"\n"
+"Vous pouvez désactiver les notifications par mail sur votre profil."
+
+#: main/utilities.py:83
+msgid "You have a new friend invite!"
+msgstr "Vous avez une nouvelle demande d'ami !"
+
+#: main/utilities.py:84
+msgid ""
+" wants to be friend with you. You can accept or refuse this invite on Movie "
+"Directory.\n"
+"\n"
+"\n"
+"You can turn off email notifications on your profile."
+msgstr ""
+" veut être ami avec vous. Vous pouvez accepter ou refuser cette demande sur Movie "
+"Directory.\n"
+"\n"
+"\n"
+"Vous désactivez les notifications par mail sur votre profil."
+
+#: main/views.py:58
 msgid "Activate your MovieDirectory account"
 msgstr "Activer votre compte MovieDirectory"
 
-#: main/views.py:91
+#: main/views.py:102
 msgid "Activation link is invalid!"
 msgstr "Le lien d'activation n'est pas valide !"
 
