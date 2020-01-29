@@ -24,7 +24,7 @@ class Movie(models.Model):
 	imdbid = models.CharField(verbose_name=_("IMDb ID"), max_length=255, null=True, blank=True)
 	m_type = models.CharField(verbose_name=_("Type"), max_length=255, null=True, blank=True)
 	production = models.CharField(verbose_name=_("Production"), max_length=255, null=True, blank=True)
-	created = models.DateTimeField(verbose_name=_("Added on"), auto_now_add=True)
+	created = models.DateTimeField(verbose_name=_("Created on"), auto_now_add=True)
 
 	def fetch(self):
 		r = fetch_movie(self.imdbid, True)
@@ -96,7 +96,7 @@ class WatchedMovie(models.Model):
 	theater = models.BooleanField(verbose_name=_("I saw it at theater!"))
 	viewer = models.ForeignKey('moviedirectory.User', verbose_name=_("Viewer"), on_delete=models.CASCADE)
 	comment = models.TextField(verbose_name=_("Comment"), null=True, blank=True)
-	created = models.DateTimeField(auto_now_add=True)
+	created = models.DateTimeField(auto_now_add=True,verbose_name=_("Created on"))
 
 	class Meta:
 		verbose_name = _("Watched movie")
