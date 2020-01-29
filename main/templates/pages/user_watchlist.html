@@ -14,7 +14,7 @@
 <div class="alert alert-warning w-75 mt-5" role="alert" style="margin: auto;">
 	{% trans "You must be friend with this user to see his watchlist." %}
 </div>
-
+{% if not user.id in friend_requests_received %}
 <div class="col text-center mt-3">
 	<form method="post" action="">
 		{% csrf_token %}
@@ -23,10 +23,17 @@
 		</div>
 		<input type="hidden" name="from_send_invite" value="True">
 		<div>
-			<button type="submit" class="btn btn-success"><i class="fa fa-paper-plane"></i> {% trans "Send a friend request to" %} {{t_user.username}}</button>
+			<button class="btn btn-success"><i class="fa fa-paper-plane"></i> {% trans "Send a friend request to" %} {{t_user.username}}</button>
 		</div>
 	</form>
 </div>
+{% else %}
+<div class="col text-center mt-3">
+	<div>
+		<button type="submit" class="btn btn-success" disabled><i class="fa fa-check"></i> {% trans "You already sent a friend invite to" %} {{t_user.username}}</button>
+	</div>
+</div>
+{% endif %}
 {% else %}
 <h1 class="text-center text-light mt-5">{% if t_user.name_display %} {{t_user.first_name}} {{t_user.last_name}} {% else %} {{t_user.username}}{% endif %}{% trans "'s watchlist" %}</h1>
 {% if not user in t_friends %}

@@ -40,7 +40,7 @@ EMAIL_HOST = str(config.get('mail', 'host'))
 EMAIL_HOST_USER = str(config.get('mail', 'user'))
 EMAIL_HOST_PASSWORD = str(config.get('mail', 'password'))
 EMAIL_PORT = int(config.get('mail', 'port'))
-DEFAULT_FROM_EMAIL = "\"Movie Directory\" <moviedirectory@fiddlecomputers.fr>"
+DEFAULT_FROM_EMAIL = "\"Movie Directory\" <support@movie-directory.com>"
 
 INTERNAL_IPS = [
     'localhost',
