@@ -29,7 +29,7 @@ SECRET_KEY = config.get('django', 'secret_key')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['moviedirectory.fiddlecomputers.fr']
+ALLOWED_HOSTS = ['movie-directory.com']
 AUTH_USER_MODEL = 'moviedirectory.User'
 LOGOUT_REDIRECT_URL = 'home'
 LOGIN_REDIRECT_URL = 'home'
@@ -180,7 +180,7 @@ LANGUAGES = (
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = "/static/"
-STATIC_ROOT = "/home/fiddleco/moviedirectory.fiddlecomputers.fr/static/"
+STATIC_ROOT = "/home/fiddleco/movie-directory.com/static/"
 
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale/'),

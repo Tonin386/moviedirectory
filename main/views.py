@@ -12,11 +12,13 @@ from .tokens import account_activation_token
 from django.template import RequestContext
 from django.core.mail import send_mail
 from moviedirectory.models import *
+from .utilities import send_invite
 from django.db.models import Q
 from datetime import datetime
 from .forms import *
 from .api import *
 import logging
+
 
 
 logger = logging.getLogger(__name__)
@@ -146,6 +148,20 @@ def user_watchlist(request, username):
 		last_page = False
 	else:
 		last_page = True
+
+	friend_requests_received = t_user.get_received_friend_requests_id()
+
+	if request.POST.get('from_send_invite', False): #If it isn't, it has to be the send request form.
+			username = request.POST['username']
+			try:
+				asked_user = User.objects.get(username=username) #Can we find this user?
+			except ObjectDoesNotExist: #No? Alright. Abort.
+				logger.error(request.user.username + " tried to send an invite to " + username + " but this user doesn't exist.")
+				return render(request, 'pages/user_watchlist.html', locals())
+
+			send_invite(asked_user, request.user)
+
+			return render(request, 'pages/user_watchlist.html', locals())
 
 
 	return render(request, 'pages/user_watchlist.html', locals())
@@ -280,39 +296,7 @@ def profile(request):
 				logger.error(request.user.username + " tried to send an invite to " + username + " but this user doesn't exist.")
 				return redirect("profile")
 
-			if not asked_user in request.user.friends.all() and asked_user != request.user: #We check if we aren't already friend with him.
-				asked_user_received_id = asked_user.get_received_friend_requests_id() #We found him. Let's see if he already is somewhere
-
-				if not request.user.id in asked_user_received_id and not asked_user.id in user_sent_id: #Checking we haven't already sent an invite to this user
-					asked_user_sent_id = asked_user.get_sent_friend_requests_id()
-
-					if request.user.id in asked_user_sent_id: #He also sent us an invite! I think we want to be friend
-						request.user.friends.add(asked_user)
-						asked_user.friends.add(request.user)
-						asked_user_sent_id.remove(request.user.id)
-						user_received_id.remove(asked_user.id)
-						asked_user.sent_friend_requests = " ".join(str(v) for v in asked_user_sent_id)
-						request.user.received_friend_requests = " ".join(str(v) for v in user_received_id)
-						asked_user.save()
-						request.user.save()
-						user.info(request.user.username + " and " + asked_user.username + " are now friends.")
-						#Send a mail to both users
-					else: #Alright, we don't know yet if he wants to be friend with us.
-						if asked_user.received_friend_requests != "":
-							asked_user.received_friend_requests += " " + str(request.user.id)
-						else:
-							asked_user.received_friend_requests = str(request.user.id)
-
-						if request.user.sent_friend_requests != "":
-							request.user.sent_friend_requests += " " + str(asked_user.id)
-						else:
-							request.user.sent_friend_requests = str(asked_user.id)
-
-						logger.info(request.user.username + " sent a friend invite to " + asked_user.username)
-
-						asked_user.save()
-						request.user.save()
-						#Send a mail to the user
+			send_invite(asked_user, request.user)
 
 			return redirect('profile')
 
