@@ -20,7 +20,6 @@ from .api import *
 import logging
 
 
-
 logger = logging.getLogger(__name__)
 
 
@@ -64,7 +63,13 @@ def register(request):
 			'token':account_activation_token.make_token(user),
 		})
 		to_email = form.cleaned_data.get('email')
-		send_mail(mail_subject,message,"MovieDirectory@fiddlecomputers.fr",[to_email],html_message=message)
+		send_mail(
+			mail_subject,
+			message,
+			"\"Movie Directory\" <support@movie-directory.com>",
+			[to_email],
+			html_message=message
+		)
 		print("Email sent to "+ to_email)
 		errorThrowed = False
 		addedUser = True
@@ -84,6 +89,12 @@ def activate(request, uidb64, token):
         user.save()
         dj_login(request, user)
         logger.info(user.username +" activated his account.")
+        send_mail(
+        	user.username + " activated his account",
+        	"A new user just activated his account on " + datetime.now().strftime('%d/%m/%Y %H:%M:%S') + ".\nUsername: " + user.username,
+			"\"Movie Directory accounts\" <support@movie-directory.com>",
+        	["support@movie-directory.com"]
+        )
         return redirect('home')
         # return HttpResponse('Thank you for your email confirmation. Now you can login your account.')
     else:
@@ -338,6 +349,32 @@ def accept_friend(request, friend_id):
 
 	request.user.save()
 	friend.save()
+
+	if request.user.email_notifications:
+		mail_subject = _("You have a new friend!")
+		message = _("You are now friend with ") + friend.username + _("!\nYou can now see this user's watchlist.\n\n\nYou can turn off email notifications on your profile.")
+		to_email = request.user.email
+
+		send_mail(
+			mail_subject,
+			message,
+			"\"Movie Directory\" <support@movie-directory.com>",
+			[to_email],
+			html_message=message
+		)
+
+	if friend.email_notifications:
+		mail_subject = _("You have a new friend!")
+		message = _("You are now friend with ") + request.user.username + _("!\nYou can now see this user's watchlist.\n\n\nYou can turn off email notifications on your profile.")
+		to_email = friend.email
+
+		send_mail(
+			mail_subject,
+			message,
+			"\"Movie Directory\" <support@movie-directory.com>",
+			[to_email],
+			html_message=message
+		)
 
 	logger.info(request.user.username + " and " + friend.username + " are now friends.")
 
