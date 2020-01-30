@@ -448,11 +448,11 @@ def cancel_friend(request, friend_id):
 
 	user_sent_id = request.user.get_sent_friend_requests_id()
 	user_sent_id.remove(friend.id)
-	request.user.sent_friend_requests = " ".join(str(user_sent_id))
+	request.user.sent_friend_requests = " ".join(user_sent_id)
 
 	friend_received_id = friend.get_received_friend_requests_id()
 	friend_received_id.remove(request.user.id)
-	friend.received_friend_requests = " ".join(str(friend_received_id))
+	friend.received_friend_requests = " ".join(friend_received_id)
 
 	request.user.save()
 	friend.save()
