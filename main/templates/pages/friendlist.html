@@ -37,22 +37,22 @@
 </div>
 
 <div class="row no-gutters text-center">
-	<div class="col-lg-6 row">
+	<div class="col-lg-6 row no-gutters">
 		<h1 class="ruban text-center text-light mt-5 mb-3 col-lg-12" style="padding: 5px;"> {% trans "Friend requests sent" %} </h1>
 		{% for friend in user_sent %}
-		<div class="card col-lg-3 m-auto bg-dark text-light">
+		<div class="card col-lg-3 m-2 bg-dark text-light">
 			<div class="card-body text-center">
 				<h5 class="card-title">{% if friend.name_display %} {{friend.first_name}} {{friend.last_name}} {% else %} {{friend.username}}{% endif %}</h5>
-				<a href="{% url 'cancel_friend' friend_id=friend.id %}" class="btn btn-danger mr-2 m-auto"><i class="fa fa-remove"></i> {% trans "Cancel" %}</a>
+				<a href="{% url 'cancel_friend' friend_id=friend.id %}" class="btn btn-danger mr-lg-2 m-auto"><i class="fa fa-remove"></i> {% trans "Cancel" %}</a>
 			</div>
 		</div>
 		{% endfor %}
 	</div>
 
-	<div class="col-lg-6 row">
+	<div class="col-lg-6 row no-gutters">
 		<h1 class="ruban text-center text-light mt-5 mb-5 col-lg-12" style="padding: 5px;"> {% trans "Friend requests received" %} </h1>
 		{% for friend in user_received %}
-		<div class="card col-lg-3 m-auto bg-dark text-light">
+		<div class="card col-lg-3 m-2 bg-dark text-light">
 			<div class="card-body text-center">
 				<h5 class="card-title">{% if friend.name_display %} {{friend.first_name}} {{friend.last_name}} {% else %} {{friend.username}}{% endif %}</h5>
 				<a href="{% url 'accept_friend' friend_id=friend.id %}" class="btn btn-success m-auto"><i class="fa fa-check"></i> {% trans "Accept" %}</a>

@@ -340,6 +340,8 @@ def friendlist(request):
 		output = send_invite(asked_user, request.user)
 		user_sent_id = request.user.get_sent_friend_requests_id()
 		user_received_id = request.user.get_received_friend_requests_id()
+		user_sent = []
+		user_received = []
 		for user_id in user_sent_id:
 			user_sent.append(User.objects.get(id=user_id))
 		for user_id in user_received_id:
