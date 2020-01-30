@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-29 09:52+0000\n"
+"POT-Creation-Date: 2020-01-30 09:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -199,12 +199,53 @@ msgid "Hi"
 msgstr ""
 
 #: main/templates/auth/login.html:9 main/templates/auth/login.html:29
-#: main/templates/index.html:74 templates/nav.html:31
+#: main/templates/index.html:73 templates/nav.html:31
+#: templates/registration/password_reset_complete.html:12
 msgid "Login"
 msgstr ""
 
 #: main/templates/auth/login.html:23
 msgid "Required"
+msgstr ""
+
+#: main/templates/auth/login.html:36
+msgid "Can't login? Make sure you activated your account."
+msgstr ""
+
+#: main/templates/auth/login.html:39
+msgid "Forgot your password?"
+msgstr ""
+
+#: main/templates/auth/reactivate.html:7
+msgid "Resend activation email"
+msgstr ""
+
+#: main/templates/auth/reactivate.html:12
+msgid "We couldn't find an user with this email address"
+msgstr ""
+
+#: main/templates/auth/reactivate.html:20
+#: main/templates/auth/reactivate.html:41
+#: main/templates/auth/reactivate.html:57
+#: templates/registration/password_reset_form.html:15
+msgid "Email you used for inscription"
+msgstr ""
+
+#: main/templates/auth/reactivate.html:23
+#: main/templates/auth/reactivate.html:44
+#: main/templates/auth/reactivate.html:60 main/templates/pages/profile.html:41
+#: templates/registration/password_reset_form.html:18
+msgid "Send"
+msgstr ""
+
+#: main/templates/auth/reactivate.html:28
+msgid "The user with this email address is already active."
+msgstr ""
+
+#: main/templates/auth/reactivate.html:32
+msgid ""
+"Email sent. Please check your emails to activate your account. If you can't "
+"find the email, please check your spam folder."
 msgstr ""
 
 #: main/templates/auth/register.html:6
@@ -266,27 +307,27 @@ msgstr ""
 msgid "Welcome to Movie Directory"
 msgstr ""
 
-#: main/templates/index.html:58
+#: main/templates/index.html:57
 msgid "Share your favorite movies with people who matters."
 msgstr ""
 
-#: main/templates/index.html:61
+#: main/templates/index.html:60
 msgid "Always up to date movie database."
 msgstr ""
 
-#: main/templates/index.html:64
+#: main/templates/index.html:63
 msgid "Start now and enjoy yourself."
 msgstr ""
 
-#: main/templates/index.html:71
+#: main/templates/index.html:70
 msgid "This is where the fun begins"
 msgstr ""
 
-#: main/templates/index.html:71 templates/nav.html:34
+#: main/templates/index.html:70 templates/nav.html:34
 msgid "Sign in"
 msgstr ""
 
-#: main/templates/index.html:74
+#: main/templates/index.html:73
 msgid "Don't worry I've got this"
 msgstr ""
 
@@ -379,10 +420,6 @@ msgstr ""
 msgid "Send a friend request"
 msgstr ""
 
-#: main/templates/pages/profile.html:41
-msgid "Send"
-msgstr ""
-
 #: main/templates/pages/profile.html:49
 msgid "Cancel"
 msgstr ""
@@ -461,18 +498,18 @@ msgstr ""
 msgid "Delete entry"
 msgstr ""
 
-#: main/utilities.py:41 main/utilities.py:54 main/views.py:354
-#: main/views.py:367
+#: main/utilities.py:41 main/utilities.py:54 main/views.py:399
+#: main/views.py:412
 msgid "You have a new friend!"
 msgstr ""
 
-#: main/utilities.py:42 main/utilities.py:55 main/views.py:355
-#: main/views.py:368
+#: main/utilities.py:42 main/utilities.py:55 main/views.py:400
+#: main/views.py:413
 msgid "You are now friend with "
 msgstr ""
 
-#: main/utilities.py:42 main/utilities.py:55 main/views.py:355
-#: main/views.py:368
+#: main/utilities.py:42 main/utilities.py:55 main/views.py:400
+#: main/views.py:413
 msgid ""
 "!\n"
 "You can now see this user's watchlist.\n"
@@ -494,11 +531,11 @@ msgid ""
 "You can turn off email notifications on your profile."
 msgstr ""
 
-#: main/views.py:58
+#: main/views.py:58 main/views.py:102
 msgid "Activate your MovieDirectory account"
 msgstr ""
 
-#: main/views.py:102
+#: main/views.py:147
 msgid "Activation link is invalid!"
 msgstr ""
 
@@ -574,15 +611,11 @@ msgstr ""
 msgid "Administration"
 msgstr ""
 
-#: templates/footer.html:11
-msgid "Copyright:"
-msgstr ""
-
-#: templates/footer.html:25
+#: templates/footer.html:15
 msgid "Repository"
 msgstr ""
 
-#: templates/footer.html:29
+#: templates/footer.html:19
 msgid "Report an issue"
 msgstr ""
 
@@ -600,4 +633,37 @@ msgstr ""
 
 #: templates/nav.html:27
 msgid "Logout"
+msgstr ""
+
+#: templates/registration/password_reset_complete.html:7
+#: templates/registration/password_reset_confirm.html:7
+msgid "Reset password"
+msgstr ""
+
+#: templates/registration/password_reset_complete.html:11
+msgid "Your password has been reset successfully."
+msgstr ""
+
+#: templates/registration/password_reset_confirm.html:19
+msgid "New password"
+msgstr ""
+
+#: templates/registration/password_reset_confirm.html:25
+msgid "Confirm password"
+msgstr ""
+
+#: templates/registration/password_reset_confirm.html:30
+msgid "Change password"
+msgstr ""
+
+#: templates/registration/password_reset_done.html:7
+msgid "Instructions sent"
+msgstr ""
+
+#: templates/registration/password_reset_done.html:10
+msgid "We've emailed you the instructions to reset your password."
+msgstr ""
+
+#: templates/registration/password_reset_form.html:8
+msgid "Forgot password"
 msgstr ""

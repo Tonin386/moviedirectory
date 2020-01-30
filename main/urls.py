@@ -10,6 +10,7 @@ urlpatterns = [
     path('<int:page>', views.home_page, name="home_page"),
     path('register', views.register, name="register"),
     url(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$', views.activate, name='activate'),
+    path('reactivate', views.reactivate, name='reactivate'),
     path('watchlist', views.watchlist, name="watchlist"),
     path('watchlist/<int:page>', views.watchlist_page, name="watchlist_page"),
     path('watchlist/delete/<str:ownid>', views.delete, name="delete"),

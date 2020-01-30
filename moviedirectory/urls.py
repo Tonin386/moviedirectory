@@ -12,5 +12,6 @@ admin.site.index_title = _("Administration")
 urlpatterns = [
     path('admin/', admin.site.urls, name="admin_site"),
     path('', include('main.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
     url(r'^i18n/', include('django.conf.urls.i18n')),
 ]

@@ -77,6 +77,51 @@ def register(request):
 
 	return render(request, 'auth/register.html', locals())
 
+def reactivate(request):
+
+	if request.user.is_authenticated:
+		return redirect('home')
+
+	post = False
+	if request.POST:
+		post = True
+		if request.POST['email']:
+			try:
+				user = User.objects.get(email=request.POST['email'])
+			except ObjectDoesNotExist:
+				exist = False
+				return render(request, 'auth/reactivate.html', locals())
+
+			exist = True
+			if user.is_active:
+				active = True
+				return render(request, 'auth/reactivate.html', locals())
+			else:
+				active = False
+				current_site = get_current_site(request)
+				mail_subject = _("Activate your MovieDirectory account")
+				message = render_to_string('mail/acc_active_email.html', {
+					'user': user,
+					'domain': current_site.domain,
+					'uid':urlsafe_base64_encode(force_bytes(user.pk)),
+					'token':account_activation_token.make_token(user),
+				})
+				to_email = request.POST['email']
+				send_mail(
+					mail_subject,
+					message,
+					"\"Movie Directory\" <support@movie-directory.com>",
+					[to_email],
+					html_message=message
+				)
+				print("Email sent to "+ to_email)
+				errorThrowed = False
+				addedUser = True
+				logger.info(user.username + " asked to send again email activation.")
+
+	return render(request, 'auth/reactivate.html', locals())
+
+
 
 def activate(request, uidb64, token):
     try:
