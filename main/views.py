@@ -186,18 +186,10 @@ def user_watchlist(request, username):
 
 	friend_requests_received = t_user.get_received_friend_requests_id()
 
-	if request.POST.get('from_send_invite', False):
-		username = request.POST['username']
-		try:
-			asked_user = User.objects.get(username=username) #Can we find this user?
-			print(asked_user)
-		except ObjectDoesNotExist: #No? Alright. Abort.
-			logger.error(request.user.username + " tried to send an invite to " + username + " but this user doesn't exist.")
-			return render(request, 'pages/user_watchlist.html', locals())
+	if request.POST:
+		output = send_invite(t_user, request.user)
 
-		send_invite(asked_user, request.user)
-
-		t_user = asked_user.save()
+		t_user.save()
 		request.user.save()
 
 		friend_requests_received = t_user.get_received_friend_requests_id()
