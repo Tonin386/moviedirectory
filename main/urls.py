@@ -19,10 +19,11 @@ urlpatterns = [
     path('movielist', views.movielist, name="movielist"),
     path('movielist/add/<str:imdbid>', views.add, name="add"),
     path('profile', views.profile, name="profile"),
-    path('profile/friend/delete/<int:friend_id>', views.delete_friend, name="delete_friend"),
-    path('profile/friend/accept/<int:friend_id>', views.accept_friend, name="accept_friend"),
-    path('profile/friend/refuse/<int:friend_id>', views.refuse_friend, name="refuse_friend"),
-    path('profile/friend/cancel/<int:friend_id>', views.cancel_friend, name="cancel_friend"),
+    path('friendlist', views.friendlist, name="friendlist"),
+    path('friendlist/delete/<int:friend_id>', views.delete_friend, name="delete_friend"),
+    path('friendlist/accept/<int:friend_id>', views.accept_friend, name="accept_friend"),
+    path('friendlist/refuse/<int:friend_id>', views.refuse_friend, name="refuse_friend"),
+    path('friendlist/cancel/<int:friend_id>', views.cancel_friend, name="cancel_friend"),
 ]
 
 if settings.DEBUG:

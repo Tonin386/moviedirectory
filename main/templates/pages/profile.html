@@ -7,67 +7,9 @@
 
 {% if success %}
 <div class="alert alert-success col-lg-4 mt-5" role="alert" style="margin: auto">
-	{% trans "Your profile was updated." %}
+	{% trans "Your profile has been updated." %}
 </div>
 {% endif %}
-
-
-<h1 class="ruban text-center text-light mt-5 mb-3" style="padding: 5px;"> {% trans "Friendlist" %} </h1>
-<div class="row no-gutters justify-content-center">
-	{% for friend in user_friends %}
-	<div class="card col-lg-3 m-3 bg-dark text-light">
-		<div class="card-body text-center">
-			<h5 class="card-title">{{ friend.first_name }} {{ friend.last_name }} {% trans "aka" %} {{ friend.username }}</h5>
-			<a href="{% url 'user_watchlist' username=friend.username %}" class="btn btn-primary m-2"><i class="fa fa-list"></i> {% trans "See watchlist" %}</a>
-			<a href="{% url 'delete_friend' friend_id=friend.id %}" class="btn btn-danger m-2"><i class="fa fa-remove"></i> {% trans "Delete friend" %}</a>
-		</div>
-	</div>
-	{% endfor %}
-</div>
-
-
-
-<h1 class="ruban text-center text-light mt-5 mb-3" style="padding: 5px;"> {% trans "Friend requests sent" %} </h1>
-<form method="post" action="" class="row justify-content-center col-lg-6 m-auto">
-	{% csrf_token %}
-	<div class="input-group mb-3 col-lg-10">
-		<div class="input-group-prepend">
-			<span class="input-group-text" id="basic-addon1">{% trans "Send a friend request" %}</span>
-		</div>
-		<input type="text" class="form-control" placeholder="{% trans 'Username' %}" aria-label="Username" aria-describedby="basic-addon1" name="username">
-	</div>
-	<input type="hidden" name="from_send_invite" value="True">
-	<div class="col-lg-2">
-		<button type="submit" class="btn btn-light w-100"><i class="fa fa-paper-plane"></i> {% trans "Send" %}</button>
-	</div>
-</form>
-<div class="row no-gutters justify-content-center">
-	{% for friend in user_sent %}
-	<div class="card col-lg-3 m-3 bg-dark text-light">
-		<div class="card-body text-center">
-			<h5 class="card-title">{% if friend.name_display %} {{friend.first_name}} {{friend.last_name}} {% else %} {{friend.username}}{% endif %}</h5>
-			<a href="{% url 'cancel_friend' friend_id=friend.id %}" class="btn btn-danger mr-2 m-auto"><i class="fa fa-remove"></i> {% trans "Cancel" %}</a>
-		</div>
-	</div>
-	{% endfor %}
-</div>
-
-
-
-<h1 class="ruban text-center text-light mt-5 mb-5" style="padding: 5px;"> {% trans "Friend requests received" %} </h1>
-<div class="row no-gutters justify-content-center">
-	{% for friend in user_received %}
-	<div class="card col-lg-3 m-3 bg-dark text-light">
-		<div class="card-body text-center">
-			<h5 class="card-title">{% if friend.name_display %} {{friend.first_name}} {{friend.last_name}} {% else %} {{friend.username}}{% endif %}</h5>
-			<a href="{% url 'accept_friend' friend_id=friend.id %}" class="btn btn-success m-auto"><i class="fa fa-check"></i> {% trans "Accept" %}</a>
-			<a href="{% url 'refuse_friend' friend_id=friend.id %}" class="btn btn-danger mr-2 m-auto"><i class="fa fa-remove"></i> {% trans "Refuse" %}</a>
-		</div>
-	</div>
-	{% endfor %}
-</div>
-
-
 
 <h1 class="ruban text-center text-light mt-5 mb-5" style="padding: 5px;">{% trans "Edit your profile" %}</h1>
 <form action="" method="post" class="row m-auto col-lg-6">
@@ -144,9 +86,6 @@
 	</div>
 </form>
 
-
-
-
 <h1 class="ruban text-center text-light mt-5 mb-5" style="padding: 5px;">{% trans "Language settings" %}</h1>
 <form action="/i18n/setlang/" method="post" class="row m-auto col-lg-6">
 	{% csrf_token %}
@@ -170,5 +109,3 @@
 	</div>
 </form>
 {% endblock %}
-
-

@@ -698,24 +698,3 @@ msgstr ""
 #: templates/registration/password_reset_form.html:8
 msgid "Forgot password"
 msgstr "Mot de passe oublié"
-
-#~ msgid "Copyright:"
-#~ msgstr "Droits :"
-
-#~ msgid "Log out"
-#~ msgstr "Déconnexion"
-
-#~ msgid "Followers id"
-#~ msgstr "ID des followers"
-
-#~ msgid "Following id"
-#~ msgstr "ID des abonnements"
-
-#~ msgid "french"
-#~ msgstr "français"
-
-#~ msgid "english"
-#~ msgstr "anglais"
-
-#~ msgid "german"
-#~ msgstr "allemand"

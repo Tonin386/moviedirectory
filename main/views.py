@@ -21,6 +21,7 @@ import logging
 
 
 logger = logging.getLogger(__name__)
+output = ""
 
 
 def logout(request):
@@ -53,7 +54,6 @@ def register(request):
 			[to_email],
 			html_message=message
 		)
-		print("Email sent to "+ to_email)
 		errorThrowed = False
 		addedUser = True
 		logger.info(new_user.username + " signed in.")
@@ -61,9 +61,7 @@ def register(request):
 	return render(request, 'auth/register.html', locals())
 
 def reactivate(request):
-
 	if request.user.is_authenticated:
-		print("what?")
 		return redirect('home')
 
 	post = False
@@ -98,7 +96,6 @@ def reactivate(request):
 					[to_email],
 					html_message=message
 				)
-				print("Email sent to "+ to_email)
 				errorThrowed = False
 				addedUser = True
 				logger.info(user.username + " asked to send again email activation.")
@@ -125,10 +122,9 @@ def activate(request, uidb64, token):
         	["support@movie-directory.com"]
         )
         return redirect('home')
-        # return HttpResponse('Thank you for your email confirmation. Now you can login your account.')
     else:
         logger.error("Invalid activation link for "+ uid)
-        return HttpResponse(_('Activation link is invalid!' + uid))
+        return HttpResponse(_('Activation link is invalid!'))
 
 @login_required
 def watchlist(request):
@@ -304,6 +300,23 @@ def profile(request):
 
 	current_language = get_language()
 
+	if request.POST: #If request is a form
+		if edit_form.is_valid() and request.POST.get('from_edit_profile', False): #Is it the edit profile form?
+			data = edit_form.cleaned_data
+			request.user.first_name = data['first_name']
+			request.user.last_name = data['last_name']
+			request.user.birth_date = data['birth_date']
+			request.user.private = data['private']
+			request.user.email_notifications = data['email_notifications']
+			request.user.name_display = data['name_display']
+			request.user.save()
+			success = True
+			logger.info(request.user.username + " updated his profile.")
+
+	return render(request, 'pages/profile.html', locals())
+
+@login_required
+def friendlist(request):
 	user_friends = request.user.friends.all()
 
 	user_sent_id = request.user.get_sent_friend_requests_id()
@@ -317,32 +330,23 @@ def profile(request):
 		user_received.append(User.objects.get(id=user_id))
 
 	if request.POST: #If request is a form
-		if edit_form.is_valid() and request.POST.get('from_edit_profile', False): #Is it the edit profile form?
-			data = edit_form.cleaned_data
-			request.user.first_name = data['first_name']
-			request.user.last_name = data['last_name']
-			request.user.birth_date = data['birth_date']
-			request.user.private = data['private']
-			request.user.email_notifications = data['email_notifications']
-			request.user.name_display = data['name_display']
-			request.user.save()
-			success = True
-			logger.info(request.user.username + " updated his profile.")
-		elif request.POST.get('from_send_invite', False): #If it isn't, it has to be the send request form.
-			username = request.POST['username']
-			try:
-				asked_user = User.objects.get(username=username) #Can we find this user?
-			except ObjectDoesNotExist: #No? Alright. Abort.
-				logger.error(request.user.username + " tried to send an invite to " + username + " but this user doesn't exist.")
-				return redirect("profile")
+		username = request.POST['username']
+		try:
+			asked_user = User.objects.get(username=username) #Can we find this user?
+		except ObjectDoesNotExist: #No? Alright. Abort.
+			logger.error(request.user.username + " tried to send an invite to " + username + " but this user doesn't exist.")
+			output = _("This user doesn't exist")
+			return render(request, 'pages/friendlist.html', locals())
 
-			send_invite(asked_user, request.user)
+		output = send_invite(asked_user, request.user)
+		user_sent_id = request.user.get_sent_friend_requests_id()
+		user_received_id = request.user.get_received_friend_requests_id()
+		for user_id in user_sent_id:
+			user_sent.append(User.objects.get(id=user_id))
+		for user_id in user_received_id:
+			user_received.append(User.objects.get(id=user_id))
 
-			return redirect('profile')
-
-
-
-	return render(request, 'pages/profile.html', locals())
+	return render(request, 'pages/friendlist.html', locals())
 
 @login_required
 def delete_friend(request, friend_id):
@@ -355,8 +359,9 @@ def delete_friend(request, friend_id):
 	old_friend.friends.remove(request.user)
 
 	logger.info(request.user.username + " deleted " + old_friend.username + " from his friendlist")
+	output = _("You are no longer friend with ") + old_friend.username
 
-	return redirect('profile')
+	return redirect('friendlist')
 
 @login_required
 def accept_friend(request, friend_id):
@@ -406,8 +411,9 @@ def accept_friend(request, friend_id):
 		)
 
 	logger.info(request.user.username + " and " + friend.username + " are now friends.")
+	output = _("You are now friend with") + friend.username
 
-	return redirect('profile')
+	return redirect('friendlist')
 
 @login_required
 def refuse_friend(request, friend_id):
@@ -427,9 +433,10 @@ def refuse_friend(request, friend_id):
 	request.user.save()
 	friend.save()
 
-	loger.info(request.user.username + "doesn't want to be friend with " + friend.username)
+	logger.info(request.user.username + "doesn't want to be friend with " + friend.username)
+	output = _("You refused to be friend with ") + friend.username
 
-	return redirect('profile')
+	return redirect('friendlist')
 
 @login_required
 def cancel_friend(request, friend_id):
@@ -450,8 +457,9 @@ def cancel_friend(request, friend_id):
 	friend.save()
 
 	logger.info(request.user.username + " canceled his friend invite to " + friend.username)
+	output = _("You canceled your friend invite to ") + friend.username
 
-	return redirect('profile')
+	return redirect('friendlist')
 
 
 def home(request):
