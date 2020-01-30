@@ -28,23 +28,6 @@ def logout(request):
 
 	return redirect('/')
 
-def login(request):
-	form = LoginForm(request.POST or None)
-	if form.is_valid():
-		usr = form.cleaned_data['username']
-		pwd = form.cleaned_data['password']
-		auth_user = authenticate(username=usr, password=pwd)
-		if auth_user:
-			dj_login(request, auth_user)
-			logger.info(auth_user.username +" logged in.")
-			return redirect('home')
-		else:
-			error = True
-			logger.error("Couldn't log user in.")
-
-	return render(request, 'auth/login.html', locals())
-
-
 def register(request):
 	form = SignInForm(request.POST or None)
 	addedUser = False

@@ -23,8 +23,6 @@ urlpatterns = [
     path('profile/friend/accept/<int:friend_id>', views.accept_friend, name="accept_friend"),
     path('profile/friend/refuse/<int:friend_id>', views.refuse_friend, name="refuse_friend"),
     path('profile/friend/cancel/<int:friend_id>', views.cancel_friend, name="cancel_friend"),
-    url(r'^logout/', views.logout, name='logout'),
-    url(r'^login/', views.login, name="login"),
 ]
 
 if settings.DEBUG:

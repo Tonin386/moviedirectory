@@ -136,8 +136,11 @@
 		</div>
 	</div>
 	<input type="hidden" name="from_edit_profile" value="True">
-	<div class="text-center m-auto">
-		<button type="submit" class="btn btn-light mt-3">{% trans "Edit my profile" %}</button>
+	<div class="text-center m-auto col-lg-12">
+		<button type="submit" class="btn btn-light mt-2">{% trans "Edit my profile" %}</button>
+	</div>
+	<div class="text-center m-auto col-lg-12">
+		<a href="{% url 'password_change' %}" class="btn btn-light mt-3">{% trans "Change password" %}</a>
 	</div>
 </form>
 

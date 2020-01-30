@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-30 09:01+0000\n"
+"POT-Creation-Date: 2020-01-30 13:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -124,8 +124,8 @@ msgstr "Acteurs"
 msgid "Plot"
 msgstr "Sysnopsis"
 
-#: main/models.py:20 main/templates/pages/profile.html:153
-#: main/templates/pages/profile.html:156
+#: main/models.py:20 main/templates/pages/profile.html:156
+#: main/templates/pages/profile.html:159
 msgid "Language"
 msgstr "Langue"
 
@@ -187,28 +187,6 @@ msgstr "Commentaire"
 #: main/models.py:102
 msgid "Watched movie"
 msgstr "Film regardé"
-
-#: main/templates/auth/login.html:7
-msgid "Hi"
-msgstr "Salut"
-
-#: main/templates/auth/login.html:9 main/templates/auth/login.html:29
-#: main/templates/index.html:73 templates/nav.html:31
-#: templates/registration/password_reset_complete.html:12
-msgid "Login"
-msgstr "Connexion"
-
-#: main/templates/auth/login.html:23
-msgid "Required"
-msgstr "Requis"
-
-#: main/templates/auth/login.html:36
-msgid "Can't login? Make sure you activated your account."
-msgstr "Problème de connexion ? Assurez-vous d'avoir activé votre compte."
-
-#: main/templates/auth/login.html:39
-msgid "Forgot your password?"
-msgstr "Mot de passe oublié ?"
 
 #: main/templates/auth/reactivate.html:7
 msgid "Resend activation email"
@@ -328,6 +306,12 @@ msgstr "Inscription"
 #: main/templates/index.html:73
 msgid "Don't worry I've got this"
 msgstr "Je sais ce que je fais"
+
+#: main/templates/index.html:73 templates/nav.html:31
+#: templates/registration/login.html:9 templates/registration/login.html:29
+#: templates/registration/password_reset_complete.html:12
+msgid "Login"
+msgstr "Connexion"
 
 #: main/templates/mail/acc_active_email.html:135
 #: main/templates/mail/acc_active_email.html:207
@@ -450,11 +434,18 @@ msgstr "Watchlist privée"
 msgid "Edit my profile"
 msgstr "Editer mon profil"
 
-#: main/templates/pages/profile.html:147
+#: main/templates/pages/profile.html:143
+#: templates/registration/password_change_form.html:7
+#: templates/registration/password_change_form.html:37
+#: templates/registration/password_reset_confirm.html:30
+msgid "Change password"
+msgstr "Changer le mot de passe"
+
+#: main/templates/pages/profile.html:150
 msgid "Language settings"
 msgstr "Paramètres de langue"
 
-#: main/templates/pages/profile.html:166
+#: main/templates/pages/profile.html:169
 msgid "Change language"
 msgstr "Changer la langue"
 
@@ -500,18 +491,18 @@ msgstr "J'ai regardé..."
 msgid "Delete entry"
 msgstr "Supprimer"
 
-#: main/utilities.py:41 main/utilities.py:54 main/views.py:399
-#: main/views.py:412
+#: main/utilities.py:41 main/utilities.py:54 main/views.py:383
+#: main/views.py:396
 msgid "You have a new friend!"
 msgstr "Vous avez un nouvel ami !"
 
-#: main/utilities.py:42 main/utilities.py:55 main/views.py:400
-#: main/views.py:413
+#: main/utilities.py:42 main/utilities.py:55 main/views.py:384
+#: main/views.py:397
 msgid "You are now friend with "
 msgstr "You êtes désormais ami avec "
 
-#: main/utilities.py:42 main/utilities.py:55 main/views.py:400
-#: main/views.py:413
+#: main/utilities.py:42 main/utilities.py:55 main/views.py:384
+#: main/views.py:397
 msgid ""
 "!\n"
 "You can now see this user's watchlist.\n"
@@ -543,11 +534,11 @@ msgstr ""
 "\n"
 "Vous désactivez les notifications par mail sur votre profil."
 
-#: main/views.py:58 main/views.py:102
+#: main/views.py:41 main/views.py:86
 msgid "Activate your MovieDirectory account"
 msgstr "Activer votre compte MovieDirectory"
 
-#: main/views.py:147
+#: main/views.py:131
 msgid "Activation link is invalid!"
 msgstr "Le lien d'activation n'est pas valide !"
 
@@ -647,6 +638,44 @@ msgstr "Profil"
 msgid "Logout"
 msgstr "Déconnexion"
 
+#: templates/registration/login.html:7
+msgid "Hi"
+msgstr "Salut"
+
+#: templates/registration/login.html:23
+msgid "Required"
+msgstr "Requis"
+
+#: templates/registration/login.html:36
+msgid "Can't login? Make sure you activated your account."
+msgstr "Problème de connexion ? Assurez-vous d'avoir activé votre compte."
+
+#: templates/registration/login.html:39
+msgid "Forgot your password?"
+msgstr "Mot de passe oublié ?"
+
+#: templates/registration/password_change_done.html:7
+msgid "Password changed"
+msgstr "Mot de passe changé"
+
+#: templates/registration/password_change_done.html:10
+msgid "Your password has been changed."
+msgstr "Votre mot de pas a bien été changé."
+
+#: templates/registration/password_change_form.html:20
+msgid "Old password"
+msgstr "Ancien mot de passe"
+
+#: templates/registration/password_change_form.html:26
+#: templates/registration/password_reset_confirm.html:19
+msgid "New password"
+msgstr "Nouveau mot de passe"
+
+#: templates/registration/password_change_form.html:32
+#: templates/registration/password_reset_confirm.html:25
+msgid "Confirm password"
+msgstr "Confirmer le mot de passe"
+
 #: templates/registration/password_reset_complete.html:7
 #: templates/registration/password_reset_confirm.html:7
 msgid "Reset password"
@@ -656,25 +685,15 @@ msgstr "Réinitialiser le mot de passe"
 msgid "Your password has been reset successfully."
 msgstr "Votre mot de pas a bien été réinitialisé."
 
-#: templates/registration/password_reset_confirm.html:19
-msgid "New password"
-msgstr "Nouveau mot de passe"
-
-#: templates/registration/password_reset_confirm.html:25
-msgid "Confirm password"
-msgstr "Confirmer le mot de passe"
-
-#: templates/registration/password_reset_confirm.html:30
-msgid "Change password"
-msgstr "Changer le mot de passe"
-
 #: templates/registration/password_reset_done.html:7
 msgid "Instructions sent"
 msgstr "Instructions envoyées"
 
 #: templates/registration/password_reset_done.html:10
 msgid "We've emailed you the instructions to reset your password."
-msgstr "Nous vous avons envoyé un mail avec les instructions pour réinitialiser votre mot de passe."
+msgstr ""
+"Nous vous avons envoyé un mail avec les instructions pour réinitialiser "
+"votre mot de passe."
 
 #: templates/registration/password_reset_form.html:8
 msgid "Forgot password"
