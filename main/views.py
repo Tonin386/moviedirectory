@@ -171,7 +171,7 @@ def user_watchlist(request, username):
 	except ObjectDoesNotExist:
 		error = True
 		logger.error("user '"+t_user+"' doesn't exist")
-		return render(request, 'pages/user_watchlist.html', locals())
+		return redirect('home')
 
 	movies = WatchedMovie.objects.filter(viewer=t_user).order_by('-view_date', '-id')[:3]
 	page = 1
@@ -190,11 +190,14 @@ def user_watchlist(request, username):
 		username = request.POST['username']
 		try:
 			asked_user = User.objects.get(username=username) #Can we find this user?
+			print(asked_user)
 		except ObjectDoesNotExist: #No? Alright. Abort.
 			logger.error(request.user.username + " tried to send an invite to " + username + " but this user doesn't exist.")
 			return render(request, 'pages/user_watchlist.html', locals())
 
 		send_invite(asked_user, request.user)
+
+		friend_requests_received = t_user.get_received_friend_requests_id()
 
 		return render(request, 'pages/user_watchlist.html', locals())
 
@@ -445,11 +448,11 @@ def cancel_friend(request, friend_id):
 
 	user_sent_id = request.user.get_sent_friend_requests_id()
 	user_sent_id.remove(friend.id)
-	request.user.sent_friend_requests = " ".join(user_sent_id)
+	request.user.sent_friend_requests = " ".join(str(user_sent_id))
 
 	friend_received_id = friend.get_received_friend_requests_id()
 	friend_received_id.remove(request.user.id)
-	friend.received_friend_requests = " ".join(friend_received_id)
+	friend.received_friend_requests = " ".join(str(friend_received_id))
 
 	request.user.save()
 	friend.save()
