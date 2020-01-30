@@ -63,6 +63,8 @@ def send_invite(asked_user, user):
 						html_message=message
 					)
 
+				return _("You are now friend with ") + asked_user.username
+
 			else: #Alright, we don't know yet if he wants to be friend with us.
 				if asked_user.received_friend_requests != "":
 					asked_user.received_friend_requests += " " + str(user.id)
@@ -91,3 +93,9 @@ def send_invite(asked_user, user):
 							[to_email],
 							html_message=message
 						)
+
+				return _("You sent a friend invite to ") + asked_user.username
+		else:
+			return _("You already sent a friend request to ") + asked_user.username
+	else:
+		return _("You are already friend with ") + asked_user.username
