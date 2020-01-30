@@ -33,10 +33,10 @@ def login(request):
 	if form.is_valid():
 		usr = form.cleaned_data['username']
 		pwd = form.cleaned_data['password']
-		user = authenticate(username=usr, password=pwd)
-		if user:
-			dj_login(request, user)
-			logger.info(user.username +" logged in.")
+		auth_user = authenticate(username=usr, password=pwd)
+		if auth_user:
+			dj_login(request, auth_user)
+			logger.info(auth_user.username +" logged in.")
 			return redirect('home')
 		else:
 			error = True
@@ -51,16 +51,16 @@ def register(request):
 	errorThrowed = True
 
 	if form.is_valid():
-		user = form.save()
-		user.is_active = False
-		user.save()
+		new_user = form.save()
+		new_user.is_active = False
+		new_user.save()
 		current_site = get_current_site(request)
 		mail_subject = _("Activate your MovieDirectory account")
 		message = render_to_string('mail/acc_active_email.html', {
-			'user': user,
+			'user': new_user,
 			'domain': current_site.domain,
-			'uid':urlsafe_base64_encode(force_bytes(user.pk)),
-			'token':account_activation_token.make_token(user),
+			'uid':urlsafe_base64_encode(force_bytes(new_user.pk)),
+			'token':account_activation_token.make_token(new_user),
 		})
 		to_email = form.cleaned_data.get('email')
 		send_mail(
@@ -73,13 +73,14 @@ def register(request):
 		print("Email sent to "+ to_email)
 		errorThrowed = False
 		addedUser = True
-		logger.info(user.username + " signed in.")
+		logger.info(new_user.username + " signed in.")
 
 	return render(request, 'auth/register.html', locals())
 
 def reactivate(request):
 
 	if request.user.is_authenticated:
+		print("what?")
 		return redirect('home')
 
 	post = False
@@ -87,13 +88,13 @@ def reactivate(request):
 		post = True
 		if request.POST['email']:
 			try:
-				user = User.objects.get(email=request.POST['email'])
+				inactive_user = User.objects.get(email=request.POST['email'])
 			except ObjectDoesNotExist:
 				exist = False
 				return render(request, 'auth/reactivate.html', locals())
 
 			exist = True
-			if user.is_active:
+			if inactive_user.is_active:
 				active = True
 				return render(request, 'auth/reactivate.html', locals())
 			else:
@@ -101,10 +102,10 @@ def reactivate(request):
 				current_site = get_current_site(request)
 				mail_subject = _("Activate your MovieDirectory account")
 				message = render_to_string('mail/acc_active_email.html', {
-					'user': user,
+					'user': inactive_user,
 					'domain': current_site.domain,
-					'uid':urlsafe_base64_encode(force_bytes(user.pk)),
-					'token':account_activation_token.make_token(user),
+					'uid':urlsafe_base64_encode(force_bytes(inactive_user.pk)),
+					'token':account_activation_token.make_token(inactive_user),
 				})
 				to_email = request.POST['email']
 				send_mail(
@@ -126,17 +127,17 @@ def reactivate(request):
 def activate(request, uidb64, token):
     try:
         uid = force_text(urlsafe_base64_decode(uidb64))
-        user = User.objects.get(pk=int(uid))
+        new_user = User.objects.get(pk=int(uid))
     except(TypeError, ValueError, OverflowError, User.DoesNotExist):
         user = None
-    if user is not None and account_activation_token.check_token(user, token):
-        user.is_active = True
-        user.save()
-        dj_login(request, user)
-        logger.info(user.username +" activated his account.")
+    if new_user is not None and account_activation_token.check_token(new_user, token):
+        new_user.is_active = True
+        new_user.save()
+        dj_login(request, new_user)
+        logger.info(new_user.username +" activated his account.")
         send_mail(
-        	user.username + " activated his account",
-        	"A new user just activated his account on " + datetime.now().strftime('%d/%m/%Y %H:%M:%S') + ".\nUsername: " + user.username,
+        	new_user.username + " activated his account",
+        	"A new user just activated his account on " + datetime.now().strftime('%d/%m/%Y %H:%M:%S') + ".\nUsername: " + new_user.username,
 			"\"Movie Directory accounts\" <support@movie-directory.com>",
         	["support@movie-directory.com"]
         )
