@@ -9,69 +9,70 @@
 {% for movie in community %}
 <div class="row justify-content-center mt-5 no-gutters">
   <div class="card bg-dark text-light w-75">
-    <h4 class="card-header w-100 card-header-link"> <a class="stretched-link" href="{% url 'user_watchlist' username=movie.viewer.username %}"> {% if movie.viewer.name_display %}{{movie.viewer.first_name}} {{movie.viewer.last_name}}{% else %}{{movie.viewer.username}}{% endif %}</a> {% trans "watched" %} <span style="float: right;">  {% if movie.new %} <img src="{% static 'img/icons/new.png' %}" alt="New" title="New" width="40"> {% endif %} {% if movie.theater %} <img src="{% static 'img/icons/cinema.png' %}" alt="Cinema" title="Cinema" width="40"> {% endif %} </span></h5>
-      <div class="row no-gutters">
-        <div class="col-xl-2 img-card-poster">
-          <img src="{{movie.movie.poster}}" alt="{{movie.movie.title}}" class="img-fluid" width="200">
-        </div>
-        <div class="col m-3 btn-card-right">
-          <h3 class="card-title text-center">{{movie.movie.title}}<span class="text-muted"> - {{ movie.movie.director }}, {{movie.movie.year}}</span></h3>
-          <p class="card-text text-justify">{% trans movie.movie.plot %}</p>
-          <p class="card-text text-justify">{% trans "With:" %} {{movie.movie.actors}}</p>
-          <p class="card-text text-justify">{% trans "Awards:" %} {% trans movie.movie.awards %}</p>
-          <a href="https://www.imdb.com/title/{{movie.movie.imdbid}}" class="btn btn-warning mb-2" target="_blank"><i class="fa fa-external-link"></i> {% trans "See on IMDb" %}</a>
-          {% if user == movie.viewer %} <a href="{% url 'delete' ownid=movie.id %}" class="btn btn-danger mb-2"><i class="fa fa-remove"></i> {% trans "Delete from your watchlist" %}</a> {% endif %}
-        </div>
+    <h4 class="card-header w-100 card-header-link"> <a class="stretched-link" href="{% url 'user_watchlist' username=movie.viewer.username %}"> {% if movie.viewer.name_display %}{{movie.viewer.first_name}} {{movie.viewer.last_name}}{% else %}{{movie.viewer.username}}{% endif %}</a> {% trans "watched" %} <span style="float: right;">  {% if movie.new %} <img src="{% static 'img/icons/new.png' %}" alt="New" title="New" width="40"> {% endif %} {% if movie.theater %} <img src="{% static 'img/icons/cinema.png' %}" alt="Cinema" title="Cinema" width="40"> {% endif %} </span></h4>
+    <div class="row no-gutters">
+      <div class="col-xl-2 img-card-poster">
+        <img src="{{movie.movie.poster}}" alt="{{movie.movie.title}}" class="img-fluid" width="200">
       </div>
-      <div class="card-footer">
-        <p class="card-text">{% trans "Watched on" %} {{ movie.view_date }} - {{movie.note}}/10 - {{movie.comment}}</p>
+      <div class="col m-3 btn-card-right">
+        <h3 class="card-title text-center">{{movie.movie.title}}<span class="text-muted"> - {{ movie.movie.director }}, {{movie.movie.year}}</span></h3>
+        <p class="card-text text-justify">{% trans movie.movie.plot %}</p>
+        <p class="card-text text-justify">{% trans "With:" %} {{movie.movie.actors}}</p>
+        <p class="card-text text-justify">{% trans "Awards:" %} {% trans movie.movie.awards %}</p>
+        <a href="https://www.imdb.com/title/{{movie.movie.imdbid}}" class="btn btn-warning mb-2" target="_blank"><i class="fa fa-external-link"></i> {% trans "See on IMDb" %}</a>
+        {% if user == movie.viewer %} <a href="{% url 'delete' ownid=movie.id %}" class="btn btn-danger mb-2"><i class="fa fa-remove"></i> {% trans "Delete from your watchlist" %}</a> {% endif %}
       </div>
     </div>
+    <div class="card-footer">
+      <p class="card-text">{% trans "Watched on" %} {{ movie.view_date }} - {{movie.note}}/10 - {{movie.comment}}</p>
+    </div>
   </div>
-  {% endfor %}
-  <div class="row justify-content-center">
-    {% if page > 1 %}
-    <a href="{% url 'home_page' page=previous_page %}" class="btn btn-light m-2 col-xs-2">{% trans "Previous page" %}<br><i class="fa fa-arrow-left"></i></a>
-    {% endif %}
-    {% if not last_page %}
-    <a href="{% url 'home_page' page=next_page %}" class="btn btn-light m-2 col-xs-2"> {% trans "Next page" %}<br><i class="fa fa-arrow-right"></i> </a>
-    {% endif %}
-  </div>
+</div>
 
-  {% else %}
-  <div class="row justify-content-center no-gutters m-0">
-    <div class="col-md-12 text-center row" style="padding: 0px;">
-      <div class="col-md-12 bg-light mb-5" style="padding: 5px;">
-        <h1 class="display-3">{% trans "Welcome to Movie Directory" %}</h1>
-      </div>
-      <div class="col-md-3">
-        <div class="col-md-12 mt-3 pb-3">
-          <div class="index_logo shadow bg-secondary">
-            <img src="{% static 'img/logo.png' %}" alt="Logo" style="max-width: 100%; height: auto;">
-          </div>
+{% endfor %}
+<div class="row justify-content-center no-gutters">
+  {% if page > 1 %}
+  <a href="{% url 'home_page' page=previous_page %}" class="btn btn-light m-2 p-2 col-xs-2">{% trans "Previous page" %}<br><i class="fa fa-arrow-left"></i></a>
+  {% endif %}
+  {% if not last_page %}
+  <a href="{% url 'home_page' page=next_page %}" class="btn btn-light m-2 p-2 col-xs-2"> {% trans "Next page" %}<br><i class="fa fa-arrow-right"></i> </a>
+  {% endif %}
+</div>
+
+{% else %}
+<div class="row justify-content-center no-gutters m-0">
+  <div class="col-md-12 text-center row" style="padding: 0px;">
+    <div class="col-md-12 bg-light mb-5" style="padding: 5px;">
+      <h1 class="display-3">{% trans "Welcome to Movie Directory" %}</h1>
+    </div>
+    <div class="col-md-3">
+      <div class="col-md-12 mt-3 pb-3">
+        <div class="index_logo shadow bg-secondary">
+          <img src="{% static 'img/logo.png' %}" alt="Logo" style="max-width: 100%; height: auto;">
         </div>
       </div>
-      <div class="col-md-9 mt-lg-5">
-        <div class="row mt-5">
-          <div class="lead text-white col-lg-4">
-            {% trans "Share your favorite movies with people who matters." %}
-          </div>
-          <div class="lead text-white col-lg-4">
-            {% trans "Always up to date movie database." %}
-          </div>
-          <div class="lead text-white col-lg-4">
-            {% trans "Start now and enjoy yourself." %}
-          </div>
-        </table>
-      </div>
+    </div>
+    <div class="col-md-9 mt-lg-5">
+      <div class="row mt-5">
+        <div class="lead text-white col-lg-4">
+          {% trans "Share your favorite movies with people who matters." %}
+        </div>
+        <div class="lead text-white col-lg-4">
+          {% trans "Always up to date movie database." %}
+        </div>
+        <div class="lead text-white col-lg-4">
+          {% trans "Start now and enjoy yourself." %}
+        </div>
+      </table>
     </div>
   </div>
-  <div class="col-md-3 mt-3">
-    <a href="{% url 'register' %}" class="btn btn-lg btn-block btn-outline-light mb-2 shadow">{% trans "This is where the fun begins" %}<br><small class="muted">{% trans "Sign in" %}</small></a>
-  </div>
-  <div class="col-md-3 mt-3">
-    <a href="{% url 'login' %}" class="btn btn-lg btn-block btn-outline-light mb-2 shadow ml-lg-4">{% trans "Don't worry I've got this" %} <br><small class="muted">{% trans "Login" %}</small></a>
-  </div>
+</div>
+<div class="col-md-3 mt-3">
+  <a href="{% url 'register' %}" class="btn btn-lg btn-block btn-outline-light mb-2 shadow">{% trans "This is where the fun begins" %}<br><small class="muted">{% trans "Sign in" %}</small></a>
+</div>
+<div class="col-md-3 mt-3">
+  <a href="{% url 'login' %}" class="btn btn-lg btn-block btn-outline-light mb-2 shadow ml-lg-4">{% trans "Don't worry I've got this" %} <br><small class="muted">{% trans "Login" %}</small></a>
+</div>
 </div>
 {% endif %}
 

@@ -39,12 +39,12 @@
 	</div>
 </div>
 {% endfor %}
-<div class="row justify-content-center">
+<div class="row justify-content-center no-gutters">
 	{% if page > 1 %}
-	<a href="{% url 'watchlist_page' page=previous_page %}" class="btn btn-light m-2 col-xs-2">{% trans "Previous page" %}<br><i class="fa fa-arrow-left"></i></a>
+	<a href="{% url 'watchlist_page' page=previous_page %}" class="btn btn-light m-2 p-2 col-xs-2">{% trans "Previous page" %}<br><i class="fa fa-arrow-left"></i></a>
 	{% endif %}
 	{% if not last_page %}
-	<a href="{% url 'watchlist_page' page=next_page %}" class="btn btn-light m-2 col-xs-2"> {% trans "Next page" %}<br><i class="fa fa-arrow-right"></i> </a>
+	<a href="{% url 'watchlist_page' page=next_page %}" class="btn btn-light m-2 p-2 col-xs-2"> {% trans "Next page" %}<br><i class="fa fa-arrow-right"></i> </a>
 	{% endif %}
 </div>
 {% endblock %}

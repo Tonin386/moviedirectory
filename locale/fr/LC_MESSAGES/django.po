@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-30 14:29+0000\n"
+"POT-Creation-Date: 2020-01-30 20:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -270,45 +270,45 @@ msgstr "Voir sur IMDb"
 msgid "Delete from your watchlist"
 msgstr "Supprimer de votre watchlist"
 
-#: main/templates/index.html:34 main/templates/pages/user_watchlist.html:91
+#: main/templates/index.html:35 main/templates/pages/user_watchlist.html:92
 #: main/templates/pages/watchlist.html:44
 msgid "Previous page"
 msgstr "Page précédente"
 
-#: main/templates/index.html:37 main/templates/pages/user_watchlist.html:94
+#: main/templates/index.html:38 main/templates/pages/user_watchlist.html:99
 #: main/templates/pages/watchlist.html:47
 msgid "Next page"
 msgstr "Page suivante"
 
-#: main/templates/index.html:45
+#: main/templates/index.html:46
 msgid "Welcome to Movie Directory"
 msgstr "Bienvenue sur Movie Directory"
 
-#: main/templates/index.html:57
+#: main/templates/index.html:58
 msgid "Share your favorite movies with people who matters."
 msgstr "Partagez vos films préférés avec les personnes qui comptent pour vous."
 
-#: main/templates/index.html:60
+#: main/templates/index.html:61
 msgid "Always up to date movie database."
 msgstr "Une base de données des films toujours à jour."
 
-#: main/templates/index.html:63
+#: main/templates/index.html:64
 msgid "Start now and enjoy yourself."
 msgstr "Commencez l'aventure maintenant."
 
-#: main/templates/index.html:70
+#: main/templates/index.html:71
 msgid "This is where the fun begins"
 msgstr "C'est parti !"
 
-#: main/templates/index.html:70 templates/nav.html:37
+#: main/templates/index.html:71 templates/nav.html:37
 msgid "Sign in"
 msgstr "Inscription"
 
-#: main/templates/index.html:73
+#: main/templates/index.html:74
 msgid "Don't worry I've got this"
 msgstr "Je sais ce que je fais"
 
-#: main/templates/index.html:73 templates/nav.html:34
+#: main/templates/index.html:74 templates/nav.html:34
 #: templates/registration/login.html:9 templates/registration/login.html:29
 #: templates/registration/password_reset_complete.html:12
 msgid "Login"
@@ -492,18 +492,18 @@ msgstr "J'ai regardé..."
 msgid "Delete entry"
 msgstr "Supprimer"
 
-#: main/utilities.py:41 main/utilities.py:54 main/views.py:386
-#: main/views.py:399
+#: main/utilities.py:41 main/utilities.py:54 main/views.py:388
+#: main/views.py:401
 msgid "You have a new friend!"
 msgstr "Vous avez un nouvel ami !"
 
 #: main/utilities.py:42 main/utilities.py:55 main/utilities.py:66
-#: main/views.py:387 main/views.py:400
+#: main/views.py:389 main/views.py:402
 msgid "You are now friend with "
 msgstr "You êtes désormais ami avec "
 
-#: main/utilities.py:42 main/utilities.py:55 main/views.py:387
-#: main/views.py:400
+#: main/utilities.py:42 main/utilities.py:55 main/views.py:389
+#: main/views.py:402
 msgid ""
 "!\n"
 "You can now see this user's watchlist.\n"
