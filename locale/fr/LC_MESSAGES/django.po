@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-29 09:52+0000\n"
+"POT-Creation-Date: 2020-01-30 09:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -193,13 +193,56 @@ msgid "Hi"
 msgstr "Salut"
 
 #: main/templates/auth/login.html:9 main/templates/auth/login.html:29
-#: main/templates/index.html:74 templates/nav.html:31
+#: main/templates/index.html:73 templates/nav.html:31
+#: templates/registration/password_reset_complete.html:12
 msgid "Login"
 msgstr "Connexion"
 
 #: main/templates/auth/login.html:23
 msgid "Required"
 msgstr "Requis"
+
+#: main/templates/auth/login.html:36
+msgid "Can't login? Make sure you activated your account."
+msgstr "Problème de connexion ? Assurez-vous d'avoir activé votre compte."
+
+#: main/templates/auth/login.html:39
+msgid "Forgot your password?"
+msgstr "Mot de passe oublié ?"
+
+#: main/templates/auth/reactivate.html:7
+msgid "Resend activation email"
+msgstr "Envoyer l'email d'activation"
+
+#: main/templates/auth/reactivate.html:12
+msgid "We couldn't find an user with this email address"
+msgstr "Nous n'avons trouvé aucun utilisateur avec cette adresse mail."
+
+#: main/templates/auth/reactivate.html:20
+#: main/templates/auth/reactivate.html:41
+#: main/templates/auth/reactivate.html:57
+#: templates/registration/password_reset_form.html:15
+msgid "Email you used for inscription"
+msgstr "Email utilisé lors de l'inscription"
+
+#: main/templates/auth/reactivate.html:23
+#: main/templates/auth/reactivate.html:44
+#: main/templates/auth/reactivate.html:60 main/templates/pages/profile.html:41
+#: templates/registration/password_reset_form.html:18
+msgid "Send"
+msgstr "Envoyer"
+
+#: main/templates/auth/reactivate.html:28
+msgid "The user with this email address is already active."
+msgstr "L'utilisateur associé à cet email est déjà actif."
+
+#: main/templates/auth/reactivate.html:32
+msgid ""
+"Email sent. Please check your emails to activate your account. If you can't "
+"find the email, please check your spam folder."
+msgstr ""
+"Inscription réussie. Veuillez vérifier vos mails pour activer votre compte. "
+"Si vous ne trouvez pas le mail, veuillez vérifier votre dossier spam."
 
 #: main/templates/auth/register.html:6
 msgid "User registration"
@@ -262,27 +305,27 @@ msgstr "Page suivante"
 msgid "Welcome to Movie Directory"
 msgstr "Bienvenue sur Movie Directory"
 
-#: main/templates/index.html:58
+#: main/templates/index.html:57
 msgid "Share your favorite movies with people who matters."
 msgstr "Partagez vos films préférés avec les personnes qui comptent pour vous."
 
-#: main/templates/index.html:61
+#: main/templates/index.html:60
 msgid "Always up to date movie database."
 msgstr "Une base de données des films toujours à jour."
 
-#: main/templates/index.html:64
+#: main/templates/index.html:63
 msgid "Start now and enjoy yourself."
 msgstr "Commencez l'aventure maintenant."
 
-#: main/templates/index.html:71
+#: main/templates/index.html:70
 msgid "This is where the fun begins"
 msgstr "C'est parti !"
 
-#: main/templates/index.html:71 templates/nav.html:34
+#: main/templates/index.html:70 templates/nav.html:34
 msgid "Sign in"
 msgstr "Inscription"
 
-#: main/templates/index.html:74
+#: main/templates/index.html:73
 msgid "Don't worry I've got this"
 msgstr "Je sais ce que je fais"
 
@@ -379,10 +422,6 @@ msgstr "Demandes d'ami envoyées"
 msgid "Send a friend request"
 msgstr "Envoyer une demande d'ami"
 
-#: main/templates/pages/profile.html:41
-msgid "Send"
-msgstr "Envoyer"
-
 #: main/templates/pages/profile.html:49
 msgid "Cancel"
 msgstr "Annuler"
@@ -461,18 +500,18 @@ msgstr "J'ai regardé..."
 msgid "Delete entry"
 msgstr "Supprimer"
 
-#: main/utilities.py:41 main/utilities.py:54 main/views.py:354
-#: main/views.py:367
+#: main/utilities.py:41 main/utilities.py:54 main/views.py:399
+#: main/views.py:412
 msgid "You have a new friend!"
 msgstr "Vous avez un nouvel ami !"
 
-#: main/utilities.py:42 main/utilities.py:55 main/views.py:355
-#: main/views.py:368
+#: main/utilities.py:42 main/utilities.py:55 main/views.py:400
+#: main/views.py:413
 msgid "You are now friend with "
 msgstr "You êtes désormais ami avec "
 
-#: main/utilities.py:42 main/utilities.py:55 main/views.py:355
-#: main/views.py:368
+#: main/utilities.py:42 main/utilities.py:55 main/views.py:400
+#: main/views.py:413
 msgid ""
 "!\n"
 "You can now see this user's watchlist.\n"
@@ -498,17 +537,17 @@ msgid ""
 "\n"
 "You can turn off email notifications on your profile."
 msgstr ""
-" veut être ami avec vous. Vous pouvez accepter ou refuser cette demande sur Movie "
-"Directory.\n"
+" veut être ami avec vous. Vous pouvez accepter ou refuser cette demande sur "
+"Movie Directory.\n"
 "\n"
 "\n"
 "Vous désactivez les notifications par mail sur votre profil."
 
-#: main/views.py:58
+#: main/views.py:58 main/views.py:102
 msgid "Activate your MovieDirectory account"
 msgstr "Activer votre compte MovieDirectory"
 
-#: main/views.py:102
+#: main/views.py:147
 msgid "Activation link is invalid!"
 msgstr "Le lien d'activation n'est pas valide !"
 
@@ -584,15 +623,11 @@ msgstr ""
 msgid "Administration"
 msgstr ""
 
-#: templates/footer.html:11
-msgid "Copyright:"
-msgstr "Droits :"
-
-#: templates/footer.html:25
+#: templates/footer.html:15
 msgid "Repository"
 msgstr "Répertoire"
 
-#: templates/footer.html:29
+#: templates/footer.html:19
 msgid "Report an issue"
 msgstr "Signaler un problème"
 
@@ -611,6 +646,42 @@ msgstr "Profil"
 #: templates/nav.html:27
 msgid "Logout"
 msgstr "Déconnexion"
+
+#: templates/registration/password_reset_complete.html:7
+#: templates/registration/password_reset_confirm.html:7
+msgid "Reset password"
+msgstr "Réinitialiser le mot de passe"
+
+#: templates/registration/password_reset_complete.html:11
+msgid "Your password has been reset successfully."
+msgstr "Votre mot de pas a bien été réinitialisé."
+
+#: templates/registration/password_reset_confirm.html:19
+msgid "New password"
+msgstr "Nouveau mot de passe"
+
+#: templates/registration/password_reset_confirm.html:25
+msgid "Confirm password"
+msgstr "Confirmer le mot de passe"
+
+#: templates/registration/password_reset_confirm.html:30
+msgid "Change password"
+msgstr "Changer le mot de passe"
+
+#: templates/registration/password_reset_done.html:7
+msgid "Instructions sent"
+msgstr "Instructions envoyées"
+
+#: templates/registration/password_reset_done.html:10
+msgid "We've emailed you the instructions to reset your password."
+msgstr "Nous vous avons envoyé un mail avec les instructions pour réinitialiser votre mot de passe."
+
+#: templates/registration/password_reset_form.html:8
+msgid "Forgot password"
+msgstr "Mot de passe oublié"
+
+#~ msgid "Copyright:"
+#~ msgstr "Droits :"
 
 #~ msgid "Log out"
 #~ msgstr "Déconnexion"
