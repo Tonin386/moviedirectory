@@ -537,15 +537,15 @@ msgstr ""
 
 #: main/utilities.py:97
 msgid "You sent a friend invite to "
-msgstr "Vous avez envoyé une demande d'ami à"
+msgstr "Vous avez envoyé une demande d'ami à "
 
 #: main/utilities.py:99
 msgid "You already sent a friend request to "
-msgstr "Vous avez déjà envoyé une demande d'ami à"
+msgstr "Vous avez déjà envoyé une demande d'ami à "
 
 #: main/utilities.py:101
 msgid "You are already friend with "
-msgstr "Vous êtes déjà ami avec"
+msgstr "Vous êtes déjà ami avec "
 
 #: main/views.py:41 main/views.py:83
 msgid "Activate your MovieDirectory account"
