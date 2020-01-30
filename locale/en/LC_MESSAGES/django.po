@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-30 13:04+0000\n"
+"POT-Creation-Date: 2020-01-30 14:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "Movies management"
 msgstr ""
 
-#: main/forms.py:11 main/templates/pages/profile.html:37
+#: main/forms.py:11 main/templates/pages/friendlist.html:21
 #: moviedirectory/forms.py:8 moviedirectory/models.py:53
 msgid "Username"
 msgstr ""
@@ -59,25 +59,25 @@ msgstr ""
 msgid "No comment."
 msgstr ""
 
-#: main/forms.py:58 main/templates/pages/profile.html:76
-#: main/templates/pages/profile.html:79 main/templates/pages/profile.html:81
+#: main/forms.py:58 main/templates/pages/profile.html:18
+#: main/templates/pages/profile.html:21 main/templates/pages/profile.html:23
 #: moviedirectory/models.py:57
 msgid "First name"
 msgstr ""
 
-#: main/forms.py:59 main/templates/pages/profile.html:85
-#: main/templates/pages/profile.html:88 main/templates/pages/profile.html:90
+#: main/forms.py:59 main/templates/pages/profile.html:27
+#: main/templates/pages/profile.html:30 main/templates/pages/profile.html:32
 #: moviedirectory/models.py:58
 msgid "Last name"
 msgstr ""
 
-#: main/forms.py:60 main/templates/pages/profile.html:94
-#: main/templates/pages/profile.html:97
+#: main/forms.py:60 main/templates/pages/profile.html:36
+#: main/templates/pages/profile.html:39
 msgid "Birthday"
 msgstr ""
 
-#: main/forms.py:61 main/templates/pages/profile.html:115
-#: main/templates/pages/profile.html:118
+#: main/forms.py:61 main/templates/pages/profile.html:57
+#: main/templates/pages/profile.html:60
 msgid "Email notifications"
 msgstr ""
 
@@ -85,8 +85,8 @@ msgstr ""
 msgid "Private"
 msgstr ""
 
-#: main/forms.py:63 main/templates/pages/profile.html:127
-#: main/templates/pages/profile.html:130
+#: main/forms.py:63 main/templates/pages/profile.html:69
+#: main/templates/pages/profile.html:72
 msgid "Name display"
 msgstr ""
 
@@ -130,8 +130,8 @@ msgstr ""
 msgid "Plot"
 msgstr ""
 
-#: main/models.py:20 main/templates/pages/profile.html:156
-#: main/templates/pages/profile.html:159
+#: main/models.py:20 main/templates/pages/profile.html:95
+#: main/templates/pages/profile.html:98
 msgid "Language"
 msgstr ""
 
@@ -211,7 +211,8 @@ msgstr ""
 
 #: main/templates/auth/reactivate.html:23
 #: main/templates/auth/reactivate.html:44
-#: main/templates/auth/reactivate.html:60 main/templates/pages/profile.html:41
+#: main/templates/auth/reactivate.html:60
+#: main/templates/pages/friendlist.html:24
 #: templates/registration/password_reset_form.html:18
 msgid "Send"
 msgstr ""
@@ -301,7 +302,7 @@ msgstr ""
 msgid "This is where the fun begins"
 msgstr ""
 
-#: main/templates/index.html:70 templates/nav.html:34
+#: main/templates/index.html:70 templates/nav.html:37
 msgid "Sign in"
 msgstr ""
 
@@ -309,7 +310,7 @@ msgstr ""
 msgid "Don't worry I've got this"
 msgstr ""
 
-#: main/templates/index.html:73 templates/nav.html:31
+#: main/templates/index.html:73 templates/nav.html:34
 #: templates/registration/login.html:9 templates/registration/login.html:29
 #: templates/registration/password_reset_complete.html:12
 msgid "Login"
@@ -343,12 +344,12 @@ msgid "Add to my watchlist"
 msgstr ""
 
 #: main/templates/pages/add.html:43 main/templates/pages/add.html:55
-#: main/templates/pages/profile.html:109 main/templates/pages/profile.html:121
+#: main/templates/pages/profile.html:51 main/templates/pages/profile.html:63
 msgid "Yes"
 msgstr ""
 
 #: main/templates/pages/add.html:44 main/templates/pages/add.html:56
-#: main/templates/pages/profile.html:110 main/templates/pages/profile.html:122
+#: main/templates/pages/profile.html:52 main/templates/pages/profile.html:64
 msgid "No"
 msgstr ""
 
@@ -364,6 +365,46 @@ msgstr ""
 msgid "to my watchlist"
 msgstr ""
 
+#: main/templates/pages/friendlist.html:7 templates/nav.html:27
+msgid "Friendlist"
+msgstr ""
+
+#: main/templates/pages/friendlist.html:19
+msgid "Send a friend request"
+msgstr ""
+
+#: main/templates/pages/friendlist.html:31
+msgid "aka"
+msgstr ""
+
+#: main/templates/pages/friendlist.html:32
+msgid "See watchlist"
+msgstr ""
+
+#: main/templates/pages/friendlist.html:33
+msgid "Delete friend"
+msgstr ""
+
+#: main/templates/pages/friendlist.html:41
+msgid "Friend requests sent"
+msgstr ""
+
+#: main/templates/pages/friendlist.html:46
+msgid "Cancel"
+msgstr ""
+
+#: main/templates/pages/friendlist.html:53
+msgid "Friend requests received"
+msgstr ""
+
+#: main/templates/pages/friendlist.html:58
+msgid "Accept"
+msgstr ""
+
+#: main/templates/pages/friendlist.html:59
+msgid "Refuse"
+msgstr ""
+
 #: main/templates/pages/movielist.html:7
 msgid "Search for a movie in the database"
 msgstr ""
@@ -377,73 +418,33 @@ msgid "Error"
 msgstr ""
 
 #: main/templates/pages/profile.html:10
-msgid "Your profile was updated."
+msgid "Your profile has been updated."
 msgstr ""
 
-#: main/templates/pages/profile.html:15
-msgid "Friendlist"
-msgstr ""
-
-#: main/templates/pages/profile.html:20
-msgid "aka"
-msgstr ""
-
-#: main/templates/pages/profile.html:21
-msgid "See watchlist"
-msgstr ""
-
-#: main/templates/pages/profile.html:22
-msgid "Delete friend"
-msgstr ""
-
-#: main/templates/pages/profile.html:30
-msgid "Friend requests sent"
-msgstr ""
-
-#: main/templates/pages/profile.html:35
-msgid "Send a friend request"
-msgstr ""
-
-#: main/templates/pages/profile.html:49
-msgid "Cancel"
-msgstr ""
-
-#: main/templates/pages/profile.html:57
-msgid "Friend requests received"
-msgstr ""
-
-#: main/templates/pages/profile.html:63
-msgid "Accept"
-msgstr ""
-
-#: main/templates/pages/profile.html:64
-msgid "Refuse"
-msgstr ""
-
-#: main/templates/pages/profile.html:72
+#: main/templates/pages/profile.html:14
 msgid "Edit your profile"
 msgstr ""
 
-#: main/templates/pages/profile.html:103 main/templates/pages/profile.html:106
+#: main/templates/pages/profile.html:45 main/templates/pages/profile.html:48
 msgid "Private watchlist"
 msgstr ""
 
-#: main/templates/pages/profile.html:140
+#: main/templates/pages/profile.html:82
 msgid "Edit my profile"
 msgstr ""
 
-#: main/templates/pages/profile.html:143
+#: main/templates/pages/profile.html:85
 #: templates/registration/password_change_form.html:7
 #: templates/registration/password_change_form.html:37
 #: templates/registration/password_reset_confirm.html:30
 msgid "Change password"
 msgstr ""
 
-#: main/templates/pages/profile.html:150
+#: main/templates/pages/profile.html:89
 msgid "Language settings"
 msgstr ""
 
-#: main/templates/pages/profile.html:169
+#: main/templates/pages/profile.html:108
 msgid "Change language"
 msgstr ""
 
@@ -489,18 +490,18 @@ msgstr ""
 msgid "Delete entry"
 msgstr ""
 
-#: main/utilities.py:41 main/utilities.py:54 main/views.py:383
-#: main/views.py:396
+#: main/utilities.py:41 main/utilities.py:54 main/views.py:386
+#: main/views.py:399
 msgid "You have a new friend!"
 msgstr ""
 
-#: main/utilities.py:42 main/utilities.py:55 main/views.py:384
-#: main/views.py:397
+#: main/utilities.py:42 main/utilities.py:55 main/utilities.py:66
+#: main/views.py:387 main/views.py:400
 msgid "You are now friend with "
 msgstr ""
 
-#: main/utilities.py:42 main/utilities.py:55 main/views.py:384
-#: main/views.py:397
+#: main/utilities.py:42 main/utilities.py:55 main/views.py:387
+#: main/views.py:400
 msgid ""
 "!\n"
 "You can now see this user's watchlist.\n"
@@ -509,11 +510,11 @@ msgid ""
 "You can turn off email notifications on your profile."
 msgstr ""
 
-#: main/utilities.py:83
+#: main/utilities.py:85
 msgid "You have a new friend invite!"
 msgstr ""
 
-#: main/utilities.py:84
+#: main/utilities.py:86
 msgid ""
 " wants to be friend with you. You can accept or refuse this invite on Movie "
 "Directory.\n"
@@ -522,12 +523,28 @@ msgid ""
 "You can turn off email notifications on your profile."
 msgstr ""
 
-#: main/views.py:41 main/views.py:86
+#: main/utilities.py:97
+msgid "You sent a friend invite to "
+msgstr ""
+
+#: main/utilities.py:99
+msgid "You already sent a friend request to "
+msgstr ""
+
+#: main/utilities.py:101
+msgid "You are already friend with "
+msgstr ""
+
+#: main/views.py:41 main/views.py:83
 msgid "Activate your MovieDirectory account"
 msgstr ""
 
-#: main/views.py:131
+#: main/views.py:126
 msgid "Activation link is invalid!"
+msgstr ""
+
+#: main/views.py:337
+msgid "This user doesn't exist"
 msgstr ""
 
 #: moviedirectory/apps.py:6
@@ -622,7 +639,7 @@ msgstr ""
 msgid "Profile"
 msgstr ""
 
-#: templates/nav.html:27
+#: templates/nav.html:30
 msgid "Logout"
 msgstr ""
 

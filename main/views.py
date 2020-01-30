@@ -21,7 +21,6 @@ import logging
 
 
 logger = logging.getLogger(__name__)
-output = ""
 
 
 def logout(request):
@@ -359,7 +358,6 @@ def delete_friend(request, friend_id):
 	old_friend.friends.remove(request.user)
 
 	logger.info(request.user.username + " deleted " + old_friend.username + " from his friendlist")
-	output = _("You are no longer friend with ") + old_friend.username
 
 	return redirect('friendlist')
 
@@ -411,7 +409,6 @@ def accept_friend(request, friend_id):
 		)
 
 	logger.info(request.user.username + " and " + friend.username + " are now friends.")
-	output = _("You are now friend with") + friend.username
 
 	return redirect('friendlist')
 
@@ -434,7 +431,6 @@ def refuse_friend(request, friend_id):
 	friend.save()
 
 	logger.info(request.user.username + "doesn't want to be friend with " + friend.username)
-	output = _("You refused to be friend with ") + friend.username
 
 	return redirect('friendlist')
 
@@ -457,7 +453,6 @@ def cancel_friend(request, friend_id):
 	friend.save()
 
 	logger.info(request.user.username + " canceled his friend invite to " + friend.username)
-	output = _("You canceled your friend invite to ") + friend.username
 
 	return redirect('friendlist')
 
