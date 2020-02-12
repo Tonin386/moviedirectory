@@ -280,7 +280,7 @@ def delete(request, ownid):
 	try:
 		toDel = WatchedMovie.objects.get(id=ownid)
 		if request.user == toDel.viewer:
-			logger.info(toDel.viewer.username + " deleted WatchedMovie "+ toDel.title)
+			logger.info(toDel.viewer.username + " deleted WatchedMovie "+ toDel.movie.title)
 			toDel.delete()
 		return redirect('watchlist')
 	except ObjectDoesNotExist:
