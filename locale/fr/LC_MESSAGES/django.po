@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-30 20:10+0000\n"
+"POT-Creation-Date: 2020-06-02 00:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,15 +25,22 @@ msgstr "Nom d'utilisateur"
 msgid "Password"
 msgstr "Mot de passe"
 
-#: main/forms.py:44 main/models.py:93 main/templates/index.html:27
+#: main/forms.py:44 main/models.py:94 main/templates/index.html:29
 #: main/templates/pages/add.html:28 main/templates/pages/add.html:31
-#: main/templates/pages/user_watchlist.html:84
-#: main/templates/pages/watchlist.html:37
+#: main/templates/pages/old_watchlist.html:37
+#: main/templates/pages/user_watchlist.html:78
+#: main/templates/pages/watchlist.html:28
+#: templates/main/watchedmovie_detail.html:29
+#: templates/main/watchedmovie_update_form.html:13
+#: templates/main/watchedmovie_update_form.html:16
 msgid "Watched on"
 msgstr "Regardé le"
 
 #: main/forms.py:45 main/templates/pages/add.html:61
-#: main/templates/pages/add.html:64
+#: main/templates/pages/add.html:64 main/templates/pages/user_watchlist.html:75
+#: main/templates/pages/watchlist.html:25
+#: templates/main/watchedmovie_update_form.html:46
+#: templates/main/watchedmovie_update_form.html:49
 msgid "Note"
 msgstr ""
 
@@ -84,107 +91,115 @@ msgstr "Privé"
 msgid "Name display"
 msgstr "Nom affiché"
 
-#: main/models.py:10 main/templates/pages/movielist.html:14
+#: main/models.py:11 main/templates/pages/movielist.html:14
+#: main/templates/pages/user_watchlist.html:72
+#: main/templates/pages/watchlist.html:22
 msgid "Title"
 msgstr "Titre"
 
-#: main/models.py:11
+#: main/models.py:12
 msgid "Release year"
 msgstr "Année de sortie"
 
-#: main/models.py:12
+#: main/models.py:13
 msgid "Rated"
 msgstr "Classification"
 
-#: main/models.py:13
+#: main/models.py:14
 msgid "Release date"
 msgstr "Date de sortie"
 
-#: main/models.py:14
+#: main/models.py:15
 msgid "Runtime"
 msgstr "Durée"
 
-#: main/models.py:15
+#: main/models.py:16
 msgid "Genre"
 msgstr ""
 
-#: main/models.py:16
+#: main/models.py:17
 msgid "Director"
 msgstr "Réalisateur"
 
-#: main/models.py:17
+#: main/models.py:18
 msgid "Writer"
 msgstr "Scénariste"
 
-#: main/models.py:18
+#: main/models.py:19
 msgid "Actors"
 msgstr "Acteurs"
 
-#: main/models.py:19
+#: main/models.py:20
 msgid "Plot"
 msgstr "Sysnopsis"
 
-#: main/models.py:20 main/templates/pages/profile.html:95
+#: main/models.py:21 main/templates/pages/profile.html:95
 #: main/templates/pages/profile.html:98
 msgid "Language"
 msgstr "Langue"
 
-#: main/models.py:21
+#: main/models.py:22
 msgid "Country"
 msgstr "Pays"
 
-#: main/models.py:22
+#: main/models.py:23
 msgid "Awards"
 msgstr "Récompenses"
 
-#: main/models.py:23
+#: main/models.py:24
 msgid "Poster URL"
 msgstr "URL du poster"
 
-#: main/models.py:24
+#: main/models.py:25
 msgid "IMDb ID"
 msgstr "ID IMDb"
 
-#: main/models.py:25
+#: main/models.py:26
 msgid "Type"
 msgstr ""
 
-#: main/models.py:26
+#: main/models.py:27
 msgid "Production"
 msgstr ""
 
-#: main/models.py:27 main/models.py:99
+#: main/models.py:28 main/models.py:100
 msgid "Created on"
 msgstr "Créé le"
 
-#: main/models.py:84 main/models.py:92
+#: main/models.py:85 main/models.py:93
 msgid "Movie"
 msgstr "Film"
 
-#: main/models.py:94
+#: main/models.py:95
 msgid "Personal note"
 msgstr "Note personnelle"
 
-#: main/models.py:95 main/templates/pages/add.html:37
+#: main/models.py:96 main/templates/pages/add.html:37
 #: main/templates/pages/add.html:40
+#: templates/main/watchedmovie_update_form.html:22
+#: templates/main/watchedmovie_update_form.html:25
 msgid "Never seen before"
 msgstr "Jamais vu auparavant"
 
-#: main/models.py:96 main/templates/pages/add.html:49
+#: main/models.py:97 main/templates/pages/add.html:49
 #: main/templates/pages/add.html:52
+#: templates/main/watchedmovie_update_form.html:34
+#: templates/main/watchedmovie_update_form.html:37
 msgid "I saw it at theater!"
 msgstr "Je l'ai vu au cinéma !"
 
-#: main/models.py:97
+#: main/models.py:98
 msgid "Viewer"
 msgstr "Spectateur"
 
-#: main/models.py:98 main/templates/pages/add.html:70
+#: main/models.py:99 main/templates/pages/add.html:70
 #: main/templates/pages/add.html:73
+#: templates/main/watchedmovie_update_form.html:55
+#: templates/main/watchedmovie_update_form.html:58
 msgid "Comment"
 msgstr "Commentaire"
 
-#: main/models.py:102
+#: main/models.py:103
 msgid "Watched movie"
 msgstr "Film regardé"
 
@@ -243,72 +258,87 @@ msgstr "Inscription"
 msgid "What the community has recently watched"
 msgstr "Ce que la communauté a regardé récemment"
 
-#: main/templates/index.html:12 main/templates/pages/user_watchlist.html:70
+#: main/templates/index.html:12 templates/main/watchedmovie_detail.html:12
 msgid "watched"
 msgstr "a regardé"
 
 #: main/templates/index.html:20 main/templates/pages/add.html:18
-#: main/templates/pages/user_watchlist.html:78
-#: main/templates/pages/watchlist.html:30
+#: main/templates/pages/old_watchlist.html:30
+#: templates/main/watchedmovie_detail.html:20
 msgid "With:"
 msgstr "Avec :"
 
 #: main/templates/index.html:21 main/templates/pages/add.html:19
-#: main/templates/pages/user_watchlist.html:79
-#: main/templates/pages/watchlist.html:31
+#: main/templates/pages/old_watchlist.html:31
+#: templates/main/watchedmovie_detail.html:21
 msgid "Awards:"
 msgstr "Récompenses :"
 
 #: main/templates/index.html:22 main/templates/pages/add.html:20
 #: main/templates/pages/movielist.html:30
-#: main/templates/pages/user_watchlist.html:80
-#: main/templates/pages/watchlist.html:32
+#: main/templates/pages/old_watchlist.html:32
+#: main/templates/pages/user_watchlist.html:112
+#: main/templates/pages/watchlist.html:62
+#: templates/main/watchedmovie_detail.html:24
 msgid "See on IMDb"
 msgstr "Voir sur IMDb"
 
-#: main/templates/index.html:23
+#: main/templates/index.html:23 main/templates/pages/watchlist.html:63
+msgid "More"
+msgstr "Plus"
+
+#: main/templates/index.html:24 main/templates/pages/watchlist.html:65
+#: templates/main/watchedmovie_detail.html:23
+#, fuzzy
+#| msgid "Delete entry"
+msgid "Edit entry"
+msgstr "Supprimer"
+
+#: main/templates/index.html:25 templates/main/watchedmovie_detail.html:25
 msgid "Delete from your watchlist"
 msgstr "Supprimer de votre watchlist"
 
-#: main/templates/index.html:35 main/templates/pages/user_watchlist.html:92
-#: main/templates/pages/watchlist.html:44
+#: main/templates/index.html:37 main/templates/pages/old_watchlist.html:44
+#: main/templates/pages/user_watchlist.html:121
+#: main/templates/pages/watchlist.html:75
 msgid "Previous page"
 msgstr "Page précédente"
 
-#: main/templates/index.html:38 main/templates/pages/user_watchlist.html:99
-#: main/templates/pages/watchlist.html:47
+#: main/templates/index.html:40 main/templates/pages/old_watchlist.html:47
+#: main/templates/pages/user_watchlist.html:128
+#: main/templates/pages/watchlist.html:78
 msgid "Next page"
 msgstr "Page suivante"
 
-#: main/templates/index.html:46
+#: main/templates/index.html:48
 msgid "Welcome to Movie Directory"
 msgstr "Bienvenue sur Movie Directory"
 
-#: main/templates/index.html:58
+#: main/templates/index.html:60
 msgid "Share your favorite movies with people who matters."
 msgstr "Partagez vos films préférés avec les personnes qui comptent pour vous."
 
-#: main/templates/index.html:61
+#: main/templates/index.html:63
 msgid "Always up to date movie database."
 msgstr "Une base de données des films toujours à jour."
 
-#: main/templates/index.html:64
+#: main/templates/index.html:66
 msgid "Start now and enjoy yourself."
 msgstr "Commencez l'aventure maintenant."
 
-#: main/templates/index.html:71
+#: main/templates/index.html:73
 msgid "This is where the fun begins"
 msgstr "C'est parti !"
 
-#: main/templates/index.html:71 templates/nav.html:37
+#: main/templates/index.html:73 templates/nav.html:37
 msgid "Sign in"
 msgstr "Inscription"
 
-#: main/templates/index.html:74
+#: main/templates/index.html:76
 msgid "Don't worry I've got this"
 msgstr "Je sais ce que je fais"
 
-#: main/templates/index.html:74 templates/nav.html:34
+#: main/templates/index.html:76 templates/nav.html:34
 #: templates/registration/login.html:9 templates/registration/login.html:29
 #: templates/registration/password_reset_complete.html:12
 msgid "Login"
@@ -347,15 +377,20 @@ msgstr "Ajouter à ma watchlist"
 
 #: main/templates/pages/add.html:43 main/templates/pages/add.html:55
 #: main/templates/pages/profile.html:51 main/templates/pages/profile.html:63
+#: templates/main/watchedmovie_update_form.html:28
+#: templates/main/watchedmovie_update_form.html:40
 msgid "Yes"
 msgstr "Oui"
 
 #: main/templates/pages/add.html:44 main/templates/pages/add.html:56
 #: main/templates/pages/profile.html:52 main/templates/pages/profile.html:64
+#: templates/main/watchedmovie_update_form.html:29
+#: templates/main/watchedmovie_update_form.html:41
 msgid "No"
 msgstr "Non"
 
 #: main/templates/pages/add.html:75
+#: templates/main/watchedmovie_update_form.html:60
 msgid "Short comment on this movie..."
 msgstr "Avis sur ce film..."
 
@@ -419,6 +454,25 @@ msgstr "Rechercher"
 msgid "Error"
 msgstr "Erreur"
 
+#: main/templates/pages/old_watchlist.html:8
+#: main/templates/pages/watchlist.html:8 templates/nav.html:17
+msgid "My watchlist"
+msgstr "Ma watchlist"
+
+#: main/templates/pages/old_watchlist.html:10
+#: main/templates/pages/watchlist.html:10
+msgid "Add a movie to my watchlist"
+msgstr "Ajouter un film à ma watchlist"
+
+#: main/templates/pages/old_watchlist.html:16
+msgid "I watched..."
+msgstr "J'ai regardé..."
+
+#: main/templates/pages/old_watchlist.html:33
+#: main/templates/pages/watchlist.html:66
+msgid "Delete entry"
+msgstr "Supprimer"
+
 #: main/templates/pages/profile.html:10
 msgid "Your profile has been updated."
 msgstr "Votre profil a été mis à jour"
@@ -458,52 +512,53 @@ msgstr "Il semblerait que cet utilisateur n'existe pas."
 msgid "You must be friend with this user to see his watchlist."
 msgstr "Vous devez être ami avec cet utilisateur pour voir sa watchlist."
 
-#: main/templates/pages/user_watchlist.html:26
-#: main/templates/pages/user_watchlist.html:49
+#: main/templates/pages/user_watchlist.html:24
+#: main/templates/pages/user_watchlist.html:45
 msgid "Send a friend request to"
 msgstr "Envoyer une demande d'ami à"
 
-#: main/templates/pages/user_watchlist.html:33
-#: main/templates/pages/user_watchlist.html:56
+#: main/templates/pages/user_watchlist.html:31
+#: main/templates/pages/user_watchlist.html:52
 msgid "You already sent a friend invite to"
 msgstr "Vous avez déjà envoyé une demande d'ami à"
 
-#: main/templates/pages/user_watchlist.html:38
+#: main/templates/pages/user_watchlist.html:36
 msgid "'s watchlist"
 msgstr " et ses films"
 
-#: main/templates/pages/user_watchlist.html:63
+#: main/templates/pages/user_watchlist.html:59
 msgid "You are already friend with"
 msgstr "You êtes déjà ami avec"
 
-#: main/templates/pages/watchlist.html:8 templates/nav.html:17
-msgid "My watchlist"
-msgstr "Ma watchlist"
+#: main/templates/pages/user_watchlist.html:69
+#: main/templates/pages/watchlist.html:19
+#, fuzzy
+#| msgid "Poster URL"
+msgid "Poster"
+msgstr "URL du poster"
 
-#: main/templates/pages/watchlist.html:10
-msgid "Add a movie to my watchlist"
-msgstr "Ajouter un film à ma watchlist"
+#: main/templates/pages/user_watchlist.html:81
+#: main/templates/pages/watchlist.html:31
+msgid "Special"
+msgstr "Spécial"
 
-#: main/templates/pages/watchlist.html:16
-msgid "I watched..."
-msgstr "J'ai regardé..."
+#: main/templates/pages/user_watchlist.html:84
+#: main/templates/pages/watchlist.html:34
+msgid "Actions"
+msgstr ""
 
-#: main/templates/pages/watchlist.html:33
-msgid "Delete entry"
-msgstr "Supprimer"
-
-#: main/utilities.py:41 main/utilities.py:54 main/views.py:388
-#: main/views.py:401
+#: main/utilities.py:41 main/utilities.py:54 main/views.py:391
+#: main/views.py:404
 msgid "You have a new friend!"
 msgstr "Vous avez un nouvel ami !"
 
 #: main/utilities.py:42 main/utilities.py:55 main/utilities.py:66
-#: main/views.py:389 main/views.py:402
+#: main/views.py:392 main/views.py:405
 msgid "You are now friend with "
 msgstr "You êtes désormais ami avec "
 
-#: main/utilities.py:42 main/utilities.py:55 main/views.py:389
-#: main/views.py:402
+#: main/utilities.py:42 main/utilities.py:55 main/views.py:392
+#: main/views.py:405
 msgid ""
 "!\n"
 "You can now see this user's watchlist.\n"
@@ -547,11 +602,11 @@ msgstr "Vous avez déjà envoyé une demande d'ami à "
 msgid "You are already friend with "
 msgstr "Vous êtes déjà ami avec "
 
-#: main/views.py:41 main/views.py:83
+#: main/views.py:43 main/views.py:85
 msgid "Activate your MovieDirectory account"
 msgstr "Activer votre compte MovieDirectory"
 
-#: main/views.py:126
+#: main/views.py:128
 msgid "Activation link is invalid!"
 msgstr "Le lien d'activation n'est pas valide !"
 
@@ -638,6 +693,11 @@ msgstr "Répertoire"
 #: templates/footer.html:19
 msgid "Report an issue"
 msgstr "Signaler un problème"
+
+#: templates/main/watchedmovie_update_form.html:9
+#: templates/main/watchedmovie_update_form.html:64
+msgid "Edit"
+msgstr "Editer"
 
 #: templates/nav.html:14
 msgid "Home"

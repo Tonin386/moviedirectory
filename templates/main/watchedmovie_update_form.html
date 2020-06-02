@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+{% include "nav.html" %}
+
+<div class="row no-gutters justify-content-center">
+	<div class="row justify-content-center mt-5 no-gutters">
+		<h1 class="text-center text-light mt-5">{% trans "Edit" %}</h1>
+		<form action="" method="post" class="row m-5 no-gutters">
+			{% csrf_token %}
+			<div class="col-lg-12 mb-2">
+				<label class="sr-only" for="inlineFormInputGroup">{% trans "Watched on" %}</label>
+				<div class="row m-auto input-group">
+					<div class="input-group-prepend col-xs-3">
+						<div class="input-group-text w-100">{% trans "Watched on" %}</div>
+					</div>
+					<input type="date" class="form-control col-xs-9" id="inlineFormInputGroup" value="{{ form.view_date.value|date:'Y-m-d' }}" name="{{form.view_date.html_name}}">
+				</div>
+			</div>
+			<div class="col-lg-12 mb-2">
+				<label class="sr-only" for="inlineFormInputGroup">{% trans "Never seen before" %}</label>
+				<div class="row m-auto input-group">
+					<div class="input-group-prepend col-xs-3">
+						<div class="input-group-text w-100">{% trans "Never seen before" %}</div>
+					</div>
+					<select class="form-control" id="exampleFormControlSelect1" name="new">
+						<option value="True" {% if form.new.value %} selected {% endif %}>{% trans "Yes" %}</option>
+						<option value="False" {% if not form.new.value %} selected {% endif %}>{% trans "No" %}</option>
+					</select>
+				</div>
+			</div>
+			<div class="col-lg-12 mb-2">
+				<label class="sr-only" for="inlineFormInputGroup">{% trans "I saw it at theater!" %}</label>
+				<div class="row m-auto input-group">
+					<div class="input-group-prepend col-xs-3">
+						<div class="input-group-text w-100">{% trans "I saw it at theater!" %}</div>
+					</div>
+					<select class="form-control" id="exampleFormControlSelect1" name="theater">
+						<option value="True" {% if form.theater.value %} selected {% endif %}>{% trans "Yes" %}</option>
+						<option value="False" {% if not form.theater.value %} selected {% endif %}>{% trans "No" %}</option>
+					</select>
+				</div>
+			</div>
+			<div class="col-lg-12 mb-2">
+				<label class="sr-only" for="inlineFormInputGroup">{% trans "Note" %}</label>
+				<div class="row m-auto input-group">
+					<div class="input-group-prepend col-xs-3">
+						<div class="input-group-text w-100">{% trans "Note" %}</div>
+					</div>
+					<input type="number" name="note" min=0 max=10 value="{{ form.note.value }}" class="form-control col-xs-9">
+				</div>
+			</div>
+			<div class="col-lg-12 mb-2">
+				<label class="sr-only" for="inlineFormInputGroup">{% trans "Comment" %}</label>
+				<div class="row m-auto input-group">
+					<div class="input-group-prepend col-xs-3">
+						<div class="input-group-text w-100">{% trans "Comment" %}</div>
+					</div>
+					<input type="text" class="form-control" id="inlineFormInputGroup" placeholder="{% trans 'Short comment on this movie...' %}" name="comment" value="{{ form.comment.value }}">
+				</div>
+			</div>
+			<div class="text-center m-auto">
+				<button type="submit" class="btn btn-success mt-3"><i class="fa fa-edit"></i> {% trans "Edit" %} </button>
+			</div>
+		</form>
+	</div>
+</div>
+
+{% endblock %}

@@ -20,6 +20,8 @@
         <p class="card-text text-justify">{% trans "With:" %} {{movie.movie.actors}}</p>
         <p class="card-text text-justify">{% trans "Awards:" %} {% trans movie.movie.awards %}</p>
         <a href="https://www.imdb.com/title/{{movie.movie.imdbid}}" class="btn btn-warning mb-2" target="_blank"><i class="fa fa-external-link"></i> {% trans "See on IMDb" %}</a>
+        {% if user == movie.viewer %} <a href="{% url 'watchedmovie-detail' pk=movie.pk %}" class="btn btn-primary mb-2"><i class="fa fa-question"></i> {% trans "More" %}</a> {% endif %}
+        {% if user == movie.viewer %} <a href="{% url 'watchedmovie_edit' pk=movie.pk %}" class="btn btn-warning mb-2"><i class="fa fa-edit"></i> {% trans "Edit entry" %}</a> {% endif %}
         {% if user == movie.viewer %} <a href="{% url 'delete' ownid=movie.id %}" class="btn btn-danger mb-2"><i class="fa fa-remove"></i> {% trans "Delete from your watchlist" %}</a> {% endif %}
       </div>
     </div>

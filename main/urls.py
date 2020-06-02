@@ -3,6 +3,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.contrib import admin
 from django.conf.urls import url
+from main.views import *
 from . import views
 
 urlpatterns = [
@@ -13,11 +14,13 @@ urlpatterns = [
     path('reactivate', views.reactivate, name='reactivate'),
     path('watchlist', views.watchlist, name="watchlist"),
     path('watchlist/<int:page>', views.watchlist_page, name="watchlist_page"),
+    path('watchlist/edit/<int:pk>', WatchedMovieUpdate.as_view(), name="watchedmovie_edit"),
     path('watchlist/delete/<str:ownid>', views.delete, name="delete"),
     path('watchlist/browse/<str:username>', views.user_watchlist, name="user_watchlist"),
     path('watchlist/browse/<str:username>/<int:page>', views.user_watchlist_page, name="user_watchlist_page"),
     path('movielist', views.movielist, name="movielist"),
     path('movielist/add/<str:imdbid>', views.add, name="add"),
+    path('more/<int:pk>', WatchedMovieDetailView.as_view(), name='watchedmovie-detail'),
     path('profile', views.profile, name="profile"),
     path('friendlist', views.friendlist, name="friendlist"),
     path('friendlist/delete/<int:friend_id>', views.delete_friend, name="delete_friend"),

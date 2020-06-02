@@ -7,8 +7,10 @@ from django.contrib.auth.decorators import login_required
 from django.utils.encoding import force_bytes, force_text
 from django.core.exceptions import ObjectDoesNotExist
 from django.template.loader import render_to_string
+from django.views.generic.edit import UpdateView
 from django.shortcuts import render, redirect
 from .tokens import account_activation_token
+from django.views.generic import DetailView
 from django.template import RequestContext
 from django.core.mail import send_mail
 from moviedirectory.models import *
@@ -104,37 +106,37 @@ def reactivate(request):
 
 
 def activate(request, uidb64, token):
-    try:
-        uid = force_text(urlsafe_base64_decode(uidb64))
-        new_user = User.objects.get(pk=int(uid))
-    except(TypeError, ValueError, OverflowError, User.DoesNotExist):
-        user = None
-    if new_user is not None and account_activation_token.check_token(new_user, token):
-        new_user.is_active = True
-        new_user.save()
-        dj_login(request, new_user)
-        logger.info(new_user.username +" activated his account.")
-        send_mail(
-        	new_user.username + " activated his account",
-        	"A new user just activated his account on " + datetime.now().strftime('%d/%m/%Y %H:%M:%S') + ".\nUsername: " + new_user.username,
+	try:
+		uid = force_text(urlsafe_base64_decode(uidb64))
+		new_user = User.objects.get(pk=int(uid))
+	except(TypeError, ValueError, OverflowError, User.DoesNotExist):
+		user = None
+	if new_user is not None and account_activation_token.check_token(new_user, token):
+		new_user.is_active = True
+		new_user.save()
+		dj_login(request, new_user)
+		logger.info(new_user.username +" activated his account.")
+		send_mail(
+			new_user.username + " activated his account",
+			"A new user just activated his account on " + datetime.now().strftime('%d/%m/%Y %H:%M:%S') + ".\nUsername: " + new_user.username,
 			"\"Movie Directory accounts\" <support@movie-directory.com>",
-        	["support@movie-directory.com"]
-        )
-        return redirect('home')
-    else:
-        logger.error("Invalid activation link for "+ uid)
-        return HttpResponse(_('Activation link is invalid!'))
+			["support@movie-directory.com"]
+		)
+		return redirect('home')
+	else:
+		logger.error("Invalid activation link for "+ uid)
+		return HttpResponse(_('Activation link is invalid!'))
 
 @login_required
 def watchlist(request):
 		
-	movies = WatchedMovie.objects.filter(viewer=request.user).order_by('-view_date', '-id')[:3]
+	movies = WatchedMovie.objects.filter(viewer=request.user).order_by('-view_date', '-id')[:20]
 	page = 1
 	nb_elements = len(WatchedMovie.objects.filter(viewer=request.user))
 	next_page = 2
 	previous_page = 1 
 	
-	if page*3 < nb_elements:
+	if page*20 < nb_elements:
 		last_page = False
 	else:
 		last_page = True
@@ -146,14 +148,14 @@ def watchlist_page(request, page):
 	if page < 2:
 		return redirect('watchlist')
 
-	start = (page-1) * 3
-	end = page*3
+	start = (page-1) * 20
+	end = page*20
 	movies = WatchedMovie.objects.filter(viewer=request.user).order_by('-view_date', '-id')[start:end]
 	nb_elements = len(WatchedMovie.objects.filter(viewer=request.user))
 	next_page = page+1
 	previous_page = page-1
 	
-	if page*3 < nb_elements:
+	if page*20 < nb_elements:
 		last_page = False
 	else:
 		last_page = True
@@ -179,7 +181,7 @@ def user_watchlist(request, username):
 	next_page = 2
 	previous_page = 1 
 	
-	if page*3 < nb_elements:
+	if page*10 < nb_elements:
 		last_page = False
 	else:
 		last_page = True
@@ -215,14 +217,14 @@ def user_watchlist_page(request, username, page):
 		logger.error("user '"+t_user+"' doesn't exist")
 		return render(request, 'pages/user_watchlist.html', locals())
 
-	start = (page-1) * 3
-	end = page*3
+	start = (page-1) * 10
+	end = page*10
 	movies = WatchedMovie.objects.filter(viewer=t_user).order_by('-view_date', '-id')[start:end]
 	nb_elements = len(WatchedMovie.objects.filter(viewer=t_user))
 	next_page = page+1
 	previous_page = page-1
 	
-	if page*3 < nb_elements:
+	if page*10 < nb_elements:
 		last_page = False
 	else:
 		last_page = True
@@ -510,3 +512,17 @@ def home_page(request, page):
 		last_page = True
 
 	return render(request, 'index.html', locals())
+
+class WatchedMovieDetailView(DetailView):
+	model = WatchedMovie
+
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+		context['now'] = timezone.now()
+		return context
+
+
+class WatchedMovieUpdate(UpdateView):
+	model = WatchedMovie
+	fields = ['view_date', 'note', 'new', 'theater', 'comment']
+	template_name_suffix = '_update_form'

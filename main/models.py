@@ -2,6 +2,7 @@ from django.core.validators import int_list_validator, MinValueValidator, MaxVal
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 from main.api import make_request_by_id as fetch_movie
 from django.utils.translation import ugettext_lazy as _
+from django.urls import reverse
 from django.utils import timezone
 from datetime import datetime
 from django.db import models
@@ -103,7 +104,10 @@ class WatchedMovie(models.Model):
 		ordering=['view_date', 'note']
 
 	def __str__(self):
-		return self.viewer.username + " - " + self.movie.title 
+		return self.viewer.username + " - " + self.movie.title
+		
+	def get_absolute_url(self):
+		return reverse('watchedmovie-detail', kwargs={'pk': self.pk})	
 
 
 # Create your models here.
