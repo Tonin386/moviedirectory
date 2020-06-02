@@ -109,7 +109,9 @@
 				{% endif %}
 			</td>
 			<td class="align-middle">
-				<a href="https://www.imdb.com/title/{{movie.movie.imdbid}}" class="btn btn-warning mb-2" target="_blank"><i class="fa fa-external-link"></i> {% trans "See on IMDb" %}</a>
+				<a href="{% url 'watchedmovie-detail' pk=movie.pk %}" class="btn btn-primary mb-2"><i class="fa fa-question"></i> {% trans "More" %}</a>
+				<a href="https://www.imdb.com/title/{{movie.movie.imdbid}}" class="btn btn-warning mb-2" target="_blank"><i class="fa fa-external-link"></i>
+				 {% trans "See on IMDb" %}</a>
 			</td>
 		</tr>
 		{% endfor %}
