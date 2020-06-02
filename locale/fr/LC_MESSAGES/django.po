@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-02 00:42+0000\n"
+"POT-Creation-Date: 2020-06-02 13:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,12 +25,12 @@ msgstr "Nom d'utilisateur"
 msgid "Password"
 msgstr "Mot de passe"
 
-#: main/forms.py:44 main/models.py:94 main/templates/index.html:29
+#: main/forms.py:44 main/models.py:94 main/templates/index.html:30
 #: main/templates/pages/add.html:28 main/templates/pages/add.html:31
 #: main/templates/pages/old_watchlist.html:37
 #: main/templates/pages/user_watchlist.html:78
 #: main/templates/pages/watchlist.html:28
-#: templates/main/watchedmovie_detail.html:29
+#: templates/main/watchedmovie_detail.html:27
 #: templates/main/watchedmovie_update_form.html:13
 #: templates/main/watchedmovie_update_form.html:16
 msgid "Watched on"
@@ -258,87 +258,89 @@ msgstr "Inscription"
 msgid "What the community has recently watched"
 msgstr "Ce que la communauté a regardé récemment"
 
-#: main/templates/index.html:12 templates/main/watchedmovie_detail.html:12
+#: main/templates/index.html:12 templates/main/watchedmovie_detail.html:10
 msgid "watched"
 msgstr "a regardé"
 
 #: main/templates/index.html:20 main/templates/pages/add.html:18
 #: main/templates/pages/old_watchlist.html:30
-#: templates/main/watchedmovie_detail.html:20
+#: templates/main/watchedmovie_detail.html:18
 msgid "With:"
 msgstr "Avec :"
 
 #: main/templates/index.html:21 main/templates/pages/add.html:19
 #: main/templates/pages/old_watchlist.html:31
-#: templates/main/watchedmovie_detail.html:21
+#: templates/main/watchedmovie_detail.html:19
 msgid "Awards:"
 msgstr "Récompenses :"
 
-#: main/templates/index.html:22 main/templates/pages/add.html:20
-#: main/templates/pages/movielist.html:30
-#: main/templates/pages/old_watchlist.html:32
+#: main/templates/index.html:22 main/templates/index.html:24
 #: main/templates/pages/user_watchlist.html:112
-#: main/templates/pages/watchlist.html:62
-#: templates/main/watchedmovie_detail.html:24
-msgid "See on IMDb"
-msgstr "Voir sur IMDb"
-
-#: main/templates/index.html:23 main/templates/pages/watchlist.html:63
+#: main/templates/pages/watchlist.html:63
 msgid "More"
 msgstr "Plus"
 
-#: main/templates/index.html:24 main/templates/pages/watchlist.html:65
-#: templates/main/watchedmovie_detail.html:23
+#: main/templates/index.html:23 main/templates/pages/add.html:20
+#: main/templates/pages/movielist.html:30
+#: main/templates/pages/old_watchlist.html:32
+#: main/templates/pages/user_watchlist.html:114
+#: main/templates/pages/watchlist.html:62
+#: templates/main/watchedmovie_detail.html:22
+msgid "See on IMDb"
+msgstr "Voir sur IMDb"
+
+#: main/templates/index.html:25 main/templates/pages/watchlist.html:65
+#: templates/main/watchedmovie_detail.html:21
 #, fuzzy
 #| msgid "Delete entry"
 msgid "Edit entry"
 msgstr "Supprimer"
 
-#: main/templates/index.html:25 templates/main/watchedmovie_detail.html:25
+#: main/templates/index.html:26 templates/main/watchedmovie_detail.html:23
 msgid "Delete from your watchlist"
 msgstr "Supprimer de votre watchlist"
 
-#: main/templates/index.html:37 main/templates/pages/old_watchlist.html:44
-#: main/templates/pages/user_watchlist.html:121
+#: main/templates/index.html:38 main/templates/pages/old_watchlist.html:44
+#: main/templates/pages/user_watchlist.html:123
 #: main/templates/pages/watchlist.html:75
 msgid "Previous page"
 msgstr "Page précédente"
 
-#: main/templates/index.html:40 main/templates/pages/old_watchlist.html:47
-#: main/templates/pages/user_watchlist.html:128
+#: main/templates/index.html:41 main/templates/pages/old_watchlist.html:47
+#: main/templates/pages/user_watchlist.html:130
 #: main/templates/pages/watchlist.html:78
 msgid "Next page"
 msgstr "Page suivante"
 
-#: main/templates/index.html:48
+#: main/templates/index.html:49
 msgid "Welcome to Movie Directory"
 msgstr "Bienvenue sur Movie Directory"
 
-#: main/templates/index.html:60
+#: main/templates/index.html:61
 msgid "Share your favorite movies with people who matters."
 msgstr "Partagez vos films préférés avec les personnes qui comptent pour vous."
 
-#: main/templates/index.html:63
+#: main/templates/index.html:64
 msgid "Always up to date movie database."
 msgstr "Une base de données des films toujours à jour."
 
-#: main/templates/index.html:66
+#: main/templates/index.html:67
 msgid "Start now and enjoy yourself."
 msgstr "Commencez l'aventure maintenant."
 
-#: main/templates/index.html:73
+#: main/templates/index.html:74
 msgid "This is where the fun begins"
 msgstr "C'est parti !"
 
-#: main/templates/index.html:73 templates/nav.html:37
+#: main/templates/index.html:74 templates/nav.html:37
 msgid "Sign in"
 msgstr "Inscription"
 
-#: main/templates/index.html:76
+#: main/templates/index.html:77
 msgid "Don't worry I've got this"
 msgstr "Je sais ce que je fais"
 
-#: main/templates/index.html:76 templates/nav.html:34
+#: main/templates/index.html:77 templates/nav.html:34
 #: templates/registration/login.html:9 templates/registration/login.html:29
 #: templates/registration/password_reset_complete.html:12
 msgid "Login"
@@ -532,10 +534,8 @@ msgstr "You êtes déjà ami avec"
 
 #: main/templates/pages/user_watchlist.html:69
 #: main/templates/pages/watchlist.html:19
-#, fuzzy
-#| msgid "Poster URL"
 msgid "Poster"
-msgstr "URL du poster"
+msgstr "Affiche"
 
 #: main/templates/pages/user_watchlist.html:81
 #: main/templates/pages/watchlist.html:31
