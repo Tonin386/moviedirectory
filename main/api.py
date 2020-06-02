@@ -60,4 +60,8 @@ def make_request_search(md_title, md_type="none", page=1, year=-1):
 	response = json.loads(f.read())
 	logger.info(response)
 
+	if response['Search']:
+		if int(response['totalResults']) > len(response['Search']) + 10 * (page-1):
+			response['Search'] += make_request_search(md_title, page=page+1)['Search']
+
 	return response
