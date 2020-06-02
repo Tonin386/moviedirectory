@@ -9,36 +9,67 @@
 <div class="col text-center mt-3">
 	<a href="{% url 'movielist' %}" class="btn btn-success"><i class="fa fa-plus"></i> {% trans "Add a movie to my watchlist" %}</a>
 </div>
-{% for movie in movies %}
-<div class="row justify-content-center mt-3 no-gutters">
-	<div class="card bg-dark text-light w-75">
-		<h4 class="card-header w-100">
-			{% trans "I watched..." %} 
-			<span style="float: right;">  
-				{% if movie.new %} <img src="{% static 'img/icons/new.png' %}" alt="New" title="New" width="40"> {% endif %} {% if movie.theater %} <img src="{% static 'img/icons/cinema.png' %}" alt="Cinema" title="Cinema" width="40"> {% endif %} 
-			</span>
-		</h4>
-		<div class="row no-gutters">
-			<div class="col-xl-2 img-card-poster">
-				<img src="{{movie.movie.poster}}" alt="{{movie.movie.title}}" class="img-fluid" width="200">
-			</div>
-			<div class="col m-3 btn-card-right">
-				<h3 class="card-title text-center">
-					{{movie.movie.title}}<span class="text-muted"> - {{ movie.movie.director }}, {{movie.movie.year}}</span>
-				</h3>
-				<p class="card-text text-justify">{% trans movie.movie.plot %}</p>
-				<p class="card-text text-justify">{% trans "With:" %} {{movie.movie.actors}}</p>
-				<p class="card-text text-justify">{% trans "Awards:" %} {% trans movie.movie.awards %}</p>
+
+
+
+<table class="table mt-3 w-75 table-dark mr-auto ml-auto table-striped text-center">
+	<thead class="thead-light">
+		<tr>
+			<th scope="col" class="align-middle">
+				<h4> {% trans "Poster" %} </h4>
+			</th>
+			<th scope="col" class="align-middle">
+				<h4> {% trans "Title" %} </h4>
+			</th>
+			<th scope="col" class="align-middle">
+				<h4> {% trans "Note" %} </h4>
+			</th>
+			<th scope="col" class="align-middle">
+				<h4> {% trans "Watched on" %} </h4>
+			</th>
+			<th scope="col" class="align-middle">
+				<h4> {% trans "Special" %} </h4>
+			</th>
+			<th scope="col" class="align-middle">
+				<h4> {% trans "Actions" %} </h4>
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for movie in movies %}
+		<tr>
+			<td class="align-middle"> 
+				<img src="{{movie.movie.poster}}" alt="{{movie.movie.title}}" class="img-fluid" width="100"> 
+			</td>
+			<td class="align-middle">
+				<h4>{{ movie.movie.title }}</h4>
+			</td>
+			<td class="align-middle">
+				<h4> {{ movie.note }}/10 </h4>
+			</td>
+			<td class="align-middle">
+				<h4> {{ movie.view_date }}</h4>
+			</td>
+			<td class="align-middle">
+				{% if movie.new %}
+				<img src="{% static 'img/icons/new.png' %}" alt="New" title="New" width="40">
+				{% endif %}
+				{% if movie.theater %}
+				<img src="{% static 'img/icons/cinema.png' %}" alt="Cinema" title="Cinema" width="40">
+				{% endif %}
+			</td>
+			<td class="align-middle">
 				<a href="https://www.imdb.com/title/{{movie.movie.imdbid}}" class="btn btn-warning mb-2" target="_blank"><i class="fa fa-external-link"></i> {% trans "See on IMDb" %}</a>
+				<a href="{% url 'watchedmovie-detail' pk=movie.pk %}" class="btn btn-primary mb-2"><i class="fa fa-question"></i> {% trans "More" %}</a>
+				<br>
+				<a href="{% url 'watchedmovie_edit' pk=movie.pk %}" class="btn btn-warning mb-2"><i class="fa fa-edit"></i> {% trans "Edit entry" %}</a>
 				<a href="{% url 'delete' ownid=movie.id %}" class="btn btn-danger mb-2"><i class="fa fa-remove"></i> {% trans "Delete entry" %}</a>
-			</div>
-		</div>
-		<div class="card-footer">
-			<p class="card-text">{% trans "Watched on" %} {{movie.view_date}} - {{movie.note}}/10 - {{movie.comment}}</p>
-		</div>
-	</div>
-</div>
-{% endfor %}
+			</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
 <div class="row justify-content-center no-gutters">
 	{% if page > 1 %}
 	<a href="{% url 'watchlist_page' page=previous_page %}" class="btn btn-light m-2 p-2 col-xs-2">{% trans "Previous page" %}<br><i class="fa fa-arrow-left"></i></a>

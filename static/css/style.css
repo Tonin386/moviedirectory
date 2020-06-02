@@ -69,6 +69,21 @@ a.stretched-link {
   border-color: rgb(20,20,20)!important;
 }
 
+.table-dark {
+  background-color: rgb(10,10,10)!important;
+  border-color: rgb(20,20,20)!important;
+}
+
+.table-dark.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(65, 65, 65, 0.05)!important;
+}
+
+.table .thead-light th {
+  color: #000!important;
+  background-color: #e9ecef!important;
+  border-color: #dee2e6!important;
+}
+
 .btn-dark:hover {
   background-color: rgb(10, 10, 10)!important;
   border-color: rgb(10, 10, 10)!important;
