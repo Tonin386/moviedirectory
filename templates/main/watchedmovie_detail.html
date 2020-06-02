@@ -18,9 +18,9 @@
 				<p class="card-text text-justify">{% trans "With:" %} {{object.movie.actors}}</p>
 				<p class="card-text text-justify">{% trans "Awards:" %} {% trans object.movie.awards %}</p>
 
-				<a href="{% url 'watchedmovie_edit' pk=object.pk %}" class="btn btn-warning mb-2"><i class="fa fa-edit"></i> {% trans "Edit entry" %}</a>
+				{% if request.user == object.viewer %}<a href="{% url 'watchedmovie_edit' pk=object.pk %}" class="btn btn-warning mb-2"><i class="fa fa-edit"></i> {% trans "Edit entry" %}</a> {% endif %}
 				<a href="https://www.imdb.com/title/{{object.movie.imdbid}}" class="btn btn-warning mb-2" target="_blank"><i class="fa fa-external-link"></i> {% trans "See on IMDb" %}</a>
-				<a href="{% url 'delete' ownid=object.id %}" class="btn btn-danger mb-2"><i class="fa fa-remove"></i> {% trans "Delete from your watchlist" %}</a>
+				{% if request.user == object.viewer %} <a href="{% url 'delete' ownid=object.id %}" class="btn btn-danger mb-2"><i class="fa fa-remove"></i> {% trans "Delete from your watchlist" %}</a> {% endif %}
 			</div>
 		</div>
 		<div class="card-footer">

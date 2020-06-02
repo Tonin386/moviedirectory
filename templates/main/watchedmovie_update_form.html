@@ -4,6 +4,8 @@
 {% block content %}
 {% include "nav.html" %}
 
+{% if request.user == object.viewer %}
+
 <div class="row no-gutters justify-content-center">
 	<div class="row justify-content-center mt-5 no-gutters">
 		<h1 class="text-center text-light mt-5">{% trans "Edit" %}</h1>
@@ -66,5 +68,13 @@
 		</form>
 	</div>
 </div>
+
+{% else %}
+
+<div class="alert alert-danger mr-auto ml-auto w-75 mt-5" role="alert">
+  {% trans "Error - You shouldn't be here !" %}
+</div>
+
+{% endif %}
 
 {% endblock %}

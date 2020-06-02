@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-02 13:56+0000\n"
+"POT-Creation-Date: 2020-06-02 14:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,16 +37,16 @@ msgstr ""
 #: main/templates/pages/user_watchlist.html:78
 #: main/templates/pages/watchlist.html:28
 #: templates/main/watchedmovie_detail.html:27
-#: templates/main/watchedmovie_update_form.html:13
-#: templates/main/watchedmovie_update_form.html:16
+#: templates/main/watchedmovie_update_form.html:15
+#: templates/main/watchedmovie_update_form.html:18
 msgid "Watched on"
 msgstr ""
 
 #: main/forms.py:45 main/templates/pages/add.html:61
 #: main/templates/pages/add.html:64 main/templates/pages/user_watchlist.html:75
 #: main/templates/pages/watchlist.html:25
-#: templates/main/watchedmovie_update_form.html:46
-#: templates/main/watchedmovie_update_form.html:49
+#: templates/main/watchedmovie_update_form.html:48
+#: templates/main/watchedmovie_update_form.html:51
 msgid "Note"
 msgstr ""
 
@@ -182,15 +182,15 @@ msgstr ""
 
 #: main/models.py:96 main/templates/pages/add.html:37
 #: main/templates/pages/add.html:40
-#: templates/main/watchedmovie_update_form.html:22
-#: templates/main/watchedmovie_update_form.html:25
+#: templates/main/watchedmovie_update_form.html:24
+#: templates/main/watchedmovie_update_form.html:27
 msgid "Never seen before"
 msgstr ""
 
 #: main/models.py:97 main/templates/pages/add.html:49
 #: main/templates/pages/add.html:52
-#: templates/main/watchedmovie_update_form.html:34
-#: templates/main/watchedmovie_update_form.html:37
+#: templates/main/watchedmovie_update_form.html:36
+#: templates/main/watchedmovie_update_form.html:39
 msgid "I saw it at theater!"
 msgstr ""
 
@@ -200,8 +200,8 @@ msgstr ""
 
 #: main/models.py:99 main/templates/pages/add.html:70
 #: main/templates/pages/add.html:73
-#: templates/main/watchedmovie_update_form.html:55
-#: templates/main/watchedmovie_update_form.html:58
+#: templates/main/watchedmovie_update_form.html:57
+#: templates/main/watchedmovie_update_form.html:60
 msgid "Comment"
 msgstr ""
 
@@ -375,20 +375,20 @@ msgstr ""
 
 #: main/templates/pages/add.html:43 main/templates/pages/add.html:55
 #: main/templates/pages/profile.html:51 main/templates/pages/profile.html:63
-#: templates/main/watchedmovie_update_form.html:28
-#: templates/main/watchedmovie_update_form.html:40
+#: templates/main/watchedmovie_update_form.html:30
+#: templates/main/watchedmovie_update_form.html:42
 msgid "Yes"
 msgstr ""
 
 #: main/templates/pages/add.html:44 main/templates/pages/add.html:56
 #: main/templates/pages/profile.html:52 main/templates/pages/profile.html:64
-#: templates/main/watchedmovie_update_form.html:29
-#: templates/main/watchedmovie_update_form.html:41
+#: templates/main/watchedmovie_update_form.html:31
+#: templates/main/watchedmovie_update_form.html:43
 msgid "No"
 msgstr ""
 
 #: main/templates/pages/add.html:75
-#: templates/main/watchedmovie_update_form.html:60
+#: templates/main/watchedmovie_update_form.html:62
 msgid "Short comment on this movie..."
 msgstr ""
 
@@ -680,9 +680,13 @@ msgstr ""
 msgid "Report an issue"
 msgstr ""
 
-#: templates/main/watchedmovie_update_form.html:9
-#: templates/main/watchedmovie_update_form.html:64
+#: templates/main/watchedmovie_update_form.html:11
+#: templates/main/watchedmovie_update_form.html:66
 msgid "Edit"
+msgstr ""
+
+#: templates/main/watchedmovie_update_form.html:75
+msgid "Error - You shouldn't be here !"
 msgstr ""
 
 #: templates/nav.html:14
