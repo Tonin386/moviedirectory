@@ -130,13 +130,13 @@ def activate(request, uidb64, token):
 @login_required
 def watchlist(request):
 		
-	movies = WatchedMovie.objects.filter(viewer=request.user).order_by('-view_date', '-id')[:20]
+	movies = WatchedMovie.objects.filter(viewer=request.user).order_by('-view_date', '-id')[:10]
 	page = 1
 	nb_elements = len(WatchedMovie.objects.filter(viewer=request.user))
 	next_page = 2
 	previous_page = 1 
 	
-	if page*20 < nb_elements:
+	if page*10 < nb_elements:
 		last_page = False
 	else:
 		last_page = True
@@ -148,14 +148,14 @@ def watchlist_page(request, page):
 	if page < 2:
 		return redirect('watchlist')
 
-	start = (page-1) * 20
-	end = page*20
+	start = (page-1) * 10
+	end = page*10
 	movies = WatchedMovie.objects.filter(viewer=request.user).order_by('-view_date', '-id')[start:end]
 	nb_elements = len(WatchedMovie.objects.filter(viewer=request.user))
 	next_page = page+1
 	previous_page = page-1
 	
-	if page*20 < nb_elements:
+	if page*10 < nb_elements:
 		last_page = False
 	else:
 		last_page = True
