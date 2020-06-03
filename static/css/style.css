@@ -127,7 +127,7 @@ h1.text-light {
   color: white!important;
 }
 
-.card-header {
+.card-header, .card-body {
   transform: rotate(0);
   -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
   -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
@@ -135,16 +135,40 @@ h1.text-light {
   transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
 }
 
-.card-header-link:hover {
-  background-color: rgb(10, 136, 163)!important;
-  border-color: rgb(10, 136, 163)!important;
-  color: white!important;
+.card-body-link:hover .card-text, .card-header-link:hover {
+  color: rgb(20,20,20)!important;
+}
+
+.card-body-link:hover .display-4 {
+  color: black!important;
+}
+
+.card-body-link:hover, .card-header-link:hover {
+  background-color: white!important;
+  border-color: white!important;
 }
 
 .text-muted {
   color: rgb(125, 125, 125)!important;
 }
 
+.clickable-row {
+  cursor: pointer;
+  -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+  -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+  -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+  transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+}
+
+.clickable-row:hover {
+  background-color: white!important;
+  border-color: white!important;
+  color: black!important;
+}
+
+.clickable-row:hover .fa-icon {
+  color: black;
+}
 
 @media screen and (max-width: 1200px) {
   .img-card-poster {
