@@ -7,20 +7,93 @@
 
 <div class="row justify-content-center mt-5 no-gutters">
 	<div class="card bg-dark text-light w-75">
-		<h4 class="card-header w-100 card-header-link"> <a class="stretched-link" href="{% url 'user_watchlist' username=object.viewer.username %}"> {% if object.viewer.name_display %}{{object.viewer.first_name}} {{object.viewer.last_name}}{% else %}{{object.viewer.username}}{% endif %}</a> {% trans "watched" %} <span style="float: right;">  {% if object.new %} <img src="{% static 'img/icons/new.png' %}" alt="New" title="New" width="40"> {% endif %} {% if object.theater %} <img src="{% static 'img/icons/cinema.png' %}" alt="Cinema" title="Cinema" width="40"> {% endif %} </span></h4>
-		<div class="row no-gutters">
-			<div class="col-xl-2 img-card-poster">
+		<h4 class="card-header w-100 card-header-link"> 
+			<a class="stretched-link" href="{% url 'user_watchlist' username=object.viewer.username %}"></a> 
+			{% if object.viewer.name_display %}
+			{{object.viewer.first_name}} {{object.viewer.last_name}}
+			{% else %}
+			{{object.viewer.username}}
+			{% endif %}
+			{% trans "watched" %} 
+			<span style="float: right;">
+				{% if object.new %}
+				<i class="fa fa-lg fa-star"></i>
+				{% endif %}
+				{% if object.theater %}
+				<i class="fa fa-lg fa-film"></i>
+				{% endif %}
+			</span>
+		</h4>
+		<div class="row no-gutters card-body">
+			<div class="col-xl-2 img-card-poster m-auto">
 				<img src="{{object.movie.poster}}" alt="{{object.movie.title}}" class="img-fluid" width="200">
 			</div>
-			<div class="col m-3 btn-card-right">
-				<h3 class="card-title text-center">{{object.movie.title}}<span class="text-muted"> - {{ object.movie.director }}, {{object.movie.year}}</span></h3>
-				<p class="card-text text-justify">{% trans object.movie.plot %}</p>
-				<p class="card-text text-justify">{% trans "With:" %} {{object.movie.actors}}</p>
-				<p class="card-text text-justify">{% trans "Awards:" %} {% trans object.movie.awards %}</p>
+			<div class="col btn-card-right">
+				<h3 class="card-title display-4 text-white">{{object.movie.title}}
+					<br>
+					<span class="text-muted"> {{ object.movie.director }}, {{object.movie.year}}</span>
+				</h3>
+				<p class="card-text text-justify">{% trans object.movie.plot %}</p>	
 
-				{% if request.user == object.viewer %}<a href="{% url 'watchedmovie_edit' pk=object.pk %}" class="btn btn-warning mb-2"><i class="fa fa-edit"></i> {% trans "Edit entry" %}</a> {% endif %}
-				<a href="https://www.imdb.com/title/{{object.movie.imdbid}}" class="btn btn-warning mb-2" target="_blank"><i class="fa fa-external-link"></i> {% trans "See on IMDb" %}</a>
-				{% if request.user == object.viewer %} <a href="{% url 'delete' ownid=object.id %}" class="btn btn-danger mb-2"><i class="fa fa-remove"></i> {% trans "Delete from your watchlist" %}</a> {% endif %}
+				<table class="table table-dark table-bordered text-center table-responsive-lg w-75 m-auto">
+					<thead>
+						<tr>
+							<th>{% trans "With" %}</th>
+							<th>{% trans "Awards" %}</th>
+							<th>{% trans "Genre(s)" %}</th>
+							<th>{% trans "Runtime" %}</th>
+							<th>{% trans "Writer(s)" %}</th>
+							<th>{% trans "Language(s)" %}</th>
+							<th>{% trans "Country" %}</th>
+							<th>{% trans "Production" %}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<p class="text-center"> {{object.movie.actors}}</p>
+							</td>
+							<td>
+								<p class="text-center"> {% trans object.movie.awards %}</p>
+							</td>
+							<td>
+								<p class="text-center"> {% trans object.movie.genre %}</p>
+							</td>
+							<td>
+								<p class="text-center"> {% trans object.movie.runtime %}</p>
+							</td>
+							<td>
+								<p class="text-center"> {% trans object.movie.writer %}</p>
+							</td>
+							<td>
+								<p class="text-center"> {% trans object.movie.language %}</p>
+							</td>
+							<td>
+								<p class="text-center"> {% trans object.movie.country %}</p>
+							</td>
+							<td>
+								<p class="text-center"> {% trans object.movie.production %}</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+				{% if request.user == object.viewer %}
+				<a href="{% url 'watchedmovie_edit' pk=object.pk %}" class="btn btn-warning mb-2 mt-2">
+					<i class="fa fa-edit"></i> 
+					{% trans "Edit entry" %}
+				</a> 
+				{% endif %}
+				<a href="https://www.imdb.com/title/{{object.movie.imdbid}}" class="btn btn-warning mb-2 mt-2 mt-2" target="_blank">
+					<i class="fa fa-external-link"></i> 
+					{% trans "See on IMDb" %}
+				</a>
+				{% if request.user == object.viewer %} 
+				<a href="{% url 'delete' ownid=object.id %}" class="btn btn-danger mb-2 mt-2">
+					<i class="fa fa-remove"></i> 
+					{% trans "Delete from your watchlist" %}
+				</a> 
+				{% endif %}
 			</div>
 		</div>
 		<div class="card-footer">

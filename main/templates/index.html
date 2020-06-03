@@ -9,20 +9,48 @@
 {% for movie in community %}
 <div class="row justify-content-center mt-5 no-gutters">
   <div class="card bg-dark text-light w-75">
-    <h4 class="card-header w-100 card-header-link"> <a class="stretched-link" href="{% url 'user_watchlist' username=movie.viewer.username %}"> {% if movie.viewer.name_display %}{{movie.viewer.first_name}} {{movie.viewer.last_name}}{% else %}{{movie.viewer.username}}{% endif %}</a> {% trans "watched" %} <span style="float: right;">  {% if movie.new %} <img src="{% static 'img/icons/new.png' %}" alt="New" title="New" width="40"> {% endif %} {% if movie.theater %} <img src="{% static 'img/icons/cinema.png' %}" alt="Cinema" title="Cinema" width="40"> {% endif %} </span></h4>
-    <div class="row no-gutters">
-      <div class="col-xl-2 img-card-poster">
+    <h4 class="card-header w-100 card-header-link"> 
+      <a class="stretched-link" href="{% url 'user_watchlist' username=movie.viewer.username %}"></a>
+      {% if movie.viewer.name_display %}{{movie.viewer.first_name}} {{movie.viewer.last_name}}{% else %}{{movie.viewer.username}}{% endif %}
+      {% trans "watched" %} 
+      <span style="float: right;">
+        {% if movie.new %}
+        <i class="fa fa-lg fa-star"></i>
+        {% endif %}
+        {% if movie.theater %}
+        <i class="fa fa-lg fa-film"></i>
+        {% endif %}
+      </span>
+    </h4>
+    <div class="row no-gutters card-body card-body-link">
+      <div class="col-xl-2 img-card-poster m-auto">
         <img src="{{movie.movie.poster}}" alt="{{movie.movie.title}}" class="img-fluid" width="200">
       </div>
       <div class="col m-3 btn-card-right">
-        <h3 class="card-title text-center">{{movie.movie.title}}<span class="text-muted"> - {{ movie.movie.director }}, {{movie.movie.year}}</span></h3>
+        <h3 class="card-title display-4 text-white">{{movie.movie.title}}
+          <br>
+          <span class="text-muted"> {{ movie.movie.director }}, {{movie.movie.year}}</span>
+        </h3>
         <p class="card-text text-justify">{% trans movie.movie.plot %}</p>
         <p class="card-text text-justify">{% trans "With:" %} {{movie.movie.actors}}</p>
         <p class="card-text text-justify">{% trans "Awards:" %} {% trans movie.movie.awards %}</p>
-        <a href="{% url 'watchedmovie-detail' pk=movie.pk %}" class="btn btn-primary mb-2"><i class="fa fa-question"></i> {% trans "More" %}</a>
-        <a href="https://www.imdb.com/title/{{movie.movie.imdbid}}" class="btn btn-warning mb-2" target="_blank"><i class="fa fa-external-link"></i> {% trans "See on IMDb" %}</a>
-        {% if user == movie.viewer %} <a href="{% url 'watchedmovie_edit' pk=movie.pk %}" class="btn btn-warning mb-2"><i class="fa fa-edit"></i> {% trans "Edit entry" %}</a> {% endif %}
-        {% if user == movie.viewer %} <a href="{% url 'delete' ownid=movie.id %}" class="btn btn-danger mb-2"><i class="fa fa-remove"></i> {% trans "Delete from your watchlist" %}</a> {% endif %}
+        <a href="{% url 'watchedmovie-detail' pk=movie.pk %}" class="stretched-link"></a>
+        <a href="https://www.imdb.com/title/{{movie.movie.imdbid}}" class="btn btn-warning mb-2" target="_blank">
+          <i class="fa fa-external-link"></i> 
+          {% trans "See on IMDb" %}
+        </a>
+        {% if user == movie.viewer %} 
+        <a href="{% url 'watchedmovie_edit' pk=movie.pk %}" class="btn btn-warning mb-2">
+          <i class="fa fa-edit"></i> 
+          {% trans "Edit entry" %}
+        </a> 
+        {% endif %}
+        {% if user == movie.viewer %} 
+        <a href="{% url 'delete' ownid=movie.id %}" class="btn btn-danger mb-2">
+          <i class="fa fa-remove"></i> 
+          {% trans "Delete from your watchlist" %}
+        </a> 
+        {% endif %}
       </div>
     </div>
     <div class="card-footer">
