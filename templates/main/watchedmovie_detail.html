@@ -35,7 +35,7 @@
 				</h3>
 				<p class="card-text text-justify">{% trans object.movie.plot %}</p>	
 
-				<table class="table table-dark table-bordered text-center table-responsive-lg w-75 m-auto">
+				<table class="table table-dark table-bordered text-center table-responsive-lg w-100 m-auto">
 					<thead>
 						<tr>
 							<th>{% trans "With" %}</th>
@@ -50,28 +50,28 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td>
+							<td class="align-middle">
 								<p class="text-center"> {{object.movie.actors}}</p>
 							</td>
-							<td>
+							<td class="align-middle">
 								<p class="text-center"> {% trans object.movie.awards %}</p>
 							</td>
-							<td>
+							<td class="align-middle">
 								<p class="text-center"> {% trans object.movie.genre %}</p>
 							</td>
-							<td>
+							<td class="align-middle">
 								<p class="text-center"> {% trans object.movie.runtime %}</p>
 							</td>
-							<td>
+							<td class="align-middle">
 								<p class="text-center"> {% trans object.movie.writer %}</p>
 							</td>
-							<td>
+							<td class="align-middle">
 								<p class="text-center"> {% trans object.movie.language %}</p>
 							</td>
-							<td>
+							<td class="align-middle">
 								<p class="text-center"> {% trans object.movie.country %}</p>
 							</td>
-							<td>
+							<td class="align-middle">
 								<p class="text-center"> {% trans object.movie.production %}</p>
 							</td>
 						</tr>
