@@ -7,7 +7,7 @@ import json
 logger = logging.getLogger('movie_api')
 
 config = configparser.ConfigParser()
-config.read('config.ini')
+config.read('../config.ini')
 
 def make_request_by_id(md_id, plot, md_type="none"): #Returns array with request answer
 	print("make_request_by_id called")
@@ -60,7 +60,7 @@ def make_request_search(md_title, md_type="none", page=1, year=-1):
 	response = json.loads(f.read())
 	logger.info(response)
 
-	if response['Search']:
+	if "Search" in response.keys():
 		if int(response['totalResults']) > len(response['Search']) + 10 * (page-1):
 			response['Search'] += make_request_search(md_title, page=page+1)['Search']
 
