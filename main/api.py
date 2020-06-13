@@ -7,7 +7,7 @@ import json
 logger = logging.getLogger('movie_api')
 
 config = configparser.ConfigParser()
-config.read('../config.ini')
+config.read('config.ini')
 
 def make_request_by_id(md_id, plot, md_type="none"): #Returns array with request answer
 	print("make_request_by_id called")
