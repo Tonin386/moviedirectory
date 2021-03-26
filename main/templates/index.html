@@ -6,44 +6,27 @@
 {% if user.is_authenticated %}
 {% include "nav.html" %}
 <h1 class="text-center text-light mt-5">{% trans "What the community has recently watched" %}</h1>
-{% for movie in community %}
-<div class="row justify-content-center mt-5 no-gutters">
-  <div class="card bg-dark text-light w-75">
-    <h4 class="card-header w-100 card-header-link"> 
-      <a class="stretched-link" href="{% url 'user_watchlist' username=movie.viewer.username %}"></a>
-      {% if movie.viewer.name_display %}{{movie.viewer.first_name}} {{movie.viewer.last_name}}{% else %}{{movie.viewer.username}}{% endif %}
-      {% trans "watched" %} 
-      <span style="float: right;">
+<div class="row justify-content-center mt-5 no-gutters menu">
+  {% for movie in community %}
+  <div class="card bg-dark text-light col-md-2 m-auto">
+    <img src="{{ movie.movie.poster }}" alt="{{ movie.movie.title }}" class="img-fluid card-img" width="100">
+    <div class="card-img-overlay">
+      <a href="{% url 'watchedmovie-detail' pk=movie.pk %}" class="stretched-link"></a>
+      <h4 class="card-title mt-5 text-center"> {{ movie.movie.title }}</h4>
+      <div class="card-body m-auto mt-5 text-center">
         {% if movie.new %}
         <i class="fa fa-lg fa-star"></i>
         {% endif %}
         {% if movie.theater %}
         <i class="fa fa-lg fa-film"></i>
         {% endif %}
-      </span>
-    </h4>
-    <div class="row no-gutters card-body card-body-link">
-      <a href="{% url 'watchedmovie-detail' pk=movie.pk %}" class="stretched-link"></a>
-      <div class="col-xl-2 img-card-poster m-auto">
-        <img src="{{movie.movie.poster}}" alt="{{movie.movie.title}}" class="img-fluid" width="200">
+        <br> <br>
+        <p class="card-text">{% trans "Watched on" %} {{ movie.view_date }} <br> <br> {% trans "Par" %} {% if movie.viewer.name_display %}{{movie.viewer.first_name}} {{movie.viewer.last_name}}{% else %}{{movie.viewer.username}}{% endif %} <br> <br>{{movie.note}}/10 {% if movie.comment != "" %}- {{movie.comment}} {% endif %}</p>
       </div>
-      <div class="col m-3 btn-card-right">
-        <h3 class="card-title display-4 text-white">{{movie.movie.title}}
-          <br>
-          <span class="text-muted"> {{ movie.movie.director }}, {{movie.movie.year}}</span>
-        </h3>
-        <p class="card-text text-justify">{% trans movie.movie.plot %}</p>
-        <p class="card-text text-justify">{% trans "With:" %} {{movie.movie.actors}}</p>
-        <p class="card-text text-justify">{% trans "Awards:" %} {% trans movie.movie.awards %}</p>
-      </div>
-    </div>
-    <div class="card-footer">
-      <p class="card-text">{% trans "Watched on" %} {{ movie.view_date }} - {{movie.note}}/10 - {{movie.comment}}</p>
     </div>
   </div>
-</div>
-
 {% endfor %}
+</div>
 <div class="row justify-content-center no-gutters">
   {% if page > 1 %}
   <a href="{% url 'home_page' page=previous_page %}" class="btn btn-light m-2 p-2 col-xs-2">{% trans "Previous page" %}<br><i class="fa fa-arrow-left"></i></a>

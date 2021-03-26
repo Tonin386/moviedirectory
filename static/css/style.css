@@ -129,10 +129,6 @@ h1.text-light {
 
 .card-header, .card-body {
   transform: rotate(0);
-  -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
-  -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
-  -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
-  transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
 }
 
 .card-body-link:hover .card-text, .card-header-link:hover {
@@ -146,6 +142,19 @@ h1.text-light {
 .card-body-link:hover, .card-header-link:hover {
   background-color: white!important;
   border-color: white!important;
+}
+
+.card-img-overlay {
+  color: transparent;
+  -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+  -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+  -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+  transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+}
+
+.card-img-overlay:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white!important;
 }
 
 .text-muted {
@@ -169,6 +178,7 @@ h1.text-light {
 .clickable-row:hover .fa-icon {
   color: black;
 }
+
 
 @media screen and (max-width: 1200px) {
   .img-card-poster {
