@@ -148,14 +148,14 @@ def watchlist_page(request, page):
 	if page < 2:
 		return redirect('watchlist')
 
-	start = (page-1) * 10
-	end = page*10
+	start = (page-1) * 12
+	end = page*12
 	movies = WatchedMovie.objects.filter(viewer=request.user).order_by('-view_date', '-id')[start:end]
 	nb_elements = len(WatchedMovie.objects.filter(viewer=request.user))
 	next_page = page+1
 	previous_page = page-1
 	
-	if page*10 < nb_elements:
+	if page*12 < nb_elements:
 		last_page = False
 	else:
 		last_page = True
