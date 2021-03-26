@@ -473,13 +473,13 @@ def home(request):
 		else:
 			movies.append(movie)
 
-	community = movies[:10]
+	community = movies[:12]
 	nb_movies = len(movies)
 	page = 1
 	next_page = 2
 	previous_page = 1 
 
-	if page*10 < nb_movies:
+	if page*12 < nb_movies:
 		last_page = False
 	else:
 		last_page = True

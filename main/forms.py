@@ -48,10 +48,6 @@ class WatchedMovieForm(forms.Form):
     comment = forms.CharField(label=_("Personal comment"), required=False)
 
     def save(self, commit=True):
-
-        if self.cleaned_data["comment"] == "":
-            self.cleaned_data["comment"] = _("No comment.")
-
         return WatchedMovie.objects.create(movie=self.movie, view_date=self.cleaned_data['view_date'], note=self.cleaned_data['note'], new=self.cleaned_data['new'], theater=self.cleaned_data['theater'], viewer=self.user, comment=self.cleaned_data['comment'])
 
 class EditProfileForm(forms.Form):
