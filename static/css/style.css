@@ -127,6 +127,17 @@ h1.text-light {
   color: white!important;
 }
 
+.card-text {
+  font-size: 12px;
+}
+
+.card-img-footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
 .card-header, .card-body {
   transform: rotate(0);
 }
