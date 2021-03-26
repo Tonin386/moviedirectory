@@ -7,7 +7,7 @@ function footer_adjust() {
 		footer.style.position = "absolute";
 	} 
 } 
-footer_adjust();
+window.onload = footer_adjust();
 
 $(document).ready(function($) {
     $(".clickable-row").click(function() {

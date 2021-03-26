@@ -6,15 +6,15 @@
 {% if user.is_authenticated %}
 {% include "nav.html" %}
 <h1 class="text-center text-light mt-5">{% trans "What the community has recently watched" %}</h1>
-<div class="row col-lg-12 align-items-center m-auto justify-content-lg-center">
+<div class="row col-md-12 align-items-center m-auto justify-content-lg-center">
   {% for movie in community %}
 
-  <div class="col-lg-2 mt-3">
+  <div class="col-md-3 m-auto mt-3">
     <div class="card bg-dark text-light m-auto">
       <img src="{{ movie.movie.poster }}" alt="{{ movie.movie.title }}" class="img-fluid card-img" width="100">
       <div class="card-img-overlay">
         <a href="{% url 'watchedmovie-detail' pk=movie.pk %}" class="stretched-link"></a>
-        <h4 class="card-title text-center"> {{ movie.movie.title }}</h4>
+        <h4 class="card-title text-center mt-2"> {{ movie.movie.title }}</h4>
         <div class="card-body m-auto mt-2 text-center card-img-footer">
           <p class="card-text">{% trans "Watched on" %} {{ movie.view_date }} <br>{% if movie.viewer.name_display %}{{movie.viewer.first_name}} {{movie.viewer.last_name}}{% else %}{{movie.viewer.username}}{% endif %} <br>{{movie.note}}/10</p>
           <br>
