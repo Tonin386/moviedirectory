@@ -180,7 +180,7 @@ LANGUAGES = (
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = "/static/"
-STATIC_ROOT = "/home/fiddleco/movie-directory.com/static/"
+STATIC_ROOT = "/home/fiddleco/www/static/"
 
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale/'),
