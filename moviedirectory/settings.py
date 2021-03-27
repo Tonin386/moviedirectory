@@ -34,6 +34,7 @@ AUTH_USER_MODEL = 'moviedirectory.User'
 LOGOUT_REDIRECT_URL = 'home'
 LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = "login"
+SECURE_SSL_REDIRECT = True
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = str(config.get('mail', 'host'))
