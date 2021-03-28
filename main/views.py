@@ -82,6 +82,7 @@ def reactivate(request):
 			else:
 				active = False
 				current_site = get_current_site(request)
+				print(current_site)
 				mail_subject = _("Activate your MovieDirectory account")
 				message = render_to_string('mail/acc_active_email.html', {
 					'user': inactive_user,
