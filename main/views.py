@@ -51,7 +51,7 @@ def register(request):
 		send_mail(
 			mail_subject,
 			message,
-			"\"Movie Directory\" <support@movie-directory.com>",
+			"\"Movie Directory\" <moviedirectory@movie-directory.com>",
 			[to_email],
 			html_message=message
 		)
@@ -94,7 +94,7 @@ def reactivate(request):
 				send_mail(
 					mail_subject,
 					message,
-					"\"Movie Directory\" <support@movie-directory.com>",
+					"\"Movie Directory\" <moviedirectory@movie-directory.com>",
 					[to_email],
 					html_message=message
 				)
@@ -120,8 +120,8 @@ def activate(request, uidb64, token):
 		send_mail(
 			new_user.username + " activated his account",
 			"A new user just activated his account on " + datetime.now().strftime('%d/%m/%Y %H:%M:%S') + ".\nUsername: " + new_user.username,
-			"\"Movie Directory accounts\" <support@movie-directory.com>",
-			["support@movie-directory.com"]
+			"\"Movie Directory accounts\" <moviedirectory@movie-directory.com>",
+			["moviedirectory@movie-directory.com"]
 		)
 		return redirect('home')
 	else:
@@ -396,7 +396,7 @@ def accept_friend(request, friend_id):
 		send_mail(
 			mail_subject,
 			message,
-			"\"Movie Directory\" <support@movie-directory.com>",
+			"\"Movie Directory\" <moviedirectory@movie-directory.com>",
 			[to_email],
 			html_message=message
 		)
@@ -409,7 +409,7 @@ def accept_friend(request, friend_id):
 		send_mail(
 			mail_subject,
 			message,
-			"\"Movie Directory\" <support@movie-directory.com>",
+			"\"Movie Directory\" <moviedirectory@movie-directory.com>",
 			[to_email],
 			html_message=message
 		)
