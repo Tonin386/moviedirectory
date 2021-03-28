@@ -30,10 +30,10 @@
 				<span class="text-muted"> {{ object.movie.director }} <br> {{object.movie.year}}</span>
 			</h3>	
 
-			<div class="col-xl-4 img-card-poster">
+			<div class="col-xl-4 img-card-poster m-auto">
 				<img src="{{object.movie.poster}}" alt="{{object.movie.title}}" class="img-fluid capped-img">
 			</div>
-			<table class="table table-dark table-striped col-xl-8">
+			<table class="table table-dark table-striped col-xl-8 m-auto">
 				<thead>
 					<tr>
 						<td colspan="2" class="text-center">
@@ -44,7 +44,7 @@
 				<tbody>
 					<tr>
 						<td colspan="2">
-							<p class="card-text text-justify ml-3">
+							<p class="card-text text-justify">
 								{% if request.LANGUAGE_CODE == "fr"%}
 								{{ object.movie.plot_fr }}
 								{% elif request.LANGUAGE_CODE == "en" %}
@@ -54,41 +54,41 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="text-left">{% trans "With" %}</td>
-						<td class="text-right">{{object.movie.actors}}</td>
+						<td class="text-left d-none d-sm-block">{% trans "With" %}</td>
+						<td class="text-center text-sm-right">{{object.movie.actors}}</td>
 					</tr>
 					<tr>
-						<td class="text-left">{% trans "Awards" %}</td>
-						<td class="text-right">{{object.movie.awards}}</td>
+						<td class="text-left d-none d-sm-block">{% trans "Awards" %}</td>
+						<td class="text-center text-sm-right">{{object.movie.awards}}</td>
 					</tr>
 					<tr>
-						<td class="text-left">{% trans "Genre(s)" %}</td>
-						<td class="text-right">{{object.movie.genre}}</td>
+						<td class="text-left d-none d-sm-block">{% trans "Genre(s)" %}</td>
+						<td class="text-center text-sm-right">{{object.movie.genre}}</td>
 					</tr>
 					<tr>
-						<td class="text-left">{% trans "Runtime" %}</td>
-						<td class="text-right">{{object.movie.runtime}}</td>
+						<td class="text-left d-none d-sm-block">{% trans "Runtime" %}</td>
+						<td class="text-center text-sm-right">{{object.movie.runtime}}</td>
 					</tr>
 					<tr>
-						<td class="text-left">{% trans "Writer(s)" %}</td>
-						<td class="text-right">{{object.movie.writer}}</td>
+						<td class="text-left d-none d-sm-block">{% trans "Writer(s)" %}</td>
+						<td class="text-center text-sm-right">{{object.movie.writer}}</td>
 					</tr>
 					<tr>
-						<td class="text-left">{% trans "Language(s)" %}</td>
-						<td class="text-right">{{object.movie.language}}</td>
+						<td class="text-left d-none d-sm-block">{% trans "Language(s)" %}</td>
+						<td class="text-center text-sm-right">{{object.movie.language}}</td>
 					</tr>
 					<tr>
-						<td class="text-left">{% trans "Country" %}</td>
-						<td class="text-right">{{object.movie.country}}</td>
+						<td class="text-left d-none d-sm-block">{% trans "Country" %}</td>
+						<td class="text-center text-sm-right">{{object.movie.country}}</td>
 					</tr>
 					<tr>
-						<td class="text-left">{% trans "Production" %}</td>
-						<td class="text-right">{{object.movie.production}}</td>
+						<td class="text-left d-none d-sm-block">{% trans "Production" %}</td>
+						<td class="text-center text-sm-right">{{object.movie.production}}</td>
 					</tr>
 				</tbody>
 			</table>
 
-			<div class="m-auto">
+			<div class="m-auto text-center">
 				{% if request.user == object.viewer %}
 				<a href="{% url 'watchedmovie_edit' pk=object.pk %}" class="btn btn-warning m-2">
 					<i class="fa fa-edit"></i> 
