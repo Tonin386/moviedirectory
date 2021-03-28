@@ -84,10 +84,6 @@ a.stretched-link {
   border-color: #dee2e6!important;
 }
 
-.btn-dark:hover {
-  background-color: rgb(10, 10, 10)!important;
-  border-color: rgb(10, 10, 10)!important;
-}
 
 .btn-danger {
   background-color: rgb(160, 17, 0)!important;
@@ -95,28 +91,10 @@ a.stretched-link {
   color: rgb(210, 210, 210)!important;
 }
 
-.btn-danger:hover {
-  background-color: #7B0D00!important;
-  border-color: #7B0D00!important;
-  color: white!important;
-}
-
 .btn-success {
   background-color: rgb(200,200,200)!important;
   border-color: rgb(200,200,200)!important;
   color: black!important;
-}
-
-.btn-success:hover {
-  background-color: rgb(6, 120, 4)!important;
-  border-color: rgb(6, 120, 4)!important;
-  color: rgb(210, 210, 210)!important;
-}
-
-.btn-light:hover, .nav-item:hover {
-  background-color: rgb(10, 136, 163)!important;
-  border-color: rgb(10, 136, 163)!important;
-  color:white!important;
 }
 
 .text-light, .nav-link, .navbar-brand {
@@ -126,10 +104,6 @@ a.stretched-link {
 h1.text-light {
   color: white!important;
 }
-/*
-.card-text {
-  font-size: 12px;
-}*/
 
 .card-img-footer {
   position: absolute;
@@ -142,30 +116,12 @@ h1.text-light {
   transform: rotate(0);
 }
 
-.card-body-link:hover .card-text, .card-header-link:hover {
-  color: rgb(20,20,20)!important;
-}
-
-.card-body-link:hover .display-4 {
-  color: black!important;
-}
-
-.card-body-link:hover, .card-header-link:hover {
-  background-color: white!important;
-  border-color: white!important;
-}
-
 .card-img-overlay {
   color: transparent;
   -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
   -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
   -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
   transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
-}
-
-.card-img-overlay:hover {
-  background-color: rgba(0, 0, 0, 0.9);
-  color: white!important;
 }
 
 .text-muted {
@@ -180,18 +136,72 @@ h1.text-light {
   transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
 }
 
-.clickable-row:hover {
-  background-color: white!important;
-  border-color: white!important;
-  color: black!important;
-}
 
-.clickable-row:hover .fa-icon {
-  color: black;
-}
+@media screen and (min-width: 1200px) {
+  ul.navbar-nav {
+    position: absolute;
+    right: 0;
+    text-align: center!important!important;
+    clear: all;
+  }
 
+  .clickable-row:hover {
+    background-color: white!important;
+    border-color: white!important;
+    color: black!important;
+  }
+
+  .clickable-row:hover .fa-icon {
+    color: black;
+  }
+
+  .card-img-overlay:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white!important;
+  }
+
+  .card-body-link:hover .card-text, .card-header-link:hover {
+    color: rgb(20,20,20)!important;
+  }
+
+  .card-body-link:hover .display-4 {
+    color: black!important;
+  }
+
+  .card-body-link:hover, .card-header-link:hover {
+    background-color: white!important;
+    border-color: white!important;
+  }
+
+  .btn-success:hover {
+    background-color: rgb(6, 120, 4)!important;
+    border-color: rgb(6, 120, 4)!important;
+    color: rgb(210, 210, 210)!important;
+  }
+
+  .btn-light:hover, .nav-item:hover {
+    background-color: rgb(10, 136, 163)!important;
+    border-color: rgb(10, 136, 163)!important;
+    color:white!important;
+  }
+
+  .btn-danger:hover {
+    background-color: #7B0D00!important;
+    border-color: #7B0D00!important;
+    color: white!important;
+  }
+
+  .btn-dark:hover {
+    background-color: rgb(10, 10, 10)!important;
+    border-color: rgb(10, 10, 10)!important;
+  }
+
+}
 
 @media screen and (max-width: 1200px) {
+  .capped-img {
+    max-width: 75%!important;
+  }
   .img-card-poster {
     text-align: center!important;
   }
