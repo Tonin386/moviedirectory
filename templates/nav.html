@@ -1,48 +1,48 @@
 {% load static %}
 {% load i18n %}
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-xl navbar-dark bg-dark text-center">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <a class="navbar-brand" href="{% url 'home' %}">
     <img src="{% static 'img/logo.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
-    Movie Directory {% if user.is_authenticated %} <span class="text-muted"> - {{user.username}} </span> {% endif %}
+    Movie Directory {% if user.is_authenticated %} <span class="text-muted"> <br> {{user.username}} </span> {% endif %}
   </a>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link active" href="{% url 'home' %}"><i class="fa fa-lg fa-home"></i> {% trans "Home" %}</a>
+      <li class="nav-item mr-3">
+        <a class="nav-link active" href="{% url 'home' %}"><i class="fa fa-lg fa-home"></i> <br>{% trans "Home" %}</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link active" href="{% url 'watchlist' %}"><i class="fa fa-lg fa-list"></i> {% trans "My watchlist" %}</a>
+      <li class="nav-item mr-3">
+        <a class="nav-link active" href="{% url 'watchlist' %}"><i class="fa fa-lg fa-list"></i> <br>{% trans "My watchlist" %}</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link active" href="{% url 'movielist' %}"><i class="fa fa-lg fa-folder"></i> {% trans "Movie list" %}</a>
+      <li class="nav-item mr-3">
+        <a class="nav-link active" href="{% url 'movielist' %}"><i class="fa fa-lg fa-folder"></i> <br>{% trans "Movie list" %}</a>
       </li>
       {% if user.is_authenticated %}
-      <li class="nav-item">
-        <a class="nav-link active" href="{% url 'profile' %}"><i class="fa fa-lg fa-user"></i> {% trans "Profile" %}</a>
+      <li class="nav-item mr-3">
+        <a class="nav-link active" href="{% url 'profile' %}"><i class="fa fa-lg fa-user"></i> <br>{% trans "Profile" %}</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link " href=""><i class="fa fa-lg fa-signal"></i> {% trans "Stats" %} <span class="badge badge-secondary">{% trans "Soon!" %}</span></a>
+      <li class="nav-item mr-3">
+        <a class="nav-link " href=""><i class="fa fa-lg fa-signal"></i> <br>{% trans "Stats" %} <span class="badge badge-secondary">{% trans "Soon!" %}</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link active" href="{% url 'friendlist' %}"><i class="fa fa-lg fa-address-book"></i> {% trans "Friendlist" %}</a>
+      <li class="nav-item mr-3">
+        <a class="nav-link active" href="{% url 'friendlist' %}"><i class="fa fa-lg fa-address-book"></i> <br>{% trans "Friendlist" %}</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link active" href="{% url 'logout' %}"><i class="fa fa-lg fa-minus"></i> {% trans "Logout" %}</a>
+      <li class="nav-item mr-3">
+        <a class="nav-link active" href="{% url 'logout' %}"><i class="fa fa-lg fa-minus"></i> <br>{% trans "Logout" %}</a>
       </li>
       {% else %}
-      <li class="nav-item">
-        <a class="nav-link active" href="{% url 'login' %}"><i class="fa fa-lg fa-plus"></i> {% trans "Login" %}</a>
+      <li class="nav-item mr-3">
+        <a class="nav-link active" href="{% url 'login' %}"><i class="fa fa-lg fa-plus"></i> <br>{% trans "Login" %}</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link active" href="{% url 'register' %}"><i class="fa fa-lg fa-user"></i> {% trans "Sign in" %}</a>
+      <li class="nav-item mr-3">
+        <a class="nav-link active" href="{% url 'register' %}"><i class="fa fa-lg fa-user"></i> <br>{% trans "Sign in" %}</a>
       </li>
       {% endif %}
       {% if user.is_staff %}
-      <li class="nav-item">
-        <a class="nav-link active" href="/admin"><i class="fa fa-lg fa-wrench"></i> Administration</a>
+      <li class="nav-item mr-3">
+        <a class="nav-link active" href="/admin"><i class="fa fa-lg fa-wrench"></i> <br>Admin</a>
       </li>
       {% endif %}
     </ul>
