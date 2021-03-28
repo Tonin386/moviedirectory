@@ -100,7 +100,7 @@ def reactivate(request):
 				)
 				errorThrowed = False
 				addedUser = True
-				logger.info(user.username + " asked to send again email activation.")
+				logger.info(inactive_user.username + " asked to send again email activation.")
 
 	return render(request, 'auth/reactivate.html', locals())
 
