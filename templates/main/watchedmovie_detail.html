@@ -47,7 +47,11 @@
 							<p class="card-text text-justify">
 								{% if request.LANGUAGE_CODE == "fr"%}
 								{{ object.movie.plot_fr }}
-								{% elif request.LANGUAGE_CODE == "en" %}
+								{% elif request.LANGUAGE_CODE == "ge" %}
+								{{ object.movie.plot_ge }}
+								{% elif request.LANGUAGE_CODE == "ru" %}
+								{{ object.movie.plot_ru }}
+								{% else %}
 								{{ object.movie.plot_en }}
 								{% endif %}
 							</p>
@@ -95,7 +99,7 @@
 					{% trans "Edit entry" %}
 				</a> 
 				{% endif %}
-				<a href="https//www.imdb.com/title/{{object.movie.imdbid}}" class="btn btn-warning m-2" target="_blank">
+				<a href="https://www.imdb.com/title/{{object.movie.imdbid}}" class="btn btn-warning m-2" target="_blank">
 					<i class="fa fa-external-link"></i> 
 					{% trans "See on IMDb" %}
 				</a>

@@ -20,17 +20,19 @@
 {% if title and success %}
 <div class="row col-lg-12 align-items-center m-auto justify-content-lg-center">
 	{% for movie in movies %}
-	{% if movie.Type == "movie" or movie.Type == "series" or movie.Type == "episode" %}
+	{% if movie.imdbid %}
+	{% if movie.media_type == "movie" or movie.media_type == "tv" or movie.media_type == "episode" %}
 	<div class="col-lg-3 mt-3">
 		<div class="card m-auto bg-dark text-light" style="width: 24rem;">
-			<img class="card-img-top" src="{{ movie.Poster }}" width="180" alt="{{ movie.Title }} poster">
+			<img class="card-img-top" src="http://image.tmdb.org/t/p/original{{ movie.poster_path }}" width="180" alt="{{ movie.title }} poster">
 			<div class="card-body text-center">
-				<h5 class="card-title"> {{ movie.Title }} <span class="text-muted ">- {{ movie.Year }}</span></h5>
-				<a href="{% url 'add' imdbid=movie.imdbID %}" class="btn btn-success mt-3"><i class="fa fa-plus"></i> {% trans "Add to my watchlist" %} </a>
-				<a href="https://www.imdb.com/title/{{movie.imdbID}}" class="btn btn-warning mt-3" target="_blank"><i class="fa fa-external-link"></i> {% trans "See on IMDb" %}</a>
+				<h5 class="card-title"> {{ movie.title }}{{movie.name}} <span class="text-muted ">- {{ movie.first_air_date.0 }}{{ movie.first_air_date.1 }}{{ movie.first_air_date.2 }}{{ movie.first_air_date.3 }}{{movie.release_date.0}}{{movie.release_date.1}}{{movie.release_date.2}}{{movie.release_date.3}}</span></h5>
+				<a href="{% url 'add' imdbid=movie.imdbid %}" class="btn btn-success mt-3"><i class="fa fa-plus"></i> {% trans "Add to my watchlist" %} </a>
+				<a href="https://www.imdb.com/title/{{movie.imdbid}}" class="btn btn-warning mt-3" target="_blank"><i class="fa fa-external-link"></i> {% trans "See on IMDb" %}</a>
 			</div>
 		</div>
 	</div>
+	{% endif %}
 	{% endif %}
 	{% endfor %}
 </div>

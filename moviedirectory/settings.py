@@ -174,6 +174,8 @@ ugettext = lambda x: x
 LANGUAGES = (
     ('fr', ugettext('French')),
     ('en', ugettext('English')),
+    ('ge', ugettext('German')),
+    ('ru', ugettext('Russian'))
 )
 
 
@@ -181,7 +183,7 @@ LANGUAGES = (
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = "/static/"
-STATIC_ROOT = "/home/fiddleco/www/static/"
+STATIC_ROOT = "/home/fiddleco/public-html/static/"
 
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale/'),

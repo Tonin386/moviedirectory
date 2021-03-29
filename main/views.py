@@ -14,9 +14,9 @@ from django.views.generic import DetailView
 from django.template import RequestContext
 from django.core.mail import send_mail
 from moviedirectory.models import *
-from .utilities import send_invite
 from django.db.models import Q
 from datetime import datetime
+from .utilities import *
 from .forms import *
 from .api import *
 import logging
@@ -235,7 +235,6 @@ def user_watchlist_page(request, username, page):
 
 
 def movielist(request):
-
 	title = ""
 
 	if request.POST:
@@ -244,8 +243,9 @@ def movielist(request):
 	if title:
 		movies = make_request_search(title)
 		success = True
-		if movies['Response'] == 'True':
-			movies = movies['Search']
+		if movies != {}:
+			movies = movies['Search']['results']
+			print(movies)
 			logger.info("Api request success for "+ title)
 		else:
 			success = False
@@ -258,6 +258,7 @@ def add(request, imdbid):
 	movie, created = Movie.objects.get_or_create(imdbid=imdbid)
 
 	if created:
+		print("fetching?")
 		movie.fetch()
 
 	now = datetime.today().strftime('%Y-%m-%d')
