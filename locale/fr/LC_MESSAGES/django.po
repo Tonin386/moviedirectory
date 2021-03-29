@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-28 13:56+0000\n"
+"POT-Creation-Date: 2021-03-29 23:13+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,10 +25,10 @@ msgstr "Nom d'utilisateur"
 msgid "Password"
 msgstr "Mot de passe"
 
-#: main/forms.py:44 main/models.py:102 main/templates/index.html:19
+#: main/forms.py:44 main/models.py:114 main/templates/index.html:19
 #: main/templates/pages/add.html:28 main/templates/pages/add.html:31
 #: main/templates/pages/old_watchlist.html:37
-#: templates/main/watchedmovie_detail.html:106
+#: templates/main/watchedmovie_detail.html:115
 #: templates/main/watchedmovie_update_form.html:15
 #: templates/main/watchedmovie_update_form.html:18
 msgid "Watched on"
@@ -85,127 +85,145 @@ msgstr "Privé"
 msgid "Name display"
 msgstr "Nom affiché"
 
-#: main/models.py:11 main/templates/pages/movielist.html:14
-#: main/templates/pages/user_watchlist.html:72
-#: main/templates/pages/watchlist.html:20
-msgid "Title"
-msgstr "Titre"
+#: main/models.py:11
+msgid "Default title"
+msgstr "Titre par défaut"
 
 #: main/models.py:12
+msgid "French title"
+msgstr "Titre français"
+
+#: main/models.py:13
+msgid "English title"
+msgstr "Titre anglais"
+
+#: main/models.py:14
+msgid "German title"
+msgstr "Titre allemand"
+
+#: main/models.py:15
+msgid "Russian title"
+msgstr "TItre russe"
+
+#: main/models.py:16
 msgid "Release year"
 msgstr "Année de sortie"
 
-#: main/models.py:13
+#: main/models.py:17
 msgid "Rated"
 msgstr "Classification"
 
-#: main/models.py:14
+#: main/models.py:18
 msgid "Release date"
 msgstr "Date de sortie"
 
-#: main/models.py:15 templates/main/watchedmovie_detail.html:50
+#: main/models.py:19 templates/main/watchedmovie_detail.html:73
 msgid "Runtime"
 msgstr "Durée"
 
-#: main/models.py:16
+#: main/models.py:20
 msgid "Genre"
 msgstr ""
 
-#: main/models.py:17
+#: main/models.py:21
 msgid "Director"
 msgstr "Réalisateur"
 
-#: main/models.py:18
+#: main/models.py:22
 msgid "Writer"
 msgstr "Scénariste"
 
-#: main/models.py:19
+#: main/models.py:23
 msgid "Actors"
 msgstr "Acteurs"
 
-#: main/models.py:20
+#: main/models.py:24
+msgid "Default plot"
+msgstr "Synopsis par défaut"
+
+#: main/models.py:25
 msgid "Plot in french"
 msgstr "Description française"
 
-#: main/models.py:21
+#: main/models.py:26
 msgid "Plot in english"
 msgstr "Description anglaise"
 
-#: main/models.py:22
+#: main/models.py:27
 msgid "Plot in german"
 msgstr "Description allemande"
 
-#: main/models.py:23
+#: main/models.py:28
 msgid "Plot in russian"
 msgstr "Description russe"
 
-#: main/models.py:24 main/templates/pages/profile.html:95
+#: main/models.py:29 main/templates/pages/profile.html:95
 #: main/templates/pages/profile.html:98
 msgid "Language"
 msgstr "Langue"
 
-#: main/models.py:25 templates/main/watchedmovie_detail.html:53
+#: main/models.py:30 templates/main/watchedmovie_detail.html:85
 msgid "Country"
 msgstr "Pays"
 
-#: main/models.py:26 templates/main/watchedmovie_detail.html:48
+#: main/models.py:31 templates/main/watchedmovie_detail.html:65
 msgid "Awards"
 msgstr "Récompenses"
 
-#: main/models.py:27
+#: main/models.py:32
 msgid "Poster URL"
 msgstr "URL du poster"
 
-#: main/models.py:28
+#: main/models.py:33
 msgid "IMDb ID"
 msgstr "ID IMDb"
 
-#: main/models.py:29
+#: main/models.py:34
 msgid "Type"
 msgstr ""
 
-#: main/models.py:30 templates/main/watchedmovie_detail.html:54
+#: main/models.py:35 templates/main/watchedmovie_detail.html:89
 msgid "Production"
 msgstr ""
 
-#: main/models.py:31 main/models.py:108
+#: main/models.py:36 main/models.py:120
 msgid "Created on"
 msgstr "Créé le"
 
-#: main/models.py:93 main/models.py:101
+#: main/models.py:105 main/models.py:113
 msgid "Movie"
 msgstr "Film"
 
-#: main/models.py:103
+#: main/models.py:115
 msgid "Personal note"
 msgstr "Note personnelle"
 
-#: main/models.py:104 main/templates/pages/add.html:37
+#: main/models.py:116 main/templates/pages/add.html:37
 #: main/templates/pages/add.html:40
 #: templates/main/watchedmovie_update_form.html:24
 #: templates/main/watchedmovie_update_form.html:27
 msgid "Never seen before"
 msgstr "Jamais vu auparavant"
 
-#: main/models.py:105 main/templates/pages/add.html:49
+#: main/models.py:117 main/templates/pages/add.html:49
 #: main/templates/pages/add.html:52
 #: templates/main/watchedmovie_update_form.html:36
 #: templates/main/watchedmovie_update_form.html:39
 msgid "I saw it at theater!"
 msgstr "Je l'ai vu au cinéma !"
 
-#: main/models.py:106
+#: main/models.py:118
 msgid "Viewer"
 msgstr "Spectateur"
 
-#: main/models.py:107 main/templates/pages/add.html:70
+#: main/models.py:119 main/templates/pages/add.html:70
 #: main/templates/pages/add.html:73
 #: templates/main/watchedmovie_update_form.html:57
 #: templates/main/watchedmovie_update_form.html:60
 msgid "Comment"
 msgstr "Commentaire"
 
-#: main/models.py:111
+#: main/models.py:123
 msgid "Watched movie"
 msgstr "Film regardé"
 
@@ -337,7 +355,7 @@ msgstr ""
 "Si cela ne fonctionne pas, veuillez copier puis coller ce lien dans votre "
 "navigateur :"
 
-#: main/templates/pages/add.html:10 main/templates/pages/movielist.html:29
+#: main/templates/pages/add.html:10 main/templates/pages/movielist.html:30
 msgid "Add to my watchlist"
 msgstr "Ajouter à ma watchlist"
 
@@ -349,11 +367,11 @@ msgstr "Avec :"
 msgid "Awards:"
 msgstr "Récompenses :"
 
-#: main/templates/pages/add.html:20 main/templates/pages/movielist.html:30
+#: main/templates/pages/add.html:20 main/templates/pages/movielist.html:31
 #: main/templates/pages/old_watchlist.html:32
 #: main/templates/pages/user_watchlist.html:114
 #: main/templates/pages/watchlist.html:62
-#: templates/main/watchedmovie_detail.html:95
+#: templates/main/watchedmovie_detail.html:104
 msgid "See on IMDb"
 msgstr "Voir sur IMDb"
 
@@ -428,11 +446,17 @@ msgstr "Refuser"
 msgid "Search for a movie in the database"
 msgstr "Rechercher un film dans la base de donnnées"
 
+#: main/templates/pages/movielist.html:14
+#: main/templates/pages/user_watchlist.html:72
+#: main/templates/pages/watchlist.html:20
+msgid "Title"
+msgstr "Titre"
+
 #: main/templates/pages/movielist.html:17
 msgid "Search"
 msgstr "Rechercher"
 
-#: main/templates/pages/movielist.html:38
+#: main/templates/pages/movielist.html:40
 msgid "Error"
 msgstr "Erreur"
 
@@ -533,22 +557,22 @@ msgid "Actions"
 msgstr ""
 
 #: main/templates/pages/watchlist.html:66
-#: templates/main/watchedmovie_detail.html:90
+#: templates/main/watchedmovie_detail.html:99
 msgid "Edit entry"
 msgstr "Editer"
 
-#: main/utilities.py:41 main/utilities.py:54 main/views.py:391
-#: main/views.py:404
+#: main/utilities.py:41 main/utilities.py:54 main/views.py:393
+#: main/views.py:406
 msgid "You have a new friend!"
 msgstr "Vous avez un nouvel ami !"
 
 #: main/utilities.py:42 main/utilities.py:55 main/utilities.py:66
-#: main/views.py:392 main/views.py:405
+#: main/views.py:394 main/views.py:407
 msgid "You are now friend with "
 msgstr "You êtes désormais ami avec "
 
-#: main/utilities.py:42 main/utilities.py:55 main/views.py:392
-#: main/views.py:405
+#: main/utilities.py:42 main/utilities.py:55 main/views.py:394
+#: main/views.py:407
 msgid ""
 "!\n"
 "You can now see this user's watchlist.\n"
@@ -592,15 +616,15 @@ msgstr "Vous avez déjà envoyé une demande d'ami à "
 msgid "You are already friend with "
 msgstr "Vous êtes déjà ami avec "
 
-#: main/views.py:43 main/views.py:85
+#: main/views.py:43 main/views.py:86
 msgid "Activate your MovieDirectory account"
 msgstr "Activer votre compte MovieDirectory"
 
-#: main/views.py:128
+#: main/views.py:129
 msgid "Activation link is invalid!"
 msgstr "Le lien d'activation n'est pas valide !"
 
-#: main/views.py:337
+#: main/views.py:339
 msgid "This user doesn't exist"
 msgstr "Cet utilisateur n'existe pas."
 
@@ -664,6 +688,14 @@ msgstr "Français"
 msgid "English"
 msgstr "Anglais"
 
+#: moviedirectory/settings.py:177
+msgid "German"
+msgstr "Allemand"
+
+#: moviedirectory/settings.py:178
+msgid "Russian"
+msgstr "Russe"
+
 #: moviedirectory/urls.py:8
 msgid "Movie Directory Administration"
 msgstr "Administration de Movie Directory"
@@ -688,23 +720,27 @@ msgstr "Signaler un problème"
 msgid "watched"
 msgstr "a regardé"
 
-#: templates/main/watchedmovie_detail.html:47
+#: templates/main/watchedmovie_detail.html:40
+msgid "About"
+msgstr "A propos de"
+
+#: templates/main/watchedmovie_detail.html:61
 msgid "With"
 msgstr "Avec"
 
-#: templates/main/watchedmovie_detail.html:49
+#: templates/main/watchedmovie_detail.html:69
 msgid "Genre(s)"
 msgstr ""
 
-#: templates/main/watchedmovie_detail.html:51
+#: templates/main/watchedmovie_detail.html:77
 msgid "Writer(s)"
 msgstr "Scénariste(s)"
 
-#: templates/main/watchedmovie_detail.html:52
+#: templates/main/watchedmovie_detail.html:81
 msgid "Language(s)"
 msgstr "Langue(s)"
 
-#: templates/main/watchedmovie_detail.html:100
+#: templates/main/watchedmovie_detail.html:109
 msgid "Delete from your watchlist"
 msgstr "Supprimer de votre watchlist"
 
