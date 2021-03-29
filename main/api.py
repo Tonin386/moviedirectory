@@ -104,13 +104,16 @@ def get_titles(imdb_id):
 		url = "https://api.themoviedb.org/3/find/%s?api_key=%s&language=%s&external_source=imdb_id" % (imdb_id, key, language)
 		response = json.loads(urllib.request.urlopen(url).read())
 		return_key = ""
+		key_type = ""
 		if response['movie_results'] != []:
 			return_key = "movie_results"
+			key_type = "title"
 		elif response['tv_results'] != []:
 			return_key = "tv_results"
+			key_type = "name"
 
-		translations[language] = response[return_key][0]['title']
-		translations["original_title"] = response[return_key][0]['original_title']
+		translations[language] = response[return_key][0][key_type]
+		translations["original_title"] = response[return_key][0]['original_' + key_type]
 
 	return translations
 
