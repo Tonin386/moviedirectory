@@ -19,8 +19,6 @@ from datetime import datetime
 from .utilities import *
 from .forms import *
 from .api import *
-import logging
-
 
 logger = logging.getLogger(__name__)
 

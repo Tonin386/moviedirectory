@@ -6,7 +6,7 @@
   </button>
   <a class="navbar-brand" href="{% url 'home' %}">
     <img src="{% static 'img/logo.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
-    Movie Directory {% if user.is_authenticated %} <span class="text-muted"> <br> {{user.username}} </span> {% endif %}
+    Movie Directory {% if user.is_authenticated %} <span class="text-muted"> <br> {{user.username}} </span> {% else %} <span class="text-muted"> <br> {% trans "Guest" %} </span> {% endif %}
   </a>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">

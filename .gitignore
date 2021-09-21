@@ -64,6 +64,7 @@ local_settings.py
 /*/migrations/*
 !/*/migrations/__init__.py
 production files/
+fiddleco_md
 
 
 # Flask stuff:

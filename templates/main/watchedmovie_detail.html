@@ -7,14 +7,14 @@
 
 <div class="row justify-content-center mt-5 no-gutters">
 	<div class="card bg-dark text-light w-75">
-		<h4 class="card-header w-100 card-header-link"> 
-			<a class="stretched-link" href="{% url 'user_watchlist' username=object.viewer.username %}"></a> 
+		<h4 class="card-header w-100 card-header-link">
+			<a class="stretched-link" href="{% url 'user_watchlist' username=object.viewer.username %}"></a>
 			{% if object.viewer.name_display %}
 			{{object.viewer.first_name}} {{object.viewer.last_name}}
 			{% else %}
 			{{object.viewer.username}}
 			{% endif %}
-			{% trans "watched" %} 
+			{% trans "watched" %}
 			<span style="float right;">
 				{% if object.new %}
 				<i class="fa fa-lg fa-star"></i>
@@ -28,7 +28,7 @@
 			<h3 class="card-title display-4 text-white btn-card-right col-12">{{object.movie.title}}
 				<br>
 				<span class="text-muted"> {{ object.movie.director }} <br> {{object.movie.year}}</span>
-			</h3>	
+			</h3>
 
 			<div class="col-xl-4 img-card-poster m-auto">
 				<img src="{{object.movie.poster}}" alt="{{object.movie.title}}" class="img-fluid capped-img">
@@ -95,25 +95,33 @@
 			<div class="m-auto text-center">
 				{% if request.user == object.viewer %}
 				<a href="{% url 'watchedmovie_edit' pk=object.pk %}" class="btn btn-warning m-2">
-					<i class="fa fa-edit"></i> 
+					<i class="fa fa-edit"></i>
 					{% trans "Edit entry" %}
-				</a> 
+				</a>
 				{% endif %}
-				<a href="https://www.imdb.com/title/{{object.movie.imdbid}}" class="btn btn-warning m-2" target="_blank">
-					<i class="fa fa-external-link"></i> 
+				<a href="https://www.imdb.com/title/{{object.movie.imdbid}}" class="btn btn-warning m-2"
+					target="_blank">
+					<i class="fa fa-external-link"></i>
 					{% trans "See on IMDb" %}
 				</a>
-				{% if request.user == object.viewer %} 
+				{% if request.user == object.viewer %}
 				<a href="{% url 'delete' ownid=object.id %}" class="btn btn-danger m-2">
-					<i class="fa fa-remove"></i> 
+					<i class="fa fa-remove"></i>
 					{% trans "Delete from your watchlist" %}
-				</a> 
+				</a>
 				{% endif %}
 			</div>
 		</div>
 		<div class="card-footer">
 			<p class="card-text text-center">{% trans "Watched on" %} {{ object.view_date }} - {{object.note}}/10</p>
 		</div>
+	</div>
+
+	<div class="card bg-dark text-light w-75 mt-3">
+		<h4 class="card-header w-100">
+			{% trans "User review" %}
+		</h4>
+		<p class="card-text p-3">{{ object.comment }} </p>
 	</div>
 </div>
 
