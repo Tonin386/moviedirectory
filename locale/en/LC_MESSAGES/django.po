@@ -2,13 +2,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-29 23:13+0000\n"
+"POT-Creation-Date: 2022-02-23 18:47+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,559 +18,542 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: main/apps.py:6
+#: .\main\apps.py:6
 msgid "Movies management"
 msgstr ""
 
-#: main/forms.py:11 main/templates/pages/friendlist.html:21
-#: moviedirectory/forms.py:8 moviedirectory/models.py:53
+#: .\main\forms.py:11 .\main\templates\pages\friendlist.html:21
+#: .\moviedirectory\forms.py:8 .\moviedirectory\models.py:53
 msgid "Username"
 msgstr ""
 
-#: main/forms.py:12 moviedirectory/forms.py:9
+#: .\main\forms.py:12 .\moviedirectory\forms.py:9
 msgid "Password"
 msgstr ""
 
-#: main/forms.py:44 main/models.py:114 main/templates/index.html:19
-#: main/templates/pages/add.html:28 main/templates/pages/add.html:31
-#: main/templates/pages/old_watchlist.html:37
-#: templates/main/watchedmovie_detail.html:115
-#: templates/main/watchedmovie_update_form.html:15
-#: templates/main/watchedmovie_update_form.html:18
+#: .\main\forms.py:44 .\main\models.py:114 .\main\templates\index.html:19
+#: .\main\templates\pages\add.html:29 .\main\templates\pages\add.html:33
+#: .\main\templates\pages\old_watchlist.html:37
+#: .\main\templates\pages\user_watchlist.html:73
+#: .\main\templates\pages\watchlist.html:69
+#: .\templates\main\watchedmovie_detail.html:120
+#: .\templates\main\watchedmovie_update_form.html:15
+#: .\templates\main\watchedmovie_update_form.html:18
 msgid "Watched on"
 msgstr ""
 
-#: main/forms.py:45 main/templates/pages/add.html:61
-#: main/templates/pages/add.html:64 main/templates/pages/user_watchlist.html:75
-#: main/templates/pages/watchlist.html:23
-#: templates/main/watchedmovie_update_form.html:48
-#: templates/main/watchedmovie_update_form.html:51
+#: .\main\forms.py:45 .\main\templates\pages\add.html:69
+#: .\main\templates\pages\add.html:73 .\main\templates\pages\watchlist.html:46
+#: .\templates\main\watchedmovie_update_form.html:48
+#: .\templates\main\watchedmovie_update_form.html:51
 msgid "Note"
 msgstr ""
 
-#: main/forms.py:46
+#: .\main\forms.py:46
 msgid "New"
 msgstr ""
 
-#: main/forms.py:47
+#: .\main\forms.py:47
 msgid "I saw it at theater"
 msgstr ""
 
-#: main/forms.py:48
+#: .\main\forms.py:48
 msgid "Personal comment"
 msgstr ""
 
-#: main/forms.py:54 main/templates/pages/profile.html:18
-#: main/templates/pages/profile.html:21 main/templates/pages/profile.html:23
-#: moviedirectory/models.py:57
+#: .\main\forms.py:54 .\main\templates\pages\profile.html:18
+#: .\main\templates\pages\profile.html:22
+#: .\main\templates\pages\profile.html:24 .\moviedirectory\models.py:57
 msgid "First name"
 msgstr ""
 
-#: main/forms.py:55 main/templates/pages/profile.html:27
-#: main/templates/pages/profile.html:30 main/templates/pages/profile.html:32
-#: moviedirectory/models.py:58
+#: .\main\forms.py:55 .\main\templates\pages\profile.html:29
+#: .\main\templates\pages\profile.html:33
+#: .\main\templates\pages\profile.html:35 .\moviedirectory\models.py:58
 msgid "Last name"
 msgstr ""
 
-#: main/forms.py:56 main/templates/pages/profile.html:36
-#: main/templates/pages/profile.html:39
+#: .\main\forms.py:56 .\main\templates\pages\profile.html:40
+#: .\main\templates\pages\profile.html:44
 msgid "Birthday"
 msgstr ""
 
-#: main/forms.py:57 main/templates/pages/profile.html:57
-#: main/templates/pages/profile.html:60
+#: .\main\forms.py:57 .\main\templates\pages\profile.html:65
+#: .\main\templates\pages\profile.html:69
 msgid "Email notifications"
 msgstr ""
 
-#: main/forms.py:58
+#: .\main\forms.py:58
 msgid "Private"
 msgstr ""
 
-#: main/forms.py:59 main/templates/pages/profile.html:69
-#: main/templates/pages/profile.html:72
+#: .\main\forms.py:59 .\main\templates\pages\profile.html:79
+#: .\main\templates\pages\profile.html:83
 msgid "Name display"
 msgstr ""
 
-#: main/models.py:11
+#: .\main\models.py:11
 msgid "Default title"
 msgstr ""
 
-#: main/models.py:12
+#: .\main\models.py:12
 msgid "French title"
 msgstr ""
 
-#: main/models.py:13
+#: .\main\models.py:13
 msgid "English title"
 msgstr ""
 
-#: main/models.py:14
+#: .\main\models.py:14
 msgid "German title"
 msgstr ""
 
-#: main/models.py:15
+#: .\main\models.py:15
 msgid "Russian title"
 msgstr ""
 
-#: main/models.py:16
+#: .\main\models.py:16 .\main\templates\pages\watchlist.html:28
 msgid "Release year"
 msgstr ""
 
-#: main/models.py:17
+#: .\main\models.py:17
 msgid "Rated"
 msgstr ""
 
-#: main/models.py:18
+#: .\main\models.py:18
 msgid "Release date"
 msgstr ""
 
-#: main/models.py:19 templates/main/watchedmovie_detail.html:73
+#: .\main\models.py:19 .\templates\main\watchedmovie_detail.html:75
 msgid "Runtime"
 msgstr ""
 
-#: main/models.py:20
+#: .\main\models.py:20
 msgid "Genre"
 msgstr ""
 
-#: main/models.py:21
+#: .\main\models.py:21 .\main\templates\pages\watchlist.html:22
 msgid "Director"
 msgstr ""
 
-#: main/models.py:22
+#: .\main\models.py:22
 msgid "Writer"
 msgstr ""
 
-#: main/models.py:23
+#: .\main\models.py:23
 msgid "Actors"
 msgstr ""
 
-#: main/models.py:24
+#: .\main\models.py:24
 msgid "Default plot"
 msgstr ""
 
-#: main/models.py:25
+#: .\main\models.py:25
 msgid "Plot in french"
 msgstr ""
 
-#: main/models.py:26
+#: .\main\models.py:26
 msgid "Plot in english"
 msgstr ""
 
-#: main/models.py:27
+#: .\main\models.py:27
 msgid "Plot in german"
 msgstr ""
 
-#: main/models.py:28
+#: .\main\models.py:28
 msgid "Plot in russian"
 msgstr ""
 
-#: main/models.py:29 main/templates/pages/profile.html:95
-#: main/templates/pages/profile.html:98
+#: .\main\models.py:29 .\main\templates\pages\profile.html:107
+#: .\main\templates\pages\profile.html:111
 msgid "Language"
 msgstr ""
 
-#: main/models.py:30 templates/main/watchedmovie_detail.html:85
+#: .\main\models.py:30 .\templates\main\watchedmovie_detail.html:87
 msgid "Country"
 msgstr ""
 
-#: main/models.py:31 templates/main/watchedmovie_detail.html:65
+#: .\main\models.py:31 .\templates\main\watchedmovie_detail.html:67
 msgid "Awards"
 msgstr ""
 
-#: main/models.py:32
+#: .\main\models.py:32
 msgid "Poster URL"
 msgstr ""
 
-#: main/models.py:33
+#: .\main\models.py:33
 msgid "IMDb ID"
 msgstr ""
 
-#: main/models.py:34
+#: .\main\models.py:34
 msgid "Type"
 msgstr ""
 
-#: main/models.py:35 templates/main/watchedmovie_detail.html:89
+#: .\main\models.py:35 .\templates\main\watchedmovie_detail.html:91
 msgid "Production"
 msgstr ""
 
-#: main/models.py:36 main/models.py:120
+#: .\main\models.py:36 .\main\models.py:120
 msgid "Created on"
 msgstr ""
 
-#: main/models.py:105 main/models.py:113
+#: .\main\models.py:105 .\main\models.py:113
 msgid "Movie"
 msgstr ""
 
-#: main/models.py:115
+#: .\main\models.py:115
 msgid "Personal note"
 msgstr ""
 
-#: main/models.py:116 main/templates/pages/add.html:37
-#: main/templates/pages/add.html:40
-#: templates/main/watchedmovie_update_form.html:24
-#: templates/main/watchedmovie_update_form.html:27
+#: .\main\models.py:116 .\main\templates\pages\add.html:41
+#: .\main\templates\pages\add.html:45
+#: .\templates\main\watchedmovie_update_form.html:24
+#: .\templates\main\watchedmovie_update_form.html:27
 msgid "Never seen before"
 msgstr ""
 
-#: main/models.py:117 main/templates/pages/add.html:49
-#: main/templates/pages/add.html:52
-#: templates/main/watchedmovie_update_form.html:36
-#: templates/main/watchedmovie_update_form.html:39
+#: .\main\models.py:117 .\main\templates\pages\add.html:55
+#: .\main\templates\pages\add.html:59
+#: .\templates\main\watchedmovie_update_form.html:36
+#: .\templates\main\watchedmovie_update_form.html:39
 msgid "I saw it at theater!"
 msgstr ""
 
-#: main/models.py:118
+#: .\main\models.py:118
 msgid "Viewer"
 msgstr ""
 
-#: main/models.py:119 main/templates/pages/add.html:70
-#: main/templates/pages/add.html:73
-#: templates/main/watchedmovie_update_form.html:57
-#: templates/main/watchedmovie_update_form.html:60
+#: .\main\models.py:119 .\main\templates\pages\add.html:80
+#: .\main\templates\pages\add.html:84
+#: .\templates\main\watchedmovie_update_form.html:57
+#: .\templates\main\watchedmovie_update_form.html:60
 msgid "Comment"
 msgstr ""
 
-#: main/models.py:123
+#: .\main\models.py:123
 msgid "Watched movie"
 msgstr ""
 
-#: main/templates/auth/reactivate.html:7
+#: .\main\templates\auth\reactivate.html:7
 msgid "Resend activation email"
 msgstr ""
 
-#: main/templates/auth/reactivate.html:12
+#: .\main\templates\auth\reactivate.html:12
 msgid "We couldn't find an user with this email address"
 msgstr ""
 
-#: main/templates/auth/reactivate.html:20
-#: main/templates/auth/reactivate.html:41
-#: main/templates/auth/reactivate.html:57
-#: templates/registration/password_reset_form.html:15
+#: .\main\templates\auth\reactivate.html:20
+#: .\main\templates\auth\reactivate.html:41
+#: .\main\templates\auth\reactivate.html:57
+#: .\templates\registration\password_reset_form.html:15
 msgid "Email you used for inscription"
 msgstr ""
 
-#: main/templates/auth/reactivate.html:23
-#: main/templates/auth/reactivate.html:44
-#: main/templates/auth/reactivate.html:60
-#: main/templates/pages/friendlist.html:24
-#: templates/registration/password_reset_form.html:18
+#: .\main\templates\auth\reactivate.html:23
+#: .\main\templates\auth\reactivate.html:44
+#: .\main\templates\auth\reactivate.html:60
+#: .\main\templates\pages\friendlist.html:24
+#: .\templates\registration\password_reset_form.html:18
 msgid "Send"
 msgstr ""
 
-#: main/templates/auth/reactivate.html:28
+#: .\main\templates\auth\reactivate.html:28
 msgid "The user with this email address is already active."
 msgstr ""
 
-#: main/templates/auth/reactivate.html:32
+#: .\main\templates\auth\reactivate.html:32
 msgid ""
 "Email sent. Please check your emails to activate your account. If you can't "
 "find the email, please check your spam folder."
 msgstr ""
 
-#: main/templates/auth/register.html:6
+#: .\main\templates\auth\register.html:6
 msgid "User registration"
 msgstr ""
 
-#: main/templates/auth/register.html:9
+#: .\main\templates\auth\register.html:9
 msgid ""
 "Sign in successfull. Please check your emails to activate your account. If "
 "you can't find the email, please check your spam folder."
 msgstr ""
 
-#: main/templates/auth/register.html:31
+#: .\main\templates\auth\register.html:31
 msgid "Register"
 msgstr ""
 
-#: main/templates/index.html:8
+#: .\main\templates\index.html:8
 msgid "What the community has recently watched"
 msgstr ""
 
-#: main/templates/index.html:35 main/templates/pages/old_watchlist.html:44
-#: main/templates/pages/user_watchlist.html:125
-#: main/templates/pages/watchlist.html:79
+#: .\main\templates\index.html:35 .\main\templates\pages\old_watchlist.html:44
 msgid "Previous page"
 msgstr ""
 
-#: main/templates/index.html:38 main/templates/pages/old_watchlist.html:47
-#: main/templates/pages/user_watchlist.html:132
-#: main/templates/pages/watchlist.html:82
+#: .\main\templates\index.html:38 .\main\templates\pages\old_watchlist.html:47
 msgid "Next page"
 msgstr ""
 
-#: main/templates/index.html:46
+#: .\main\templates\index.html:46
 msgid "Welcome to Movie Directory"
 msgstr ""
 
-#: main/templates/index.html:58
+#: .\main\templates\index.html:58
 msgid "Share your favorite movies with people who matters."
 msgstr ""
 
-#: main/templates/index.html:61
+#: .\main\templates\index.html:61
 msgid "Always up to date movie database."
 msgstr ""
 
-#: main/templates/index.html:64
+#: .\main\templates\index.html:64
 msgid "Start now and enjoy yourself."
 msgstr ""
 
-#: main/templates/index.html:71
+#: .\main\templates\index.html:71
 msgid "This is where the fun begins"
 msgstr ""
 
-#: main/templates/index.html:71 templates/nav.html:40
+#: .\main\templates\index.html:71 .\templates\nav.html:40
 msgid "Sign in"
 msgstr ""
 
-#: main/templates/index.html:74
+#: .\main\templates\index.html:74
 msgid "Don't worry I've got this"
 msgstr ""
 
-#: main/templates/index.html:74 templates/nav.html:37
-#: templates/registration/login.html:9 templates/registration/login.html:29
-#: templates/registration/password_reset_complete.html:12
+#: .\main\templates\index.html:74 .\templates\nav.html:37
+#: .\templates\registration\login.html:9
+#: .\templates\registration\login.html:29
+#: .\templates\registration\password_reset_complete.html:12
 msgid "Login"
 msgstr ""
 
-#: main/templates/mail/acc_active_email.html:135
-#: main/templates/mail/acc_active_email.html:207
+#: .\main\templates\mail\acc_active_email.html:135
+#: .\main\templates\mail\acc_active_email.html:207
 msgid "Activate your account"
 msgstr ""
 
-#: main/templates/mail/acc_active_email.html:162
+#: .\main\templates\mail\acc_active_email.html:162
 msgid "Hey"
 msgstr ""
 
-#: main/templates/mail/acc_active_email.html:172
+#: .\main\templates\mail\acc_active_email.html:172
 msgid ""
 "Thank you for using MovieDirectory. You need to verify your email address to "
 "connect to your MovieDirectory account."
 msgstr ""
 
-#: main/templates/mail/acc_active_email.html:177
+#: .\main\templates\mail\acc_active_email.html:177
 msgid "To verify your email, please click on the button below :"
 msgstr ""
 
-#: main/templates/mail/acc_active_email.html:219
+#: .\main\templates\mail\acc_active_email.html:219
 msgid "If it doesn't work, please copy and paste this link to your browser:"
 msgstr ""
 
-#: main/templates/pages/add.html:10 main/templates/pages/movielist.html:30
+#: .\main\templates\pages\add.html:10 .\main\templates\pages\movielist.html:35
 msgid "Add to my watchlist"
 msgstr ""
 
-#: main/templates/pages/add.html:18 main/templates/pages/old_watchlist.html:30
+#: .\main\templates\pages\add.html:18
+#: .\main\templates\pages\old_watchlist.html:30
 msgid "With:"
 msgstr ""
 
-#: main/templates/pages/add.html:19 main/templates/pages/old_watchlist.html:31
+#: .\main\templates\pages\add.html:19
+#: .\main\templates\pages\old_watchlist.html:31
 msgid "Awards:"
 msgstr ""
 
-#: main/templates/pages/add.html:20 main/templates/pages/movielist.html:31
-#: main/templates/pages/old_watchlist.html:32
-#: main/templates/pages/user_watchlist.html:114
-#: main/templates/pages/watchlist.html:62
-#: templates/main/watchedmovie_detail.html:104
+#: .\main\templates\pages\add.html:21 .\main\templates\pages\movielist.html:37
+#: .\main\templates\pages\old_watchlist.html:32
+#: .\templates\main\watchedmovie_detail.html:108
 msgid "See on IMDb"
 msgstr ""
 
-#: main/templates/pages/add.html:43 main/templates/pages/add.html:55
-#: main/templates/pages/profile.html:51 main/templates/pages/profile.html:63
-#: templates/main/watchedmovie_update_form.html:30
-#: templates/main/watchedmovie_update_form.html:42
+#: .\main\templates\pages\add.html:48 .\main\templates\pages\add.html:62
+#: .\main\templates\pages\profile.html:58
+#: .\main\templates\pages\profile.html:72
+#: .\templates\main\watchedmovie_update_form.html:30
+#: .\templates\main\watchedmovie_update_form.html:42
 msgid "Yes"
 msgstr ""
 
-#: main/templates/pages/add.html:44 main/templates/pages/add.html:56
-#: main/templates/pages/profile.html:52 main/templates/pages/profile.html:64
-#: templates/main/watchedmovie_update_form.html:31
-#: templates/main/watchedmovie_update_form.html:43
+#: .\main\templates\pages\add.html:49 .\main\templates\pages\add.html:63
+#: .\main\templates\pages\profile.html:59
+#: .\main\templates\pages\profile.html:73
+#: .\templates\main\watchedmovie_update_form.html:31
+#: .\templates\main\watchedmovie_update_form.html:43
 msgid "No"
 msgstr ""
 
-#: main/templates/pages/add.html:75
-#: templates/main/watchedmovie_update_form.html:62
+#: .\main\templates\pages\add.html:87
+#: .\templates\main\watchedmovie_update_form.html:62
 msgid "Short comment on this movie..."
 msgstr ""
 
-#: main/templates/pages/add.html:79
+#: .\main\templates\pages\add.html:92
 msgid "Add"
 msgstr ""
 
-#: main/templates/pages/add.html:79
+#: .\main\templates\pages\add.html:93
 msgid "to my watchlist"
 msgstr ""
 
-#: main/templates/pages/friendlist.html:7 templates/nav.html:30
+#: .\main\templates\pages\friendlist.html:7 .\templates\nav.html:30
 msgid "Friendlist"
 msgstr ""
 
-#: main/templates/pages/friendlist.html:19
+#: .\main\templates\pages\friendlist.html:19
 msgid "Send a friend request"
 msgstr ""
 
-#: main/templates/pages/friendlist.html:31
+#: .\main\templates\pages\friendlist.html:31
 msgid "aka"
 msgstr ""
 
-#: main/templates/pages/friendlist.html:32
+#: .\main\templates\pages\friendlist.html:32
 msgid "See watchlist"
 msgstr ""
 
-#: main/templates/pages/friendlist.html:33
+#: .\main\templates\pages\friendlist.html:33
 msgid "Delete friend"
 msgstr ""
 
-#: main/templates/pages/friendlist.html:41
+#: .\main\templates\pages\friendlist.html:41
 msgid "Friend requests sent"
 msgstr ""
 
-#: main/templates/pages/friendlist.html:46
+#: .\main\templates\pages\friendlist.html:46
 msgid "Cancel"
 msgstr ""
 
-#: main/templates/pages/friendlist.html:53
+#: .\main\templates\pages\friendlist.html:53
 msgid "Friend requests received"
 msgstr ""
 
-#: main/templates/pages/friendlist.html:58
+#: .\main\templates\pages\friendlist.html:58
 msgid "Accept"
 msgstr ""
 
-#: main/templates/pages/friendlist.html:59
+#: .\main\templates\pages\friendlist.html:59
 msgid "Refuse"
 msgstr ""
 
-#: main/templates/pages/movielist.html:7
+#: .\main\templates\pages\movielist.html:7
 msgid "Search for a movie in the database"
 msgstr ""
 
-#: main/templates/pages/movielist.html:14
-#: main/templates/pages/user_watchlist.html:72
-#: main/templates/pages/watchlist.html:20
+#: .\main\templates\pages\movielist.html:14
+#: .\main\templates\pages\watchlist.html:16
 msgid "Title"
 msgstr ""
 
-#: main/templates/pages/movielist.html:17
+#: .\main\templates\pages\movielist.html:18
 msgid "Search"
 msgstr ""
 
-#: main/templates/pages/movielist.html:40
+#: .\main\templates\pages\movielist.html:46
 msgid "Error"
 msgstr ""
 
-#: main/templates/pages/old_watchlist.html:8
-#: main/templates/pages/watchlist.html:8 templates/nav.html:17
+#: .\main\templates\pages\old_watchlist.html:8
+#: .\main\templates\pages\watchlist.html:8 .\templates\nav.html:17
 msgid "My watchlist"
 msgstr ""
 
-#: main/templates/pages/old_watchlist.html:10
-#: main/templates/pages/watchlist.html:10
+#: .\main\templates\pages\old_watchlist.html:10
+#: .\main\templates\pages\watchlist.html:105
 msgid "Add a movie to my watchlist"
 msgstr ""
 
-#: main/templates/pages/old_watchlist.html:16
+#: .\main\templates\pages\old_watchlist.html:16
 msgid "I watched..."
 msgstr ""
 
-#: main/templates/pages/old_watchlist.html:33
-#: main/templates/pages/watchlist.html:69
+#: .\main\templates\pages\old_watchlist.html:33
 msgid "Delete entry"
 msgstr ""
 
-#: main/templates/pages/profile.html:10
+#: .\main\templates\pages\profile.html:10
 msgid "Your profile has been updated."
 msgstr ""
 
-#: main/templates/pages/profile.html:14
+#: .\main\templates\pages\profile.html:14
 msgid "Edit your profile"
 msgstr ""
 
-#: main/templates/pages/profile.html:45 main/templates/pages/profile.html:48
+#: .\main\templates\pages\profile.html:51
+#: .\main\templates\pages\profile.html:55
 msgid "Private watchlist"
 msgstr ""
 
-#: main/templates/pages/profile.html:82
+#: .\main\templates\pages\profile.html:94
 msgid "Edit my profile"
 msgstr ""
 
-#: main/templates/pages/profile.html:85
-#: templates/registration/password_change_form.html:7
-#: templates/registration/password_change_form.html:37
-#: templates/registration/password_reset_confirm.html:30
+#: .\main\templates\pages\profile.html:97
+#: .\templates\registration\password_change_form.html:7
+#: .\templates\registration\password_change_form.html:37
+#: .\templates\registration\password_reset_confirm.html:30
 msgid "Change password"
 msgstr ""
 
-#: main/templates/pages/profile.html:89
+#: .\main\templates\pages\profile.html:101
 msgid "Language settings"
 msgstr ""
 
-#: main/templates/pages/profile.html:108
+#: .\main\templates\pages\profile.html:122
 msgid "Change language"
 msgstr ""
 
-#: main/templates/pages/user_watchlist.html:11
+#: .\main\templates\pages\user_watchlist.html:11
 msgid "It seems like this user doesn't exist."
 msgstr ""
 
-#: main/templates/pages/user_watchlist.html:15
+#: .\main\templates\pages\user_watchlist.html:15
 msgid "You must be friend with this user to see his watchlist."
 msgstr ""
 
-#: main/templates/pages/user_watchlist.html:24
-#: main/templates/pages/user_watchlist.html:45
+#: .\main\templates\pages\user_watchlist.html:24
+#: .\main\templates\pages\user_watchlist.html:45
 msgid "Send a friend request to"
 msgstr ""
 
-#: main/templates/pages/user_watchlist.html:31
-#: main/templates/pages/user_watchlist.html:52
+#: .\main\templates\pages\user_watchlist.html:31
+#: .\main\templates\pages\user_watchlist.html:52
 msgid "You already sent a friend invite to"
 msgstr ""
 
-#: main/templates/pages/user_watchlist.html:36
+#: .\main\templates\pages\user_watchlist.html:36
 msgid "'s watchlist"
 msgstr ""
 
-#: main/templates/pages/user_watchlist.html:59
+#: .\main\templates\pages\user_watchlist.html:59
 msgid "You are already friend with"
 msgstr ""
 
-#: main/templates/pages/user_watchlist.html:69
-#: main/templates/pages/watchlist.html:17
-msgid "Poster"
+#: .\main\templates\pages\watchlist.html:34
+msgid "Seen in"
 msgstr ""
 
-#: main/templates/pages/user_watchlist.html:78
-#: main/templates/pages/watchlist.html:26
-msgid "Watched"
+#: .\main\templates\pages\watchlist.html:40
+#: .\templates\main\watchedmovie_detail.html:63
+msgid "With"
 msgstr ""
 
-#: main/templates/pages/user_watchlist.html:81
-#: main/templates/pages/watchlist.html:29
-msgid "Special"
-msgstr ""
-
-#: main/templates/pages/user_watchlist.html:84
-#: main/templates/pages/watchlist.html:32
-msgid "Actions"
-msgstr ""
-
-#: main/templates/pages/watchlist.html:66
-#: templates/main/watchedmovie_detail.html:99
-msgid "Edit entry"
-msgstr ""
-
-#: main/utilities.py:41 main/utilities.py:54 main/views.py:393
-#: main/views.py:406
+#: .\main\utilities.py:41 .\main\utilities.py:54 .\main\views.py:396
+#: .\main\views.py:409
 msgid "You have a new friend!"
 msgstr ""
 
-#: main/utilities.py:42 main/utilities.py:55 main/utilities.py:66
-#: main/views.py:394 main/views.py:407
+#: .\main\utilities.py:42 .\main\utilities.py:55 .\main\utilities.py:66
+#: .\main\views.py:397 .\main\views.py:410
 msgid "You are now friend with "
 msgstr ""
 
-#: main/utilities.py:42 main/utilities.py:55 main/views.py:394
-#: main/views.py:407
+#: .\main\utilities.py:42 .\main\utilities.py:55 .\main\views.py:397
+#: .\main\views.py:410
 msgid ""
 "!\n"
 "You can now see this user's watchlist.\n"
@@ -579,11 +562,11 @@ msgid ""
 "You can turn off email notifications on your profile."
 msgstr ""
 
-#: main/utilities.py:85
+#: .\main\utilities.py:85
 msgid "You have a new friend invite!"
 msgstr ""
 
-#: main/utilities.py:86
+#: .\main\utilities.py:86
 msgid ""
 " wants to be friend with you. You can accept or refuse this invite on Movie "
 "Directory.\n"
@@ -592,234 +575,234 @@ msgid ""
 "You can turn off email notifications on your profile."
 msgstr ""
 
-#: main/utilities.py:97
+#: .\main\utilities.py:97
 msgid "You sent a friend invite to "
 msgstr ""
 
-#: main/utilities.py:99
+#: .\main\utilities.py:99
 msgid "You already sent a friend request to "
 msgstr ""
 
-#: main/utilities.py:101
+#: .\main\utilities.py:101
 msgid "You are already friend with "
 msgstr ""
 
-#: main/views.py:43 main/views.py:86
+#: .\main\views.py:43 .\main\views.py:86
 msgid "Activate your MovieDirectory account"
 msgstr ""
 
-#: main/views.py:129
+#: .\main\views.py:129
 msgid "Activation link is invalid!"
 msgstr ""
 
-#: main/views.py:339
+#: .\main\views.py:342
 msgid "This user doesn't exist"
 msgstr ""
 
-#: moviedirectory/apps.py:6
+#: .\moviedirectory\apps.py:6
 msgid "Members management"
 msgstr ""
 
-#: moviedirectory/models.py:49
+#: .\moviedirectory\models.py:49
 msgid "Male"
 msgstr ""
 
-#: moviedirectory/models.py:50
+#: .\moviedirectory\models.py:50
 msgid "Female"
 msgstr ""
 
-#: moviedirectory/models.py:54
+#: .\moviedirectory\models.py:54
 msgid "Birthdate"
 msgstr ""
 
-#: moviedirectory/models.py:55
+#: .\moviedirectory\models.py:55
 msgid "Gender"
 msgstr ""
 
-#: moviedirectory/models.py:56
+#: .\moviedirectory\models.py:56
 msgid "Email"
 msgstr ""
 
-#: moviedirectory/models.py:59
+#: .\moviedirectory\models.py:59
 msgid "Private profile"
 msgstr ""
 
-#: moviedirectory/models.py:60
+#: .\moviedirectory\models.py:60
 msgid "Email notification"
 msgstr ""
 
-#: moviedirectory/models.py:61
+#: .\moviedirectory\models.py:61
 msgid "Name displayed"
 msgstr ""
 
-#: moviedirectory/models.py:62
+#: .\moviedirectory\models.py:62
 msgid "Friends"
 msgstr ""
 
-#: moviedirectory/models.py:63
+#: .\moviedirectory\models.py:63
 msgid "Sent friend requests ID"
 msgstr ""
 
-#: moviedirectory/models.py:64
+#: .\moviedirectory\models.py:64
 msgid "Received friend invites ID"
 msgstr ""
 
-#: moviedirectory/models.py:84
+#: .\moviedirectory\models.py:84
 msgid "User"
 msgstr ""
 
-#: moviedirectory/settings.py:175
+#: .\moviedirectory\settings.py:175
 msgid "French"
 msgstr ""
 
-#: moviedirectory/settings.py:176
+#: .\moviedirectory\settings.py:176
 msgid "English"
 msgstr ""
 
-#: moviedirectory/settings.py:177
+#: .\moviedirectory\settings.py:177
 msgid "German"
 msgstr ""
 
-#: moviedirectory/settings.py:178
+#: .\moviedirectory\settings.py:178
 msgid "Russian"
 msgstr ""
 
-#: moviedirectory/urls.py:8
+#: .\moviedirectory\urls.py:8
 msgid "Movie Directory Administration"
 msgstr ""
 
-#: moviedirectory/urls.py:9
+#: .\moviedirectory\urls.py:9
 msgid "Movie Directory"
 msgstr ""
 
-#: moviedirectory/urls.py:10
+#: .\moviedirectory\urls.py:10
 msgid "Administration"
 msgstr ""
 
-#: templates/footer.html:15
+#: .\templates\footer.html:15
 msgid "Repository"
 msgstr ""
 
-#: templates/footer.html:19
+#: .\templates\footer.html:19
 msgid "Report an issue"
 msgstr ""
 
-#: templates/main/watchedmovie_detail.html:17
+#: .\templates\main\watchedmovie_detail.html:17
 msgid "watched"
 msgstr ""
 
-#: templates/main/watchedmovie_detail.html:40
+#: .\templates\main\watchedmovie_detail.html:42
 msgid "About"
 msgstr ""
 
-#: templates/main/watchedmovie_detail.html:61
-msgid "With"
-msgstr ""
-
-#: templates/main/watchedmovie_detail.html:69
+#: .\templates\main\watchedmovie_detail.html:71
 msgid "Genre(s)"
 msgstr ""
 
-#: templates/main/watchedmovie_detail.html:77
+#: .\templates\main\watchedmovie_detail.html:79
 msgid "Writer(s)"
 msgstr ""
 
-#: templates/main/watchedmovie_detail.html:81
+#: .\templates\main\watchedmovie_detail.html:83
 msgid "Language(s)"
 msgstr ""
 
-#: templates/main/watchedmovie_detail.html:109
+#: .\templates\main\watchedmovie_detail.html:102
+msgid "Edit entry"
+msgstr ""
+
+#: .\templates\main\watchedmovie_detail.html:113
 msgid "Delete from your watchlist"
 msgstr ""
 
-#: templates/main/watchedmovie_update_form.html:11
-#: templates/main/watchedmovie_update_form.html:66
+#: .\templates\main\watchedmovie_update_form.html:11
+#: .\templates\main\watchedmovie_update_form.html:66
 msgid "Edit"
 msgstr ""
 
-#: templates/main/watchedmovie_update_form.html:75
+#: .\templates\main\watchedmovie_update_form.html:75
 msgid "Error - You shouldn't be here !"
 msgstr ""
 
-#: templates/nav.html:14
+#: .\templates\nav.html:14
 msgid "Home"
 msgstr ""
 
-#: templates/nav.html:20
+#: .\templates\nav.html:20
 msgid "Movie list"
 msgstr ""
 
-#: templates/nav.html:24
+#: .\templates\nav.html:24
 msgid "Profile"
 msgstr ""
 
-#: templates/nav.html:27
+#: .\templates\nav.html:27
 msgid "Stats"
 msgstr ""
 
-#: templates/nav.html:27
+#: .\templates\nav.html:27
 msgid "Soon!"
 msgstr ""
 
-#: templates/nav.html:33
+#: .\templates\nav.html:33
 msgid "Logout"
 msgstr ""
 
-#: templates/registration/login.html:7
+#: .\templates\registration\login.html:7
 msgid "Hi"
 msgstr ""
 
-#: templates/registration/login.html:23
+#: .\templates\registration\login.html:23
 msgid "Required"
 msgstr ""
 
-#: templates/registration/login.html:36
+#: .\templates\registration\login.html:36
 msgid "Can't login? Make sure you activated your account."
 msgstr ""
 
-#: templates/registration/login.html:39
+#: .\templates\registration\login.html:39
 msgid "Forgot your password?"
 msgstr ""
 
-#: templates/registration/password_change_done.html:7
+#: .\templates\registration\password_change_done.html:7
 msgid "Password changed"
 msgstr ""
 
-#: templates/registration/password_change_done.html:10
+#: .\templates\registration\password_change_done.html:10
 msgid "Your password has been changed."
 msgstr ""
 
-#: templates/registration/password_change_form.html:20
+#: .\templates\registration\password_change_form.html:20
 msgid "Old password"
 msgstr ""
 
-#: templates/registration/password_change_form.html:26
-#: templates/registration/password_reset_confirm.html:19
+#: .\templates\registration\password_change_form.html:26
+#: .\templates\registration\password_reset_confirm.html:19
 msgid "New password"
 msgstr ""
 
-#: templates/registration/password_change_form.html:32
-#: templates/registration/password_reset_confirm.html:25
+#: .\templates\registration\password_change_form.html:32
+#: .\templates\registration\password_reset_confirm.html:25
 msgid "Confirm password"
 msgstr ""
 
-#: templates/registration/password_reset_complete.html:7
-#: templates/registration/password_reset_confirm.html:7
+#: .\templates\registration\password_reset_complete.html:7
+#: .\templates\registration\password_reset_confirm.html:7
 msgid "Reset password"
 msgstr ""
 
-#: templates/registration/password_reset_complete.html:11
+#: .\templates\registration\password_reset_complete.html:11
 msgid "Your password has been reset successfully."
 msgstr ""
 
-#: templates/registration/password_reset_done.html:7
+#: .\templates\registration\password_reset_done.html:7
 msgid "Instructions sent"
 msgstr ""
 
-#: templates/registration/password_reset_done.html:10
+#: .\templates\registration\password_reset_done.html:10
 msgid "We've emailed you the instructions to reset your password."
 msgstr ""
 
-#: templates/registration/password_reset_form.html:8
+#: .\templates\registration\password_reset_form.html:8
 msgid "Forgot password"
 msgstr ""

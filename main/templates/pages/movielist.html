@@ -7,14 +7,16 @@
 <h1 class="text-center text-light mt-5">{% trans "Search for a movie in the database" %}</h1>
 <form method="post" action="">
 	{% csrf_token %}
-	<div class="input-group mb-3 col-lg-3 m-auto">
-		<div class="input-group-prepend">
-			<span class="input-group-text" id="basic-addon1">IMDb</span>
+	<div class="row g-0 justify-content-center p-3">
+		<div class="col-xl-4 mt-5">
+			<div class="input-group">
+				<span class="input-group-text" id="basic-addon1">IMDb</span>
+				<input type="text" class="form-control" placeholder="{% trans 'Title' %}" aria-label="Title" aria-describedby="basic-addon1" value="{{ title }}" name="title">
+			</div>
 		</div>
-		<input type="text" class="form-control" placeholder="{% trans 'Title' %}" aria-label="Title" aria-describedby="basic-addon1" value="{{ title }}" name="title">
-	</div>
-	<div class="text-center">
-		<button type="submit" class="btn btn-light mt-3"><i class="fa fa-search"></i> {% trans "Search" %}</button>
+		<div class="col-xl-1 text-center mt-5">
+			<button type="submit" class="btn btn-light"><i class="fa fa-search"></i> {% trans "Search" %}</button>
+		</div>
 	</div>
 </form>
 {% if title and success %}
@@ -24,11 +26,15 @@
 	{% if movie.media_type == "movie" or movie.media_type == "tv" or movie.media_type == "episode" %}
 	<div class="col-lg-3 mt-3">
 		<div class="card m-auto bg-dark text-light" style="width: 24rem;">
-			<img class="card-img-top" src="http://image.tmdb.org/t/p/original{{ movie.poster_path }}" width="180" alt="{{ movie.title }} poster">
+			<img class="card-img-top" src="http://image.tmdb.org/t/p/original{{ movie.poster_path }}" width="180"
+				alt="{{ movie.title }} poster">
 			<div class="card-body text-center">
-				<h5 class="card-title"> {{ movie.title }}{{movie.name}} <span class="text-muted ">- {{ movie.first_air_date.0 }}{{ movie.first_air_date.1 }}{{ movie.first_air_date.2 }}{{ movie.first_air_date.3 }}{{movie.release_date.0}}{{movie.release_date.1}}{{movie.release_date.2}}{{movie.release_date.3}}</span></h5>
+				<h5 class="card-title"> {{ movie.title }}{{movie.name}} <span class="text-muted ">
+					- {{movie.first_air_date.0 }}{{ movie.first_air_date.1 }}{{ movie.first_air_date.2 }}{{movie.first_air_date.3}}{{movie.release_date.0}}{{movie.release_date.1}}{{movie.release_date.2}}{{movie.release_date.3}}</span>
+				</h5>
 				<a href="{% url 'add' imdbid=movie.imdbid %}" class="btn btn-success mt-3"><i class="fa fa-plus"></i> {% trans "Add to my watchlist" %} </a>
-				<a href="https://www.imdb.com/title/{{movie.imdbid}}" class="btn btn-warning mt-3" target="_blank"><i class="fa fa-external-link"></i> {% trans "See on IMDb" %}</a>
+				<a href="https://www.imdb.com/title/{{movie.imdbid}}" class="btn btn-warning mt-3" target="_blank"><i
+						class="fa fa-external-link"></i> {% trans "See on IMDb" %}</a>
 			</div>
 		</div>
 	</div>

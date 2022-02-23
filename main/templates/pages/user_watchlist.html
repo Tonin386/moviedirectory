@@ -61,79 +61,47 @@
 </div>
 {% endif %}
 
+<div class="row text-center infinite-x mt-3" id="watchlist">
+	{% for movie in movies %}
+	<div class="infinite-x-child col-xl-2">
+		<div class="card bg-dark text-light mx-auto mb-2">
+			<img src="{{ movie.movie.poster }}" alt="{{ movie.movie.title }}" class="img-fluid card-img">
+			<div class="card-img-overlay">
+				<a href="{% url 'watchedmovie-detail' pk=movie.pk %}" class="stretched-link"></a>
+				<h4 class="card-title text-center mt-2"> {{ movie.movie.title }}</h4>
+				<div class="card-body m-auto mt-2 text-center card-img-footer">
+					<p class="card-text">{% trans "Watched on" %} {{ movie.view_date }} <br>{{movie.note}}/10</p>
+					<br>
+					{% if movie.new %}
+					<i class="fa fa-lg fa-star"></i>
+					{% endif %}
+					{% if movie.theater %}
+					<i class="fa fa-lg fa-film"></i>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+		<div class="m-auto">
+			<a href="https://www.imdb.com/title/{{movie.movie.imdbid}}" class="btn btn-warning" target="_blank">
+				<i class="fa fa-external-link m-auto"></i>
+			</a>
+			<a href="{% url 'watchedmovie_edit' pk=movie.pk %}" class="btn btn-warning m-auto">
+				<i class="fa fa-edit"></i>
+			</a>
+			<a href="{% url 'delete' ownid=movie.id %}" class="btn btn-danger m-auto"><i class="fa fa-remove"></i>
+			</a>
+		</div>
+	</div>
+	{% endfor %}
+</div>
 
-<table class="table table-dark mt-3 w-75 mr-auto ml-auto text-center">
-	<thead class="thead-light">
-		<tr>
-			<th scope="col" class="align-middle">
-				<h5> {% trans "Poster" %} </h5>
-			</th>
-			<th scope="col" class="align-middle">
-				<h5> {% trans "Title" %} </h5>
-			</th>
-			<th scope="col" class="align-middle">
-				<h5> {% trans "Note" %} </h5>
-			</th>
-			<th scope="col" class="align-middle">
-				<h5> {% trans "Watched" %} </h5>
-			</th>
-			<th scope="col" class="align-middle">
-				<h5> {% trans "Special" %} </h5>
-			</th>
-			<th scope="col" class="align-middle d-none d-lg-table-cell d-xs-none">
-				<h5> {% trans "Actions" %} </h5>
-			</th>
-		</tr>
-	</thead>
-	<tbody>
-		{% for movie in movies %}
-		<tr class="clickable-row" data-href="{% url 'watchedmovie-detail' pk=movie.pk %}">
-			<td class="align-middle"> 
-				<img src="{{movie.movie.poster}}" alt="{{movie.movie.title}}" class="img-fluid" width="100"> 
-			</td>
-			<td class="align-middle">
-				<h5>{{ movie.movie.title }}</h5>
-			</td>
-			<td class="align-middle">
-				<h5> {{ movie.note }}/10 </h5>
-			</td>
-			<td class="align-middle">
-				<h5> {{ movie.view_date }}</h5>
-			</td>
-			<td class="align-middle">
-				{% if movie.new %}
-				<i class="fa fa-3x fa-star"></i>
-				{% endif %}
-				{% if movie.theater %}
-				<i class="fa fa-3x fa-film"></i>
-				{% endif %}
-			</td>
-			<td class="align-middle d-none d-lg-table-cell d-xs-none">
-				<a href="https://www.imdb.com/title/{{movie.movie.imdbid}}" class="btn btn-warning mb-2 w-100" target="_blank">
-					<i class="fa fa-external-link"></i> 
-					{% trans "See on IMDb" %}
-				</a>
-			</td>
-		</tr>
-		{% endfor %}
-	</tbody>
-</table>
-
-<div class="row justify-content-center no-gutters">
-	{% if page > 1 %}
-	<a href="{% url 'user_watchlist_page' username=t_user.username page=previous_page %}" class="btn btn-light m-2 p-2 col-xs-2">
-		{% trans "Previous page" %}
-		<br>
+<div class="row justify-content-center g-0 mt-4">
+	<button onclick="scrollWatchListRight()" class="btn btn-light m-2 p-2 col-xs-2">
 		<i class="fa fa-arrow-left"></i>
-	</a>
-	{% endif %}
-	{% if not last_page %}
-	<a href="{% url 'user_watchlist_page' username=t_user.username page=next_page %}" class="btn btn-light m-2 p-2 col-xs-2"> 
-		{% trans "Next page" %}
-		<br>
-		<i class="fa fa-arrow-right"></i> 
-	</a>
-	{% endif %}
+	</button>
+	<button onclick="scrollWatchListLeft()" class="btn btn-light m-2 p-2 col-xs-2">
+		<i class="fa fa-arrow-right"></i>
+	</button>
 </div>
 {% endif %}
 
