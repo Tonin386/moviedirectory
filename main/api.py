@@ -13,11 +13,12 @@ config.read('config.ini')
 
 def make_request_by_id(md_id, plot, md_type="none"): #Returns array with request answer
 	print("make_request_by_id called")
+	print("id: ", md_id)
 
 	url = "http://www.omdbapi.com/?apikey="
 	key = config.get('imdb_api', 'key')
 	url += key + "&"
-	url += "i=" + urllib.parse.quote(md_id);
+	url += "i=" + urllib.parse.quote(md_id)
 	if plot:
 		url += "&plot=full"
 	if md_type != "none":
@@ -83,14 +84,11 @@ def make_request_search(md_title, md_type="none", page=1):
 
 	md_title = urllib.parse.quote(md_title)
 
-	id_response = make_request_by_id(md_title, 0)
-	if id_response['Response'] == 'True':
-		response['Search'] = {}
-		response['Search']['results'] = [id_response]
-	else:
-		response['Search'] = make_request_multilang_title_search(md_title)
-		for i in range(0, len(response['Search']['results'])):
-			response['Search']['results'][i]['imdbid'] = get_imdb_id(response['Search']['results'][i]['id'], response['Search']['results'][i]['media_type'])
+	response['Search'] = make_request_multilang_title_search(md_title)
+	for i in range(0, len(response['Search']['results'])):
+		response['Search']['results'][i]['imdbid'] = get_imdb_id(response['Search']['results'][i]['id'], response['Search']['results'][i]['media_type'])
+		if i > 4:
+			return response
 
 
 	return response

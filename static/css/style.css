@@ -136,12 +136,35 @@ h1.text-light {
   transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
 }
 
+#watchlist {
+  scroll-behavior: smooth;
+}
+
+.infinite-x {
+  white-space: nowrap;
+  display: block;
+  margin: auto;
+  overflow: hidden;
+}
+
+.infinite-x-child {
+  display: inline-block!important;
+  float: none!important;
+}
+
+h4.card-title {
+  white-space: pre-wrap;
+}
+
+.btn-outline-success {
+  border: none!important;
+}
 
 @media screen and (min-width: 1200px) {
   ul.navbar-nav {
     position: absolute;
     right: 0;
-    text-align: center!important!important;
+    text-align: center!important;
     clear: all;
   }
 

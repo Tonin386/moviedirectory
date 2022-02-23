@@ -129,35 +129,69 @@ def activate(request, uidb64, token):
 @login_required
 def watchlist(request):
 		
-	movies = WatchedMovie.objects.filter(viewer=request.user).order_by('-view_date', '-id')[:10]
-	page = 1
-	nb_elements = len(WatchedMovie.objects.filter(viewer=request.user))
-	next_page = 2
-	previous_page = 1 
+	typeRadio = ""
+	if request.POST:
+		typeRadio = request.POST["typeRadio"]
+		inputText = request.POST["inputText"]
+
+	if typeRadio == "title":
+		allMovies = WatchedMovie.objects.filter(viewer=request.user).order_by('-view_date', '-id')
+		allMovies_title = allMovies.filter(movie__title__regex=r"(?i)%s" % inputText)
+		allMovies_title_fr = allMovies.filter(movie__title_fr__regex=r"(?i)%s" % inputText)
+		allMovies_title_en = allMovies.filter(movie__title_en__regex=r"(?i)%s" % inputText)
+		allMovies_title_ge = allMovies.filter(movie__title_ge__regex=r"(?i)%s" % inputText)
+		allMovies_title_ru = allMovies.filter(movie__title_ru__regex=r"(?i)%s" % inputText)
+
+		movies = list(set(list(allMovies_title) + list(allMovies_title_en) + list(allMovies_title_fr) + list(allMovies_title_ge) + list(allMovies_title_ru)))
+
+	elif typeRadio == "director":
+		movies = WatchedMovie.objects.filter(viewer=request.user).order_by('-view_date', '-id').filter(movie__director__regex=r"(?i)%s" % inputText)
 	
-	if page*10 < nb_elements:
-		last_page = False
-	else:
-		last_page = True
+	elif typeRadio == "releaseYear":
+		movies = WatchedMovie.objects.filter(viewer=request.user).order_by('-view_date', '-id').filter(movie__year=inputText)
 
-	return render(request, 'pages/watchlist.html', locals())
-
-@login_required
-def watchlist_page(request, page):
-	if page < 2:
-		return redirect('watchlist')
-
-	start = (page-1) * 10
-	end = page*10
-	movies = WatchedMovie.objects.filter(viewer=request.user).order_by('-view_date', '-id')[start:end]
-	nb_elements = len(WatchedMovie.objects.filter(viewer=request.user))
-	next_page = page+1
-	previous_page = page-1
+	elif typeRadio == "watchedYear":
+		try:
+			inputText = int(inputText)
+			movies = WatchedMovie.objects.filter(viewer=request.user).order_by('-view_date', '-id').filter(view_date__year=int(inputText))
+		except:
+			print("Error, search isn't a integer!")
 	
-	if page*10 < nb_elements:
-		last_page = False
+	elif typeRadio == "with":
+		movies = WatchedMovie.objects.filter(viewer=request.user).order_by('-view_date', '-id').filter(movie__actors__regex=r"(?i)%s" % inputText)
+
+	elif typeRadio == "note":
+		if inputText != "":
+			regex = ""
+			if inputText[0] == "<":
+				try:
+					regexText = int(inputText[1:])
+					if regexText == 10:
+						regex = r"^([0-9])$"
+					elif regexText > 10:
+						regex = r"^(([0-9])|(10))$"
+					else:
+						regex = r"^([0-%d])$" % regexText
+				except:
+					print("Error, search isn't a integer!")
+			elif inputText[0] == ">":
+				try:
+					regexText = int(inputText[1:])
+					if regexText == 10:
+						regex = r"^11$"
+					elif regexText > 10:
+						regex = r"^11$"
+					else:
+						regex = r"^(([%d-9])|(10))$" % regexText
+				except:
+					print("Error, search isn't a integer!")
+			else:
+				regex = r"^%s$" % inputText
+
+		movies = WatchedMovie.objects.filter(viewer=request.user).order_by('-view_date', '-id').filter(note__regex=regex)
+
 	else:
-		last_page = True
+		movies = WatchedMovie.objects.filter(viewer=request.user).order_by('-view_date', '-id')
 
 	return render(request, 'pages/watchlist.html', locals())
 
@@ -196,37 +230,6 @@ def user_watchlist(request, username):
 		friend_requests_received = t_user.get_received_friend_requests_id()
 
 		return render(request, 'pages/user_watchlist.html', locals())
-
-
-	return render(request, 'pages/user_watchlist.html', locals())
-
-def user_watchlist_page(request, username, page):
-	if page < 2:
-		return redirect('user_watchlist', username=username)
-
-	error = False
-
-	try:
-		t_user = User.objects.get(username=username)
-		t_friends = t_user.friends.all()
-		if t_user == request.user:
-			return redirect('watchlist')
-	except ObjectDoesNotExist:
-		error = True
-		logger.error("user '"+t_user+"' doesn't exist")
-		return render(request, 'pages/user_watchlist.html', locals())
-
-	start = (page-1) * 10
-	end = page*10
-	movies = WatchedMovie.objects.filter(viewer=t_user).order_by('-view_date', '-id')[start:end]
-	nb_elements = len(WatchedMovie.objects.filter(viewer=t_user))
-	next_page = page+1
-	previous_page = page-1
-	
-	if page*10 < nb_elements:
-		last_page = False
-	else:
-		last_page = True
 
 
 	return render(request, 'pages/user_watchlist.html', locals())
