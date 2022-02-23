@@ -120,6 +120,13 @@
 			<p class="card-text text-center">{% trans "Watched on" %} {{ object.view_date }} - {{object.note}}/10</p>
 		</div>
 	</div>
+
+	<div class="card bg-dark text-light w-75 mt-3">
+		<h4 class="card-header w-100">
+			{% trans "User review" %}
+		</h4>
+		<p class="card-text p-3">{{ object.comment }} </p>
+	</div>
 </div>
 
 {% endblock %}

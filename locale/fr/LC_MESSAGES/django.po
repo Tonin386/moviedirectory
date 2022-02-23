@@ -726,7 +726,6 @@ msgstr "Editer"
 #: .\templates\main\watchedmovie_detail.html:113
 msgid "Delete from your watchlist"
 msgstr "Supprimer de votre watchlist"
-
 #: .\templates\main\watchedmovie_update_form.html:11
 #: .\templates\main\watchedmovie_update_form.html:66
 msgid "Edit"

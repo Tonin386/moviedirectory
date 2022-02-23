@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     {% load static %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Movie directory is a small social network that allows its users to share the last movies they saw with their friends." />
+    <meta name="description"
+        content="Movie directory is a small social network that allows its users to share the last movies they saw with their friends." />
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
     <meta name="keywords" content="movie, social, network, directory, movie directory, moviedirectory, cinema" />
     <meta name="author" content="https://github.com/Tonin386">
@@ -15,7 +17,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="{% static 'img/favicon.ico' %}">
 
-    <title>{% block title %}Movie Directory{% endblock %} {% if user.is_authenticated %} - {{user.username}} {% endif %}</title>
+    <title>{% block title %}Movie Directory{% endblock %} {% if user.is_authenticated %} - {{user.username}} {% endif %}
+    </title>
 </head>
 
 <script src="{% static 'js/utilities.js' %}"></script>
@@ -35,17 +38,15 @@
     <!-- Begin Web-Stat code v 6.3 -->
     <span id="wts1947258" style="display: none;">&nbsp;</span>
     <script>
-        var wts=document.createElement('script');wts.type='text/javascript';
-        wts.async=true;wts.src='https://wts.one/5/1947258/log6_2.js';
+        var wts = document.createElement('script'); wts.type = 'text/javascript';
+        wts.async = true; wts.src = 'https://wts.one/5/1947258/log6_2.js';
         document.getElementById('wts1947258').appendChild(wts);
     </script>
     <noscript>
         <a href="https://www.web-stat.com">
-            <img src="https://wts.one/6/5/1947258.gif" 
-            alt="Web-Stat site stats">
+            <img src="https://wts.one/6/5/1947258.gif" alt="Web-Stat site stats">
         </a>
     </noscript>
     <!-- End Web-Stat code v 6.3 -->
 
-</body>
 </html>

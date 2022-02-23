@@ -37,6 +37,7 @@ msgstr ""
 #: .\main\templates\pages\user_watchlist.html:73
 #: .\main\templates\pages\watchlist.html:69
 #: .\templates\main\watchedmovie_detail.html:120
+
 #: .\templates\main\watchedmovie_update_form.html:15
 #: .\templates\main\watchedmovie_update_form.html:18
 msgid "Watched on"
