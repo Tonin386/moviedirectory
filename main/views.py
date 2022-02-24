@@ -151,10 +151,10 @@ def watchlist(request):
 	elif typeRadio == "releaseYear":
 		movies = WatchedMovie.objects.filter(viewer=request.user).order_by('-view_date', '-id').filter(movie__year=inputText)
 
-	elif typeRadio == "watchedYear":
+	elif typeRadio == "watchYear":
 		try:
 			inputText = int(inputText)
-			movies = WatchedMovie.objects.filter(viewer=request.user).order_by('-view_date', '-id').filter(view_date__year=int(inputText))
+			movies = WatchedMovie.objects.filter(viewer=request.user).order_by('-view_date', '-id').filter(view_date__year=inputText)
 		except:
 			print("Error, search isn't a integer!")
 	
@@ -467,13 +467,13 @@ def home(request):
 		else:
 			movies.append(movie)
 
-	community = movies[:12]
+	community = movies[:120]
 	nb_movies = len(movies)
 	page = 1
 	next_page = 2
 	previous_page = 1 
 
-	if page*12 < nb_movies:
+	if page*120 < nb_movies:
 		last_page = False
 	else:
 		last_page = True

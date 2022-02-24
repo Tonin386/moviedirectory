@@ -136,7 +136,7 @@ h1.text-light {
   transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
 }
 
-#watchlist {
+#autoscrollList {
   scroll-behavior: smooth;
 }
 

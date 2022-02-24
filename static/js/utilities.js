@@ -1,11 +1,9 @@
 var currentIndex = 0;
+var el = document.getElementById("autoscrollList");
+var elements = document.getElementsByClassName("infinite-x-child");
+var scrollSize = 0;
 
 function scrollWatchListLeft() {
-
-    console.log(currentIndex);
-
-    var elements = document.getElementsByClassName("infinite-x-child");
-    var scrollSize = 0;
 
     if (window.outerWidth < 1200) {
         currentIndex++;
@@ -19,16 +17,10 @@ function scrollWatchListLeft() {
         scrollSize = elements[currentIndex].getBoundingClientRect().left;
     }
 
-    var el = document.getElementById("watchlist");
     el.scrollLeft += scrollSize;
 }
 
 function scrollWatchListRight() {
-
-    console.log(currentIndex);
-
-    var elements = document.getElementsByClassName("infinite-x-child");
-    var scrollSize = 0;
 
     if (window.outerWidth < 1200) {
         currentIndex--;
@@ -41,6 +33,24 @@ function scrollWatchListRight() {
         scrollSize = elements[currentIndex].getBoundingClientRect().left;
     }
 
-    var el = document.getElementById("watchlist");
+    el.scrollLeft += scrollSize;
+}
+
+
+// element should be replaced with the actual target element on which you have applied scroll, use window in case of no target element.
+el.onwheel = function (e) { // or window.addEventListener("scroll"....
+    if(e.deltaY > 0) {
+        currentIndex++;
+    }
+    else {
+        currentIndex--;
+    }
+    if(currentIndex < 0) currentIndex = 0;
+    else if(currentIndex >= elements.length - 5) currentIndex = elements.length - 5;
+
+    console.log(currentIndex);
+
+    scrollSize = elements[currentIndex].getBoundingClientRect().left
+
     el.scrollLeft += scrollSize;
 }
