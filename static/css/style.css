@@ -161,6 +161,7 @@ h4.card-title {
 }
 
 @media screen and (min-width: 1200px) {
+
   ul.navbar-nav {
     position: absolute;
     right: 0;
