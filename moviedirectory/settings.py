@@ -27,7 +27,7 @@ config.read(BASE_DIR+'/config.ini')
 SECRET_KEY = config.get('django', 'secret_key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['movie-directory.com']
 AUTH_USER_MODEL = 'moviedirectory.User'
