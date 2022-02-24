@@ -146,6 +146,7 @@ h1.text-light {
   display: block;
   margin: auto;
   overflow: hidden;
+  position: relative;
 }
 
 .infinite-x-child {
@@ -163,21 +164,20 @@ h4.card-title {
 
 .nav-button {
   display: block;
-  position: absolute;
-  top: 40%;
   background: transparent;
   border: none;
   color: white;
-  font-size: 10em;
+  font-size: 7em;
+  padding: 0;
+  margin: 0;
 }
 
 .nav-button.left {
-  left: 0;
   display: none;
 }
 
 .nav-button.right {
-  right: 0;
+  right: -45%;
 }
 
 @media screen and (min-width: 1200px) {
