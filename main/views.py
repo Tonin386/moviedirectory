@@ -207,16 +207,7 @@ def user_watchlist(request, username):
 		logger.error("user '"+t_user+"' doesn't exist")
 		return redirect('home')
 
-	movies = WatchedMovie.objects.filter(viewer=t_user).order_by('-view_date', '-id')[:10]
-	page = 1
-	nb_elements = len(WatchedMovie.objects.filter(viewer=t_user))
-	next_page = 2
-	previous_page = 1 
-	
-	if page*10 < nb_elements:
-		last_page = False
-	else:
-		last_page = True
+	movies = WatchedMovie.objects.filter(viewer=t_user).order_by('-view_date', '-id')
 
 	friend_requests_received = t_user.get_received_friend_requests_id()
 

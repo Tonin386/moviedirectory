@@ -13,7 +13,7 @@ class Movie(models.Model):
 	title_en = models.CharField(max_length=50, verbose_name=_("English title"), null=True, blank=True)
 	title_ge = models.CharField(max_length=50, verbose_name=_("German title"), null=True, blank=True)
 	year = models.CharField(verbose_name=_("Release year"), null=True, blank=True, max_length=12)
-	rated = models.CharField(max_length=3, verbose_name=_("Rated"), null=True, blank=True)
+	rated = models.CharField(max_length=10, verbose_name=_("Rated"), null=True, blank=True)
 	released = models.DateField(verbose_name=_("Release date"), null=True, blank=True)
 	runtime = models.CharField(verbose_name=_("Runtime"), max_length=255, null=True, blank=True)
 	genre = models.CharField(verbose_name=_("Genre"), max_length=255, null=True, blank=True)
