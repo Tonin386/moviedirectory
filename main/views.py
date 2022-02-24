@@ -41,7 +41,7 @@ def register(request):
 		mail_subject = _("Activate your MovieDirectory account")
 		message = render_to_string('mail/acc_active_email.html', {
 			'user': new_user,
-			'domain': current_site.domain,
+			'domain': 'movie-directory.com',
 			'uid':urlsafe_base64_encode(force_bytes(new_user.pk)),
 			'token':account_activation_token.make_token(new_user),
 		})
@@ -51,7 +51,8 @@ def register(request):
 			message,
 			"\"Movie Directory\" <moviedirectory@movie-directory.com>",
 			[to_email],
-			html_message=message
+			html_message=message,
+			fail_silently=False
 		)
 		errorThrowed = False
 		addedUser = True
@@ -84,7 +85,7 @@ def reactivate(request):
 				mail_subject = _("Activate your MovieDirectory account")
 				message = render_to_string('mail/acc_active_email.html', {
 					'user': inactive_user,
-					'domain': current_site.domain,
+					'domain': 'movie-directory.com',
 					'uid':urlsafe_base64_encode(force_bytes(inactive_user.pk)),
 					'token':account_activation_token.make_token(inactive_user),
 				})
@@ -94,7 +95,8 @@ def reactivate(request):
 					message,
 					"\"Movie Directory\" <moviedirectory@movie-directory.com>",
 					[to_email],
-					html_message=message
+					html_message=message,
+					fail_silently=False
 				)
 				errorThrowed = False
 				addedUser = True
@@ -118,8 +120,8 @@ def activate(request, uidb64, token):
 		send_mail(
 			new_user.username + " activated his account",
 			"A new user just activated his account on " + datetime.now().strftime('%d/%m/%Y %H:%M:%S') + ".\nUsername: " + new_user.username,
-			"\"Movie Directory accounts\" <moviedirectory@movie-directory.com>",
-			["moviedirectory@movie-directory.com"]
+			"\"Movie Directory accounts\" <support@movie-directory.com>",
+			["support@movie-directory.com"]
 		)
 		return redirect('home')
 	else:
