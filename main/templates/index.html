@@ -35,12 +35,12 @@
 <div class="row justify-content-center text-center g-0">
   {% if page > 1 %}
   <div class="col-2">
-    <a href="{% url 'home_page' page=previous_page %}" class="btn btn-light w-75 m-2 p-2">{% trans "Previous page" %}<br><i class="fa fa-arrow-left"></i></a>
+    <a href="{% url 'home_page' page=previous_page %}" class="btn btn-light w-75 m-2 p-2"><i class="fa fa-arrow-left"></i></a>
   </div>
   {% endif %}
   {% if not last_page %}
   <div class="col-2"> 
-     <a href="{% url 'home_page' page=next_page %}" class="btn btn-light w-75 m-2 p-2"> {% trans "Next page" %}<br><i class="fa fa-arrow-right"></i></a>
+     <a href="{% url 'home_page' page=next_page %}" class="btn btn-light w-75 m-2 p-2"><i class="fa fa-arrow-right"></i></a>
   </div>
   {% endif %}
 </div>
