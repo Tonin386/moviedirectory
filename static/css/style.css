@@ -167,17 +167,14 @@ h4.card-title {
   background: transparent;
   border: none;
   color: white;
-  font-size: 7em;
+  font-size: 5em;
+  line-height: 1em;
   padding: 0;
   margin: 0;
 }
 
-.nav-button.left {
+#leftButton {
   display: none;
-}
-
-.nav-button.right {
-  right: -45%;
 }
 
 @media screen and (min-width: 1200px) {
@@ -258,15 +255,5 @@ h4.card-title {
   }
   .navbar {
     padding: .5rem 0 .5rem 0;
-  }
-  
-  .mypx-5 {
-    padding-left: 3rem!important;
-    padding-right: 3rem!important;
-  }
-
-  .mymx-5 {
-    margin-left: 3rem!important;
-    margin-right: 3rem!important;
   }
 }

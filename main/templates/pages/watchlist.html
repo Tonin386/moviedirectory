@@ -57,10 +57,10 @@
 
 	</div>
 </form>
-<div class="row text-center infinite-x mt-3" id="autoscrollList">
+<div class="row g-0 text-center infinite-x mt-3" id="autoscrollList">
 	{% for movie in movies %}
-	<div class="infinite-x-child col-xl-2 mypx-5">
-		<div class="card bg-dark text-light mx-auto mb-2 mymx-5">
+	<div class="infinite-x-child col-xl-2 p-3">
+		<div class="card bg-dark text-light mx-auto mb-2">
 			<img src="{{ movie.movie.poster }}" alt="{{ movie.movie.title }}" class="img-fluid card-img">
 			<div class="card-img-overlay">
 				<a href="{% url 'watchedmovie-detail' pk=movie.pk %}" class="stretched-link"></a>
@@ -91,8 +91,14 @@
 	{% endfor %}
 </div>
 
-<button class="nav-button left" onclick="scrollWatchListLeft()" id="leftButton"> < </button>
-<button class="nav-button right" onclick="scrollWatchListRight()" id="rightButton"> > </button>
+<div class="row g-0 justify-content-center">
+	<div class="col-3">
+	  <button class="nav-button m-auto" onclick="scrollWatchListLeft()" id="leftButton"> < </button>
+	</div>
+	<div class="col-3">
+	  <button class="nav-button m-auto" onclick="scrollWatchListRight()" id="rightButton"> > </button>
+	</div>
+</div>
 
 
 <div class="col-xl-2 text-center m-auto mt-5">
