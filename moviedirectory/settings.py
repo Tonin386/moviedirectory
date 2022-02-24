@@ -174,8 +174,7 @@ ugettext = lambda x: x
 LANGUAGES = (
     ('fr', ugettext('French')),
     ('en', ugettext('English')),
-    ('ge', ugettext('German')),
-    ('ru', ugettext('Russian'))
+    ('ge', ugettext('German'))
 )
 
 

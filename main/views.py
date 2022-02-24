@@ -140,9 +140,8 @@ def watchlist(request):
 		allMovies_title_fr = allMovies.filter(movie__title_fr__regex=r"(?i)%s" % inputText)
 		allMovies_title_en = allMovies.filter(movie__title_en__regex=r"(?i)%s" % inputText)
 		allMovies_title_ge = allMovies.filter(movie__title_ge__regex=r"(?i)%s" % inputText)
-		allMovies_title_ru = allMovies.filter(movie__title_ru__regex=r"(?i)%s" % inputText)
 
-		movies = list(set(list(allMovies_title) + list(allMovies_title_en) + list(allMovies_title_fr) + list(allMovies_title_ge) + list(allMovies_title_ru)))
+		movies = list(set(list(allMovies_title) + list(allMovies_title_en) + list(allMovies_title_fr) + list(allMovies_title_ge)))
 
 	elif typeRadio == "director":
 		movies = WatchedMovie.objects.filter(viewer=request.user).order_by('-view_date', '-id').filter(movie__director__regex=r"(?i)%s" % inputText)

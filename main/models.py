@@ -12,7 +12,6 @@ class Movie(models.Model):
 	title_fr = models.CharField(max_length=50, verbose_name=_("French title"), null=True, blank=True)
 	title_en = models.CharField(max_length=50, verbose_name=_("English title"), null=True, blank=True)
 	title_ge = models.CharField(max_length=50, verbose_name=_("German title"), null=True, blank=True)
-	title_ru = models.CharField(max_length=50, verbose_name=_("Russian title"), null=True, blank=True)
 	year = models.CharField(verbose_name=_("Release year"), null=True, blank=True, max_length=12)
 	rated = models.CharField(max_length=3, verbose_name=_("Rated"), null=True, blank=True)
 	released = models.DateField(verbose_name=_("Release date"), null=True, blank=True)
@@ -25,7 +24,6 @@ class Movie(models.Model):
 	plot_fr = models.TextField(verbose_name=_("Plot in french"), null=True, blank=True)
 	plot_en = models.TextField(verbose_name=_("Plot in english"), null=True, blank=True)
 	plot_ge = models.TextField(verbose_name=_("Plot in german"), null=True, blank=True)
-	plot_ru = models.TextField(verbose_name=_("Plot in russian"), null=True, blank=True)
 	language = models.TextField(verbose_name=_("Language"), null=True, blank=True)
 	country = models.TextField(verbose_name=_("Country"), null=True, blank=True)
 	awards = models.TextField(verbose_name=_("Awards"), null=True, blank=True)
@@ -77,7 +75,6 @@ class Movie(models.Model):
 			self.title_fr = titles['fr-FR']
 			self.title_en = titles['en-US']
 			self.title_de = titles['de-DE']
-			self.title_ru = titles['ru-RU']
 			self.released = r['Released']
 			self.runtime = r['Runtime']
 			self.genre = r['Genre']
@@ -88,7 +85,6 @@ class Movie(models.Model):
 			self.plot_fr = plots['fr-FR']
 			self.plot_en = plots['en-US']
 			self.plot_de = plots['de-DE']
-			self.plot_ru = plots['ru-RU']
 			self.language = r['Language']
 			self.country = r['Country']
 			self.awards = r['Awards']
