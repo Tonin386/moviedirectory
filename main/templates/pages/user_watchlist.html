@@ -95,17 +95,13 @@
 	{% endfor %}
 </div>
 
-<div class="row justify-content-center g-0 mt-4">
-	<div class="col-xs-2">
-		<button onclick="scrollWatchListRight()" class="btn btn-light m-2 p-2">
-			<i class="fa fa-arrow-left"></i>
-		</button>
-	</div>
-	<div class="col-xs-2">
-		<button onclick="scrollWatchListLeft()" class="btn btn-light m-2 p-2">
-			<i class="fa fa-arrow-right"></i>
-		</button>
-	</div>
+<div class="row justify-content-center mt-4 g-0">
+	<button onclick="scrollWatchListRight()" class="btn btn-light m-2 p-2 col-1">
+		<i class="fa fa-arrow-left"></i>
+	</button>
+	<button onclick="scrollWatchListLeft()" class="btn btn-light m-2 p-2 col-1">
+		<i class="fa fa-arrow-right"></i>
+	</button>
 </div>
 {% endif %}
 
