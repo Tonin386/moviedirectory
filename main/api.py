@@ -5,11 +5,13 @@ from pprint import pprint
 import configparser
 import logging
 import json
+import os
 
 logger = logging.getLogger('movie_api')
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 config = configparser.ConfigParser()
-config.read('config.ini')
+config.read(BASE_DIR+'/config.ini')
 
 def make_request_by_id(md_id, plot, md_type="none"): #Returns array with request answer
 	print("make_request_by_id called")

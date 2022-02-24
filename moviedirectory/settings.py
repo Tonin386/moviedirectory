@@ -13,21 +13,21 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 import configparser
 
-config = configparser.ConfigParser()
-config.read('config.ini')
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+config = configparser.ConfigParser()
+config.read(BASE_DIR+'/config.ini')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+
 SECRET_KEY = config.get('django', 'secret_key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['movie-directory.com']
 AUTH_USER_MODEL = 'moviedirectory.User'
@@ -46,7 +46,7 @@ DEFAULT_FROM_EMAIL = "\"Movie Directory\" <support@movie-directory.com>"
 INTERNAL_IPS = [
     'localhost',
     '127.0.0.1',
-    '86.120.142.122',
+    '193.56.171.199',
 ]
 
 
@@ -109,7 +109,7 @@ LOGGING = {
         'file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': 'logs.log',
+            'filename': '/home/ubuntu/logs/logs.log',
         },
     },
     'loggers': {
@@ -182,14 +182,19 @@ LANGUAGES = (
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static")
+]
+
 STATIC_URL = "/static/"
-STATIC_ROOT = "/home/fiddleco/public-html/static/"
+STATIC_ROOT = "/home/ubuntu/public_html/static/"
 
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale/'),
 )
 
 try:
-    from local_settings import *
+    if DEBUG == True:
+        from local_settings import *
 except ImportError:
     pass

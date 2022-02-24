@@ -246,7 +246,6 @@ def movielist(request):
 		success = True
 		if movies != {}:
 			movies = movies['Search']['results']
-			print(movies)
 			logger.info("Api request success for "+ title)
 		else:
 			success = False
