@@ -95,14 +95,9 @@
 	{% endfor %}
 </div>
 
-<div class="row justify-content-center mt-4 g-0">
-	<button onclick="scrollWatchListRight()" class="btn btn-light m-2 p-2 col-1">
-		<i class="fa fa-arrow-left"></i>
-	</button>
-	<button onclick="scrollWatchListLeft()" class="btn btn-light m-2 p-2 col-1">
-		<i class="fa fa-arrow-right"></i>
-	</button>
-</div>
+<button class="nav-button left" onclick="scrollWatchListLeft()" id="leftButton"> < </button>
+<button class="nav-button right" onclick="scrollWatchListRight()" id="rightButton"> > </button>
+
 {% endif %}
 
 {% endblock %}

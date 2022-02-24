@@ -160,7 +160,30 @@ h4.card-title {
   border: none!important;
 }
 
+.nav-button {
+  display: block;
+  position: absolute;
+  top: 40%;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 10em;
+}
+
+.nav-button.left {
+  left: 0;
+  display: none;
+}
+
+.nav-button.right {
+  right: 0;
+}
+
 @media screen and (min-width: 1200px) {
+
+  .nav-button {
+    display: none;
+  }
 
   ul.navbar-nav {
     position: absolute;
@@ -234,5 +257,15 @@ h4.card-title {
   }
   .navbar {
     padding: .5rem 0 .5rem 0;
+  }
+  
+  .mypx-5 {
+    padding-left: 3rem!important;
+    padding-right: 3rem!important;
+  }
+
+  .mymx-5 {
+    margin-left: 3rem!important;
+    margin-right: 3rem!important;
   }
 }
