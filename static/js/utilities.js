@@ -38,7 +38,7 @@ function scrollWatchListRight() {
     else {
         currentIndex -= 6;
         if (currentIndex < 0) currentIndex = 0;
-        scrollSize += elements[currentIndex].getBoundingClientRect().left;
+        scrollSize = elements[currentIndex].getBoundingClientRect().left;
     }
 
     var el = document.getElementById("watchlist");
