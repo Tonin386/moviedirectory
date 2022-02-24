@@ -30,21 +30,21 @@
   </div>
   {% endfor %}
 </div>
-<div class="row justify-content-center no-gutters">
+<div class="row justify-content-center text-center g-0">
   {% if page > 1 %}
-  <div class="col-xs-2">
-    <a href="{% url 'home_page' page=previous_page %}" class="btn btn-light m-2 p-2">{% trans "Previous page" %}<br><i class="fa fa-arrow-left"></i></a>
+  <div class="col-2">
+    <a href="{% url 'home_page' page=previous_page %}" class="btn btn-light w-75 m-2 p-2">{% trans "Previous page" %}<br><i class="fa fa-arrow-left"></i></a>
   </div>
   {% endif %}
   {% if not last_page %}
-  <div class="col-xs-2"> 
-     <a href="{% url 'home_page' page=next_page %}" class="btn btn-light m-2 p-2"> {% trans "Next page" %}<br><i class="fa fa-arrow-right"></i></a>
+  <div class="col-2"> 
+     <a href="{% url 'home_page' page=next_page %}" class="btn btn-light w-75 m-2 p-2"> {% trans "Next page" %}<br><i class="fa fa-arrow-right"></i></a>
   </div>
   {% endif %}
 </div>
 
 {% else %}
-<div class="row justify-content-center no-gutters m-0">
+<div class="row justify-content-center g-0 m-0">
   <div class="col-md-12 text-center row" style="padding: 0px;">
     <div class="col-md-12 bg-light mb-5" style="padding: 5px;">
       <h1 class="display-3">{% trans "Welcome to Movie Directory" %}</h1>

@@ -29,10 +29,10 @@
 				<label class="sr-only" for="inlineFormInputGroup">{% trans "Watched on" %}</label>
 				<div class="row">
 					<div class="m-auto input-group">
-						<div class="input-group-prepend col-xs-3">
+						<div class="input-group-prepend col-3">
 							<div class="input-group-text w-100">{% trans "Watched on" %}</div>
 						</div>
-						<input type="date" class="form-control col-xs-9" id="inlineFormInputGroup" value="{{ now }}"
+						<input type="date" class="form-control col-9" id="inlineFormInputGroup" value="{{ now }}"
 							name="{{form.view_date.html_name}}">
 					</div>
 				</div>
@@ -41,7 +41,7 @@
 				<label class="sr-only" for="inlineFormInputGroup">{% trans "Never seen before" %}</label>
 				<div class="row">
 					<div class="m-auto input-group">
-						<div class="input-group-prepend col-xs-3">
+						<div class="input-group-prepend col-3">
 							<div class="input-group-text w-100">{% trans "Never seen before" %}</div>
 						</div>
 						<select class="form-control" id="exampleFormControlSelect1" name="new">
@@ -55,7 +55,7 @@
 				<label class="sr-only" for="inlineFormInputGroup">{% trans "I saw it at theater!" %}</label>
 				<div class="row">
 					<div class="m-auto input-group">
-						<div class="input-group-prepend col-xs-3">
+						<div class="input-group-prepend col-3">
 							<div class="input-group-text w-100">{% trans "I saw it at theater!" %}</div>
 						</div>
 						<select class="form-control" id="exampleFormControlSelect1" name="theater">
@@ -69,10 +69,10 @@
 				<label class="sr-only" for="inlineFormInputGroup">{% trans "Note" %}</label>
 				<div class="row">
 					<div class="m-auto input-group">
-						<div class="input-group-prepend col-xs-3">
+						<div class="input-group-prepend col-3">
 							<div class="input-group-text w-100">{% trans "Note" %}</div>
 						</div>
-						<input type="number" name="note" min=0 max=10 value="10" class="form-control col-xs-9">
+						<input type="number" name="note" min=0 max=10 value="10" class="form-control col-9">
 					</div>
 				</div>
 			</div>
@@ -80,7 +80,7 @@
 				<label class="sr-only" for="inlineFormInputGroup">{% trans "Comment" %}</label>
 				<div class="row">
 					<div class="m-auto input-group">
-						<div class="input-group-prepend col-xs-3">
+						<div class="input-group-prepend col-3">
 							<div class="input-group-text w-100">{% trans "Comment" %}</div>
 						</div>
 						<input type="text" class="form-control" id="inlineFormInputGroup"
