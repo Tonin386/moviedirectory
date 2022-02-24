@@ -23,60 +23,35 @@ if (window.outerWidth >= 1200) {
 }
 else {
 
-    let touchstartX = 0;
-    let touchendX = 0;
-
-    function handleGesture() {
-        if (touchendX < touchstartX) currentIndex++;
-        if (touchendX > touchstartX) currentIndex--;
-
-        if (currentIndex < 0) currentIndex = 0;
-        else if (currentIndex >= elements.length - 1) currentIndex = elements.length - 1;
-
-        scrollSize = elements[currentIndex].getBoundingClientRect().left
-        el.scrollLeft += scrollSize;
-    }
-
-    el.addEventListener('touchstart', e => {
-        touchstartX = e.changedTouches[0].screenX;
-    });
-
-    el.addEventListener('touchend', e => {
-        touchendX = e.changedTouches[0].screenX;
-        handleGesture();
-    });
 }
 
+function scrollWatchListLeft() {
 
-// function scrollWatchListLeft() {
+    currentIndex--;
+    if (currentIndex < 0) currentIndex++;
+    scrollSize = elements[currentIndex].getBoundingClientRect().left;
+    el.scrollLeft += scrollSize;
+    
+    if(currentIndex < elements.length - 1) {
+        document.getElementById("rightButton").style.display = "block";
+    }
 
-//     if (window.outerWidth < 1200) {
-//         currentIndex++;
-//         if (currentIndex >= elements.length) currentIndex--;
-//         scrollSize = elements[currentIndex].getBoundingClientRect().left;
-//         console.log(scrollSize);
-//     }
-//     else {
-//         currentIndex += 6;
-//         if (currentIndex >= elements.length) currentIndex = elements.length - 1;
-//         scrollSize = elements[currentIndex].getBoundingClientRect().left;
-//     }
+    if(currentIndex < 1) {
+        document.getElementById("leftButton").style.display = "none";
+    }
+}
 
-//     el.scrollLeft += scrollSize;
-// }
+function scrollWatchListRight() {
+    currentIndex++;
+    if (currentIndex >= elements.length) currentIndex--;
+    scrollSize = elements[currentIndex].getBoundingClientRect().left;
+    el.scrollLeft += scrollSize;
 
-// function scrollWatchListRight() {
-
-//     if (window.outerWidth < 1200) {
-//         currentIndex--;
-//         if (currentIndex < 0) currentIndex++;
-//         scrollSize = elements[currentIndex].getBoundingClientRect().left;
-//     }
-//     else {
-//         currentIndex -= 6;
-//         if (currentIndex < 0) currentIndex = 0;
-//         scrollSize = elements[currentIndex].getBoundingClientRect().left;
-//     }
-
-//     el.scrollLeft += scrollSize;
-// }
+    if(currentIndex >= elements.length - 1) {
+        document.getElementById("rightButton").style.display = "none";
+    }
+    
+    if(currentIndex > 0) {
+        document.getElementById("leftButton").style.display = "block";
+    }
+}
