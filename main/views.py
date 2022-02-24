@@ -130,14 +130,13 @@ def activate(request, uidb64, token):
 
 @login_required
 def watchlist(request):
-		
+	allMovies = WatchedMovie.objects.filter(viewer=request.user).order_by('-view_date', '-id')
 	typeRadio = ""
 	if request.POST:
 		typeRadio = request.POST["typeRadio"]
 		inputText = request.POST["inputText"]
 
 	if typeRadio == "title":
-		allMovies = WatchedMovie.objects.filter(viewer=request.user).order_by('-view_date', '-id')
 		allMovies_title = allMovies.filter(movie__title__regex=r"(?i)%s" % inputText)
 		allMovies_title_fr = allMovies.filter(movie__title_fr__regex=r"(?i)%s" % inputText)
 		allMovies_title_en = allMovies.filter(movie__title_en__regex=r"(?i)%s" % inputText)
@@ -193,6 +192,19 @@ def watchlist(request):
 
 	else:
 		movies = WatchedMovie.objects.filter(viewer=request.user).order_by('-view_date', '-id')
+
+	moviesShown = len(movies)
+	total = len(allMovies)
+
+	str1 = _("Listing")
+	str21 = _("movies")
+	str22 = _("movie")
+	str3 = _("in total")
+
+	if len(movies) > 1:
+		spanText = "%s %d %s (%d %s)" % (str1, moviesShown, str21, total, str3)
+	else:
+		spanText = "%s %d %s (%d %s)" % (str1, moviesShown, str22, total, str3)
 
 	return render(request, 'pages/watchlist.html', locals())
 
@@ -493,8 +505,8 @@ def home_page(request, page):
 		else:
 			movies.append(movie)
 
-	start = (page-1) * 12
-	end = page*12
+	start = (page-1) * 120
+	end = page*120
 	community =  movies[start:end]
 	nb_movies = len(movies)
 	next_page = page+1
