@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-23 18:47+0100\n"
+"POT-Creation-Date: 2022-02-24 21:35+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,22 +31,21 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
-#: .\main\forms.py:44 .\main\models.py:114 .\main\templates\index.html:19
+#: .\main\forms.py:44 .\main\models.py:110 .\main\templates\index.html:20
 #: .\main\templates\pages\add.html:29 .\main\templates\pages\add.html:33
 #: .\main\templates\pages\old_watchlist.html:37
 #: .\main\templates\pages\user_watchlist.html:73
 #: .\main\templates\pages\watchlist.html:69
 #: .\templates\main\watchedmovie_detail.html:120
-
 #: .\templates\main\watchedmovie_update_form.html:15
-#: .\templates\main\watchedmovie_update_form.html:18
+#: .\templates\main\watchedmovie_update_form.html:19
 msgid "Watched on"
 msgstr ""
 
 #: .\main\forms.py:45 .\main\templates\pages\add.html:69
 #: .\main\templates\pages\add.html:73 .\main\templates\pages\watchlist.html:46
-#: .\templates\main\watchedmovie_update_form.html:48
-#: .\templates\main\watchedmovie_update_form.html:51
+#: .\templates\main\watchedmovie_update_form.html:54
+#: .\templates\main\watchedmovie_update_form.html:58
 msgid "Note"
 msgstr ""
 
@@ -109,129 +108,121 @@ msgstr ""
 msgid "German title"
 msgstr ""
 
-#: .\main\models.py:15
-msgid "Russian title"
-msgstr ""
-
-#: .\main\models.py:16 .\main\templates\pages\watchlist.html:28
+#: .\main\models.py:15 .\main\templates\pages\watchlist.html:28
 msgid "Release year"
 msgstr ""
 
-#: .\main\models.py:17
+#: .\main\models.py:16
 msgid "Rated"
 msgstr ""
 
-#: .\main\models.py:18
+#: .\main\models.py:17
 msgid "Release date"
 msgstr ""
 
-#: .\main\models.py:19 .\templates\main\watchedmovie_detail.html:75
+#: .\main\models.py:18 .\templates\main\watchedmovie_detail.html:75
 msgid "Runtime"
 msgstr ""
 
-#: .\main\models.py:20
+#: .\main\models.py:19
 msgid "Genre"
 msgstr ""
 
-#: .\main\models.py:21 .\main\templates\pages\watchlist.html:22
+#: .\main\models.py:20 .\main\templates\pages\watchlist.html:22
 msgid "Director"
 msgstr ""
 
-#: .\main\models.py:22
+#: .\main\models.py:21
 msgid "Writer"
 msgstr ""
 
-#: .\main\models.py:23
+#: .\main\models.py:22
 msgid "Actors"
 msgstr ""
 
-#: .\main\models.py:24
+#: .\main\models.py:23
 msgid "Default plot"
 msgstr ""
 
-#: .\main\models.py:25
+#: .\main\models.py:24
 msgid "Plot in french"
 msgstr ""
 
-#: .\main\models.py:26
+#: .\main\models.py:25
 msgid "Plot in english"
 msgstr ""
 
-#: .\main\models.py:27
+#: .\main\models.py:26
 msgid "Plot in german"
 msgstr ""
 
-#: .\main\models.py:28
-msgid "Plot in russian"
-msgstr ""
-
-#: .\main\models.py:29 .\main\templates\pages\profile.html:107
+#: .\main\models.py:27 .\main\templates\pages\profile.html:107
 #: .\main\templates\pages\profile.html:111
 msgid "Language"
 msgstr ""
 
-#: .\main\models.py:30 .\templates\main\watchedmovie_detail.html:87
+#: .\main\models.py:28 .\templates\main\watchedmovie_detail.html:87
 msgid "Country"
 msgstr ""
 
-#: .\main\models.py:31 .\templates\main\watchedmovie_detail.html:67
+#: .\main\models.py:29 .\templates\main\watchedmovie_detail.html:67
 msgid "Awards"
 msgstr ""
 
-#: .\main\models.py:32
+#: .\main\models.py:30
 msgid "Poster URL"
 msgstr ""
 
-#: .\main\models.py:33
+#: .\main\models.py:31
 msgid "IMDb ID"
 msgstr ""
 
-#: .\main\models.py:34
+#: .\main\models.py:32
 msgid "Type"
 msgstr ""
 
-#: .\main\models.py:35 .\templates\main\watchedmovie_detail.html:91
+#: .\main\models.py:33 .\templates\main\watchedmovie_detail.html:91
 msgid "Production"
 msgstr ""
 
-#: .\main\models.py:36 .\main\models.py:120
+#: .\main\models.py:34 .\main\models.py:116
 msgid "Created on"
 msgstr ""
 
-#: .\main\models.py:105 .\main\models.py:113
+#: .\main\models.py:101 .\main\models.py:109
 msgid "Movie"
 msgstr ""
 
-#: .\main\models.py:115
+#: .\main\models.py:111
 msgid "Personal note"
 msgstr ""
 
-#: .\main\models.py:116 .\main\templates\pages\add.html:41
+#: .\main\models.py:112 .\main\templates\pages\add.html:41
 #: .\main\templates\pages\add.html:45
-#: .\templates\main\watchedmovie_update_form.html:24
-#: .\templates\main\watchedmovie_update_form.html:27
+#: .\templates\main\watchedmovie_update_form.html:26
+#: .\templates\main\watchedmovie_update_form.html:30
 msgid "Never seen before"
 msgstr ""
 
-#: .\main\models.py:117 .\main\templates\pages\add.html:55
+#: .\main\models.py:113 .\main\templates\pages\add.html:55
 #: .\main\templates\pages\add.html:59
-#: .\templates\main\watchedmovie_update_form.html:36
-#: .\templates\main\watchedmovie_update_form.html:39
+#: .\templates\main\watchedmovie_update_form.html:40
+#: .\templates\main\watchedmovie_update_form.html:44
 msgid "I saw it at theater!"
 msgstr ""
 
-#: .\main\models.py:118
+#: .\main\models.py:114
 msgid "Viewer"
 msgstr ""
 
-#: .\main\models.py:119 .\main\templates\pages\add.html:80
+#: .\main\models.py:115 .\main\templates\pages\add.html:80
 #: .\main\templates\pages\add.html:84
-#: .\templates\main\watchedmovie_update_form.html:57
-#: .\templates\main\watchedmovie_update_form.html:60
+#: .\templates\main\watchedmovie_update_form.html:65
+#: .\templates\main\watchedmovie_update_form.html:69
 msgid "Comment"
 msgstr ""
 
-#: .\main\models.py:123
+#: .\main\models.py:119
 msgid "Watched movie"
 msgstr ""
 
@@ -286,43 +277,35 @@ msgstr ""
 msgid "What the community has recently watched"
 msgstr ""
 
-#: .\main\templates\index.html:35 .\main\templates\pages\old_watchlist.html:44
-msgid "Previous page"
-msgstr ""
-
-#: .\main\templates\index.html:38 .\main\templates\pages\old_watchlist.html:47
-msgid "Next page"
-msgstr ""
-
-#: .\main\templates\index.html:46
+#: .\main\templates\index.html:52
 msgid "Welcome to Movie Directory"
 msgstr ""
 
-#: .\main\templates\index.html:58
+#: .\main\templates\index.html:64
 msgid "Share your favorite movies with people who matters."
 msgstr ""
 
-#: .\main\templates\index.html:61
+#: .\main\templates\index.html:67
 msgid "Always up to date movie database."
 msgstr ""
 
-#: .\main\templates\index.html:64
+#: .\main\templates\index.html:70
 msgid "Start now and enjoy yourself."
 msgstr ""
 
-#: .\main\templates\index.html:71
+#: .\main\templates\index.html:77
 msgid "This is where the fun begins"
 msgstr ""
 
-#: .\main\templates\index.html:71 .\templates\nav.html:40
+#: .\main\templates\index.html:77 .\templates\nav.html:40
 msgid "Sign in"
 msgstr ""
 
-#: .\main\templates\index.html:74
+#: .\main\templates\index.html:80
 msgid "Don't worry I've got this"
 msgstr ""
 
-#: .\main\templates\index.html:74 .\templates\nav.html:37
+#: .\main\templates\index.html:80 .\templates\nav.html:37
 #: .\templates\registration\login.html:9
 #: .\templates\registration\login.html:29
 #: .\templates\registration\password_reset_complete.html:12
@@ -375,21 +358,21 @@ msgstr ""
 #: .\main\templates\pages\add.html:48 .\main\templates\pages\add.html:62
 #: .\main\templates\pages\profile.html:58
 #: .\main\templates\pages\profile.html:72
-#: .\templates\main\watchedmovie_update_form.html:30
-#: .\templates\main\watchedmovie_update_form.html:42
+#: .\templates\main\watchedmovie_update_form.html:33
+#: .\templates\main\watchedmovie_update_form.html:47
 msgid "Yes"
 msgstr ""
 
 #: .\main\templates\pages\add.html:49 .\main\templates\pages\add.html:63
 #: .\main\templates\pages\profile.html:59
 #: .\main\templates\pages\profile.html:73
-#: .\templates\main\watchedmovie_update_form.html:31
-#: .\templates\main\watchedmovie_update_form.html:43
+#: .\templates\main\watchedmovie_update_form.html:34
+#: .\templates\main\watchedmovie_update_form.html:48
 msgid "No"
 msgstr ""
 
 #: .\main\templates\pages\add.html:87
-#: .\templates\main\watchedmovie_update_form.html:62
+#: .\templates\main\watchedmovie_update_form.html:71
 msgid "Short comment on this movie..."
 msgstr ""
 
@@ -476,6 +459,14 @@ msgstr ""
 msgid "Delete entry"
 msgstr ""
 
+#: .\main\templates\pages\old_watchlist.html:44
+msgid "Previous page"
+msgstr ""
+
+#: .\main\templates\pages\old_watchlist.html:47
+msgid "Next page"
+msgstr ""
+
 #: .\main\templates\pages\profile.html:10
 msgid "Your profile has been updated."
 msgstr ""
@@ -543,18 +534,18 @@ msgstr ""
 msgid "With"
 msgstr ""
 
-#: .\main\utilities.py:41 .\main\utilities.py:54 .\main\views.py:396
-#: .\main\views.py:409
+#: .\main\utilities.py:41 .\main\utilities.py:54 .\main\views.py:397
+#: .\main\views.py:410
 msgid "You have a new friend!"
 msgstr ""
 
 #: .\main\utilities.py:42 .\main\utilities.py:55 .\main\utilities.py:66
-#: .\main\views.py:397 .\main\views.py:410
+#: .\main\views.py:398 .\main\views.py:411
 msgid "You are now friend with "
 msgstr ""
 
-#: .\main\utilities.py:42 .\main\utilities.py:55 .\main\views.py:397
-#: .\main\views.py:410
+#: .\main\utilities.py:42 .\main\utilities.py:55 .\main\views.py:398
+#: .\main\views.py:411
 msgid ""
 "!\n"
 "You can now see this user's watchlist.\n"
@@ -588,7 +579,7 @@ msgstr ""
 msgid "You are already friend with "
 msgstr ""
 
-#: .\main\views.py:43 .\main\views.py:86
+#: .\main\views.py:41 .\main\views.py:85
 msgid "Activate your MovieDirectory account"
 msgstr ""
 
@@ -596,7 +587,23 @@ msgstr ""
 msgid "Activation link is invalid!"
 msgstr ""
 
-#: .\main\views.py:342
+#: .\main\views.py:199
+msgid "Listing"
+msgstr ""
+
+#: .\main\views.py:200
+msgid "movies"
+msgstr ""
+
+#: .\main\views.py:201
+msgid "movie"
+msgstr ""
+
+#: .\main\views.py:202
+msgid "in total"
+msgstr ""
+
+#: .\main\views.py:343
 msgid "This user doesn't exist"
 msgstr ""
 
@@ -664,10 +671,6 @@ msgstr ""
 msgid "German"
 msgstr ""
 
-#: .\moviedirectory\settings.py:178
-msgid "Russian"
-msgstr ""
-
 #: .\moviedirectory\urls.py:8
 msgid "Movie Directory Administration"
 msgstr ""
@@ -680,11 +683,7 @@ msgstr ""
 msgid "Administration"
 msgstr ""
 
-#: .\templates\footer.html:15
-msgid "Repository"
-msgstr ""
-
-#: .\templates\footer.html:19
+#: .\templates\footer.html:8
 msgid "Report an issue"
 msgstr ""
 
@@ -716,13 +715,21 @@ msgstr ""
 msgid "Delete from your watchlist"
 msgstr ""
 
+#: .\templates\main\watchedmovie_detail.html:126
+msgid "User review"
+msgstr ""
+
 #: .\templates\main\watchedmovie_update_form.html:11
-#: .\templates\main\watchedmovie_update_form.html:66
+#: .\templates\main\watchedmovie_update_form.html:76
 msgid "Edit"
 msgstr ""
 
-#: .\templates\main\watchedmovie_update_form.html:75
+#: .\templates\main\watchedmovie_update_form.html:85
 msgid "Error - You shouldn't be here !"
+msgstr ""
+
+#: .\templates\nav.html:9
+msgid "Guest"
 msgstr ""
 
 #: .\templates\nav.html:14

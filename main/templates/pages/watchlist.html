@@ -5,7 +5,7 @@
 {% include "nav.html" %}
 {% load static %}
 
-<h1 class="text-center text-light mt- 2mb-5">{% trans "My watchlist" %} </h1>
+<h1 class="text-center text-light mt- 2mb-5">{% trans "My watchlist" %} <span class="text-muted">- {{ spanText }}. </span></h1>
 <form method="post" action="{% url 'watchlist' %}">
 	{% csrf_token %}
 
@@ -101,7 +101,7 @@
 </div> -->
 
 
-<div class="col-xl-2 text-center m-auto">
+<div class="col-xl-2 text-center m-auto mt-5">
 	<a href="{% url 'movielist' %}" class="btn btn-success"><i class="fa fa-plus"></i> {% trans "Add a movie to my watchlist" %}</a>
 </div>
 {% endblock %}
