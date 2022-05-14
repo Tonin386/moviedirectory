@@ -8,10 +8,10 @@ from datetime import datetime
 from django.db import models
 
 class Movie(models.Model):
-	title = models.CharField(max_length=50, verbose_name=_("Default title"), null=True, blank=True)
-	title_fr = models.CharField(max_length=50, verbose_name=_("French title"), null=True, blank=True)
-	title_en = models.CharField(max_length=50, verbose_name=_("English title"), null=True, blank=True)
-	title_ge = models.CharField(max_length=50, verbose_name=_("German title"), null=True, blank=True)
+	title = models.CharField(max_length=127, verbose_name=_("Default title"), null=True, blank=True)
+	title_fr = models.CharField(max_length=127, verbose_name=_("French title"), null=True, blank=True)
+	title_en = models.CharField(max_length=127, verbose_name=_("English title"), null=True, blank=True)
+	title_ge = models.CharField(max_length=127, verbose_name=_("German title"), null=True, blank=True)
 	year = models.CharField(verbose_name=_("Release year"), null=True, blank=True, max_length=12)
 	rated = models.CharField(max_length=10, verbose_name=_("Rated"), null=True, blank=True)
 	released = models.DateField(verbose_name=_("Release date"), null=True, blank=True)
