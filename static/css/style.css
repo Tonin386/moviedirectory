@@ -177,6 +177,15 @@ h4.card-title {
   display: none;
 }
 
+.btn-check:checked+.btn-warning {
+  background-color: #32c772;
+  border-color: transparent;
+}
+
+.rangeslider-rangeplot.xy .plot .scatterlayer.mlayer .text{
+    display: none;
+}
+
 @media screen and (min-width: 1200px) {
 
   .nav-button {

@@ -25,6 +25,8 @@ urlpatterns = [
     path('friendlist/accept/<int:friend_id>', views.accept_friend, name="accept_friend"),
     path('friendlist/refuse/<int:friend_id>', views.refuse_friend, name="refuse_friend"),
     path('friendlist/cancel/<int:friend_id>', views.cancel_friend, name="cancel_friend"),
+    # url(r'stats/(.*)', views.stats, name="stats"),
+    path("stats/", views.stats, name="stats")
 ]
 
 if settings.DEBUG:

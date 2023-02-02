@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+{% include "nav.html" %}
+{% load static %}
+
+<h1 class="text-center text-light mt-5">{% trans "My stats" %}</h1>
+
+<form action="" method="get">
+	<div class="row g-3">
+		<div class="text-center col-lg-4">
+			<div class="input-group">
+				<span class="input-group-text">{% trans "From" %}</span>
+				<input class="form-control" type="date" name="from" value='{{ f }}'/>
+			</div>
+		</div>
+		<div class="text-center col-lg-4">
+			<div class="input-group">
+				<span class="input-group-text">{% trans "To" %}</span>
+				<input class="form-control" type="date" name="to" value="{{ t }}"/>
+			</div>
+		</div>
+		<div class="text-center col-lg-1">
+			<input type="radio" class="btn-check form-control" name="hashing_type" value="weeks" id="option1" autocomplete="off" {% if hashing_type == "weeks" %} checked {% endif %}>
+			<label class="btn btn-warning shadow-none w-100 mx-2" for="option1">{% trans "Weeks" %}</label>
+		</div>
+		<div class="text-center col-lg-1">
+			<input type="radio" class="btn-check form-control" name="hashing_type" value="months" id="option2" autocomplete="off" {% if hashing_type == "months" %} checked {% endif %}>
+			<label class="btn btn-warning shadow-none w-100 mx-2" for="option2">{% trans "Months" %}</label>
+		</div>
+		<div class="text-center col-lg-1">
+			<input type="radio" class="btn-check form-control" name="hashing_type" value="years" id="option3" autocomplete="off" {% if hashing_type == "years" %} checked {% endif %}>
+			<label class="btn btn-warning shadow-none w-100 mx-2" for="option3">{% trans "Years" %}</label>
+		</div>
+		<div class="col-lg-1">
+			<button class="btn btn-success w-75 mx-2" type="submit">Apply</button>
+		</div>
+	</div>
+</form>
+
+<div class="row m-3 g-0">
+	{% autoescape off %}
+	{{ div_wm_chart }}
+	{% endautoescape %}
+</div>
+
+<div class="row m-3 g-O">
+	<div class="col-lg-4">
+		<img class="img-fluid img-responsive" src="{{ genres_wc_url }}"/>
+	</div>
+	<div class="col-lg-4">
+		<img class="img-fluid img-responsive" src="{{ directors_wc_url }}"/>
+	</div>
+	<div class="col-lg-4">
+		<img class="img-fluid img-responsive" src="{{ actors_wc_url }}"/>
+	</div>
+</div>
+
+
+<div class="row justify-content-center m-3 g-0">
+	<div class="card col-lg-3 bg-dark text-white m-3">
+		<div class="card-header">
+			<p class="h3">
+				{% trans "Overall" %}
+			</p>
+		</div>
+		<div class="card-body">
+			<h1 class="card-title text-center text-info">{{ total }}</h1>
+			<p class="card-text">{% trans "That's how much movies or series you've watched in this period. Cool." %}</p>
+			<p class="card-text">{% trans "Average runtime of your movies:" %} {{ average_runtime}} hours. </p>
+			<p class="card-text">{% trans "Your average note for movies or series:" %} {{ average_note }}/10 </p>
+		</div>
+	</div>
+	<div class="card col-lg-3 bg-dark text-white m-3">
+		<div class="card-header">
+			<p class="h3">
+				{% trans "Favorite actor or actress" %}
+			</p>
+		</div>
+		<div class="card-body">
+			<h1 class="card-title text-center text-success">{{ s_actors.0.0 }}</h1>
+			<p class="card-text">{% trans "You love them. You could watch them all day long." %}</p>
+			<p class="card-text">{% trans "You've watched " %} {{ s_actors.0.1 }} {% trans " movies and/or series they took part in. That's insane." %} </p>
+		</div>
+	</div>
+	<div class="card col-lg-3 bg-dark text-white m-3">
+		<div class="card-header">
+			<p class="h3">
+				{% trans "Favorite director" %}
+			</p>
+		</div>
+		<div class="card-body">
+			<h1 class="card-title text-center text-danger">{{ s_directors.0.0 }}</h1>
+			<p class="card-text">{% trans "Their work hits you different. They have no match." %}</p>
+			<p class="card-text">{% trans "You've watched " %} {{ s_directors.0.1 }} {% trans " of their movies and/or series. You have a favorite." %} </p>
+		</div>
+	</div>
+	<div class="card col-lg-3 bg-dark text-white m-3">
+		<div class="card-header">
+			<p class="h3">
+				{% trans "Favorite writer" %}
+			</p>
+		</div>
+		<div class="card-body">
+			<h1 class="card-title text-center text-warning">{{ s_writers.0.0 }}</h1>
+			<p class="card-text">{% trans "The stories they write, they have something special. You wish you were in their imagination." %}</p>
+			<p class="card-text">{% trans "You've watched " %} {{ s_directors.0.1 }} {% trans " of their stories that made it to the big screen." %}</p>
+		</div>
+	</div>
+	<div class="card col-lg-3 bg-dark text-white m-3">
+		<div class="card-header">
+			<p class="h3">
+				{% trans "Favorite genres" %}
+			</p>
+		</div>
+		<div class="card-body">
+			<h1 class="card-title text-center text-primary">{{ s_genres.0.0 }} - {{ s_genres.1.0 }} - {{ s_genres.2.0 }}</h1>
+			<p class="card-text">{% trans "I guess you have a type." %}</p>
+		</div>
+	</div>
+	<div class="card col-lg-3 bg-dark text-white m-3">
+		<div class="card-header">
+			<p class="h3">
+				{% trans "Main language" %}
+			</p>
+		</div>
+		<div class="card-body">
+			<h1 class="card-title text-center" style="color: magenta;">{{ s_languages.0.0 }}</h1>
+			<p class="card-text">{% trans "Pictures in that language, they mean so much to you..." %}</p>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

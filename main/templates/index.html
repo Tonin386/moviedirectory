@@ -5,13 +5,13 @@
 {% load static %}
 {% if user.is_authenticated %}
 {% include "nav.html" %}
-<h1 class="text-center text-light mt-2">{% trans "What the community has recently watched" %}</h1>
+<h2 class="text-center text-light mt-2">{% trans "What the community has recently watched" %}</h2>
 
 
 <div class="row g-0 col-md-12 align-items-center justify-content-lg-center">
-  <div class="row g-0 text-center infinite-x mt-xl-3" id="autoscrollList">
+  <div class="row g-0 text-center infinite-x" id="autoscrollList">
     {% for movie in community %}
-    <div class="mt-xl-5 col-xl-3 col-lg-6 infinite-x-child p-3">
+    <div class="col-xl-3 col-lg-6 infinite-x-child p-3">
       <div class="card bg-dark text-light">
         <img src="{{ movie.movie.poster }}" alt="{{ movie.movie.title }}" class="img-fluid card-img">
         <div class="card-img-overlay">
@@ -43,7 +43,7 @@
   </div>
 </div>
 
-<div class="row justify-content-center text-center g-0">
+<!-- <div class="row justify-content-center text-center g-0">
   {% if page > 1 %}
   <div class="col-2">
     <a href="{% url 'home_page' page=previous_page %}" class="btn btn-light w-75 m-2 p-2"><i class="fa fa-arrow-left"></i></a>
@@ -54,7 +54,7 @@
      <a href="{% url 'home_page' page=next_page %}" class="btn btn-light w-75 m-2 p-2"><i class="fa fa-arrow-right"></i></a>
   </div>
   {% endif %}
-</div>
+</div> -->
 
 {% else %}
 <div class="row justify-content-center g-0 m-0">

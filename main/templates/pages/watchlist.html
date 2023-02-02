@@ -66,7 +66,7 @@
 				<a href="{% url 'watchedmovie-detail' pk=movie.pk %}" class="stretched-link"></a>
 				<h4 class="card-title text-center mt-2"> {{ movie.movie.title }}</h4>
 				<div class="card-body m-auto mt-2 text-center card-img-footer">
-					<p class="card-text">{% trans "Watched on" %} {{ movie.view_date }} <br>{{movie.note}}/10</p>
+					<p class="card-text">{{ movie.view_date }} <br>{{movie.note}}/10</p>
 					<br>
 					{% if movie.new %}
 					<i class="fa fa-lg fa-star"></i>
@@ -101,7 +101,7 @@
 </div>
 
 
-<div class="col-xl-2 text-center m-auto mt-5">
-	<a href="{% url 'movielist' %}" class="btn btn-success"><i class="fa fa-plus"></i> {% trans "Add a movie to my watchlist" %}</a>
+<div class="col-xl-2 text-center m-auto mt-3">
+	<a href="{% url 'movielist' %}" class="btn btn-success"><i class="fa fa-plus"></i> {% trans "Add a movie" %}</a>
 </div>
 {% endblock %}

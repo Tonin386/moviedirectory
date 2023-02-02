@@ -12,13 +12,24 @@ from django.shortcuts import render, redirect
 from .tokens import account_activation_token
 from django.views.generic import DetailView
 from django.template import RequestContext
+from datetime import datetime, timedelta
 from django.core.mail import send_mail
 from moviedirectory.models import *
+from plotly.offline import plot
+from wordcloud import WordCloud
+import matplotlib.pyplot as plt
 from django.db.models import Q
-from datetime import datetime
+import plotly.graph_objs as go
+import plotly.express as px
 from .utilities import *
 from .forms import *
 from .api import *
+import numpy as np
+import base64
+import io
+
+
+
 
 logger = logging.getLogger(__name__)
 
@@ -237,6 +248,145 @@ def user_watchlist(request, username):
 
 
 	return render(request, 'pages/user_watchlist.html', locals())
+
+@login_required
+def stats(request):
+	t_user = request.user
+	f = WatchedMovie.objects.filter(viewer=t_user).order_by('view_date')[0].view_date.strftime("%Y-%m-%d")
+	t = datetime.today().date().strftime("%Y-%m-%d")
+	hashing_type ="months"
+	if request.method == "GET" and request.GET:
+		if "from" in request.GET.keys():
+			f = request.GET['from'] if re.search(r'([0-9]){4}\-[0-1][0-9]\-[0-3][0-9]', request.GET['from']) else f
+
+		if "to" in request.GET.keys():
+			t = request.GET['to'] if re.search(r'([0-9]){4}\-[0-1][0-9]\-[0-3][0-9]', request.GET['to']) else t
+
+		if "hashing_type" in request.GET.keys():
+			hashing_type = request.GET['hashing_type'] if request.GET['hashing_type'] in ['weeks', 'months', 'years'] else "months"
+
+	if(f != 0 and t != 0):
+		if(datetime.strptime(f, '%Y-%m-%d') > datetime.strptime(t, '%Y-%m-%d')):
+			f, t = t, f
+		movies = WatchedMovie.objects.filter(viewer=t_user, view_date__range=[f, t])
+	else:
+		movies = WatchedMovie.objects.filter(viewer=t_user)
+
+	notes = movies.values_list("note", flat=True)
+	average_note = np.round(np.mean(notes))
+	total = len(movies)
+
+	actors = {}
+	directors = {}
+	writers = {}
+	genres = {}
+	languages = {}
+	years = {}
+	productions = {}
+	lengths = []
+
+	for m in movies:
+		actors = countElements(m.movie.actors, actors)
+		directors = countElements(m.movie.director, directors)
+		writers = countElements(m.movie.writer, writers, True)
+		genres = countElements(m.movie.genre, genres)
+		languages = countElements(m.movie.language, languages)
+		years = countElements(m.movie.year, years)
+		productions = countElements(m.movie.production, productions)
+		if m.movie.runtime != "N/A":
+			lengths.append(int(m.movie.runtime.replace(" min", "")))
+	#Nombres films vus par tranche de temps (années, mois, semaines). Films par réalisateurs, durée des films
+
+	s_actors = sortDict(actors)
+	s_directors = sortDict(directors)
+	s_writers = sortDict(writers)
+	s_genres = sortDict(genres)
+	s_languages = sortDict(languages)
+	s_years = sortDict(years)
+	s_productions = sortDict(productions)
+
+	average_runtime = np.round(int(np.mean(lengths)) / 60, 2)
+
+	from_date = datetime.strptime(f, '%Y-%m-%d')
+	to_date = datetime.strptime(t, '%Y-%m-%d')
+
+	hash_dates, labels = createHashDatesArray(from_date, to_date, hashing_type)
+	values = []
+	for i in range(len(hash_dates) - 1):
+		if not i:
+			values.append(len(movies.filter(view_date__range=[hash_dates[i], hash_dates[i+1]])))
+		else:
+			values.append(len(movies.filter(view_date__range=[hash_dates[i] + timedelta(days=1), hash_dates[i+1]])))
+
+	y_data = values
+
+	wm_chart = px.line(x=labels, y=y_data, template="plotly_dark", text=y_data)
+
+	wm_chart.update_traces(textposition="top center")
+	config = {"displaylogo": False}
+	wm_chart.update_layout(
+		title={
+		'text': _("Movies watched per %s" % hashing_type),
+		'x': 0.5,
+		'xanchor': 'center'
+		},
+		xaxis_title=_("Period of time"),
+		xaxis_range=[0, 20],
+		xaxis_rangeslider_visible=True,
+		xaxis_fixedrange=False,
+		yaxis_title=_("Movies watched"),
+		yaxis_showticklabels=False,
+		yaxis_range=[0, np.max(y_data)*1.1],
+		yaxis_fixedrange=True,
+		paper_bgcolor="rgba(15, 15, 15, 0.8)",
+		plot_bgcolor="rgba(15, 15, 15, 0.8)",
+		dragmode="pan",
+		# font=dict(
+		# 	size=16,
+		# 	color="white"
+		# )
+	)
+
+	div_wm_chart = wm_chart.to_html(config=config)
+
+	genres_wc = WordCloud(
+		background_color=None, 
+		width=1000, 
+		height=675,
+		prefer_horizontal=0.95,
+		mode="RGBA",
+		max_words=25,
+		random_state=2,
+	)
+	genres_wc.generate_from_frequencies(genres)
+	genres_wc_url = wordcloudToUrl(genres_wc)
+
+	directors_wc = WordCloud(
+		background_color=None, 
+		width=1000, 
+		height=675,
+		prefer_horizontal=0.8,
+		mode="RGBA",
+		max_words=50,
+		random_state=2,
+	)
+	directors_wc.generate_from_frequencies(directors)
+	directors_wc_url = wordcloudToUrl(directors_wc)
+
+	actors_wc = WordCloud(
+		background_color=None, 
+		width=1000, 
+		height=675,
+		prefer_horizontal=0.80,
+		mode="RGBA",
+		max_words=50,
+		random_state=2,
+	)
+	actors_wc.generate_from_frequencies(actors)
+	actors_wc_url = wordcloudToUrl(actors_wc)
+
+	
+	return render(request, 'pages/stats.html', locals())
 
 
 def movielist(request):
