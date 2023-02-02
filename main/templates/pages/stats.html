@@ -9,32 +9,32 @@
 
 <form action="" method="get">
 	<div class="row g-3">
-		<div class="text-center col-lg-4">
+		<div class="text-center col-lg-4 col-md-12">
 			<div class="input-group">
 				<span class="input-group-text">{% trans "From" %}</span>
 				<input class="form-control" type="date" name="from" value='{{ f }}'/>
 			</div>
 		</div>
-		<div class="text-center col-lg-4">
+		<div class="text-center col-lg-4 col-md-12">
 			<div class="input-group">
 				<span class="input-group-text">{% trans "To" %}</span>
 				<input class="form-control" type="date" name="to" value="{{ t }}"/>
 			</div>
 		</div>
-		<div class="text-center col-lg-1">
+		<div class="text-center col-md-3 col-lg-1">
 			<input type="radio" class="btn-check form-control" name="hashing_type" value="weeks" id="option1" autocomplete="off" {% if hashing_type == "weeks" %} checked {% endif %}>
-			<label class="btn btn-warning shadow-none w-100 mx-2" for="option1">{% trans "Weeks" %}</label>
+			<label class="btn btn-warning shadow-none w-100" for="option1">{% trans "Weeks" %}</label>
 		</div>
-		<div class="text-center col-lg-1">
+		<div class="text-center col-md-3 col-lg-1">
 			<input type="radio" class="btn-check form-control" name="hashing_type" value="months" id="option2" autocomplete="off" {% if hashing_type == "months" %} checked {% endif %}>
-			<label class="btn btn-warning shadow-none w-100 mx-2" for="option2">{% trans "Months" %}</label>
+			<label class="btn btn-warning shadow-none w-100" for="option2">{% trans "Months" %}</label>
 		</div>
-		<div class="text-center col-lg-1">
+		<div class="text-center col-md-3 col-lg-1">
 			<input type="radio" class="btn-check form-control" name="hashing_type" value="years" id="option3" autocomplete="off" {% if hashing_type == "years" %} checked {% endif %}>
-			<label class="btn btn-warning shadow-none w-100 mx-2" for="option3">{% trans "Years" %}</label>
+			<label class="btn btn-warning shadow-none w-100" for="option3">{% trans "Years" %}</label>
 		</div>
-		<div class="col-lg-1">
-			<button class="btn btn-success w-75 mx-2" type="submit">Apply</button>
+		<div class="col-md-3 col-lg-1">
+			<button class="btn btn-success w-100" type="submit">Apply</button>
 		</div>
 	</div>
 </form>
@@ -46,13 +46,13 @@
 </div>
 
 <div class="row m-3 g-O">
-	<div class="col-lg-4">
+	<div class="col-lg-4 text-center">
 		<img class="img-fluid img-responsive" src="{{ genres_wc_url }}"/>
 	</div>
-	<div class="col-lg-4">
+	<div class="col-lg-4 text-center">
 		<img class="img-fluid img-responsive" src="{{ directors_wc_url }}"/>
 	</div>
-	<div class="col-lg-4">
+	<div class="col-lg-4 text-center">
 		<img class="img-fluid img-responsive" src="{{ actors_wc_url }}"/>
 	</div>
 </div>
