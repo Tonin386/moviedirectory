@@ -10,7 +10,7 @@ Pillow==6.2.0
 
 urllib3==1.24.2
 
-django-tinymce==2.8.0
+django-tinymce==3.4.0
 
 django-registration==3.0.1
 
